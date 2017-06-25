@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Input View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="InputViewController" id="BYZ-38-t0r" customClass="InputViewController" customModule="Texture" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mL6-2f-cjh">
+                                <rect key="frame" x="22" y="50" width="331" height="378"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E42-dV-tfy">
+                                <rect key="frame" x="22" y="455.5" width="331" height="56"/>
+                                <color key="backgroundColor" red="0.29411764705882354" green="0.6705882352941176" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="nNy-hf-OsB"/>
+                                </constraints>
+                                <state key="normal" title="Analyse"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="E42-dV-tfy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ajs-0m-Wfs"/>
+                            <constraint firstItem="E42-dV-tfy" firstAttribute="width" secondItem="mL6-2f-cjh" secondAttribute="width" id="BTv-sh-gPG"/>
+                            <constraint firstItem="mL6-2f-cjh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="La9-bW-yAv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mL6-2f-cjh" secondAttribute="trailing" constant="6" id="Vn9-HQ-xE0"/>
+                            <constraint firstItem="mL6-2f-cjh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="6" id="cIY-53-XnS"/>
+                            <constraint firstItem="E42-dV-tfy" firstAttribute="top" secondItem="mL6-2f-cjh" secondAttribute="bottom" constant="27.5" id="paX-Ef-v7G"/>
+                            <constraint firstItem="mL6-2f-cjh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.7/3" id="pcB-a1-cOG"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="analyseButton" destination="E42-dV-tfy" id="8Qa-UR-N6u"/>
+                        <outlet property="textView" destination="mL6-2f-cjh" id="Pby-Bw-RYb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="35.532233883058474"/>
+        </scene>
+        <!--Analysis View Controller-->
+        <scene sceneID="xWn-rY-h0j">
+            <objects>
+                <viewController storyboardIdentifier="AnalysisViewController" id="pPw-fk-OuX" customClass="AnalysisViewController" customModule="Texture" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w8x-Tf-pUX"/>
+                        <viewControllerLayoutGuide type="bottom" id="exz-p3-qDd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Onj-Yx-G1Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oSS-G5-IKK">
+                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oSS-G5-IKK" secondAttribute="trailing" id="Ew3-eV-RXt"/>
+                            <constraint firstItem="oSS-G5-IKK" firstAttribute="leading" secondItem="Onj-Yx-G1Y" secondAttribute="leading" id="Fyj-d5-khW"/>
+                            <constraint firstItem="oSS-G5-IKK" firstAttribute="top" secondItem="w8x-Tf-pUX" secondAttribute="bottom" constant="8" id="QZQ-Aa-oIs"/>
+                            <constraint firstItem="exz-p3-qDd" firstAttribute="top" secondItem="oSS-G5-IKK" secondAttribute="bottom" id="hU6-Dw-8Gh"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="textView" destination="oSS-G5-IKK" id="vvm-lk-sv9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wL-pH-gou" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="38.23088455772114"/>
+        </scene>
+    </scenes>
+</document>
