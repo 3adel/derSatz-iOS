@@ -1,0 +1,10 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "e0b1143e2f19b4cbc5fddf8f898785d6"
+build_time: [544779179, 878345000]
+inputs:
+  "/Users/hgursoy/Documents/ListKit/ListKit/ListDataSource.swift": [544744115, 0]
+  "/Users/hgursoy/Documents/ListKit/ListKit/Identifiable.swift": [544774194, 0]
+  "/Users/hgursoy/Documents/ListKit/ListKit/TableViewDataSource.swift": [544702723, 0]
+  "/Users/hgursoy/Documents/ListKit/ListKit/SeparatorFooterView.swift": !dirty [544743856, 0]
+  "/Users/hgursoy/Documents/ListKit/ListKit/SectionCell.swift": !dirty [544744115, 0]
+  "/Users/hgursoy/Documents/ListKit/ListKit/CollectionViewDataSource.swift": !dirty [544743856, 0]

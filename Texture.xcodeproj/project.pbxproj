@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		242A7B0C1F0050090053ECA9 /* ListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B051F004FFD0053ECA9 /* ListKit.framework */; };
+		242A7B0D1F0050090053ECA9 /* ListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B051F004FFD0053ECA9 /* ListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
+		242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8861EFE935B0075FCBB /* AppDelegate.swift */; };
 		24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8881EFE935B0075FCBB /* InputViewController.swift */; };
 		24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88A1EFE935B0075FCBB /* Main.storyboard */; };
 		24F1D88E1EFE935B0075FCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88D1EFE935B0075FCBB /* Assets.xcassets */; };
 		24F1D8911EFE935B0075FCBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88F1EFE935B0075FCBB /* LaunchScreen.storyboard */; };
-		24F1D8DD1EFE9FFA0075FCBB /* ListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D8B51EFE94170075FCBB /* ListKit.framework */; };
-		24F1D8DE1EFE9FFA0075FCBB /* ListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D8B51EFE94170075FCBB /* ListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		24F1D8E11EFE9FFA0075FCBB /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D89D1EFE93990075FCBB /* RVMP.framework */; };
-		24F1D8E21EFE9FFA0075FCBB /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D89D1EFE93990075FCBB /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24F1D8FD1EFEBA810075FCBB /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8FC1EFEBA810075FCBB /* UITextViewPlaceholder.swift */; };
 		24F1D9001EFEBC4C0075FCBB /* RouterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8FF1EFEBC4C0075FCBB /* RouterExtensions.swift */; };
 		24F1D9031EFEBD340075FCBB /* InputPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D9021EFEBD340075FCBB /* InputPresenter.swift */; };
@@ -27,30 +27,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		24F1D89C1EFE93990075FCBB /* PBXContainerItemProxy */ = {
+		242A7B041F004FFD0053ECA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 24F1D8981EFE93990075FCBB /* RVMP.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 24A62EEA1EB36D550088B00B;
-			remoteInfo = RVMP;
-		};
-		24F1D8B41EFE94170075FCBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24F1D8B01EFE94170075FCBB /* ListKit.xcodeproj */;
+			containerPortal = 242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2486B94B1E94F6C300213E24;
 			remoteInfo = ListKit;
 		};
-		24F1D8DF1EFE9FFA0075FCBB /* PBXContainerItemProxy */ = {
+		242A7B0A1F0050010053ECA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 24F1D8B01EFE94170075FCBB /* ListKit.xcodeproj */;
+			containerPortal = 242A7B061F0050010053ECA9 /* RVMP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 24A62EEA1EB36D550088B00B;
+			remoteInfo = RVMP;
+		};
+		242A7B0E1F0050090053ECA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 2486B94A1E94F6C300213E24;
 			remoteInfo = ListKit;
 		};
-		24F1D8E31EFE9FFA0075FCBB /* PBXContainerItemProxy */ = {
+		242A7B121F00500E0053ECA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 24F1D8981EFE93990075FCBB /* RVMP.xcodeproj */;
+			containerPortal = 242A7B061F0050010053ECA9 /* RVMP.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 24A62EE91EB36D550088B00B;
 			remoteInfo = RVMP;
@@ -64,8 +64,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				24F1D8DE1EFE9FFA0075FCBB /* ListKit.framework in Embed Frameworks */,
-				24F1D8E21EFE9FFA0075FCBB /* RVMP.framework in Embed Frameworks */,
+				242A7B0D1F0050090053ECA9 /* ListKit.framework in Embed Frameworks */,
+				242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ListKit.xcodeproj; path = Texture/Frameworks/ListKit/ListKit.xcodeproj; sourceTree = "<group>"; };
+		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
 		24F1D8831EFE935B0075FCBB /* Texture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Texture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D8861EFE935B0075FCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F1D8881EFE935B0075FCBB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		24F1D88D1EFE935B0075FCBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24F1D8901EFE935B0075FCBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24F1D8921EFE935B0075FCBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24F1D8981EFE93990075FCBB /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = ../../RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
-		24F1D8B01EFE94170075FCBB /* ListKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ListKit.xcodeproj; path = "../../Lounge-App/lounge/Subprojects/ListKit/ListKit.xcodeproj"; sourceTree = "<group>"; };
 		24F1D8FC1EFEBA810075FCBB /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		24F1D8FF1EFEBC4C0075FCBB /* RouterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterExtensions.swift; sourceTree = "<group>"; };
 		24F1D9021EFEBD340075FCBB /* InputPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPresenter.swift; sourceTree = "<group>"; };
@@ -97,19 +97,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F1D8DD1EFE9FFA0075FCBB /* ListKit.framework in Frameworks */,
-				24F1D8E11EFE9FFA0075FCBB /* RVMP.framework in Frameworks */,
+				242A7B0C1F0050090053ECA9 /* ListKit.framework in Frameworks */,
+				242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		242A7B011F004FFC0053ECA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				242A7B051F004FFD0053ECA9 /* ListKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		242A7B071F0050010053ECA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				242A7B0B1F0050010053ECA9 /* RVMP.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		24F1D87A1EFE935B0075FCBB = {
 			isa = PBXGroup;
 			children = (
-				24F1D8B01EFE94170075FCBB /* ListKit.xcodeproj */,
-				24F1D8981EFE93990075FCBB /* RVMP.xcodeproj */,
+				242A7B061F0050010053ECA9 /* RVMP.xcodeproj */,
+				242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */,
 				24F1D8851EFE935B0075FCBB /* Texture */,
 				24F1D8841EFE935B0075FCBB /* Products */,
 			);
@@ -140,22 +156,6 @@
 				24F1D9041EFEBD520075FCBB /* RVMPInterface.swift */,
 			);
 			path = Texture;
-			sourceTree = "<group>";
-		};
-		24F1D8991EFE93990075FCBB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				24F1D89D1EFE93990075FCBB /* RVMP.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		24F1D8B11EFE94170075FCBB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				24F1D8B51EFE94170075FCBB /* ListKit.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		24F1D8FA1EFEBA100075FCBB /* UI */ = {
@@ -207,8 +207,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				24F1D8E01EFE9FFA0075FCBB /* PBXTargetDependency */,
-				24F1D8E41EFE9FFA0075FCBB /* PBXTargetDependency */,
+				242A7B0F1F0050090053ECA9 /* PBXTargetDependency */,
+				242A7B131F00500E0053ECA9 /* PBXTargetDependency */,
 			);
 			name = Texture;
 			productName = Texture;
@@ -243,12 +243,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 24F1D8B11EFE94170075FCBB /* Products */;
-					ProjectRef = 24F1D8B01EFE94170075FCBB /* ListKit.xcodeproj */;
+					ProductGroup = 242A7B011F004FFC0053ECA9 /* Products */;
+					ProjectRef = 242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 24F1D8991EFE93990075FCBB /* Products */;
-					ProjectRef = 24F1D8981EFE93990075FCBB /* RVMP.xcodeproj */;
+					ProductGroup = 242A7B071F0050010053ECA9 /* Products */;
+					ProjectRef = 242A7B061F0050010053ECA9 /* RVMP.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -259,18 +259,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		24F1D89D1EFE93990075FCBB /* RVMP.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RVMP.framework;
-			remoteRef = 24F1D89C1EFE93990075FCBB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		24F1D8B51EFE94170075FCBB /* ListKit.framework */ = {
+		242A7B051F004FFD0053ECA9 /* ListKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ListKit.framework;
-			remoteRef = 24F1D8B41EFE94170075FCBB /* PBXContainerItemProxy */;
+			remoteRef = 242A7B041F004FFD0053ECA9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		242A7B0B1F0050010053ECA9 /* RVMP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RVMP.framework;
+			remoteRef = 242A7B0A1F0050010053ECA9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -309,15 +309,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		24F1D8E01EFE9FFA0075FCBB /* PBXTargetDependency */ = {
+		242A7B0F1F0050090053ECA9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ListKit;
-			targetProxy = 24F1D8DF1EFE9FFA0075FCBB /* PBXContainerItemProxy */;
+			targetProxy = 242A7B0E1F0050090053ECA9 /* PBXContainerItemProxy */;
 		};
-		24F1D8E41EFE9FFA0075FCBB /* PBXTargetDependency */ = {
+		242A7B131F00500E0053ECA9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RVMP;
-			targetProxy = 24F1D8E31EFE9FFA0075FCBB /* PBXContainerItemProxy */;
+			targetProxy = 242A7B121F00500E0053ECA9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

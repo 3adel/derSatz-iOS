@@ -1,0 +1,318 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SectionCell"
+provides-nominal:
+- "C7ListKit11SectionCell"
+provides-member:
+- ["C7ListKit11SectionCell", ""]
+provides-dynamic-lookup:
+- "sectionView"
+- "update"
+- "update"
+- "layoutSubviews"
+depends-top-level:
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- "SectionCell"
+- "UICollectionViewCell"
+- "ListViewComponent"
+- "UIView"
+depends-member:
+- !private ["Ps9AnyObject", "addSubview"]
+- !private ["Ps9AnyObject", "bounds"]
+- !private ["Ps9AnyObject", "contentView"]
+- !private ["Ps9AnyObject", "frame"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "layoutSubviews"]
+- ["Ps9AnyObject", "sectionView"]
+- ["Ps9AnyObject", "update"]
+- ["Ps9AnyObject", ""]
+- !private ["PSo15CALayerDelegate", "addSubview"]
+- !private ["PSo15CALayerDelegate", "bounds"]
+- !private ["PSo15CALayerDelegate", "contentView"]
+- !private ["PSo15CALayerDelegate", "frame"]
+- !private ["PSo15CALayerDelegate", "init"]
+- ["PSo15CALayerDelegate", "layoutSubviews"]
+- ["PSo15CALayerDelegate", "sectionView"]
+- ["PSo15CALayerDelegate", "update"]
+- ["PSo15CALayerDelegate", ""]
+- ["VSC6CGRect", "deinit"]
+- !private ["Ps7CVarArg", "addSubview"]
+- !private ["Ps7CVarArg", "bounds"]
+- !private ["Ps7CVarArg", "contentView"]
+- !private ["Ps7CVarArg", "frame"]
+- !private ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "layoutSubviews"]
+- ["Ps7CVarArg", "sectionView"]
+- ["Ps7CVarArg", "update"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps28CustomDebugStringConvertible", "addSubview"]
+- !private ["Ps28CustomDebugStringConvertible", "bounds"]
+- !private ["Ps28CustomDebugStringConvertible", "contentView"]
+- !private ["Ps28CustomDebugStringConvertible", "frame"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "layoutSubviews"]
+- ["Ps28CustomDebugStringConvertible", "sectionView"]
+- ["Ps28CustomDebugStringConvertible", "update"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "addSubview"]
+- !private ["Ps23CustomStringConvertible", "bounds"]
+- !private ["Ps23CustomStringConvertible", "contentView"]
+- !private ["Ps23CustomStringConvertible", "frame"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "layoutSubviews"]
+- ["Ps23CustomStringConvertible", "sectionView"]
+- ["Ps23CustomStringConvertible", "update"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "addSubview"]
+- !private ["Ps9Equatable", "bounds"]
+- !private ["Ps9Equatable", "contentView"]
+- !private ["Ps9Equatable", "frame"]
+- !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "layoutSubviews"]
+- ["Ps9Equatable", "sectionView"]
+- ["Ps9Equatable", "update"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "addSubview"]
+- !private ["Ps8Hashable", "bounds"]
+- !private ["Ps8Hashable", "contentView"]
+- !private ["Ps8Hashable", "frame"]
+- !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "layoutSubviews"]
+- ["Ps8Hashable", "sectionView"]
+- ["Ps8Hashable", "update"]
+- ["Ps8Hashable", ""]
+- !private ["P7ListKit12Identifiable", "addSubview"]
+- !private ["P7ListKit12Identifiable", "bounds"]
+- !private ["P7ListKit12Identifiable", "contentView"]
+- !private ["P7ListKit12Identifiable", "frame"]
+- !private ["P7ListKit12Identifiable", "init"]
+- ["P7ListKit12Identifiable", "layoutSubviews"]
+- ["P7ListKit12Identifiable", "sectionView"]
+- ["P7ListKit12Identifiable", "update"]
+- ["P7ListKit12Identifiable", ""]
+- !private ["P7ListKit17ListViewComponent", "contentView"]
+- !private ["P7ListKit17ListViewComponent", "sectionView"]
+- ["P7ListKit17ListViewComponent", "update"]
+- ["CSo7NSCoder", "deinit"]
+- !private ["PSo8NSCoding", "addSubview"]
+- !private ["PSo8NSCoding", "bounds"]
+- !private ["PSo8NSCoding", "contentView"]
+- !private ["PSo8NSCoding", "frame"]
+- !private ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "layoutSubviews"]
+- ["PSo8NSCoding", "sectionView"]
+- ["PSo8NSCoding", "update"]
+- ["PSo8NSCoding", ""]
+- ["CSo8NSObject", "UIView"]
+- !private ["CSo8NSObject", "addSubview"]
+- !private ["CSo8NSObject", "bounds"]
+- !private ["CSo8NSObject", "contentView"]
+- !private ["CSo8NSObject", "frame"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "layoutSubviews"]
+- ["CSo8NSObject", "sectionView"]
+- ["CSo8NSObject", "update"]
+- !private ["PSo16NSObjectProtocol", "addSubview"]
+- !private ["PSo16NSObjectProtocol", "bounds"]
+- !private ["PSo16NSObjectProtocol", "contentView"]
+- !private ["PSo16NSObjectProtocol", "frame"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "layoutSubviews"]
+- ["PSo16NSObjectProtocol", "sectionView"]
+- ["PSo16NSObjectProtocol", "update"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["P7ListKit7NibCell", "contentView"]
+- !private ["P7ListKit7NibCell", "init"]
+- ["P7ListKit7NibCell", "layoutSubviews"]
+- ["P7ListKit7NibCell", "sectionView"]
+- ["P7ListKit7NibCell", "update"]
+- ["P7ListKit7NibCell", ""]
+- ["Sq", "deinit"]
+- ["C7ListKit11SectionCell", "UIView"]
+- !private ["C7ListKit11SectionCell", "contentView"]
+- ["C7ListKit11SectionCell", "deinit"]
+- ["C7ListKit11SectionCell", "init"]
+- ["C7ListKit11SectionCell", "layoutSubviews"]
+- ["C7ListKit11SectionCell", "sectionView"]
+- ["C7ListKit11SectionCell", "update"]
+- !private ["PSo29UIAccessibilityIdentification", "addSubview"]
+- !private ["PSo29UIAccessibilityIdentification", "bounds"]
+- !private ["PSo29UIAccessibilityIdentification", "contentView"]
+- !private ["PSo29UIAccessibilityIdentification", "frame"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo29UIAccessibilityIdentification", "layoutSubviews"]
+- ["PSo29UIAccessibilityIdentification", "sectionView"]
+- ["PSo29UIAccessibilityIdentification", "update"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "addSubview"]
+- !private ["PSo12UIAppearance", "bounds"]
+- !private ["PSo12UIAppearance", "contentView"]
+- !private ["PSo12UIAppearance", "frame"]
+- !private ["PSo12UIAppearance", "init"]
+- ["PSo12UIAppearance", "layoutSubviews"]
+- ["PSo12UIAppearance", "sectionView"]
+- ["PSo12UIAppearance", "update"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "addSubview"]
+- !private ["PSo21UIAppearanceContainer", "bounds"]
+- !private ["PSo21UIAppearanceContainer", "contentView"]
+- !private ["PSo21UIAppearanceContainer", "frame"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "layoutSubviews"]
+- ["PSo21UIAppearanceContainer", "sectionView"]
+- ["PSo21UIAppearanceContainer", "update"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["CSo24UICollectionReusableView", "UIView"]
+- !private ["CSo24UICollectionReusableView", "contentView"]
+- ["CSo24UICollectionReusableView", "init"]
+- ["CSo24UICollectionReusableView", "layoutSubviews"]
+- ["CSo24UICollectionReusableView", "sectionView"]
+- ["CSo24UICollectionReusableView", "update"]
+- ["CSo20UICollectionViewCell", "UIView"]
+- !private ["CSo20UICollectionViewCell", "contentView"]
+- ["CSo20UICollectionViewCell", "deinit"]
+- ["CSo20UICollectionViewCell", "init"]
+- ["CSo20UICollectionViewCell", "layoutSubviews"]
+- ["CSo20UICollectionViewCell", "sectionView"]
+- ["CSo20UICollectionViewCell", "update"]
+- ["CSo20UICollectionViewCell", ""]
+- !private ["PSo17UICoordinateSpace", "addSubview"]
+- !private ["PSo17UICoordinateSpace", "bounds"]
+- !private ["PSo17UICoordinateSpace", "contentView"]
+- !private ["PSo17UICoordinateSpace", "frame"]
+- !private ["PSo17UICoordinateSpace", "init"]
+- ["PSo17UICoordinateSpace", "layoutSubviews"]
+- ["PSo17UICoordinateSpace", "sectionView"]
+- ["PSo17UICoordinateSpace", "update"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "addSubview"]
+- !private ["PSo13UIDynamicItem", "bounds"]
+- !private ["PSo13UIDynamicItem", "contentView"]
+- !private ["PSo13UIDynamicItem", "frame"]
+- !private ["PSo13UIDynamicItem", "init"]
+- ["PSo13UIDynamicItem", "layoutSubviews"]
+- ["PSo13UIDynamicItem", "sectionView"]
+- ["PSo13UIDynamicItem", "update"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "addSubview"]
+- !private ["PSo18UIFocusEnvironment", "bounds"]
+- !private ["PSo18UIFocusEnvironment", "contentView"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "layoutSubviews"]
+- ["PSo18UIFocusEnvironment", "sectionView"]
+- ["PSo18UIFocusEnvironment", "update"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "addSubview"]
+- !private ["PSo11UIFocusItem", "bounds"]
+- !private ["PSo11UIFocusItem", "contentView"]
+- !private ["PSo11UIFocusItem", "frame"]
+- !private ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "layoutSubviews"]
+- ["PSo11UIFocusItem", "sectionView"]
+- ["PSo11UIFocusItem", "update"]
+- ["PSo11UIFocusItem", ""]
+- ["CSo11UIResponder", "UIView"]
+- !private ["CSo11UIResponder", "addSubview"]
+- !private ["CSo11UIResponder", "bounds"]
+- !private ["CSo11UIResponder", "contentView"]
+- !private ["CSo11UIResponder", "frame"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "layoutSubviews"]
+- ["CSo11UIResponder", "sectionView"]
+- ["CSo11UIResponder", "update"]
+- !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- !private ["PSo30UIResponderStandardEditActions", "bounds"]
+- !private ["PSo30UIResponderStandardEditActions", "contentView"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "layoutSubviews"]
+- ["PSo30UIResponderStandardEditActions", "sectionView"]
+- ["PSo30UIResponderStandardEditActions", "update"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo18UITraitEnvironment", "addSubview"]
+- !private ["PSo18UITraitEnvironment", "bounds"]
+- !private ["PSo18UITraitEnvironment", "contentView"]
+- !private ["PSo18UITraitEnvironment", "frame"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "layoutSubviews"]
+- ["PSo18UITraitEnvironment", "sectionView"]
+- ["PSo18UITraitEnvironment", "update"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "UIView"]
+- !private ["CSo6UIView", "addSubview"]
+- !private ["CSo6UIView", "bounds"]
+- !private ["CSo6UIView", "contentView"]
+- ["CSo6UIView", "deinit"]
+- !private ["CSo6UIView", "frame"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "layoutSubviews"]
+- ["CSo6UIView", "sectionView"]
+- ["CSo6UIView", "update"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addSubview"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "bounds"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "contentView"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "frame"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "layoutSubviews"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "sectionView"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "update"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- !private ["Ps9_Hashable", "addSubview"]
+- !private ["Ps9_Hashable", "bounds"]
+- !private ["Ps9_Hashable", "contentView"]
+- !private ["Ps9_Hashable", "frame"]
+- !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "layoutSubviews"]
+- ["Ps9_Hashable", "sectionView"]
+- ["Ps9_Hashable", "update"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- "PSo15CALayerDelegate"
+- "VSC6CGRect"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "P7ListKit12Identifiable"
+- "P7ListKit17ListViewComponent"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "P7ListKit7NibCell"
+- "Sq"
+- "C7ListKit11SectionCell"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "CSo24UICollectionReusableView"
+- "CSo20UICollectionViewCell"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Users/hgursoy/Documents/ListKit/ListKit/ListKit.h"
+- "/Users/hgursoy/Documents/ListKit/DerivedData/Build/Intermediates/ListKit.build/Debug-iphoneos/ListKit.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "da7a6e90548c968781535a97a880592f"

@@ -1,0 +1,10 @@
+framework module ListKit {
+  umbrella header "ListKit.h"
+
+  export *
+  module * { export * }
+}
+
+module ListKit.Swift {
+    header "ListKit-Swift.h"
+}
