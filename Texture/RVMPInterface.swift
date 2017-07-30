@@ -22,3 +22,6 @@ protocol AnalysisPresenterProtocol: BasePresenter {}
 protocol AnalysisViewProtocol: View {
     func render(with viewModel: AnalysisViewModel)
 }
+
+protocol AnalysisDetailViewProtocol: View {
+}
