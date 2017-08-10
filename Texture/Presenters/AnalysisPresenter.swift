@@ -13,85 +13,119 @@ import RVMP
 
 struct AnalysisViewModel {
     let text: String
-    let wordInfos: [WordInfo]
+    let sentenceInfos: [SentenceViewModel]
 }
 
-struct WordInfo {
+struct WordViewModel {
     let word: String
     let lemma: String
     let type: String
     let range: NSRange
 }
 
+struct SentenceViewModel {
+    let sentence: String
+    let wordInfos: [WordViewModel]
+}
+
 class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
-    var wordInfos: [WordInfo] = []
+    var sentenceInfos: [SentenceViewModel] = []
     
-    var inputText: String? {
-        didSet {
-            guard let text = inputText else { return }
-            
-            let tagger = NSLinguisticTagger(tagSchemes: [.lemma, .nameTypeOrLexicalClass], options: 0)
-            
-            tagger.string = text
-            
-            let range = NSRange(location: 0, length: text.utf16.count)
-            let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
-            
-            let words = text.words()
-            
-            var lemmas: [String] = []
-            var types: [String] = []
-            var ranges: [NSRange] = []
-            
-            tagger.enumerateTags(in: range,
-                                 unit: .word,
-                                 scheme: .lemma,
-                                 options: options) { tag, tokenRange, stop in
-//                                    guard let tag = tag else { return }
-                                    lemmas.append(tag?.rawValue ?? "")
-                                    ranges.append(tokenRange)
-                                    let text = (text as NSString).substring(with: tokenRange)
-            }
-            
-            tagger.enumerateTags(in: range,
-                                 unit: .word,
-                                 scheme: .nameTypeOrLexicalClass,
-                                 options: options) { tag, tokenRange, stop in
-//                                    guard let tag = tag else { return }
-                                    types.append(tag?.rawValue ?? "")
-                                    let text = (text as NSString).substring(with: tokenRange)
-            }
-            
-//            print("Number of words: \(words.count) - Number of lemmas: \(lemmas.count) - Number of types: \(types.count)")
-            
-            words.enumerated().forEach {
-                let wordInfo = WordInfo(word: $0.element,
-                                        lemma: lemmas[$0.offset],
-                                        type: types[$0.offset],
-                                        range: ranges[$0.offset])
-                
-                wordInfos.append(wordInfo)
-                
-//                print("\($0.element) - Lemma: \(lemmas[$0.offset]), Type: \(types[$0.offset])")
-            }
-            
-        }
-    }
+    fileprivate var inputText: String?
     
     weak var analysisView: AnalysisViewProtocol? {
         return view as? AnalysisViewProtocol
     }
     
+    lazy var tagger: NSLinguisticTagger = {
+       return NSLinguisticTagger(tagSchemes: [.lemma, .nameTypeOrLexicalClass], options: 0)
+    }()
+    
     override func getInitialData() {
         guard let text = inputText else { return }
         let viewModel = AnalysisViewModel(text: text,
-                                          wordInfos: wordInfos)
+                                          sentenceInfos: sentenceInfos)
         
         analysisView?.render(with: viewModel)
+    }
+    
+    private func parseSentences(in text: String) -> [String] {
+        var sentences: [String] = []
+        
+        tagger.enumerateTags(in: text.fullRange,
+                             unit: .sentence,
+                             scheme: .nameTypeOrLexicalClass, options: .default) { tag, tokenRange, stop in
+                                let sentence = (text as NSString).substring(with: tokenRange)
+                                sentences.append(sentence)
+        }
+        return sentences
+    }
+    
+    private func makeSentenceInfo(from sentence: String) -> SentenceViewModel {
+        let words = sentence.words()
+        
+        var lemmas: [String] = []
+        var types: [String] = []
+        var ranges: [NSRange] = []
+        var wordInfos: [WordViewModel] = []
+        
+        tagger.string = sentence
+        
+        tagger.enumerateTags(in: sentence.fullRange,
+                             unit: .word,
+                             scheme: .lemma,
+                             options: .default) { tag, tokenRange, stop in
+                                lemmas.append(tag?.rawValue ?? "")
+                                ranges.append(tokenRange)
+//                                let text = (sentence as NSString).substring(with: tokenRange)
+        }
+        
+        tagger.enumerateTags(in: sentence.fullRange,
+                             unit: .word,
+                             scheme: .nameTypeOrLexicalClass,
+                             options: .default) { tag, tokenRange, stop in
+                                types.append(tag?.rawValue ?? "")
+//                                let text = (sentence as NSString).substring(with: tokenRange)
+        }
+        
+        words.enumerated().forEach {
+            let wordInfo = WordViewModel(word: $0.element,
+                                    lemma: lemmas[$0.offset],
+                                    type: types[$0.offset],
+                                    range: ranges[$0.offset])
+            
+            wordInfos.append(wordInfo)
+        }
+        
+        return SentenceViewModel(sentence: sentence,
+                            wordInfos: wordInfos)
+    }
+    
+    func update(inputText: String) {
+        self.inputText = inputText
+        
+        tagger.string = inputText
+        
+        let range = NSRange(location: 0, length: inputText.utf16.count)
+        
+        var sentences: [String] = []
+        
+        tagger.enumerateTags(in: range,
+                             unit: .sentence,
+                             scheme: .nameTypeOrLexicalClass, options: .default) { tag, tokenRange, stop in
+                                let sentence = (inputText as NSString).substring(with: tokenRange)
+                                sentences.append(sentence)
+        }
+        
+        sentenceInfos = sentences.map(makeSentenceInfo)
     }
 }
 
 extension String {
+    var fullRange: NSRange {
+        return NSRange(location: 0, length: utf16.count)
+    }
+    
     func words() -> [String] {
         
         let range = self.startIndex..<self.endIndex
@@ -103,5 +137,11 @@ extension String {
         }
         
         return words
+    }
+}
+
+extension NSLinguisticTagger.Options {
+    static var `default`: NSLinguisticTagger.Options {
+        return [.omitPunctuation, .omitWhitespace]
     }
 }

@@ -8,71 +8,55 @@
 
 import UIKit
 import RVMP
+import ListKit
 
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: BasePresenter?
-    
     var analysisPresenter: AnalysisPresenterProtocol? {
         return presenter as? AnalysisPresenterProtocol
     }
     
+    private var dataSource: CollectionViewDataSource?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.font = UIFont.systemFont(ofSize: 17)
         
+        dataSource = CollectionViewDataSource(collectionView: collectionView)
         presenter?.getInitialData()
     }
     
     func render(with viewModel: AnalysisViewModel) {
-        textView.text = viewModel.text
-        
-        let nounRanges = viewModel.wordInfos.filter { $0.type == "Noun" }.map { $0.range }
-        let verbRanges = viewModel.wordInfos.filter { $0.type == "Verb" }.map { $0.range }
-        
-        nounRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor.blue.withAlphaComponent(0.3))
+        let sizes: [ViewComponentSize] = viewModel.sentenceInfos.map {
+            let height = calculateHeight(for: $0)
+            return ViewComponentSize(height: height)
         }
         
-        verbRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor.red.withAlphaComponent(0.3))
-        }
+        let section = ListSection(viewIdentifier: SentenceView.Identifier,
+                                  viewModels: viewModel.sentenceInfos,
+                                  sizes: sizes)
+        dataSource?.update(sections: [section])
     }
     
-    func addHighlight(to range: NSRange, withColor color: UIColor) {
-       let layoutManager = textView.layoutManager
+    private func calculateHeight(for sentenceViewModel: SentenceViewModel) -> CGFloat {
+        return 500
+        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 17)) + 100
+    }
+}
+
+extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         
-        let text = textView.text!
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         
-        layoutManager.enumerateLineFragments(forGlyphRange: range) { lineRect, usedRect, textContainer, lineRange, stop in
-            let currentRange = NSIntersectionRange(lineRange, range)
-            
-            var finalLineRect = CGRect.zero
-            
-            text.enumerateSubstrings(in: Range(currentRange, in: text)!, options: .byComposedCharacterSequences) { substring, substringRange, enclosingRange, stop in
-                
-                let singleRange = layoutManager.glyphRange(forCharacterRange: NSRange(substringRange, in: substring!), actualCharacterRange: nil)
-                let glyphRect = layoutManager.boundingRect(forGlyphRange: singleRange, in: textContainer)
-                
-                if finalLineRect == .zero {
-                    finalLineRect = glyphRect
-                } else {
-                    finalLineRect.size.width += glyphRect.size.width
-                }
-            }
-            let insets = self.textView.textContainerInset
-            finalLineRect.origin.x += insets.left
-            finalLineRect.origin.y += insets.top
-            
-            let roundRect = CALayer()
-            roundRect.frame = finalLineRect
-            roundRect.bounds = finalLineRect
-            
-            roundRect.cornerRadius = 4
-            roundRect.backgroundColor = color.cgColor
-            
-            self.textView.layer.addSublayer(roundRect)
-        }
+        return ceil(boundingBox.width)
     }
 }

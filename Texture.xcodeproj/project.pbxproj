@@ -11,6 +11,8 @@
 		242A7B0D1F0050090053ECA9 /* ListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B051F004FFD0053ECA9 /* ListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
 		242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */; };
+		24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DD63D01F2E0E1800682CC4 /* SentenceView.xib */; };
 		24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8861EFE935B0075FCBB /* AppDelegate.swift */; };
 		24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8881EFE935B0075FCBB /* InputViewController.swift */; };
 		24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88A1EFE935B0075FCBB /* Main.storyboard */; };
@@ -75,6 +77,8 @@
 /* Begin PBXFileReference section */
 		242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ListKit.xcodeproj; path = Texture/Frameworks/ListKit/ListKit.xcodeproj; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
+		24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceView.swift; sourceTree = "<group>"; };
+		24DD63D01F2E0E1800682CC4 /* SentenceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentenceView.xib; sourceTree = "<group>"; };
 		24F1D8831EFE935B0075FCBB /* Texture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Texture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D8861EFE935B0075FCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F1D8881EFE935B0075FCBB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				24F1D8FB1EFEBA100075FCBB /* Utility */,
+				24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */,
+				24DD63D01F2E0E1800682CC4 /* SentenceView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F1D8911EFE935B0075FCBB /* LaunchScreen.storyboard in Resources */,
+				24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */,
 				24F1D88E1EFE935B0075FCBB /* Assets.xcassets in Resources */,
 				24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */,
 			);
@@ -302,6 +309,7 @@
 				24F1D9001EFEBC4C0075FCBB /* RouterExtensions.swift in Sources */,
 				24F1D9051EFEBD520075FCBB /* RVMPInterface.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,
+				24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */,
 				24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
