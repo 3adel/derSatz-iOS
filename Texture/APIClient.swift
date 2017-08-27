@@ -15,13 +15,18 @@ class APIClient: DataClient {
     
     let genericErrorResult: AnyResult = .failure(APIError.genericNetworkError)
     
-    func translate(_ sentence: String,  to: Language, completion: @escaping (AnyResult) -> Void) {
+    func translate(_ sentence: String, to: Language, completion: @escaping (AnyResult) -> Void) {
         cancelAllOperations()
         
         let endpoint = Endpoint.translator
         
-        guard let request = webClient.createRequest(endpoint: endpoint, ids: ["fromLanguageKey": from.languageCode, "toLanguageKey": to.languageCode, "verbKey": verb.lowercased()])
-            else {
+        let toLanguageQueryItem = URLQueryItem(name: "target", value: to.languageCode)
+        
+        let searchQueryItem = URLQueryItem(name: "q",
+                                           value: sentence.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
+        
+        guard let request = webClient.createRequest(endpoint: endpoint,
+                                                    queryItems: [toLanguageQueryItem, searchQueryItem]) else {
                 completion(genericErrorResult)
                 return
         }
@@ -37,7 +42,7 @@ class APIClient: DataClient {
         webClient.send(request, cache: false) { result in
             switch (result) {
             case .failure(let apiError):
-                let appError = Endpoint.finder.appError(from: apiError)
+                let appError = endpoint.appError(from: apiError)
                 let result: AnyResult = .failure(appError)
                 completion(result)
             case .success(let apiResult):

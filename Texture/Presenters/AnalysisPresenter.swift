@@ -25,6 +25,7 @@ struct WordViewModel {
 
 struct SentenceViewModel {
     let sentence: String
+    let translation: String
     let wordInfos: [WordViewModel]
 }
 
@@ -41,7 +42,21 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
        return NSLinguisticTagger(tagSchemes: [.lemma, .nameTypeOrLexicalClass], options: 0)
     }()
     
+    let dataStore = DataStore()
+    
+    var dataIsReady = false
+    var viewDidAskForInitialData = false
+    
     override func getInitialData() {
+        guard dataIsReady else {
+            viewDidAskForInitialData = true
+            return
+        }
+        
+       updateView()
+    }
+    
+    private func updateView() {
         guard let text = inputText else { return }
         let viewModel = AnalysisViewModel(text: text,
                                           sentenceInfos: sentenceInfos)
@@ -61,7 +76,7 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
         return sentences
     }
     
-    private func makeSentenceInfo(from sentence: String) -> SentenceViewModel {
+    private func makeSentenceInfo(from sentence: String, translation: String) -> SentenceViewModel {
         let words = sentence.words()
         
         var lemmas: [String] = []
@@ -97,8 +112,11 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
             wordInfos.append(wordInfo)
         }
         
+        
+        
         return SentenceViewModel(sentence: sentence,
-                            wordInfos: wordInfos)
+                                 translation: translation,
+                                 wordInfos: wordInfos)
     }
     
     func update(inputText: String) {
@@ -117,7 +135,33 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
                                 sentences.append(sentence)
         }
         
-        sentenceInfos = sentences.map(makeSentenceInfo)
+        var translations = [String](repeatElement("", count: sentences.count))
+        var numberOfTranslations = 0
+        
+        sentences.enumerated().forEach { index, sentence in
+            self.dataStore.getTranslation(of: sentence, for: .english) { [weak self] result in
+                numberOfTranslations += 1
+                
+                switch result {
+                case .success(let translatedText):
+                    translations[index] = translatedText
+                default:
+                    break
+                }
+                if numberOfTranslations == sentences.count {
+                    self?.didGet(allTranslations: translations, forSentences: sentences)
+                }
+            }
+        }
+    }
+    
+    private func didGet(allTranslations translations: [String], forSentences sentences: [String]) {
+        sentenceInfos = zip(sentences, translations).map(makeSentenceInfo)
+        
+        dataIsReady = true
+        if viewDidAskForInitialData {
+            updateView()
+        }
     }
 }
 

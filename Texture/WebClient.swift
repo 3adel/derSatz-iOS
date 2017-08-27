@@ -158,11 +158,10 @@ class WebClient {
 public typealias Token = String
 public typealias Parameter = String
 
-
 public enum Endpoint: String {
     
-    public static var baseURI: String = ""
-    public static var apiKey: String = ""
+    public static var baseURI: String = "https://translation.googleapis.com/language"
+    public static var apiKey: String = "AIzaSyAEy6HendzSLpnV682gKRPb0gpz_PxlcHE"
     
     // MARKK - Locales
     case translator
@@ -170,7 +169,7 @@ public enum Endpoint: String {
     public var path: String {
         switch self {
         case .translator:
-            return "translator"
+            return "translate"
         default:
             return self.rawValue
         }
@@ -197,7 +196,7 @@ public enum Endpoint: String {
         // convert baseURI string to NSURL to avoid cropping of protocol information:
         var baseURL = URL(string: baseURI)
         // appended path components will be URL encoded automatically:
-        baseURL = baseURL!.appendingPathComponent(endpoint.path).appendingPathComponent("json/\(apiKey)").appendingPathComponent(endpoint.endTokens)
+        baseURL = baseURL!.appendingPathComponent(endpoint.path).appendingPathComponent("v2").appendingPathComponent(endpoint.endTokens)
         // re-decode URL components so token placeholders can be replaced later:
         var populatedEndPoint: String = baseURL!.absoluteString.removingPercentEncoding!
         
@@ -207,8 +206,15 @@ public enum Endpoint: String {
             }
         }
         
+        let  apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
+        var queryItemsWithAPIKey = [apiKeyQueryItem]
+        
+        if let queryItems = queryItems {
+            queryItemsWithAPIKey.append(contentsOf: queryItems)
+        }
+        
         if var urlComponents = URLComponents(string: populatedEndPoint) {
-            urlComponents.queryItems = queryItems
+            urlComponents.queryItems = queryItemsWithAPIKey
             return urlComponents.string ?? populatedEndPoint
         }
         return populatedEndPoint.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlFragmentAllowed)

@@ -20,14 +20,16 @@ class DataStore {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let value):
-                guard let array = value as? JSONDictionary,
-                    !array.isEmpty
-                    else {
+                guard let dict = value as? JSONDictionary,
+                let data = dict["data"] as? JSONDictionary,
+                let translations = data["translations"] as? JSONArray,
+                let translation = translations.first as? JSONDictionary,
+                let translatedText = translation["translatedText"] as? String else {
                         completion(.failure(APIError.genericNetworkError))
                         return
                 }
                 
-                completion(.success(translations))
+                completion(.success(translatedText))
             }
             
         }
