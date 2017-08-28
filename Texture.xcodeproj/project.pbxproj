@@ -37,6 +37,7 @@
 		24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D90C1EFED4B70075FCBB /* Identifiable.swift */; };
 		24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FACEBC1F4E142300F47ED9 /* Language.swift */; };
 		24FACEBF1F4E147900F47ED9 /* ModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FACEBE1F4E147900F47ED9 /* ModelFactory.swift */; };
+		9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D21E91F5336C900FB3B61 /* Translation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +229,7 @@
 		24F1D90C1EFED4B70075FCBB /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		24FACEBC1F4E142300F47ED9 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		24FACEBE1F4E147900F47ED9 /* ModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
+		9F4D21E91F5336C900FB3B61 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +377,7 @@
 			children = (
 				24FACEBC1F4E142300F47ED9 /* Language.swift */,
 				24FACEBE1F4E147900F47ED9 /* ModelFactory.swift */,
+				9F4D21E91F5336C900FB3B61 /* Translation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,
 				2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */,
+				9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */,
 				24FACEBF1F4E147900F47ED9 /* ModelFactory.swift in Sources */,
 				24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */,
 				2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */,

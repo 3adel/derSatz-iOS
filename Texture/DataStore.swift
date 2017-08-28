@@ -31,7 +31,25 @@ class DataStore {
                 
                 completion(.success(translatedText))
             }
-            
+        }
+    }
+    
+    func getTranslation(of sentences: [String], to language: Language, completion: @escaping(Result<[Translation], APIError>) -> Void) {
+        dataClient.translate(sentences, to: language) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let value):
+                guard let dict = value as? JSONDictionary,
+                    let data = dict["data"] as? JSONDictionary,
+                    let translationTexts = data["translations"] as? [JSONDictionary] else {
+                        completion(.failure(APIError.genericNetworkError))
+                        return
+                }
+                
+                let translations: [Translation] = ModelFactory.arrayOf(translationTexts)
+                completion(.success(translations))
+            }
         }
     }
     

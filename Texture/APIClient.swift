@@ -18,17 +18,33 @@ class APIClient: DataClient {
     func translate(_ sentence: String, to: Language, completion: @escaping (AnyResult) -> Void) {
         cancelAllOperations()
         
-        let endpoint = Endpoint.translator
+        let endpoint = Endpoint.translate
         
         let toLanguageQueryItem = URLQueryItem(name: "target", value: to.languageCode)
         
         let searchQueryItem = URLQueryItem(name: "q",
-                                           value: sentence.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
+                                           value: sentence)
         
         guard let request = webClient.createRequest(endpoint: endpoint,
                                                     queryItems: [toLanguageQueryItem, searchQueryItem]) else {
                 completion(genericErrorResult)
                 return
+        }
+        
+        send(request: request, endpoint: endpoint, completion: completion)
+    }
+    
+    func translate(_ sentences: [String], to: Language, completion: @escaping (AnyResult) -> Void) {
+        var postData: [String: Any] = ["q":  sentences, "target" : to.languageCode]
+        
+        let endpoint = Endpoint.translate
+        
+        guard let json = try? JSONSerialization.data(withJSONObject: postData, options: []),
+            let request = webClient.createRequest(endpoint: endpoint,
+                                                  json: json,
+                                                  method: .POST) else {
+                                                    completion(genericErrorResult)
+                                                    return
         }
         
         send(request: request, endpoint: endpoint, completion: completion)

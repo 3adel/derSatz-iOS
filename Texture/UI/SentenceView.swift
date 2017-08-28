@@ -21,16 +21,33 @@ class SentenceView: UIView {
     
     func update(with viewModel: SentenceViewModel) {
         originalTextView.text = viewModel.sentence
+        translatedTextView.text = viewModel.translation
         
-        let nounRanges = viewModel.wordInfos.filter { $0.type == "Noun" }.map { $0.range }
-        let verbRanges = viewModel.wordInfos.filter { $0.type == "Verb" }.map { $0.range }
+        let nounRanges = viewModel.wordInfos.filter { $0.type == .noun }.map { $0.range }
+        let verbRanges = viewModel.wordInfos.filter { $0.type == .verb }.map { $0.range }
+        let pronounRanges = viewModel.wordInfos.filter { $0.type == .pronoun }.map { $0.range }
+        let adverbRanges = viewModel.wordInfos.filter { $0.type == .adverb }.map { $0.range }
+        let adjectiveRanges = viewModel.wordInfos.filter { $0.type == .adjective }.map { $0.range }
+        
         
         nounRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor.blue.withAlphaComponent(0.3))
+            self.addHighlight(to: range, withColor: UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 0.6))
         }
         
         verbRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor.red.withAlphaComponent(0.3))
+            self.addHighlight(to: range, withColor: UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6))
+        }
+        
+        pronounRanges.forEach { range in
+            self.addHighlight(to: range, withColor: UIColor(red: 253/255, green: 160/255, blue: 8/255, alpha: 0.6))
+        }
+        
+        adverbRanges.forEach { range in
+            self.addHighlight(to: range, withColor: UIColor(red: 108/255, green: 201/255, blue: 7/255, alpha: 0.6))
+        }
+        
+        adjectiveRanges.forEach { range in
+            self.addHighlight(to: range, withColor: UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.6))
         }
     }
     
@@ -41,6 +58,7 @@ class SentenceView: UIView {
         }
         
         originalTextView.font = UIFont.systemFont(ofSize: 17)
+        translatedTextView.font = UIFont.italicSystemFont(ofSize: 17)
     }
     
     private func addHighlight(to range: NSRange, withColor color: UIColor) {

@@ -11,6 +11,11 @@ import RVMP
 
 //https://stackoverflow.com/questions/20694942/using-a-calayer-to-highlight-text-in-a-uitextview-which-spans-multiple-lines
 
+public func delay(_ delay: Double, closure: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+                                  execute: closure)
+}
+
 struct AnalysisViewModel {
     let text: String
     let sentenceInfos: [SentenceViewModel]
@@ -19,7 +24,7 @@ struct AnalysisViewModel {
 struct WordViewModel {
     let word: String
     let lemma: String
-    let type: String
+    let type: LexicalClass
     let range: NSRange
 }
 
@@ -27,6 +32,15 @@ struct SentenceViewModel {
     let sentence: String
     let translation: String
     let wordInfos: [WordViewModel]
+}
+
+enum LexicalClass: String {
+    case noun = "Noun"
+    case verb = "Verb"
+    case adjective = "Adjective"
+    case adverb = "Adverb"
+    case pronoun = "Pronoun"
+    case other
 }
 
 class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
@@ -80,7 +94,7 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
         let words = sentence.words()
         
         var lemmas: [String] = []
-        var types: [String] = []
+        var types: [LexicalClass] = []
         var ranges: [NSRange] = []
         var wordInfos: [WordViewModel] = []
         
@@ -99,8 +113,7 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
                              unit: .word,
                              scheme: .nameTypeOrLexicalClass,
                              options: .default) { tag, tokenRange, stop in
-                                types.append(tag?.rawValue ?? "")
-//                                let text = (sentence as NSString).substring(with: tokenRange)
+                                types.append(LexicalClass(rawValue: tag?.rawValue ?? "") ?? .other)
         }
         
         words.enumerated().forEach {
@@ -135,28 +148,27 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
                                 sentences.append(sentence)
         }
         
-        var translations = [String](repeatElement("", count: sentences.count))
-        var numberOfTranslations = 0
-        
-        sentences.enumerated().forEach { index, sentence in
-            self.dataStore.getTranslation(of: sentence, for: .english) { [weak self] result in
-                numberOfTranslations += 1
-                
-                switch result {
-                case .success(let translatedText):
-                    translations[index] = translatedText
-                default:
-                    break
-                }
-                if numberOfTranslations == sentences.count {
-                    self?.didGet(allTranslations: translations, forSentences: sentences)
-                }
+        view?.showLoader()
+        dataStore.getTranslation(of: sentences, to: .english) { [weak self] result in
+            self?.view?.hideLoader()
+            
+            switch result {
+            case .success(let translations):
+                let translatedSentences = translations.map { $0.translatedText }
+                self?.didGet(allTranslations: translatedSentences, forSentences: sentences)
+            default :
+                break
             }
         }
     }
     
     private func didGet(allTranslations translations: [String], forSentences sentences: [String]) {
-        sentenceInfos = zip(sentences, translations).map(makeSentenceInfo)
+        sentenceInfos.removeAll()
+        
+        sentences.enumerated().forEach { tuple in
+            let viewModel = makeSentenceInfo(from: tuple.element, translation: translations[tuple.offset])
+            sentenceInfos.append(viewModel)
+        }
         
         dataIsReady = true
         if viewDidAskForInitialData {

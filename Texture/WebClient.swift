@@ -164,20 +164,15 @@ public enum Endpoint: String {
     public static var apiKey: String = "AIzaSyAEy6HendzSLpnV682gKRPb0gpz_PxlcHE"
     
     // MARKK - Locales
-    case translator
+    case translate
     
     public var path: String {
-        switch self {
-        case .translator:
-            return "translate"
-        default:
-            return self.rawValue
-        }
+        return self.rawValue
     }
     
     public var endTokens: String {
         switch self {
-        case .translator:
+        case .translate:
             return ""
         }
     }
@@ -185,7 +180,7 @@ public enum Endpoint: String {
     
     public func appError(from apiError: APIError) -> APIError {
         switch (self) {
-        case .translator:
+        case .translate:
             return apiError
         }
         

@@ -18,10 +18,19 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         return presenter as? AnalysisPresenterProtocol
     }
     
+    private var loader: UIActivityIndicatorView?
+    
     private var dataSource: CollectionViewDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.bounces = true
+        
+        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader!)
+//        loader?.isHidden = true
         
         dataSource = CollectionViewDataSource(collectionView: collectionView)
         presenter?.getInitialData()
@@ -36,12 +45,24 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         let section = ListSection(viewIdentifier: SentenceView.Identifier,
                                   viewModels: viewModel.sentenceInfos,
                                   sizes: sizes)
+        
         dataSource?.update(sections: [section])
     }
     
     private func calculateHeight(for sentenceViewModel: SentenceViewModel) -> CGFloat {
-//        return 500
-        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 17)) + 150
+        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 17)) + sentenceViewModel.translation.height(withConstrainedWidth: view.frame.width, font: .italicSystemFont(ofSize: 17)) + 40
+    }
+}
+
+extension AnalysisViewController {
+    override func showLoader() {
+//        loader?.isHidden = false
+        loader?.startAnimating()
+    }
+    
+    override func hideLoader() {
+        loader?.stopAnimating()
+        loader?.isHidden = true
     }
 }
 
