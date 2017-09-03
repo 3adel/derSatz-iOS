@@ -16,7 +16,7 @@ extension Router {
         let presenter = AnalysisPresenter(router: self)
         
         presenter.view = viewController
-        presenter.inputText = text
+        presenter.update(inputText: text)
         
         (viewController as AnalysisViewProtocol).presenter = presenter
             

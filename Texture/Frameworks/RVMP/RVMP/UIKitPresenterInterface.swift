@@ -7,23 +7,23 @@ import UIKit
 extension UIView: ViewComponent { }
 
 extension UIViewController: BaseView {
-    public func showLoader() {}
+    open func showLoader() {}
     
-    public func hideLoader() {}
+    open func hideLoader() {}
     
-    public func disableUserInteractions() {
+    open func disableUserInteractions() {
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
-    public func enableUserInteractions() {
+    open func enableUserInteractions() {
         UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    public func show(errorMessage: String?) {}
+    open func show(errorMessage: String?) {}
     
-    public func show(infoMessage: String?) {}
+    open func show(infoMessage: String?) {}
     
-    public func showAlert(title: String? = nil, message: String? = nil, actions: [(title: String, completion: VoidFunction?)] = [], cancelAction: (title: String, completion: VoidFunction?)? = nil) {
+    open func showAlert(title: String? = nil, message: String? = nil, actions: [(title: String, completion: VoidFunction?)] = [], cancelAction: (title: String, completion: VoidFunction?)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         actions.forEach { action in

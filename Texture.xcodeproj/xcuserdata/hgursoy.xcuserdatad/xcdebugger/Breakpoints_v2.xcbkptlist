@@ -22,16 +22,176 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "525540230.185366"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "makeSentenceInfo(from:translation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "525540230.186455"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "makeSentenceInfo(from:translation:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Texture.AnalysisPresenter.(makeSentenceInfo in _D7C5ADF960C00BE5747F792213342662)(from: Swift.String) -&gt; Texture.SentenceViewModel"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/Documents/Texture/Texture/Presenters/AnalysisPresenter.swift"
+                  timestampString = "523172323.180792"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "732">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSLinguisticTag&gt;, __C._NSRange, Swift.UnsafeMutablePointer&lt;ObjectiveC.ObjCBool&gt;) -&gt; () in Texture.AnalysisPresenter.(makeSentenceInfo in _D7C5ADF960C00BE5747F792213342662)(from: Swift.String) -&gt; Texture.SentenceViewModel"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/Documents/Texture/Texture/Presenters/AnalysisPresenter.swift"
+                  timestampString = "523172323.182195"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "774">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/UI/SentenceView.swift"
+            timestampString = "523172964.660313"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "update(withViewModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "525540230.186956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "makeSentenceInfo(from:translation:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSLinguisticTag&gt;, __C._NSRange, Swift.UnsafeMutablePointer&lt;ObjectiveC.ObjCBool&gt;) -&gt; () in Texture.AnalysisPresenter.(makeSentenceInfo in _D7C5ADF960C00BE5747F792213342662)(from: Swift.String) -&gt; Texture.SentenceViewModel"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/Documents/Texture/Texture/Presenters/AnalysisPresenter.swift"
+                  timestampString = "523172417.879084"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "46">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in closure #1 (Swift.Optional&lt;__C.NSLinguisticTag&gt;, __C._NSRange, Swift.UnsafeMutablePointer&lt;ObjectiveC.ObjCBool&gt;) -&gt; () in Texture.AnalysisPresenter.(makeSentenceInfo in _D7C5ADF960C00BE5747F792213342662)(from: Swift.String) -&gt; Texture.SentenceViewModel"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/Documents/Texture/Texture/Presenters/AnalysisPresenter.swift"
+                  timestampString = "523172417.880768"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Texture/InputViewController.swift"
-            timestampString = "520114201.730562"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "525540248.164636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getInitialData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "525540249.723176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "textViewDidChange(_:)"
+            landmarkName = "getInitialData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "525540258.570771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "didGet(allTranslations:forSentences:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
