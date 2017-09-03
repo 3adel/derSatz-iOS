@@ -14,6 +14,8 @@ class SentenceView: UIView {
     @IBOutlet weak var originalTextView: UITextView!
     @IBOutlet weak var translatedTextView: UITextView!
     
+    @IBOutlet weak var originalTextViewConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -22,6 +24,8 @@ class SentenceView: UIView {
     func update(with viewModel: SentenceViewModel) {
         originalTextView.text = viewModel.sentence
         translatedTextView.text = viewModel.translation
+        
+        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextView.font!)
         
         let nounRanges = viewModel.wordInfos.filter { $0.type == .noun }.map { $0.range }
         let verbRanges = viewModel.wordInfos.filter { $0.type == .verb }.map { $0.range }

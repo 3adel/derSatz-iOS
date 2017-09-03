@@ -50,13 +50,13 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     }
     
     private func calculateHeight(for sentenceViewModel: SentenceViewModel) -> CGFloat {
-        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 17)) + sentenceViewModel.translation.height(withConstrainedWidth: view.frame.width, font: .italicSystemFont(ofSize: 17)) + 40
+        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 17)) + sentenceViewModel.translation.height(withConstrainedWidth: view.frame.width, font: .italicSystemFont(ofSize: 17)) 
     }
 }
 
 extension AnalysisViewController {
     override func showLoader() {
-//        loader?.isHidden = false
+        loader?.isHidden = false
         loader?.startAnimating()
     }
     
@@ -69,9 +69,10 @@ extension AnalysisViewController {
 extension String {
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font: font], context: nil)
         
-        return ceil(boundingBox.height)
+        // TODO: Remove the temp solution to add 20 pts for incorrect calculation of height
+        return ceil(boundingBox.height) + 20
     }
     
     func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
