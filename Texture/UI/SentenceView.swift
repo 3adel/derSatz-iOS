@@ -22,7 +22,7 @@ class SentenceView: UIView {
     }
     
     func update(with viewModel: SentenceViewModel) {
-        originalTextView.text = viewModel.sentence
+        originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: 17)])
         translatedTextView.text = viewModel.translation
         
         originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextView.font!)
@@ -35,23 +35,23 @@ class SentenceView: UIView {
         
         
         nounRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 0.6))
+            self.addHighlight(to: range, with: UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 0.6))
         }
         
         verbRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6))
+            self.addHighlight(to: range, with: UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6))
         }
         
         pronounRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor(red: 253/255, green: 160/255, blue: 8/255, alpha: 0.6))
+            self.addHighlight(to: range, with: UIColor(red: 253/255, green: 160/255, blue: 8/255, alpha: 0.6))
         }
         
         adverbRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor(red: 108/255, green: 201/255, blue: 7/255, alpha: 0.6))
+            self.addHighlight(to: range, with: UIColor(red: 108/255, green: 201/255, blue: 7/255, alpha: 0.6))
         }
         
         adjectiveRanges.forEach { range in
-            self.addHighlight(to: range, withColor: UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.6))
+            self.addHighlight(to: range, with: UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.6))
         }
     }
     
@@ -65,7 +65,17 @@ class SentenceView: UIView {
         translatedTextView.font = UIFont.italicSystemFont(ofSize: 17)
     }
     
-    private func addHighlight(to range: NSRange, withColor color: UIColor) {
+    private func addHighlight(to range: NSRange, with color: UIColor) {
+        let attributedText = NSMutableAttributedString(attributedString: originalTextView.attributedText)
+        
+        attributedText.addAttributes([.backgroundColor : color], range: range)
+        
+        originalTextView.attributedText = attributedText
+        
+        return
+    }
+
+    private func addRoundedHighlight(to range: NSRange, with color: UIColor) {
         let layoutManager = originalTextView.layoutManager
         
         let text = originalTextView.text!

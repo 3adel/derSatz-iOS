@@ -10,6 +10,7 @@ import Foundation
 import HTMLString
 
 public typealias JSONDictionary = [String: Any]
+
 public typealias JSONArray = [Any]
 public typealias JSONNumber = Double
 public typealias JSONString = String
