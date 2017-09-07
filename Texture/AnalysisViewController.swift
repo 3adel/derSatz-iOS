@@ -52,7 +52,6 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
 extension AnalysisViewController {
     override func showLoader() {
         loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader!)
         loader?.startAnimating()
     }
