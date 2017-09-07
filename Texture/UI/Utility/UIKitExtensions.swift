@@ -14,3 +14,13 @@ extension UIStoryboard {
     }
 }
 
+public extension UIViewController {
+    
+    public func hideBackButtonText() {
+        guard let _ = navigationController?.navigationBar else { return }
+        
+        let backButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        navigationItem.backBarButtonItem = backButtonItem
+    }
+}
+

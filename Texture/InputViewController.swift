@@ -33,6 +33,8 @@ class InputViewController: UIViewController, InputViewProtocol {
         
         let tapRec = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(tapRec)
+        
+        hideBackButtonText()
     }
 
     override func didReceiveMemoryWarning() {

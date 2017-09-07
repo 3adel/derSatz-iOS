@@ -27,11 +27,6 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         collectionView.bounces = true
         
-        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader!)
-//        loader?.isHidden = true
-        
         dataSource = CollectionViewDataSource(collectionView: collectionView)
         presenter?.getInitialData()
     }
@@ -56,13 +51,16 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
 
 extension AnalysisViewController {
     override func showLoader() {
-        loader?.isHidden = false
+        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader!)
         loader?.startAnimating()
     }
     
     override func hideLoader() {
         loader?.stopAnimating()
-        loader?.isHidden = true
+        navigationItem.rightBarButtonItem = nil
+        loader = nil
     }
 }
 
