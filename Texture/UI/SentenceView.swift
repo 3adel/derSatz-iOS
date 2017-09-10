@@ -9,6 +9,8 @@
 import UIKit
 import ListKit
 
+//https://stackoverflow.com/questions/20694942/using-a-calayer-to-highlight-text-in-a-uitextview-which-spans-multiple-lines
+
 class SentenceView: UIView {
     @IBOutlet weak var containerStackView: UIStackView!
     @IBOutlet weak var originalTextView: UITextView!
@@ -32,7 +34,6 @@ class SentenceView: UIView {
         let pronounRanges = viewModel.wordInfos.filter { $0.type == .pronoun }.map { $0.range }
         let adverbRanges = viewModel.wordInfos.filter { $0.type == .adverb }.map { $0.range }
         let adjectiveRanges = viewModel.wordInfos.filter { $0.type == .adjective }.map { $0.range }
-        
         
         nounRanges.forEach { range in
             self.addHighlight(to: range, with: UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 0.6))
@@ -89,7 +90,6 @@ class SentenceView: UIView {
                 
                 let singleRange = layoutManager.glyphRange(forCharacterRange: NSRange(substringRange, in: substring!), actualCharacterRange: nil)
                 let glyphRect = layoutManager.boundingRect(forGlyphRange: singleRange, in: textContainer)
-                
                 if finalLineRect == .zero {
                     finalLineRect = glyphRect
                 } else {

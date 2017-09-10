@@ -17,7 +17,8 @@ protocol InputPresenterProtocol: BasePresenter {
 protocol InputViewProtocol: View {
 }
 
-protocol AnalysisPresenterProtocol: BasePresenter {}
+protocol AnalysisPresenterProtocol: BasePresenter {
+}
 
 protocol AnalysisViewProtocol: View {
     func render(with viewModel: AnalysisViewModel)

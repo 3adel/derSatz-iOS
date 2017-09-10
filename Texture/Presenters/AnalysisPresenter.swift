@@ -9,8 +9,6 @@
 import Foundation
 import RVMP
 
-//https://stackoverflow.com/questions/20694942/using-a-calayer-to-highlight-text-in-a-uitextview-which-spans-multiple-lines
-
 public func delay(_ delay: Double, closure: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
                                   execute: closure)
@@ -48,7 +46,7 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
     
     fileprivate var inputText: String?
     
-    weak var analysisView: AnalysisViewProtocol? {
+    fileprivate var analysisView: AnalysisViewProtocol? {
         return view as? AnalysisViewProtocol
     }
     
@@ -106,7 +104,6 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
                              options: .default) { tag, tokenRange, stop in
                                 lemmas.append(tag?.rawValue ?? "")
                                 ranges.append(tokenRange)
-//                                let text = (sentence as NSString).substring(with: tokenRange)
         }
         
         tagger.enumerateTags(in: sentence.fullRange,
@@ -124,8 +121,6 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
             
             wordInfos.append(wordInfo)
         }
-        
-        
         
         return SentenceViewModel(sentence: sentence,
                                  translation: translation,
