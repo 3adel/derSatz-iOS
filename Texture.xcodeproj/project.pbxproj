@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		242A7B0C1F0050090053ECA9 /* ListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B051F004FFD0053ECA9 /* ListKit.framework */; };
-		242A7B0D1F0050090053ECA9 /* ListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B051F004FFD0053ECA9 /* ListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
 		242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
@@ -40,29 +38,17 @@
 		9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D21E91F5336C900FB3B61 /* Translation.swift */; };
 		9FB4E4361F5C56DE00DA82C1 /* HTMLString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB4E4231F5C56D600DA82C1 /* HTMLString.framework */; };
 		9FB4E4371F5C56DE00DA82C1 /* HTMLString.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB4E4231F5C56D600DA82C1 /* HTMLString.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9FE0D5371F6528D800A9C645 /* ListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE0D5361F6528D200A9C645 /* ListKit.framework */; };
+		9FE0D5381F6528D800A9C645 /* ListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE0D5361F6528D200A9C645 /* ListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		242A7B041F004FFD0053ECA9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2486B94B1E94F6C300213E24;
-			remoteInfo = ListKit;
-		};
 		242A7B0A1F0050010053ECA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 242A7B061F0050010053ECA9 /* RVMP.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 24A62EEA1EB36D550088B00B;
 			remoteInfo = RVMP;
-		};
-		242A7B0E1F0050090053ECA9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2486B94A1E94F6C300213E24;
-			remoteInfo = ListKit;
 		};
 		242A7B121F00500E0053ECA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -239,6 +225,20 @@
 			remoteGlobalIDString = 5E441EAF1E525FB70041CF34;
 			remoteInfo = "HTMLString-iOS";
 		};
+		9FE0D5351F6528D200A9C645 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2486B94B1E94F6C300213E24;
+			remoteInfo = ListKit;
+		};
+		9FE0D5391F6528D800A9C645 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2486B94A1E94F6C300213E24;
+			remoteInfo = ListKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -248,11 +248,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				242A7B0D1F0050090053ECA9 /* ListKit.framework in Embed Frameworks */,
 				2448F2071F4D558B00AB17FC /* Alamofire.framework in Embed Frameworks */,
 				242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */,
 				2448F2231F4D562000AB17FC /* Result.framework in Embed Frameworks */,
 				9FB4E4371F5C56DE00DA82C1 /* HTMLString.framework in Embed Frameworks */,
+				9FE0D5381F6528D800A9C645 /* ListKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +260,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ListKit.xcodeproj; path = Texture/Frameworks/ListKit/ListKit.xcodeproj; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
 		2448F1ED1F4D558200AB17FC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Carthage/Checkouts/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2448F20A1F4D561800AB17FC /* Result.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Result.xcodeproj; path = Carthage/Checkouts/Result/Result.xcodeproj; sourceTree = "<group>"; };
@@ -290,6 +289,7 @@
 		24FACEBE1F4E147900F47ED9 /* ModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
 		9F4D21E91F5336C900FB3B61 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		9FB4E4111F5C56D600DA82C1 /* HTMLString.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HTMLString.xcodeproj; path = Carthage/Checkouts/HTMLString/HTMLString.xcodeproj; sourceTree = "<group>"; };
+		9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ListKit.xcodeproj; path = ListKit/ListKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,25 +297,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242A7B0C1F0050090053ECA9 /* ListKit.framework in Frameworks */,
 				2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */,
 				242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */,
 				2448F2221F4D562000AB17FC /* Result.framework in Frameworks */,
 				9FB4E4361F5C56DE00DA82C1 /* HTMLString.framework in Frameworks */,
+				9FE0D5371F6528D800A9C645 /* ListKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		242A7B011F004FFC0053ECA9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				242A7B051F004FFD0053ECA9 /* ListKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		242A7B071F0050010053ECA9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,11 +347,11 @@
 		24F1D87A1EFE935B0075FCBB = {
 			isa = PBXGroup;
 			children = (
+				9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */,
 				9FB4E4111F5C56D600DA82C1 /* HTMLString.xcodeproj */,
 				2448F20A1F4D561800AB17FC /* Result.xcodeproj */,
 				2448F1ED1F4D558200AB17FC /* Alamofire.xcodeproj */,
 				242A7B061F0050010053ECA9 /* RVMP.xcodeproj */,
-				242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */,
 				24F1D8851EFE935B0075FCBB /* Texture */,
 				24F1D8841EFE935B0075FCBB /* Products */,
 			);
@@ -458,6 +450,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9FE0D5321F6528D200A9C645 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9FE0D5361F6528D200A9C645 /* ListKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,11 +473,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				242A7B0F1F0050090053ECA9 /* PBXTargetDependency */,
 				242A7B131F00500E0053ECA9 /* PBXTargetDependency */,
 				2448F2091F4D558B00AB17FC /* PBXTargetDependency */,
 				2448F2251F4D562000AB17FC /* PBXTargetDependency */,
 				9FB4E4391F5C56DE00DA82C1 /* PBXTargetDependency */,
+				9FE0D53A1F6528D800A9C645 /* PBXTargetDependency */,
 			);
 			name = Texture;
 			productName = Texture;
@@ -520,8 +520,8 @@
 					ProjectRef = 9FB4E4111F5C56D600DA82C1 /* HTMLString.xcodeproj */;
 				},
 				{
-					ProductGroup = 242A7B011F004FFC0053ECA9 /* Products */;
-					ProjectRef = 242A7B001F004FFC0053ECA9 /* ListKit.xcodeproj */;
+					ProductGroup = 9FE0D5321F6528D200A9C645 /* Products */;
+					ProjectRef = 9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */;
 				},
 				{
 					ProductGroup = 2448F20B1F4D561800AB17FC /* Products */;
@@ -540,13 +540,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		242A7B051F004FFD0053ECA9 /* ListKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ListKit.framework;
-			remoteRef = 242A7B041F004FFD0053ECA9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		242A7B0B1F0050010053ECA9 /* RVMP.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -701,6 +694,13 @@
 			remoteRef = 9FB4E42E1F5C56D600DA82C1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		9FE0D5361F6528D200A9C645 /* ListKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ListKit.framework;
+			remoteRef = 9FE0D5351F6528D200A9C645 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -747,11 +747,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		242A7B0F1F0050090053ECA9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ListKit;
-			targetProxy = 242A7B0E1F0050090053ECA9 /* PBXContainerItemProxy */;
-		};
 		242A7B131F00500E0053ECA9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RVMP;
@@ -771,6 +766,11 @@
 			isa = PBXTargetDependency;
 			name = "HTMLString-iOS";
 			targetProxy = 9FB4E4381F5C56DE00DA82C1 /* PBXContainerItemProxy */;
+		};
+		9FE0D53A1F6528D800A9C645 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ListKit;
+			targetProxy = 9FE0D5391F6528D800A9C645 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
