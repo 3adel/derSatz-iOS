@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10E4B5BB1F7B03B600418D60 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5A01F7AFF7300418D60 /* Fabric.framework */; };
+		10E4B5BC1F7B03D300418D60 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */; };
+		10E4B5BD1F7B03D600418D60 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5B61F7B016000418D60 /* Answers.framework */; };
 		241E3FA51F73D35D002131CA /* WordDetailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */; };
 		241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E3FB91F73D375002131CA /* WordDetailPopupView.swift */; };
 		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
@@ -262,6 +265,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10E4B5A01F7AFF7300418D60 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		10E4B5B61F7B016000418D60 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
 		241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordDetailPopupView.xib; sourceTree = "<group>"; };
 		241E3FB91F73D375002131CA /* WordDetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailPopupView.swift; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
@@ -303,7 +309,10 @@
 			files = (
 				2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */,
 				242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */,
+				10E4B5BB1F7B03B600418D60 /* Fabric.framework in Frameworks */,
+				10E4B5BD1F7B03D600418D60 /* Answers.framework in Frameworks */,
 				2448F2221F4D562000AB17FC /* Result.framework in Frameworks */,
+				10E4B5BC1F7B03D300418D60 /* Crashlytics.framework in Frameworks */,
 				9FB4E4361F5C56DE00DA82C1 /* HTMLString.framework in Frameworks */,
 				9FE0D5371F6528D800A9C645 /* ListKit.framework in Frameworks */,
 			);
@@ -312,6 +321,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10E4B5BA1F7B03B600418D60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		242A7B071F0050010053ECA9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +367,9 @@
 		24F1D87A1EFE935B0075FCBB = {
 			isa = PBXGroup;
 			children = (
+				10E4B5B61F7B016000418D60 /* Answers.framework */,
+				10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */,
+				10E4B5A01F7AFF7300418D60 /* Fabric.framework */,
 				9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */,
 				9FB4E4111F5C56D600DA82C1 /* HTMLString.xcodeproj */,
 				2448F20A1F4D561800AB17FC /* Result.xcodeproj */,
@@ -358,6 +377,7 @@
 				242A7B061F0050010053ECA9 /* RVMP.xcodeproj */,
 				24F1D8851EFE935B0075FCBB /* Texture */,
 				24F1D8841EFE935B0075FCBB /* Products */,
+				10E4B5BA1F7B03B600418D60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -475,6 +495,8 @@
 				24F1D8801EFE935B0075FCBB /* Frameworks */,
 				24F1D8811EFE935B0075FCBB /* Resources */,
 				24F1D8E51EFE9FFA0075FCBB /* Embed Frameworks */,
+				10E4B5B51F7AFFC700418D60 /* ShellScript */,
+				10E4B5B71F7B018100418D60 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -724,6 +746,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10E4B5B51F7AFFC700418D60 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/Fabric.framework/run\" a55f560fa9754a31e729a4a95b42e9fcc6829fa0 1bc57531f91e818951427eb2dbe252e8d15100fbf53a57713ede57a03a4b8c0d";
+		};
+		10E4B5B71F7B018100418D60 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/Fabric.framework/run\" a55f560fa9754a31e729a4a95b42e9fcc6829fa0 1bc57531f91e818951427eb2dbe252e8d15100fbf53a57713ede57a03a4b8c0d";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		24F1D87F1EFE935B0075FCBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -910,7 +961,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A88UHFQD28;
+				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Texture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.Texture;
@@ -925,7 +980,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A88UHFQD28;
+				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Texture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.Texture;
