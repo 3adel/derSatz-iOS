@@ -39,9 +39,26 @@ enum LexicalClass: String {
     case adverb = "Adverb"
     case pronoun = "Pronoun"
     case other
+    
+    var color: UIColor {
+        switch self {
+        case .noun:
+            return UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 0.6)
+        case.verb:
+            return UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6)
+        case .pronoun:
+            return UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6)
+        case .adverb:
+            return UIColor(red: 108/255, green: 201/255, blue: 7/255, alpha: 0.6)
+        case .adjective:
+            return UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.6)
+        default:
+            return UIColor.black
+        }
+    }
 }
 
-class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
+class AnalysisPresenter: Presenter {
     var sentenceInfos: [SentenceViewModel] = []
     
     fileprivate var inputText: String?
@@ -51,7 +68,8 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
     }
     
     lazy var tagger: NSLinguisticTagger = {
-       return NSLinguisticTagger(tagSchemes: [.lemma, .nameTypeOrLexicalClass], options: 0)
+        let options: NSLinguisticTagger.Options = [NSLinguisticTagger.Options.joinNames]
+       return NSLinguisticTagger(tagSchemes: [.lemma, .nameTypeOrLexicalClass], options: Int(options.rawValue))
     }()
     
     let dataStore = DataStore()
@@ -89,12 +107,11 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
     }
     
     private func makeSentenceInfo(from sentence: String, translation: String) -> SentenceViewModel {
-        let words = sentence.words()
         
+        var words: [String] = []
         var lemmas: [String] = []
         var types: [LexicalClass] = []
         var ranges: [NSRange] = []
-        var wordInfos: [WordViewModel] = []
         
         tagger.string = sentence
         
@@ -102,6 +119,8 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
                              unit: .word,
                              scheme: .lemma,
                              options: .default) { tag, tokenRange, stop in
+                                let word = (sentence as NSString).substring(with: tokenRange)
+                                words.append(word)
                                 lemmas.append(tag?.rawValue ?? "")
                                 ranges.append(tokenRange)
         }
@@ -113,13 +132,15 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
                                 types.append(LexicalClass(rawValue: tag?.rawValue ?? "") ?? .other)
         }
         
-        words.enumerated().forEach {
-            let wordInfo = WordViewModel(word: $0.element,
-                                    lemma: lemmas[$0.offset],
-                                    type: types[$0.offset],
-                                    range: ranges[$0.offset])
+        let wordInfos: [WordViewModel] = words.enumerated().reduce([]) { wordInfoList, enumerated in
+            let wordInfo = WordViewModel(word: enumerated.element,
+                                    lemma: lemmas[enumerated.offset],
+                                    type: types[enumerated.offset],
+                                    range: ranges[enumerated.offset])
             
-            wordInfos.append(wordInfo)
+            var wordInfoList = wordInfoList
+            wordInfoList.append(wordInfo)
+            return wordInfoList
         }
         
         return SentenceViewModel(sentence: sentence,
@@ -172,18 +193,45 @@ class AnalysisPresenter: Presenter, AnalysisPresenterProtocol {
     }
 }
 
+extension AnalysisPresenter: AnalysisPresenterProtocol {
+    func didTapOnWord(at index: Int, inSentenceAt sentenceIndex: Int) {
+        let sentenceInfo = sentenceInfos[sentenceIndex]
+        let wordInfo = sentenceInfo.wordInfos[index]
+        
+        guard wordInfo.type != .other else { return }
+        
+        dataStore.getTranslation(of: wordInfo.word, for: .english) { [weak self] result in
+            switch result {
+            case .success(let translation):
+                let wordDetailViewModel = WordDetailPopupViewModel(word: wordInfo.word,
+                                                                   translation: translation,
+                                                                   originalLanguageImageName: "de_flag",
+                                                                   translatedLanguageImageName: "gb_flag",
+                                                                   lemma: wordInfo.lemma,
+                                                                   lexicalClass: wordInfo.type.rawValue,
+                                                                   backgroundColor: wordInfo.type.color.withAlphaComponent(0.95))
+                
+                self?.analysisView?.showWordDetailPopup(with: wordDetailViewModel, forWordAt: index, inSentenceAt: sentenceIndex)
+            default:
+                break
+            }
+        }
+    }
+}
+
 extension String {
     var fullRange: NSRange {
         return NSRange(location: 0, length: utf16.count)
     }
     
     func words() -> [String] {
-        
         let range = self.startIndex..<self.endIndex
         var words = [String]()
         
         self.enumerateSubstrings(in: range, options: .byWords) { (substring,  _, _, _) in
-            guard let substring = substring else { return }
+            guard let substring = substring,
+               Int(substring) == nil else { return }
+            
             words.append(substring)
         }
         

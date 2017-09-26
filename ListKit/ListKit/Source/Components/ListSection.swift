@@ -19,6 +19,7 @@ open class ListSection {
     public var cellIdentifiers: [String]
     public var viewIdentifiers: [String]
     public var viewModels: [Any]
+    public var styleModels: [Any] = []
     public var sizes: [ViewComponentSizeProtocol]
     
     public var isWrapper: Bool {
@@ -58,6 +59,15 @@ open class ListSection {
         }
     }
     
+    public var styleModel: Any? {
+        get {
+            return styleModels[0]
+        }
+        set(styleModel) {
+            self.styleModels = [styleModel]
+        }
+    }
+    
     public var size: ViewComponentSizeProtocol {
         get {
             return sizes[0]
@@ -71,11 +81,11 @@ open class ListSection {
     public var headerActions: Any?
     public var footerActions: Any?
     
-    var cellActionCallbacks: [UserActionCallbackPair] = []
-    var headerActionCallbacks: [UserActionCallbackPair] = []
-    var footerActionCallbacks: [UserActionCallbackPair] = []
+    public var cellActionCallbacks: [UserActionCallbackPair] = []
+    public var headerActionCallbacks: [UserActionCallbackPair] = []
+    public var footerActionCallbacks: [UserActionCallbackPair] = []
     
-    var stickyHeaderInfo: StickyHeaderInfo?
+    public var stickyHeaderInfo: StickyHeaderInfo?
     
     public let isMultiLayer: Bool
     

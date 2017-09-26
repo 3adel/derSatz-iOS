@@ -22,6 +22,10 @@ class WrapperCollectionCell: UICollectionViewCell {
         self.customView?.tag = tag
     }
     
+    func getCustomView() -> UIView? {
+        return contentView.subviews.first
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         customView?.frame = contentView.bounds

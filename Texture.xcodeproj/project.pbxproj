@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		241E3FA51F73D35D002131CA /* WordDetailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */; };
+		241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E3FB91F73D375002131CA /* WordDetailPopupView.swift */; };
 		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
 		242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
@@ -260,6 +262,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordDetailPopupView.xib; sourceTree = "<group>"; };
+		241E3FB91F73D375002131CA /* WordDetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailPopupView.swift; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
 		2448F1ED1F4D558200AB17FC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Carthage/Checkouts/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2448F20A1F4D561800AB17FC /* Result.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Result.xcodeproj; path = Carthage/Checkouts/Result/Result.xcodeproj; sourceTree = "<group>"; };
@@ -396,6 +400,8 @@
 				24F1D8FB1EFEBA100075FCBB /* Utility */,
 				24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */,
 				24DD63D01F2E0E1800682CC4 /* SentenceView.xib */,
+				241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */,
+				241E3FB91F73D375002131CA /* WordDetailPopupView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F1D8911EFE935B0075FCBB /* LaunchScreen.storyboard in Resources */,
+				241E3FA51F73D35D002131CA /* WordDetailPopupView.xib in Resources */,
 				24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */,
 				24F1D88E1EFE935B0075FCBB /* Assets.xcassets in Resources */,
 				24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */,
@@ -732,6 +739,7 @@
 				24F1D9071EFECFCE0075FCBB /* AnalysisViewController.swift in Sources */,
 				24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */,
 				24F1D9001EFEBC4C0075FCBB /* RouterExtensions.swift in Sources */,
+				241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */,
 				24F1D9051EFEBD520075FCBB /* RVMPInterface.swift in Sources */,
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,

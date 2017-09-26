@@ -53,6 +53,15 @@ public class ListView: UICollectionView {
         }
     }
     
+    public var onScroll: (() -> Void)? {
+        get {
+            return collectionViewDataSource?.onScroll
+        }
+        set(callback) {
+            collectionViewDataSource?.onScroll = callback
+        }
+    }
+    
     public convenience init(frame: CGRect) {
         self.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -81,6 +90,14 @@ public class ListView: UICollectionView {
     
     public func add(listFeature: ListFeature) {
         collectionViewDataSource?.add(listFeature: listFeature)
+    }
+    
+    public func viewForItem(at indexPath: IndexPath) -> ListViewComponent? {
+        let cell: UICollectionViewCell? = cellForItem(at: indexPath)
+        if let wrapperCell = cell as? WrapperCollectionCell {
+            return wrapperCell.customView as? ListViewComponent
+        }
+        return cell as? ListViewComponent
     }
     
     private func setupUI() {

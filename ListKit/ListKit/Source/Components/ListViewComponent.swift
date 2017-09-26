@@ -14,7 +14,8 @@ public extension RawRepresentable where RawValue == String, Self: UserAction {
     }
 }
 
-public typealias UserActionCallback = (UIControl) -> ()
+
+public typealias UserActionCallback = (UIControl?, Any?) -> Void
 public typealias UserActionCallbackPair = (UserAction, UserActionCallback)
 
 public enum ListViewComponentType {
@@ -24,6 +25,7 @@ public enum ListViewComponentType {
 public protocol ListViewComponent {
     func update(withViewModel viewModel: Any)
     func update(withViewModel viewModel: Any, onSelect: ListSelectionClosure?)
+    func update(withStyleModel styleModel: Any)
     func register(action: UserAction, callback: @escaping UserActionCallback)
 }
 
@@ -32,6 +34,7 @@ public extension ListViewComponent {
     func update(withViewModel viewModel: Any, onSelect: ListSelectionClosure?) {
         update(withViewModel: viewModel)
     }
+    func update(withStyleModel styleModel: Any) {}
     func update(withViewModel viewModel: Any) {}
     func register(action: UserAction, callback: @escaping UserActionCallback) {}
 }

@@ -6,7 +6,7 @@ import UIKit
 
 typealias ProgressCallback = (CGFloat) -> ()
 
-struct StickyHeaderInfo {
+public struct StickyHeaderInfo {
     let thresholdFromEnd: CGFloat
     let callback: ProgressCallback?
     let shouldShowShadowForHeader: Bool

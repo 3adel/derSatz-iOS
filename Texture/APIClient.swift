@@ -26,7 +26,8 @@ class APIClient: DataClient {
                                            value: sentence)
         
         guard let request = webClient.createRequest(endpoint: endpoint,
-                                                    queryItems: [toLanguageQueryItem, searchQueryItem]) else {
+                                                    queryItems: [toLanguageQueryItem, searchQueryItem],
+                                                    cache: true) else {
                 completion(genericErrorResult)
                 return
         }
@@ -35,14 +36,15 @@ class APIClient: DataClient {
     }
     
     func translate(_ sentences: [String], to: Language, completion: @escaping (AnyResult) -> Void) {
-        var postData: [String: Any] = ["q":  sentences, "target" : to.languageCode]
+        let postData: [String: Any] = ["q":  sentences, "target" : to.languageCode]
         
         let endpoint = Endpoint.translate
         
         guard let json = try? JSONSerialization.data(withJSONObject: postData, options: []),
             let request = webClient.createRequest(endpoint: endpoint,
                                                   json: json,
-                                                  method: .POST) else {
+                                                  method: .POST,
+                                                  cache: true) else {
                                                     completion(genericErrorResult)
                                                     return
         }

@@ -23,6 +23,7 @@ public class ListDataSource: NSObject {
     public var onExpandedSectionDidChangeTo: ((_: ListSection?) -> ())?
     public var onScrollDidEnd: (()->())?
     public var onItemShown: ((IndexPath) -> ())?
+    public var onScroll: (() -> Void)?
     
     var pagingSection: ListSection? { return sections.last }
     
@@ -100,6 +101,7 @@ public class ListDataSource: NSObject {
             
             listView.registerCell(withIdentifier: cellIdentifier)
         }
+        let actionableComponent: ListViewComponent
         
         guard let cell = listView.makeReusableCell(withIdentifier: cellIdentifier, at: indexPath) else { return nil }
         
@@ -107,13 +109,16 @@ public class ListDataSource: NSObject {
             let customView = makeView(at: indexPath) {
             wrapperCell.set(customView: customView)
             wrapperCell.tag = indexPath.row
+            actionableComponent = customView
+        } else {
+            actionableComponent = cell
         }
         
         let onSelect = section.isMultiLayer ? section.onSelect : nil
         cell.update(withViewModel: viewModel, onSelect: onSelect)
         
         section.cellActionCallbacks.forEach { (action, callback) in
-            cell.register(action: action, callback: callback)
+            actionableComponent.register(action: action, callback: callback)
         }
         
         features.forEach { feature in
@@ -244,5 +249,6 @@ extension ListDataSource {
 extension ListDataSource {
     func list(_ listView: ListViewProtocol, didScrollTo offset: CGPoint) {
         features.forEach { $0.list(didScrollTo: offset) }
+        onScroll?()
     }
 }
