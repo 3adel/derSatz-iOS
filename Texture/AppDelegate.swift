@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = Router.shared?.rootViewController
         
-        Fabric.with([Answers.self])
         Fabric.with([Crashlytics.self])
         
         return true
