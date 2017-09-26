@@ -10,6 +10,7 @@ import UIKit
 import RVMP
 import Fabric
 import Answers
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = Router.shared?.rootViewController
         
         Fabric.with([Answers.self])
+        Fabric.with([Crashlytics.self])
         
         return true
     }
