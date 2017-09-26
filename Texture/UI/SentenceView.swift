@@ -9,6 +9,12 @@
 import UIKit
 import ListKit
 
+//https://stackoverflow.com/questions/20694942/using-a-calayer-to-highlight-text-in-a-uitextview-which-spans-multiple-lines
+
+enum SentenceAction: String, UserAction {
+    case didTapWord
+}
+
 class SentenceView: UIView {
     @IBOutlet weak var containerStackView: UIStackView!
     @IBOutlet weak var originalTextView: UITextView!
@@ -16,43 +22,68 @@ class SentenceView: UIView {
     
     @IBOutlet weak var originalTextViewConstraint: NSLayoutConstraint!
     
+    var onDidTapWord: ((Int) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
     }
     
+    var viewModel: SentenceViewModel?
+    
+    var detailPopup: WordDetailPopupView?
+    
     func update(with viewModel: SentenceViewModel) {
+        self.viewModel = viewModel
         originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: 17)])
         translatedTextView.text = viewModel.translation
         
         originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextView.font!)
         
-        let nounRanges = viewModel.wordInfos.filter { $0.type == .noun }.map { $0.range }
-        let verbRanges = viewModel.wordInfos.filter { $0.type == .verb }.map { $0.range }
-        let pronounRanges = viewModel.wordInfos.filter { $0.type == .pronoun }.map { $0.range }
-        let adverbRanges = viewModel.wordInfos.filter { $0.type == .adverb }.map { $0.range }
-        let adjectiveRanges = viewModel.wordInfos.filter { $0.type == .adjective }.map { $0.range }
-        
-        
-        nounRanges.forEach { range in
-            self.addHighlight(to: range, with: UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 0.6))
+        viewModel.wordInfos.forEach {
+            guard $0.type != .other else { return }
+            
+            self.addHighlight(to: $0.range, with: $0.type.color)
         }
+    }
+    
+    func frameForWord(at index: Int) -> CGRect? {
+        guard let word = viewModel?.wordInfos[index],
+            let range = UITextRange.from(range: word.range, in: originalTextView) else { return nil }
         
-        verbRanges.forEach { range in
-            self.addHighlight(to: range, with: UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6))
-        }
+        let wordFrameInTextView = originalTextView.firstRect(for: range)
+        return convert(wordFrameInTextView, from: originalTextView)
+    }
+    
+    func show(wordDetailPopup: WordDetailPopupView, forWordAt index: Int) {
+        guard let word = viewModel?.wordInfos[index],
+            let range = UITextRange.from(range: word.range, in: originalTextView) else { return }
         
-        pronounRanges.forEach { range in
-            self.addHighlight(to: range, with: UIColor(red: 253/255, green: 160/255, blue: 8/255, alpha: 0.6))
+        hideDetailPopup() {
+            let wordFrameInTextView = self.originalTextView.firstRect(for: range)
+            
+            let frame = self.convert(wordFrameInTextView, from: self.originalTextView)
         }
+    }
+    
+    func hideDetailPopup(completion: (()->Void)? = nil) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.detailPopup?.alpha = 0
+        }) { _ in
+            self.detailPopup?.removeFromSuperview()
+            completion?()
+        }
+    }
+    
+    @objc func didTapTextView(_ sender: UITapGestureRecognizer) {
+        let position = sender.location(in: originalTextView)
+        let tapPosition = originalTextView.closestPosition(to: position)
+        guard let textRange = originalTextView.tokenizer.rangeEnclosingPosition(tapPosition!, with: .word, inDirection: UITextLayoutDirection.right.rawValue)   else { return }
         
-        adverbRanges.forEach { range in
-            self.addHighlight(to: range, with: UIColor(red: 108/255, green: 201/255, blue: 7/255, alpha: 0.6))
-        }
+        let range = textRange.toRange(in: originalTextView)
+        guard let index = indexOfWord(at: range) else { return }
         
-        adjectiveRanges.forEach { range in
-            self.addHighlight(to: range, with: UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.6))
-        }
+        onDidTapWord?(index)
     }
     
     private func setupUI() {
@@ -63,6 +94,7 @@ class SentenceView: UIView {
         
         originalTextView.font = UIFont.systemFont(ofSize: 17)
         translatedTextView.font = UIFont.italicSystemFont(ofSize: 17)
+        originalTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTextView(_:))))
     }
     
     private func addHighlight(to range: NSRange, with color: UIColor) {
@@ -71,7 +103,6 @@ class SentenceView: UIView {
         attributedText.addAttributes([.backgroundColor : color], range: range)
         
         originalTextView.attributedText = attributedText
-        
         return
     }
 
@@ -89,7 +120,6 @@ class SentenceView: UIView {
                 
                 let singleRange = layoutManager.glyphRange(forCharacterRange: NSRange(substringRange, in: substring!), actualCharacterRange: nil)
                 let glyphRect = layoutManager.boundingRect(forGlyphRange: singleRange, in: textContainer)
-                
                 if finalLineRect == .zero {
                     finalLineRect = glyphRect
                 } else {
@@ -110,11 +140,45 @@ class SentenceView: UIView {
             self.originalTextView.layer.addSublayer(roundRect)
         }
     }
+    
+    private func indexOfWord(at range: NSRange) -> Int? {
+        return viewModel?.wordInfos.enumerated().reduce(nil) { result, enumeration in
+            return result != nil ? result : (enumeration.element.range == range ? enumeration.offset : nil)
+        }
+    }
+}
+
+extension UITextRange {
+    static func from(range: NSRange, in textView: UITextView) -> UITextRange? {
+        let beginning = textView.beginningOfDocument
+        guard let start = textView.position(from: beginning, offset: range.location),
+            let end = textView.position(from: start, offset: range.length) else { return nil }
+        
+        return textView.textRange(from: start, to: end)
+    }
+    func toRange(in textView: UITextView) -> NSRange {
+        let location: Int = textView.offset(from: textView.beginningOfDocument, to: self.start)
+        let length: Int = textView.offset(from: self.start, to: self.end)
+        return NSMakeRange(location, length)
+    }
 }
 
 extension SentenceView: ListViewComponent {
     func update(withViewModel viewModel: Any) {
         guard let viewModel = viewModel as? SentenceViewModel else { return }
         update(with: viewModel)
+    }
+    
+    func register(action: UserAction, callback: @escaping UserActionCallback) {
+        guard let action = action as? SentenceAction else { return }
+        
+        switch action {
+        case .didTapWord:
+            onDidTapWord = { [weak self] index in
+                guard let `self` = self else { return }
+                let indexPath = IndexPath(item: index, section: self.tag)
+                callback(nil, indexPath)
+            }
+        }
     }
 }

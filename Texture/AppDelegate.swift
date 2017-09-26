@@ -8,12 +8,14 @@
 
 import UIKit
 import RVMP
+import Fabric
+import Answers
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Router.shared = Router(tabs: [inputTab], with: UIStoryboard(name: "Main", bundle: Bundle.main))
         
         window?.rootViewController = Router.shared?.rootViewController
+        
+        Fabric.with([Crashlytics.self])
         
         return true
     }

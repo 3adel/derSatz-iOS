@@ -11,7 +11,7 @@ import RVMP
 import ListKit
 
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var listView: ListView!
     
     var presenter: BasePresenter?
     var analysisPresenter: AnalysisPresenterProtocol? {
@@ -19,15 +19,16 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     }
     
     private var loader: UIActivityIndicatorView?
-    
-    private var dataSource: CollectionViewDataSource?
+    private var detailPopup: WordDetailPopupView?
+    private var closeDetailButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.bounces = true
-        
-        dataSource = CollectionViewDataSource(collectionView: collectionView)
+        listView.bounces = true
+        listView.onScroll = { [weak self] in
+            self?.hideWordDetail()
+        }
         presenter?.getInitialData()
     }
     
@@ -38,10 +39,70 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         }
         
         let section = ListSection(viewIdentifier: SentenceView.Identifier,
-                                  viewModels: viewModel.sentenceInfos,
-                                  sizes: sizes)
+                                            viewModels: viewModel.sentenceInfos,
+                                            sizes: sizes)
         
-        dataSource?.update(sections: [section])
+        let didTapWordCallback: UserActionCallback = { [weak self] _, wordIndexPath in
+            guard let indexPath = wordIndexPath as? IndexPath else { return }
+            self?.analysisPresenter?.didTapOnWord(at: indexPath.item, inSentenceAt: indexPath.section)
+        }
+        let userAction = UserActionCallbackPair(SentenceAction.didTapWord, didTapWordCallback)
+        section.cellActionCallbacks.append(userAction)
+        
+        listView.update(section: section)
+    }
+    
+    func showWordDetailPopup(with viewModel: WordDetailPopupViewModel, forWordAt index: Int, inSentenceAt sentenceIndex: Int) {
+        guard let wordDetailView = WordDetailPopupView.from(nibWithName: "WordDetailPopupView") as? WordDetailPopupView,
+            let sentenceView = listView.viewForItem(at: IndexPath(item: sentenceIndex, section: 0)) as? SentenceView,
+            let wordFrame = sentenceView.frameForWord(at: index) else { return }
+        
+        wordDetailView.update(with: viewModel)
+        
+        let wordFrameInList = listView.convert(wordFrame, from: sentenceView)
+        let wordFrameInView = view.convert(wordFrameInList, from: listView)
+        var popupFrame = wordFrameInView
+        popupFrame.size = CGSize(width: 300, height: 160)
+        popupFrame.origin.y += wordFrame.height + 5
+        popupFrame.origin.x += wordFrame.width / 2
+        
+        let frameDifference = (popupFrame.origin.x + popupFrame.width + 10) - listView.frame.width
+        popupFrame.origin.x -= max(frameDifference, 0)
+        
+        wordDetailView.frame = popupFrame
+        
+        wordDetailView.moveTriangle(to: wordDetailView.convert(wordFrameInView.origin, from: view).x + wordFrameInView.width / 2)
+        
+        wordDetailView.alpha = 0
+        view.addSubview(wordDetailView)
+        
+        hideDetailPopup() {
+            self.detailPopup = wordDetailView
+            UIView.animate(withDuration: 0.3, animations: {
+                wordDetailView.alpha = 1
+            }) { _ in
+                let closeDetailButton = UIButton(type: .custom)
+                closeDetailButton.frame = self.view.frame
+                closeDetailButton.addTarget(self, action: #selector(self.hideWordDetail), for: .touchUpInside)
+                self.view.addSubview(closeDetailButton)
+
+                self.closeDetailButton = closeDetailButton
+            }
+        }
+    }
+    
+    @objc func hideWordDetail() {
+        hideDetailPopup(completion: nil)
+    }
+    
+    private func hideDetailPopup(completion: (()->Void)?) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.detailPopup?.alpha = 0
+        }) { _ in
+            self.detailPopup?.removeFromSuperview()
+            completion?()
+            self.closeDetailButton?.removeFromSuperview()
+        }
     }
     
     private func calculateHeight(for sentenceViewModel: SentenceViewModel) -> CGFloat {

@@ -17,10 +17,13 @@ protocol InputPresenterProtocol: BasePresenter {
 protocol InputViewProtocol: View {
 }
 
-protocol AnalysisPresenterProtocol: BasePresenter {}
+protocol AnalysisPresenterProtocol: BasePresenter {
+    func didTapOnWord(at index: Int, inSentenceAt sentenceIndex: Int)
+}
 
 protocol AnalysisViewProtocol: View {
     func render(with viewModel: AnalysisViewModel)
+    func showWordDetailPopup(with viewModel: WordDetailPopupViewModel, forWordAt index: Int, inSentenceAt sentenceIndex: Int)
 }
 
 protocol AnalysisDetailViewProtocol: View {
