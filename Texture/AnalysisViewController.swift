@@ -41,6 +41,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         let section = ListSection(viewIdentifier: SentenceView.Identifier,
                                             viewModels: viewModel.sentenceInfos,
                                             sizes: sizes)
+        section.interitemSpacing = 10
         
         let didTapWordCallback: UserActionCallback = { [weak self] _, wordIndexPath in
             guard let indexPath = wordIndexPath as? IndexPath else { return }
@@ -106,7 +107,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     }
     
     private func calculateHeight(for sentenceViewModel: SentenceViewModel) -> CGFloat {
-        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 17)) + sentenceViewModel.translation.height(withConstrainedWidth: view.frame.width, font: .italicSystemFont(ofSize: 17)) 
+        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 19)) + sentenceViewModel.translation.height(withConstrainedWidth: view.frame.width, font: .italicSystemFont(ofSize: 17))
     }
 }
 

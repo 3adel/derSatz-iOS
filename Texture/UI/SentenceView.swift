@@ -35,11 +35,11 @@ class SentenceView: UIView {
     
     func update(with viewModel: SentenceViewModel) {
         self.viewModel = viewModel
-        originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: 17)])
+        originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: 19)])
         translatedTextView.text = viewModel.translation
         
         originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextView.font!)
-        
+
         viewModel.wordInfos.forEach {
             guard $0.type != .other else { return }
             
@@ -94,13 +94,15 @@ class SentenceView: UIView {
         
         originalTextView.font = UIFont.systemFont(ofSize: 17)
         translatedTextView.font = UIFont.italicSystemFont(ofSize: 17)
+        translatedTextView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1) //.withAlphaComponent(0.2)
+        translatedTextView.textColor = .white
         originalTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTextView(_:))))
     }
     
     private func addHighlight(to range: NSRange, with color: UIColor) {
         let attributedText = NSMutableAttributedString(attributedString: originalTextView.attributedText)
         
-        attributedText.addAttributes([.backgroundColor : color], range: range)
+        attributedText.addAttributes([.foregroundColor : color], range: range)
         
         originalTextView.attributedText = attributedText
         return
