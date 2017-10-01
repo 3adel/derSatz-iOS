@@ -64,15 +64,22 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         let wordFrameInView = view.convert(wordFrameInList, from: listView)
         var popupFrame = wordFrameInView
         popupFrame.size = CGSize(width: 300, height: 160)
-        popupFrame.origin.y += wordFrame.height + 5
-        popupFrame.origin.x += wordFrame.width / 2
+        popupFrame.origin.y += wordFrame.height
+//        popupFrame.origin.x += wordFrame.width / 2
         
-        let frameDifference = (popupFrame.origin.x + popupFrame.width + 10) - listView.frame.width
-        popupFrame.origin.x -= max(frameDifference, 0)
+        let xOriginDifference = (popupFrame.origin.x + popupFrame.width + 10) - listView.frame.width
+        popupFrame.origin.x -= max(xOriginDifference, 0)
+        
+        let yOriginDifference = (popupFrame.origin.y + popupFrame.height + 10) - listView.frame.height
+        
+        if yOriginDifference > 0 {
+            let newOffset = CGPoint(x: 0, y: listView.contentOffset.y + yOriginDifference)
+            listView.setContentOffset(newOffset, animated: false)
+        }
         
         wordDetailView.frame = popupFrame
         
-        wordDetailView.moveTriangle(to: wordDetailView.convert(wordFrameInView.origin, from: view).x + wordFrameInView.width / 2)
+        wordDetailView.moveTriangle(to: wordDetailView.convert(wordFrameInView.origin, from: view).x + wordFrameInView.width / 4)
         
         wordDetailView.alpha = 0
         view.addSubview(wordDetailView)

@@ -56,5 +56,7 @@ class WordDetailPopupView: UIView {
     
     private func setupUI() {
         containerView.layer.cornerRadius = 6
+        
+        [wordLabel, translationLabel, lemmaLabel, lexicalClassLabel].forEach { $0?.textColor = .white }
     }
 }

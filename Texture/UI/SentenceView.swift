@@ -55,26 +55,6 @@ class SentenceView: UIView {
         return convert(wordFrameInTextView, from: originalTextView)
     }
     
-    func show(wordDetailPopup: WordDetailPopupView, forWordAt index: Int) {
-        guard let word = viewModel?.wordInfos[index],
-            let range = UITextRange.from(range: word.range, in: originalTextView) else { return }
-        
-        hideDetailPopup() {
-            let wordFrameInTextView = self.originalTextView.firstRect(for: range)
-            
-            let frame = self.convert(wordFrameInTextView, from: self.originalTextView)
-        }
-    }
-    
-    func hideDetailPopup(completion: (()->Void)? = nil) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.detailPopup?.alpha = 0
-        }) { _ in
-            self.detailPopup?.removeFromSuperview()
-            completion?()
-        }
-    }
-    
     @objc func didTapTextView(_ sender: UITapGestureRecognizer) {
         let position = sender.location(in: originalTextView)
         let tapPosition = originalTextView.closestPosition(to: position)

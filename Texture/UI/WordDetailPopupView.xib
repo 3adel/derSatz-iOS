@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +26,10 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCm-Mb-uMt">
-                            <rect key="frame" x="0.0" y="12" width="300" height="149"/>
+                            <rect key="frame" x="0.0" y="11" width="300" height="150"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pFb-bC-Ox5">
-                                    <rect key="frame" x="15" y="15" width="270" height="114"/>
+                                    <rect key="frame" x="15" y="15" width="270" height="115"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Uo9-60-Z3J">
                                             <rect key="frame" x="0.0" y="0.0" width="270" height="20"/>
@@ -78,7 +78,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4V-CK-suL">
-                                            <rect key="frame" x="0.0" y="92" width="270" height="22"/>
+                                            <rect key="frame" x="0.0" y="92" width="270" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                     <constraints>
                         <constraint firstItem="rJ3-eu-UOf" firstAttribute="top" secondItem="4Q7-3q-plU" secondAttribute="top" id="Aw0-HT-rDY"/>
                         <constraint firstAttribute="trailing" secondItem="CCm-Mb-uMt" secondAttribute="trailing" id="Lpi-IB-Qkl"/>
-                        <constraint firstItem="CCm-Mb-uMt" firstAttribute="top" secondItem="rJ3-eu-UOf" secondAttribute="bottom" id="LvF-zM-SUU"/>
+                        <constraint firstItem="CCm-Mb-uMt" firstAttribute="top" secondItem="rJ3-eu-UOf" secondAttribute="bottom" constant="-1" id="LvF-zM-SUU"/>
                         <constraint firstAttribute="bottom" secondItem="CCm-Mb-uMt" secondAttribute="bottom" id="eyH-kH-0oX"/>
                         <constraint firstItem="CCm-Mb-uMt" firstAttribute="leading" secondItem="4Q7-3q-plU" secondAttribute="leading" id="klh-iI-Ggo"/>
                         <constraint firstItem="rJ3-eu-UOf" firstAttribute="leading" secondItem="4Q7-3q-plU" secondAttribute="leading" constant="129.5" id="ymS-yd-0M8"/>
