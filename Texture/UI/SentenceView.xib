@@ -15,10 +15,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jnc-f8-STg">
-                    <rect key="frame" x="0.0" y="0.0" width="362" height="174"/>
+                    <rect key="frame" x="10" y="0.0" width="342" height="174"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D9a-hd-BwU">
-                            <rect key="frame" x="0.0" y="0.0" width="362" height="92"/>
+                            <rect key="frame" x="0.0" y="0.0" width="342" height="92"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="92" id="8Vc-sA-BBO"/>
@@ -28,7 +28,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I8L-nO-Qdi">
-                            <rect key="frame" x="0.0" y="92" width="362" height="82"/>
+                            <rect key="frame" x="0.0" y="92" width="342" height="82"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -36,9 +36,11 @@
                         </textView>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="I8L-nO-Qdi" secondAttribute="trailing" id="2v9-1b-v55"/>
                         <constraint firstItem="I8L-nO-Qdi" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" id="Bet-Lm-nqe"/>
                         <constraint firstAttribute="bottom" secondItem="I8L-nO-Qdi" secondAttribute="bottom" id="P1w-dO-TZa"/>
                         <constraint firstItem="D9a-hd-BwU" firstAttribute="top" secondItem="jnc-f8-STg" secondAttribute="top" id="jp6-aV-h0c"/>
+                        <constraint firstItem="I8L-nO-Qdi" firstAttribute="leading" secondItem="jnc-f8-STg" secondAttribute="leading" id="ysM-Ww-JAu"/>
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQp-s8-ugj">
@@ -51,12 +53,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="jnc-f8-STg" secondAttribute="trailing" id="ERk-W8-AFc"/>
+                <constraint firstAttribute="trailing" secondItem="jnc-f8-STg" secondAttribute="trailing" constant="10" id="ERk-W8-AFc"/>
                 <constraint firstAttribute="trailing" secondItem="hQp-s8-ugj" secondAttribute="trailing" id="I3O-Kz-Hsr"/>
                 <constraint firstAttribute="bottom" secondItem="jnc-f8-STg" secondAttribute="bottom" constant="10" id="PuU-D7-B5Q"/>
                 <constraint firstItem="jnc-f8-STg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dlq-Iz-6tH"/>
                 <constraint firstItem="hQp-s8-ugj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="enW-KX-fru"/>
-                <constraint firstItem="jnc-f8-STg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="i7a-0n-pJW"/>
+                <constraint firstItem="jnc-f8-STg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="i7a-0n-pJW"/>
                 <constraint firstAttribute="bottom" secondItem="hQp-s8-ugj" secondAttribute="bottom" constant="2" id="xS0-C4-jZn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

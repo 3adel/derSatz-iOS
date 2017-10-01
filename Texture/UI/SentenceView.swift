@@ -96,6 +96,7 @@ class SentenceView: UIView {
         translatedTextView.font = UIFont.italicSystemFont(ofSize: 17)
         translatedTextView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1) //.withAlphaComponent(0.2)
         translatedTextView.textColor = .white
+        translatedTextView.layer.cornerRadius = 6
         originalTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTextView(_:))))
     }
     
