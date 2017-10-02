@@ -43,15 +43,15 @@ enum LexicalClass: String {
     var color: UIColor {
         switch self {
         case .noun:
-            return UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 0.6)
+            return UIColor(red: 13/255, green: 113/255, blue: 230/255, alpha: 1)
         case.verb:
-            return UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6)
+            return UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 1)
         case .pronoun:
-            return UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.6)
+            return UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 1)
         case .adverb:
-            return UIColor(red: 108/255, green: 201/255, blue: 7/255, alpha: 0.6)
+            return UIColor(red: 108/255, green: 201/255, blue: 7/255, alpha: 1)
         case .adjective:
-            return UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 0.6)
+            return UIColor(red: 144/255, green: 19/255, blue: 254/255, alpha: 1)
         default:
             return UIColor.black
         }
