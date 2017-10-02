@@ -45,9 +45,9 @@ class WebClient {
         self.manager = manager ?? Alamofire.SessionManager.default
     }
     
-    func createRequest(endpoint: Endpoint, ids: [Token:String]? = nil, queryItems: [URLQueryItem]? = nil, json: Data? = nil, method: HTTPMethod = .GET, cache: Bool = false) -> URLRequest? {
+    func createRequest<T: API>(api: T, endpoint: APIEndpoint, ids: [Token:String]? = nil, queryItems: [URLQueryItem]? = nil, json: Data? = nil, method: HTTPMethod = .GET, cache: Bool = false) -> URLRequest? {
         
-        guard let fullURLString = Endpoint.urlString(from: endpoint, ids: ids, queryItems: queryItems),
+        guard let fullURLString = api.generateURLString(from: endpoint, ids: ids, queryItems: queryItems),
             let url = URL(string: fullURLString)
             else { return nil }
         
@@ -152,73 +152,6 @@ class WebClient {
     
     func listenTo(reachabilityStatus: NetworkReachabilityManager.NetworkReachabilityStatus) {
         self.reachabilityStatus = reachabilityStatus
-    }
-}
-
-public typealias Token = String
-public typealias Parameter = String
-
-public enum Endpoint: String {
-    
-    public static var baseURI: String = "https://translation.googleapis.com/language"
-    public static var apiKey: String = "AIzaSyAEy6HendzSLpnV682gKRPb0gpz_PxlcHE"
-    
-    // MARKK - Locales
-    case translate
-    
-    public var path: String {
-        return self.rawValue
-    }
-    
-    public var endTokens: String {
-        switch self {
-        case .translate:
-            return ""
-        }
-    }
-    
-    
-    public func appError(from apiError: APIError) -> APIError {
-        switch (self) {
-        case .translate:
-            return apiError
-        }
-        
-        return .genericNetworkError
-    }
-    
-    public static func urlString(from endpoint: Endpoint, ids:[Token:String]?, queryItems: [URLQueryItem]? = nil) -> String? {
-        // convert baseURI string to NSURL to avoid cropping of protocol information:
-        var baseURL = URL(string: baseURI)
-        // appended path components will be URL encoded automatically:
-        baseURL = baseURL!.appendingPathComponent(endpoint.path).appendingPathComponent("v2").appendingPathComponent(endpoint.endTokens)
-        // re-decode URL components so token placeholders can be replaced later:
-        var populatedEndPoint: String = baseURL!.absoluteString.removingPercentEncoding!
-        
-        if let replacements = ids {
-            for (token, value) in replacements {
-                populatedEndPoint = populatedEndPoint.replacingOccurrences(of: "{\(token)}", with: value)
-            }
-        }
-        
-        let  apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
-        var queryItemsWithAPIKey = [apiKeyQueryItem]
-        
-        if let queryItems = queryItems {
-            queryItemsWithAPIKey.append(contentsOf: queryItems)
-        }
-        
-        if var urlComponents = URLComponents(string: populatedEndPoint) {
-            urlComponents.queryItems = queryItemsWithAPIKey
-            return urlComponents.string ?? populatedEndPoint
-        }
-        return populatedEndPoint.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlFragmentAllowed)
-    }
-}
-
-private extension String {
-    func stringByAppendingPathComponent(_ comp: String) -> String {
-        return self + "/" + comp
     }
 }
 

@@ -53,9 +53,25 @@ class DataStore {
         }
     }
     
+    func getArticle(at url: String, completion: @escaping(Result<Article, APIError>) -> Void) {
+        dataClient.getArticle(at: url) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let value):
+                guard let dict = value as? JSONDictionary,
+                    let article = Article(with: dict) else {
+                        completion(.failure(APIError.genericNetworkError))
+                        return
+                }
+                
+                completion(.success(article))
+            }
+        }
+    }
+    
     func cancelPreviousSearches() {
         dataClient.cancelAllOperations()
+
     }
 }
-
-
