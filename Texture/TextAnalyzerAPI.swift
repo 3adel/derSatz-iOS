@@ -11,7 +11,6 @@ import Foundation
 struct TextAnalyzerAPI: API {
     typealias Endpoint = TextAnalyzerEndpoint
     public let baseURI: String = "http://138.68.65.167"
-    public let apiKey: String = ""
     
     func appError(from apiError: APIError, for endpoint: TextAnalyzerEndpoint) -> APIError {
         return .genericNetworkError
@@ -21,7 +20,7 @@ struct TextAnalyzerAPI: API {
 enum TextAnalyzerEndpoint: String, APIEndpoint {
     case api
     
-    var endTokens: String {
-        return ""
+    var endTokens: String? {
+        return nil
     }
 }

@@ -14,15 +14,17 @@ public typealias Parameter = String
 protocol API {
     associatedtype Endpoint: APIEndpoint
     var baseURI: String { get }
-    var apiKey: String { get }
+    
+    var genericQueryItems: [URLQueryItem] { get }
     
     func appError(from apiError: APIError, for endpoint: Endpoint) -> APIError
     func generateURLString(from endpoint: APIEndpoint, ids:[Token:String]?, queryItems: [URLQueryItem]?) -> String?
+    func appendGenericPathComponents(to url: URL) -> URL
 }
 
 protocol APIEndpoint {
     var path: String { get }
-    var endTokens: String { get }
+    var endTokens: String? { get }
 }
 
 extension RawRepresentable where RawValue == String, Self: APIEndpoint {
@@ -32,11 +34,23 @@ extension RawRepresentable where RawValue == String, Self: APIEndpoint {
 }
 
 extension API {
+    var genericQueryItems: [URLQueryItem] {
+        return []
+    }
+    
+    func appendGenericPathComponents(to url: URL) -> URL {
+        return url
+    }
+    
     func generateURLString(from endpoint: APIEndpoint, ids:[Token:String]?, queryItems: [URLQueryItem]?) -> String? {
         // convert baseURI string to NSURL to avoid cropping of protocol information:
         var baseURL = URL(string: baseURI)
         // appended path components will be URL encoded automatically:
-        baseURL = baseURL!.appendingPathComponent(endpoint.path).appendingPathComponent("v2").appendingPathComponent(endpoint.endTokens)
+        baseURL = appendGenericPathComponents(to: baseURL!.appendingPathComponent(endpoint.path))
+        
+        if let endTokens = endpoint.endTokens {
+            baseURL = baseURL?.appendingPathComponent(endTokens)
+        }
         // re-decode URL components so token placeholders can be replaced later:
         var populatedEndPoint: String = baseURL!.absoluteString.removingPercentEncoding!
         
@@ -46,15 +60,14 @@ extension API {
             }
         }
         
-        let  apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
-        var queryItemsWithAPIKey = [apiKeyQueryItem]
+        var queryItemsWithGenericQueryItems = genericQueryItems
         
         if let queryItems = queryItems {
-            queryItemsWithAPIKey.append(contentsOf: queryItems)
+            queryItemsWithGenericQueryItems.append(contentsOf: queryItems)
         }
         
         if var urlComponents = URLComponents(string: populatedEndPoint) {
-            urlComponents.queryItems = queryItemsWithAPIKey
+            urlComponents.queryItems = queryItemsWithGenericQueryItems
             return urlComponents.string ?? populatedEndPoint
         }
         return populatedEndPoint.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlFragmentAllowed)
