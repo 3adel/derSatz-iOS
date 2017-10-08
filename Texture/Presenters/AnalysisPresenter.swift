@@ -168,6 +168,7 @@ class AnalysisPresenter: Presenter {
                              unit: .sentence,
                              scheme: .nameTypeOrLexicalClass, options: .default) { tag, tokenRange, stop in
                                 let sentence = (inputText as NSString).substring(with: tokenRange)
+                                guard sentence != "\n" else { return }
                                 sentences.append(sentence)
         }
         
