@@ -46,7 +46,7 @@ class APIClient: DataClient {
             let request = webClient.createRequest(api: googleAPI, endpoint: endpoint,
                                                   json: json,
                                                   method: .POST,
-                                                  cache: true) else {
+                                                  cache: false) else {
                                                     completion(genericErrorResult)
                                                     return
         }
