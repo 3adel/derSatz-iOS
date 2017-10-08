@@ -22,31 +22,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Texture/UI/SentenceView.swift"
-            timestampString = "527981665.11424"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "show(wordDetailPopup:forWordAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Texture/AnalysisViewController.swift"
-            timestampString = "527981665.114359"
+            timestampString = "528584451.906092"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "hideDetailPopup(completion:)"
             landmarkType = "7">
             <Locations>
@@ -122,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Texture/AnalysisViewController.swift"
-            timestampString = "527981665.114558"
+            timestampString = "528584451.906626"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -138,13 +122,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Texture/UI/WordDetailPopupView.swift"
-            timestampString = "527981665.114636"
+            timestampString = "528584451.906995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "update(with:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "529189785.250279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "didGet(allTranslations:forSentences:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Texture.AnalysisPresenter.(didGet in _D7C5ADF960C00BE5747F792213342662)(allTranslations: Swift.Array&lt;Swift.String&gt;, forSentences: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/Presenters/AnalysisPresenter.swift"
+                  timestampString = "529189785.47446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (offset: Swift.Int, element: Swift.String) -&gt; () in Texture.AnalysisPresenter.(didGet in _D7C5ADF960C00BE5747F792213342662)(allTranslations: Swift.Array&lt;Swift.String&gt;, forSentences: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/Presenters/AnalysisPresenter.swift"
+                  timestampString = "529189785.47887"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

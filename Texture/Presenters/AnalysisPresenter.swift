@@ -63,6 +63,13 @@ class AnalysisPresenter: Presenter {
     
     fileprivate var inputText: String?
     
+    var article: Article? {
+        didSet {
+            guard let text = article?.body else { return }
+            update(inputText: text)
+        }
+    }
+    
     fileprivate var analysisView: AnalysisViewProtocol? {
         return view as? AnalysisViewProtocol
     }
