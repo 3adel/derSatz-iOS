@@ -20,6 +20,10 @@ public protocol CollectionViewSectionLayout {
      */
     func prepare()
     
+    func prepareLayout(after index: Int, calculateDynamicSize: Bool)
+    
+    func calculateDynamicSizeIfNeeded(at index: Int)
+    
     /**
      Get the total height of the content, including the header and all of the cells
      

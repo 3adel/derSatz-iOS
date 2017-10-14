@@ -155,6 +155,8 @@ class CollectionViewLayout: UICollectionViewLayout {
         let layout = section(at: indexPath.section).layout
         let frame = elementKind == UICollectionElementKindSectionHeader ? layout.frameForHeader() : layout.frameForFooter()
         
+//        layout.calculateDynamicSizeIfNeeded(at: indexPath.item)
+        layout.prepareLayout(after: indexPath.item, calculateDynamicSize: true)
         attributes.frame = absoluteFrameForSection(atIndex: indexPath.section, withRelativeFrame: frame)
         
         let yOffset = collectionView?.contentOffset.y ?? 0

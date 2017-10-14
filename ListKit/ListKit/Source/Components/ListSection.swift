@@ -198,6 +198,13 @@ open class ListSection {
         return dataSource?.makeCell(at: IndexPath(item: row, section: index)) as? UIView
     }
     
+    public func item(at row: Int) -> UIView? {
+        let cell = self.cell(at: row)
+        guard let wrapperCell = cell as? WrapperCollectionCell,
+            let customView = wrapperCell.getCustomView() else { return cell }
+        return customView
+    }
+    
     public func register(action: UserAction, in componentType: ListViewComponentType, callback: @escaping UserActionCallback) {
         let actionCallbackPair = (action, callback)
         

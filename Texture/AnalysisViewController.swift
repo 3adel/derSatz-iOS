@@ -33,14 +33,9 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     }
     
     func render(with viewModel: AnalysisViewModel) {
-        let sizes: [ViewComponentSize] = viewModel.sentenceInfos.map {
-            let height = calculateHeight(for: $0)
-            return ViewComponentSize(height: height)
-        }
-        
         let section = ListSection(viewIdentifier: SentenceView.Identifier,
                                             viewModels: viewModel.sentenceInfos,
-                                            sizes: sizes)
+                                            sizes: [DynamicViewComponentSize()])
         section.interitemSpacing = 10
         
         let didTapWordCallback: UserActionCallback = { [weak self] _, wordIndexPath in
@@ -111,10 +106,6 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
             completion?()
             self.closeDetailButton?.removeFromSuperview()
         }
-    }
-    
-    private func calculateHeight(for sentenceViewModel: SentenceViewModel) -> CGFloat {
-        return  sentenceViewModel.sentence.height(withConstrainedWidth: view.frame.width, font: .boldSystemFont(ofSize: 19)) + sentenceViewModel.translation.height(withConstrainedWidth: view.frame.width, font: .italicSystemFont(ofSize: 17))
     }
 }
 

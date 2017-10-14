@@ -19,6 +19,22 @@ extension ViewComponentSizeProtocol {
     }
 }
 
+public struct DynamicViewComponentSize: ViewComponentSizeProtocol {
+    public let indentLevel: Int
+    
+    public init(indentLevel: Int = 0) {
+        self.indentLevel = indentLevel 
+    }
+    
+    public func calculateActualSize(in frame: CGRect?) -> CGSize {
+        return .zero
+    }
+}
+
+public protocol SelfSizingCell {
+    func calculateActualSize(in frame: CGRect?) -> CGSize
+}
+
 public struct GridViewComponentSize: ViewComponentSizeProtocol {
     let numberOfItemsPerRow: Int
     let aspectRatio: CGFloat

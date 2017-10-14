@@ -17,6 +17,7 @@ class CollectionViewSectionFlowLayout: CollectionViewSectionLayout {
     private var layoutFrames: [CGRect] = []
     private var headerFrame: CGRect = .zero
     private var footerFrame: CGRect = .zero
+    private var didCalculateDynamicSizes = false
     
     weak var collectionView: UICollectionView? {
         return dataSource?.collectionView
@@ -28,23 +29,9 @@ class CollectionViewSectionFlowLayout: CollectionViewSectionLayout {
             let section = section
             else { return }
         
-        layoutFrames.removeAll()
-        
-        let numberOfItems = collectionView.numberOfItems(inSection: sectionIndex)
-        
         prepareLayoutForHeader(dataSource: dataSource, in: collectionView.frame, scrollDirection: scrollDirection)
         
-        var itemScrollEndPoint: CGFloat = headerFrame.endPoint(with: scrollDirection, in: .scroll)
-        
-        for index in 0..<numberOfItems {
-            let lastFrame = layoutFrames.last ?? .zero
-            let itemFrame = prepareLayoutForItem(at: index, in: section, in: collectionView.frame, after: lastFrame, scrollDirection: scrollDirection)
-            layoutFrames.append(itemFrame)
-            
-            itemScrollEndPoint = max(itemScrollEndPoint, itemFrame.endPoint(with: scrollDirection, in: .scroll))
-        }
-        
-        prepareLayoutForFooter(dataSource: dataSource, in: collectionView.frame, itemScrollEndPoint: itemScrollEndPoint + section.edgeInsets.bottom, scrollDirection: scrollDirection)
+        prepareLayout(after: 0, calculateDynamicSize: false)
     }
     
     func contentScrollSize() -> CGFloat {
@@ -64,14 +51,60 @@ class CollectionViewSectionFlowLayout: CollectionViewSectionLayout {
         return layoutFrames[index]
     }
     
-    private func sizeForItem(at index: Int) -> CGSize {
+    func prepareLayout(after index: Int, calculateDynamicSize: Bool) {
+        guard let dataSource = dataSource,
+            let collectionView = collectionView,
+            let section = section,
+            !didCalculateDynamicSizes && calculateDynamicSize
+            else { return }
+        
+        didCalculateDynamicSizes = true
+        
+        var itemScrollEndPoint: CGFloat = headerFrame.endPoint(with: scrollDirection, in: .scroll)
+        
+        layoutFrames.removeAll(after: index)
+        let numberOfItems = collectionView.numberOfItems(inSection: sectionIndex)
+        
+        for index in index..<numberOfItems {
+            let lastFrame = layoutFrames.last ?? .zero
+            let itemFrame = prepareLayoutForItem(at: index, in: section, in: collectionView.frame, after: lastFrame, scrollDirection: scrollDirection, calculateDynamicSize: calculateDynamicSize)
+            layoutFrames.append(itemFrame)
+            
+            itemScrollEndPoint = max(itemScrollEndPoint, itemFrame.endPoint(with: scrollDirection, in: .scroll))
+        }
+        
+        prepareLayoutForFooter(dataSource: dataSource, in: collectionView.frame, itemScrollEndPoint: itemScrollEndPoint + section.edgeInsets.bottom, scrollDirection: scrollDirection)
+    }
+    
+    func calculateDynamicSizeIfNeeded(at index: Int) {
+        guard section?.sizes[index] is DynamicViewComponentSize else { return }
+        
+        let size = sizeForItem(at: index, calculateDynamicSize: true)
+        layoutFrames[index].size = size
+        for i in index+1..<layoutFrames.count {
+            var origin = layoutFrames[i].origin
+            origin.y = layoutFrames[i-1].bottomY
+            layoutFrames[i].origin = origin
+        }
+        footerFrame.origin.y = layoutFrames.last?.bottomY ?? 0
+    }
+    
+    private func sizeForItem(at index: Int, calculateDynamicSize: Bool) -> CGSize {
         let indexPath = IndexPath(item: index, section: sectionIndex)
         
         guard let collectionView = collectionView,
             let viewComponentSize = dataSource?.getSize(forCellAt: indexPath)
             else { return .zero }
         
-        var actualSize = viewComponentSize.calculateActualSize(in: collectionView.frame)
+        var actualSize: CGSize
+        
+        if calculateDynamicSize,
+            let item = section?.item(at: index) as? SelfSizingCell,
+            viewComponentSize is DynamicViewComponentSize {
+            actualSize = item.calculateActualSize(in: collectionView.frame)
+        } else {
+            actualSize = viewComponentSize.calculateActualSize(in: collectionView.frame)
+        }
         
         actualSize.height -= collectionView.contentInset.top + collectionView.contentInset.bottom
         
@@ -93,8 +126,8 @@ class CollectionViewSectionFlowLayout: CollectionViewSectionLayout {
         footerFrame = CGRect(origin: footerOrigin, size: footerSize)
     }
     
-    private func prepareLayoutForItem(at index: Int, in section: ListSection, in listFrame: CGRect, after lastFrame: CGRect, scrollDirection: UICollectionViewScrollDirection) -> CGRect {
-        let size = sizeForItem(at: index)
+    private func prepareLayoutForItem(at index: Int, in section: ListSection, in listFrame: CGRect, after lastFrame: CGRect, scrollDirection: UICollectionViewScrollDirection, calculateDynamicSize: Bool) -> CGRect {
+        let size = sizeForItem(at: index, calculateDynamicSize: calculateDynamicSize)
         let origin: CGPoint
         
         let interitemSpacing = section.interitemSpacing

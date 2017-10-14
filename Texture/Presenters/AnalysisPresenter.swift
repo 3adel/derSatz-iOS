@@ -217,7 +217,7 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
                                                                    translatedLanguageImageName: "gb_flag",
                                                                    lemma: wordInfo.lemma,
                                                                    lexicalClass: wordInfo.type.rawValue,
-                                                                   backgroundColor: wordInfo.type.color.withAlphaComponent(0.95))
+                                                                   backgroundColor: wordInfo.type.color.withAlphaComponent(0.99))
                 
                 self?.analysisView?.showWordDetailPopup(with: wordDetailViewModel, forWordAt: index, inSentenceAt: sentenceIndex)
             default:
