@@ -146,6 +146,20 @@ extension UITextRange {
     }
 }
 
+extension SentenceView: SelfSizingCell {
+    func calculateActualSize(in frame: CGRect?) -> CGSize {
+        return CGSize(width: frame?.width ?? 0, height: calculateHeight())
+    }
+    
+    private func calculateHeight() -> CGFloat {
+        guard let viewModel = viewModel,
+            let originalTextFont = originalTextView.font,
+            let translatedTextFont = translatedTextView.font else { return 0 }
+        
+        return viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextFont) + viewModel.translation.height(withConstrainedWidth: translatedTextView.frame.width, font: translatedTextFont) + 20
+    }
+}
+
 extension SentenceView: ListViewComponent {
     func update(withViewModel viewModel: Any) {
         guard let viewModel = viewModel as? SentenceViewModel else { return }

@@ -30,3 +30,11 @@ extension UINib {
         return path != nil
     }
 }
+
+extension Array {
+    mutating func removeAll(after index: Int) {
+        while count > index {
+            removeLast()
+        }
+    }
+}

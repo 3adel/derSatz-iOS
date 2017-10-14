@@ -48,10 +48,9 @@ open class ModelFactory {
 extension Translation: JSONDictInitable {
     init?(with dict: JSONDictionary) {
         guard let encodedTranslatedText = dict["translatedText"] as? String,
-            let languageCode = dict["detectedSourceLanguage"] as? String,
-            let translatedLanguage = Language(languageCode: languageCode) else {
-                return nil
-        }
+            let languageCode = dict["detectedSourceLanguage"] as? String else { return nil }
+        
+        let translatedLanguage = Language(languageCode: languageCode) ?? .german
         self.init(translatedText: encodedTranslatedText.removingHTMLEntities, translationLanguage: translatedLanguage)
     }
 }
