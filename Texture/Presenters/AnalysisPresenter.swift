@@ -61,7 +61,7 @@ enum LexicalClass: String {
 class AnalysisPresenter: Presenter {
     var sentenceInfos: [SentenceViewModel] = []
     
-    fileprivate var inputText: String?
+    var inputText: String?
     
     var article: Article? {
         didSet {
@@ -85,12 +85,21 @@ class AnalysisPresenter: Presenter {
     var viewDidAskForInitialData = false
     
     override func getInitialData() {
-        guard dataIsReady else {
-            viewDidAskForInitialData = true
-            return
+        if let urlString = inputText,
+            let _ = URL(string: urlString) {
+             viewDidAskForInitialData = true
+            dataStore.getArticle(at: urlString) { [weak self] result in
+                switch result {
+                case .success(let article):
+                    self?.article = article
+                default:
+                    break
+                }
+            }
+        } else {
+            guard dataIsReady else { viewDidAskForInitialData = true; return }
+            updateView()
         }
-        
-       updateView()
     }
     
     private func updateView() {

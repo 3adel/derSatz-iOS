@@ -18,6 +18,7 @@ protocol InputViewProtocol: View {
 }
 
 protocol AnalysisPresenterProtocol: BasePresenter {
+    var inputText: String? { get set }
     func didTapOnWord(at index: Int, inSentenceAt sentenceIndex: Int)
 }
 
