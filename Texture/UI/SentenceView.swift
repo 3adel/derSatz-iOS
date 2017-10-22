@@ -73,7 +73,7 @@ class SentenceView: UIView {
         }
         
         originalTextView.font = UIFont.systemFont(ofSize: 17)
-        translatedTextView.font = UIFont.italicSystemFont(ofSize: 17)
+        translatedTextView.font = UIFont.systemFont(ofSize: 17)
         translatedTextView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1) //.withAlphaComponent(0.2)
         translatedTextView.textColor = .white
         translatedTextView.layer.cornerRadius = 6
