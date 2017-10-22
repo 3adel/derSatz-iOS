@@ -32,26 +32,29 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         }
         
         var hasURL = false
-        for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            for provider in item.attachments! as! [NSItemProvider] {
-                guard provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) else { continue }
-                // This is an image. We'll load it, then place it in our image view.
-                provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { (url, error) in
-                    guard let url = url as? URL else { return }
-                    DispatchQueue.main.async { [weak self] in
-                        self?.presenter = AnalysisPresenter()
-                        self?.presenter?.view = self
-                        self?.analysisPresenter?.inputText = url.absoluteString
-                        self?.presenter?.getInitialData()
-                    }
-                })
-                hasURL = true
-                break
-            }
-            
-            if (hasURL) {
-                // We only handle one image, so stop looking for more.
-                break
+        
+        if let extentionItems = extensionContext?.inputItems as? [NSExtensionItem] {
+            for item in extentionItems {
+                for provider in item.attachments! as! [NSItemProvider] {
+                    guard provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) else { continue }
+                    // This is an image. We'll load it, then place it in our image view.
+                    provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { (url, error) in
+                        guard let url = url as? URL else { return }
+                        DispatchQueue.main.async { [weak self] in
+                            self?.presenter = AnalysisPresenter()
+                            self?.presenter?.view = self
+                            self?.analysisPresenter?.inputText = url.absoluteString
+                            self?.presenter?.getInitialData()
+                        }
+                    })
+                    hasURL = true
+                    break
+                }
+                
+                if (hasURL) {
+                    // We only handle one image, so stop looking for more.
+                    break
+                }
             }
         }
         
