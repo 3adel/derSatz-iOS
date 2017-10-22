@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,9 +20,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="300" height="161"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popupTriangle" translatesAutoresizingMaskIntoConstraints="NO" id="rJ3-eu-UOf">
-                            <rect key="frame" x="129.5" y="0.0" width="41" height="12"/>
+                            <rect key="frame" x="129.5" y="0.0" width="24" height="12"/>
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <constraints>
+                                <constraint firstAttribute="width" secondItem="rJ3-eu-UOf" secondAttribute="height" multiplier="2:1" id="3Bp-ex-hd4"/>
                                 <constraint firstAttribute="height" constant="12" id="977-7P-p5U"/>
                             </constraints>
                         </imageView>
@@ -101,8 +103,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="rJ3-eu-UOf" firstAttribute="top" secondItem="4Q7-3q-plU" secondAttribute="top" id="Aw0-HT-rDY"/>
+                        <constraint firstItem="rJ3-eu-UOf" firstAttribute="top" secondItem="CCm-Mb-uMt" secondAttribute="bottom" priority="250" id="CW6-3z-P2O"/>
                         <constraint firstAttribute="trailing" secondItem="CCm-Mb-uMt" secondAttribute="trailing" id="Lpi-IB-Qkl"/>
                         <constraint firstItem="CCm-Mb-uMt" firstAttribute="top" secondItem="rJ3-eu-UOf" secondAttribute="bottom" constant="-1" id="LvF-zM-SUU"/>
+                        <constraint firstItem="CCm-Mb-uMt" firstAttribute="top" secondItem="4Q7-3q-plU" secondAttribute="top" priority="250" id="Xlh-Ob-ff3"/>
                         <constraint firstAttribute="bottom" secondItem="CCm-Mb-uMt" secondAttribute="bottom" id="eyH-kH-0oX"/>
                         <constraint firstItem="CCm-Mb-uMt" firstAttribute="leading" secondItem="4Q7-3q-plU" secondAttribute="leading" id="klh-iI-Ggo"/>
                         <constraint firstItem="rJ3-eu-UOf" firstAttribute="leading" secondItem="4Q7-3q-plU" secondAttribute="leading" constant="129.5" id="ymS-yd-0M8"/>
@@ -128,13 +132,18 @@
                 <outlet property="triangleImageView" destination="rJ3-eu-UOf" id="U1D-TX-IhP"/>
                 <outlet property="triangleXConstraint" destination="ymS-yd-0M8" id="G0C-G7-tYZ"/>
                 <outlet property="wordLabel" destination="RqO-yz-fvX" id="NPZ-62-c5I"/>
+                <outletCollection property="triangleBottomConstraints" destination="CW6-3z-P2O" collectionClass="NSMutableArray" id="SAQ-a6-DsL"/>
+                <outletCollection property="triangleBottomConstraints" destination="Xlh-Ob-ff3" collectionClass="NSMutableArray" id="7QB-qz-cAV"/>
+                <outletCollection property="triangleTopConstraints" destination="LvF-zM-SUU" collectionClass="NSMutableArray" id="WCI-f4-wXM"/>
+                <outletCollection property="triangleTopConstraints" destination="Aw0-HT-rDY" collectionClass="NSMutableArray" id="fPk-f7-Obd"/>
+                <outletCollection property="triangleTopConstraints" destination="eyH-kH-0oX" collectionClass="NSMutableArray" id="EtH-JF-d1Z"/>
             </connections>
-            <point key="canvasLocation" x="-3" y="-199.5"/>
+            <point key="canvasLocation" x="-76" y="-350"/>
         </view>
     </objects>
     <resources>
         <image name="de_flag" width="302" height="302"/>
         <image name="gb_flag" width="302" height="302"/>
-        <image name="popupTriangle" width="41" height="17"/>
+        <image name="popupTriangle" width="164" height="81"/>
     </resources>
 </document>

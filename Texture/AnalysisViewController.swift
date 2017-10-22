@@ -72,15 +72,17 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         let yOriginDifference = (popupFrame.origin.y + popupFrame.height + 10) - listView.frame.height
         
+        let trianglePosition: TrianglePosition
         if yOriginDifference > 0 {
-//            let newOffset = CGPoint(x: 0, y: listView.contentOffset.y + yOriginDifference)
-//            listView.setContentOffset(newOffset, animated: false)
-            popupFrame.origin.y = wordFrameInView.origin.y - ( popupFrame.height + 10)
+            trianglePosition = .down
+            popupFrame.origin.y = wordFrameInView.origin.y - popupFrame.height
+        } else {
+            trianglePosition = .up
         }
         
         wordDetailView.frame = popupFrame
         
-        wordDetailView.moveTriangle(to: wordDetailView.convert(wordFrameInView.origin, from: view).x + wordFrameInView.width / 4)
+        wordDetailView.moveTriangle(to: wordDetailView.convert(wordFrameInView.origin, from: view).x + wordFrameInView.width / 4, position: trianglePosition)
         
         wordDetailView.alpha = 0
         view.addSubview(wordDetailView)
