@@ -18,6 +18,10 @@ struct WordDetailPopupViewModel {
     let backgroundColor: UIColor
 }
 
+enum TrianglePosition {
+    case up, down
+}
+
 class WordDetailPopupView: UIView {
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var triangleImageView: UIImageView!
@@ -30,6 +34,8 @@ class WordDetailPopupView: UIView {
     @IBOutlet private var lexicalClassLabel: UILabel!
     
     @IBOutlet private var triangleXConstraint: NSLayoutConstraint!
+    @IBOutlet private var triangleTopConstraints: [NSLayoutConstraint]!
+    @IBOutlet private var triangleBottomConstraints: [NSLayoutConstraint]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,8 +55,28 @@ class WordDetailPopupView: UIView {
         triangleImageView.image = triangleImage
     }
     
-    func moveTriangle(to x: CGFloat) {
+    func moveTriangle(to x: CGFloat, position: TrianglePosition) {
         triangleXConstraint.constant = x
+        
+        
+        let activateConstraints: [NSLayoutConstraint]
+        let deactiveConstraints: [NSLayoutConstraint]
+        let rotationAngle: CGFloat
+        switch position {
+        case .up:
+            activateConstraints = triangleTopConstraints
+            deactiveConstraints = triangleBottomConstraints
+            rotationAngle = 0
+        case .down:
+            activateConstraints = triangleBottomConstraints
+            deactiveConstraints = triangleTopConstraints
+            rotationAngle = .pi
+        }
+        
+        NSLayoutConstraint.activate(activateConstraints)
+        NSLayoutConstraint.deactivate(deactiveConstraints)
+        
+        triangleImageView.transform = CGAffineTransform.identity.rotated(by: rotationAngle)
         setNeedsLayout()
     }
     
