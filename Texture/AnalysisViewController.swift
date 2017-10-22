@@ -73,8 +73,9 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         let yOriginDifference = (popupFrame.origin.y + popupFrame.height + 10) - listView.frame.height
         
         if yOriginDifference > 0 {
-            let newOffset = CGPoint(x: 0, y: listView.contentOffset.y + yOriginDifference)
-            listView.setContentOffset(newOffset, animated: false)
+//            let newOffset = CGPoint(x: 0, y: listView.contentOffset.y + yOriginDifference)
+//            listView.setContentOffset(newOffset, animated: false)
+            popupFrame.origin.y = wordFrameInView.origin.y - ( popupFrame.height + 10)
         }
         
         wordDetailView.frame = popupFrame
