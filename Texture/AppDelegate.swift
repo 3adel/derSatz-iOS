@@ -8,6 +8,9 @@
 
 import UIKit
 import RVMP
+import Fabric
+import Answers
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Router.shared = Router(tabs: [inputTab], with: UIStoryboard(name: "Main", bundle: Bundle.main))
         
         window?.rootViewController = Router.shared?.rootViewController
+        
+        Fabric.with([Crashlytics.self])
         
         return true
     }

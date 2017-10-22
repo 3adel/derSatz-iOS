@@ -48,10 +48,23 @@ open class ModelFactory {
 extension Translation: JSONDictInitable {
     init?(with dict: JSONDictionary) {
         guard let encodedTranslatedText = dict["translatedText"] as? String,
-            let languageCode = dict["detectedSourceLanguage"] as? String,
-            let translatedLanguage = Language(languageCode: languageCode) else {
-                return nil
-        }
+            let languageCode = dict["detectedSourceLanguage"] as? String else { return nil }
+        
+        let translatedLanguage = Language(languageCode: languageCode) ?? .german
         self.init(translatedText: encodedTranslatedText.removingHTMLEntities, translationLanguage: translatedLanguage)
+    }
+}
+
+extension Article: JSONDictInitable {
+    init?(with dict: JSONDictionary) {
+        guard let title = dict["articleTitle"] as? String,
+            let summary = dict["articleNLPSummary"] as? String,
+            let body = dict["articleText"] as? String else { return nil }
+        
+        var topImageURL: URL? = nil
+        if let topImageURLString = dict["articleTopImage"] as? String {
+            topImageURL = URL(string: topImageURLString)
+        }
+        self.init(topImageURL: topImageURL, title: title, summary: summary.removingHTMLEntities, body: body.removingHTMLEntities)
     }
 }

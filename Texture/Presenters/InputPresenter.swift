@@ -10,6 +10,8 @@ import Foundation
 import RVMP
 
 class InputPresenter: Presenter, InputPresenterProtocol {
+    let dataStore = DataStore()
+    
     var inputText: String?
     
     func textInputDidChange(to text: String) {
@@ -18,6 +20,18 @@ class InputPresenter: Presenter, InputPresenterProtocol {
     
     func didTapAnalyseButton() {
         guard let text = inputText else { return }
-        router?.routeToAnalysis(text: text)
+        
+        if let _ = URL(string: text) {
+            dataStore.getArticle(at: text) { [weak self] result in
+                switch result {
+                case .success(let article):
+                    self?.router?.routeToAnalysis(article: article)
+                default:
+                    break
+                }
+            }
+        } else {
+            router?.routeToAnalysis(text: text)
+        }
     }
 }

@@ -63,6 +63,13 @@ class AnalysisPresenter: Presenter {
     
     fileprivate var inputText: String?
     
+    var article: Article? {
+        didSet {
+            guard let text = article?.body else { return }
+            update(inputText: text)
+        }
+    }
+    
     fileprivate var analysisView: AnalysisViewProtocol? {
         return view as? AnalysisViewProtocol
     }
@@ -161,6 +168,7 @@ class AnalysisPresenter: Presenter {
                              unit: .sentence,
                              scheme: .nameTypeOrLexicalClass, options: .default) { tag, tokenRange, stop in
                                 let sentence = (inputText as NSString).substring(with: tokenRange)
+                                guard sentence != "\n" else { return }
                                 sentences.append(sentence)
         }
         
