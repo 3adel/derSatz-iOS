@@ -23,6 +23,8 @@
 		2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22A1F4D567700AB17FC /* WebClient.swift */; };
 		2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22C1F4D56CC00AB17FC /* Error.swift */; };
 		2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22E1F4D56EB00AB17FC /* APIClient.swift */; };
+		247826DD1FAC40C400CB2FC8 /* SentenceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */; };
+		247827071FAD2EEC00CB2FC8 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */; };
 		24956BFD1F8203F600D4D657 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956BFC1F8203F600D4D657 /* API.swift */; };
 		24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C111F82045000D4D657 /* GoogleAPI.swift */; };
 		24956C141F82080800D4D657 /* TextAnalyzerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */; };
@@ -282,6 +284,8 @@
 		2448F22A1F4D567700AB17FC /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
 		2448F22C1F4D56CC00AB17FC /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2448F22E1F4D56EB00AB17FC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceDataSource.swift; sourceTree = "<group>"; };
+		247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		24956BFC1F8203F600D4D657 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		24956C111F82045000D4D657 /* GoogleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPI.swift; sourceTree = "<group>"; };
 		24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzerAPI.swift; sourceTree = "<group>"; };
@@ -407,6 +411,7 @@
 				24F1D8861EFE935B0075FCBB /* AppDelegate.swift */,
 				24F1D8881EFE935B0075FCBB /* InputViewController.swift */,
 				24F1D9061EFECFCE0075FCBB /* AnalysisViewController.swift */,
+				247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */,
 				24F1D88A1EFE935B0075FCBB /* Main.storyboard */,
 				24F1D88D1EFE935B0075FCBB /* Assets.xcassets */,
 				24F1D88F1EFE935B0075FCBB /* LaunchScreen.storyboard */,
@@ -443,6 +448,7 @@
 				24F1D8FC1EFEBA810075FCBB /* UITextViewPlaceholder.swift */,
 				24F1D90A1EFED44E0075FCBB /* UIKitExtensions.swift */,
 				24F1D90C1EFED4B70075FCBB /* Identifiable.swift */,
+				247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 				24F1D90B1EFED44E0075FCBB /* UIKitExtensions.swift in Sources */,
 				24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */,
 				24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */,
+				247826DD1FAC40C400CB2FC8 /* SentenceDataSource.swift in Sources */,
 				24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */,
 				24F1D9071EFECFCE0075FCBB /* AnalysisViewController.swift in Sources */,
 				24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */,
@@ -801,6 +808,7 @@
 				24956C161F8209F800D4D657 /* Article.swift in Sources */,
 				24956C141F82080800D4D657 /* TextAnalyzerAPI.swift in Sources */,
 				2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */,
+				247827071FAD2EEC00CB2FC8 /* FoundationExtensions.swift in Sources */,
 				24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

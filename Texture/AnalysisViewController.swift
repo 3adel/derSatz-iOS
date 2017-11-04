@@ -11,7 +11,7 @@ import RVMP
 import ListKit
 
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
-    @IBOutlet weak var listView: ListView!
+    @IBOutlet var collectionView: UICollectionView!
     
     var presenter: BasePresenter?
     var analysisPresenter: AnalysisPresenterProtocol? {
@@ -22,49 +22,37 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     private var detailPopup: WordDetailPopupView?
     private var closeDetailButton: UIButton?
     
+    private var dataSource = SentenceDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listView.bounces = true
-        listView.onScroll = { [weak self] in
-            self?.hideWordDetail()
-        }
+        setupUI()
         presenter?.getInitialData()
     }
     
     func render(with viewModel: AnalysisViewModel) {
-        let section = ListSection(viewIdentifier: SentenceView.Identifier,
-                                            viewModels: viewModel.sentenceInfos,
-                                            sizes: [DynamicViewComponentSize()])
-        section.interitemSpacing = 10
-        
-        let didTapWordCallback: UserActionCallback = { [weak self] _, wordIndexPath in
-            guard let indexPath = wordIndexPath as? IndexPath else { return }
-            self?.analysisPresenter?.didTapOnWord(at: indexPath.item, inSentenceAt: indexPath.section)
-        }
-        let userAction = UserActionCallbackPair(SentenceAction.didTapWord, didTapWordCallback)
-        section.cellActionCallbacks.append(userAction)
-        
-        listView.update(section: section)
+        dataSource.sentences = viewModel.sentenceInfos
+        collectionView.reloadData()
     }
     
     func showWordDetailPopup(with viewModel: WordDetailPopupViewModel, forWordAt index: Int, inSentenceAt sentenceIndex: Int) {
         guard let wordDetailView = WordDetailPopupView.from(nibWithName: "WordDetailPopupView") as? WordDetailPopupView,
-            let sentenceView = listView.viewForItem(at: IndexPath(item: sentenceIndex, section: 0)) as? SentenceView,
+            let sentenceView = collectionView.cellForItem(at: IndexPath(item: sentenceIndex, section: 0)) as? SentenceView,
             let wordFrame = sentenceView.frameForWord(at: index) else { return }
         
         wordDetailView.update(with: viewModel)
         
-        let wordFrameInList = listView.convert(wordFrame, from: sentenceView)
-        let wordFrameInView = view.convert(wordFrameInList, from: listView)
+        let wordFrameInList = collectionView.convert(wordFrame, from: sentenceView)
+        let wordFrameInView = view.convert(wordFrameInList, from: collectionView)
         var popupFrame = wordFrameInView
         popupFrame.size = CGSize(width: 300, height: 160)
         popupFrame.origin.y += wordFrame.height
         
-        let xOriginDifference = (popupFrame.origin.x + popupFrame.width + 10) - listView.frame.width
+        let xOriginDifference = (popupFrame.origin.x + popupFrame.width + 10) - collectionView.frame.width
         popupFrame.origin.x -= max(xOriginDifference, 0)
         
-        let yOriginDifference = (popupFrame.origin.y + popupFrame.height + 10) - listView.frame.height
+        let yOriginDifference = (popupFrame.origin.y + popupFrame.height + 10) - collectionView.frame.height
         
         let trianglePosition: TrianglePosition
         if yOriginDifference > 0 {
@@ -110,6 +98,23 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
             self.closeDetailButton?.removeFromSuperview()
         }
     }
+    
+    private func setupUI() {
+        dataSource.onScroll = { [weak self] in
+            self?.hideWordDetail()
+        }
+        
+        dataSource.onWordTap = { [weak self] indexPath in
+            self?.analysisPresenter?.didTapOnWord(at: indexPath.item, inSentenceAt: indexPath.section)
+        }
+        
+        
+        collectionView.dataSource = dataSource
+        collectionView.delegate = dataSource
+        
+        let nib = UINib(nibName: SentenceView.Nib, bundle: .main)
+        collectionView.register(nib, forCellWithReuseIdentifier: SentenceView.Identifier)
+    }
 }
 
 extension AnalysisViewController {
@@ -123,22 +128,5 @@ extension AnalysisViewController {
         loader?.stopAnimating()
         navigationItem.rightBarButtonItem = nil
         loader = nil
-    }
-}
-
-extension String {
-    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font: font], context: nil)
-        
-        // TODO: Remove the temp solution to add 20 pts for incorrect calculation of height
-        return ceil(boundingBox.height) + 20
-    }
-    
-    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
-        
-        return ceil(boundingBox.width)
     }
 }
