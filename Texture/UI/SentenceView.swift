@@ -15,7 +15,7 @@ enum SentenceAction: String, UserAction {
     case didTapWord
 }
 
-class SentenceView: UIView {
+class SentenceView: UICollectionViewCell {
     @IBOutlet weak var containerStackView: UIStackView!
     @IBOutlet weak var originalTextView: UITextView!
     @IBOutlet weak var translatedTextView: UITextView!
@@ -33,9 +33,12 @@ class SentenceView: UIView {
     
     var detailPopup: WordDetailPopupView?
     
+    static let originalTextViewFont = UIFont.systemFont(ofSize: 19)
+    static let translatedTextViewFont = UIFont.systemFont(ofSize: 17)
+    
     func update(with viewModel: SentenceViewModel) {
         self.viewModel = viewModel
-        originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: 19)])
+        originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : SentenceView.originalTextViewFont])
         translatedTextView.text = viewModel.translation
         
         originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextView.font!)
@@ -72,9 +75,9 @@ class SentenceView: UIView {
             $0?.isScrollEnabled = false
         }
         
-        originalTextView.font = UIFont.systemFont(ofSize: 17)
-        translatedTextView.font = UIFont.systemFont(ofSize: 17)
-        translatedTextView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1) //.withAlphaComponent(0.2)
+        originalTextView.font = SentenceView.originalTextViewFont
+        translatedTextView.font = SentenceView.translatedTextViewFont
+        translatedTextView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1)
         translatedTextView.textColor = .white
         translatedTextView.layer.cornerRadius = 6
         originalTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTextView(_:))))
@@ -88,41 +91,6 @@ class SentenceView: UIView {
         originalTextView.attributedText = attributedText
         return
     }
-
-    private func addRoundedHighlight(to range: NSRange, with color: UIColor) {
-        let layoutManager = originalTextView.layoutManager
-        
-        let text = originalTextView.text!
-        
-        layoutManager.enumerateLineFragments(forGlyphRange: range) { lineRect, usedRect, textContainer, lineRange, stop in
-            let currentRange = NSIntersectionRange(lineRange, range)
-            
-            var finalLineRect = CGRect.zero
-            
-            text.enumerateSubstrings(in: Range(currentRange, in: text)!, options: .byComposedCharacterSequences) { substring, substringRange, enclosingRange, stop in
-                
-                let singleRange = layoutManager.glyphRange(forCharacterRange: NSRange(substringRange, in: substring!), actualCharacterRange: nil)
-                let glyphRect = layoutManager.boundingRect(forGlyphRange: singleRange, in: textContainer)
-                if finalLineRect == .zero {
-                    finalLineRect = glyphRect
-                } else {
-                    finalLineRect.size.width += glyphRect.size.width
-                }
-            }
-            let insets = self.originalTextView.textContainerInset
-            finalLineRect.origin.x += insets.left
-            finalLineRect.origin.y += insets.top
-            
-            let roundRect = CALayer()
-            roundRect.frame = finalLineRect
-            roundRect.bounds = finalLineRect
-            
-            roundRect.cornerRadius = 4
-            roundRect.backgroundColor = color.cgColor
-            
-            self.originalTextView.layer.addSublayer(roundRect)
-        }
-    }
     
     private func indexOfWord(at range: NSRange) -> Int? {
         return viewModel?.wordInfos.enumerated().reduce(nil) { result, enumeration in
@@ -131,32 +99,11 @@ class SentenceView: UIView {
     }
 }
 
-extension UITextRange {
-    static func from(range: NSRange, in textView: UITextView) -> UITextRange? {
-        let beginning = textView.beginningOfDocument
-        guard let start = textView.position(from: beginning, offset: range.location),
-            let end = textView.position(from: start, offset: range.length) else { return nil }
+extension SentenceView {
+    static func calculateHeight(for viewModel: SentenceViewModel, inWidth width: CGFloat) -> CGFloat {
+        let textViewWidth = width - 20
         
-        return textView.textRange(from: start, to: end)
-    }
-    func toRange(in textView: UITextView) -> NSRange {
-        let location: Int = textView.offset(from: textView.beginningOfDocument, to: self.start)
-        let length: Int = textView.offset(from: self.start, to: self.end)
-        return NSMakeRange(location, length)
-    }
-}
-
-extension SentenceView: SelfSizingCell {
-    func calculateActualSize(in frame: CGRect?) -> CGSize {
-        return CGSize(width: frame?.width ?? 0, height: calculateHeight())
-    }
-    
-    private func calculateHeight() -> CGFloat {
-        guard let viewModel = viewModel,
-            let originalTextFont = originalTextView.font,
-            let translatedTextFont = translatedTextView.font else { return 0 }
-        
-        return viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextFont) + viewModel.translation.height(withConstrainedWidth: translatedTextView.frame.width, font: translatedTextFont) + 20
+        return viewModel.sentence.height(withConstrainedWidth: textViewWidth, font: originalTextViewFont) + viewModel.translation.height(withConstrainedWidth: textViewWidth, font: translatedTextViewFont) + 10
     }
 }
 
