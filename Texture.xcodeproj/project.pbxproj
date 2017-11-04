@@ -406,7 +406,6 @@
 			children = (
 				24FACEAE1F4E141800F47ED9 /* Model */,
 				24F1D9011EFEBD2B0075FCBB /* Presenters */,
-				24F1D8FE1EFEBC280075FCBB /* View */,
 				24F1D8FA1EFEBA100075FCBB /* UI */,
 				24F1D8861EFE935B0075FCBB /* AppDelegate.swift */,
 				24F1D8881EFE935B0075FCBB /* InputViewController.swift */,
@@ -451,13 +450,6 @@
 				247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		24F1D8FE1EFEBC280075FCBB /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		24F1D9011EFEBD2B0075FCBB /* Presenters */ = {
@@ -971,7 +963,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				DEVELOPMENT_TEAM = A88UHFQD28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -990,7 +982,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				DEVELOPMENT_TEAM = A88UHFQD28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
