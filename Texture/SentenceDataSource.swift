@@ -10,6 +10,7 @@ import UIKit
 import ListKit
 
 class SentenceDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var headerViewModel: ArticleImageHeaderViewModel? = nil
     var sentences: [SentenceViewModel] = []
     
     var onWordTap: ((IndexPath) -> Void)?
@@ -45,7 +46,21 @@ class SentenceDataSource: NSObject, UICollectionViewDataSource, UICollectionView
         return CGSize(width: width, height: height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return headerViewModel != nil ? CGSize(width: collectionView.frame.width, height: 300) : .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ArticleImageHeaderView.Identifier, for: indexPath) as? ArticleImageHeaderView,
+        let headerViewModel = headerViewModel
+        else { return UICollectionReusableView() }
+        
+        headerView.update(with: headerViewModel)
+        
+        return headerView
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        onScroll?()
+        onScroll?()
     }
 }

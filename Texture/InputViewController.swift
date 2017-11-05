@@ -24,7 +24,16 @@ class InputViewController: UIViewController, InputViewProtocol {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        textView.placeholder = "Write or paste something here to analyze the text "
+        setupUI()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    private func setupUI() {
+        
         textView.layer.borderColor = UIColor(white: 229/255, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1
         textView.delegate = self
@@ -35,11 +44,6 @@ class InputViewController: UIViewController, InputViewProtocol {
         view.addGestureRecognizer(tapRec)
         
         hideBackButtonText()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @objc

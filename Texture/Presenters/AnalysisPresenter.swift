@@ -17,6 +17,7 @@ public func delay(_ delay: Double, closure: @escaping () -> Void) {
 struct AnalysisViewModel {
     let text: String
     let sentenceInfos: [SentenceViewModel]
+    let headerViewModel: ArticleImageHeaderViewModel?
 }
 
 struct WordViewModel {
@@ -30,6 +31,11 @@ struct SentenceViewModel {
     let sentence: String
     let translation: String
     let wordInfos: [WordViewModel]
+}
+
+struct ArticleImageHeaderViewModel {
+    let title: String
+    let imageURL: URL
 }
 
 enum LexicalClass: String {
@@ -95,8 +101,16 @@ class AnalysisPresenter: Presenter {
     
     private func updateView() {
         guard let text = inputText else { return }
+        
+        var headerViewModel: ArticleImageHeaderViewModel? = nil
+        
+        if let article = article {
+            headerViewModel = makeHeaderViewModel(from: article)
+        }
+        
         let viewModel = AnalysisViewModel(text: text,
-                                          sentenceInfos: sentenceInfos)
+                                          sentenceInfos: sentenceInfos,
+                                          headerViewModel: headerViewModel)
         
         analysisView?.render(with: viewModel)
     }
@@ -153,6 +167,12 @@ class AnalysisPresenter: Presenter {
         return SentenceViewModel(sentence: sentence,
                                  translation: translation,
                                  wordInfos: wordInfos)
+    }
+    
+    private func makeHeaderViewModel(from article: Article) -> ArticleImageHeaderViewModel? {
+        guard let imageURL = article.topImageURL,
+            imageURL.scheme == "https" else { return nil }
+        return ArticleImageHeaderViewModel(title: article.title, imageURL: imageURL)
     }
     
     func update(inputText: String) {
