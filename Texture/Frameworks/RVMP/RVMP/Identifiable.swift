@@ -50,7 +50,5 @@ extension NibCell {
     static var Nib: String { return "\(self)" }
 }
 
-extension UITableViewCell: NibCell {}
-
-extension UICollectionViewCell: NibCell {}
+extension UIView: NibCell {}
 

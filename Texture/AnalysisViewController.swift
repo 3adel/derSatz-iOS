@@ -33,6 +33,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     
     func render(with viewModel: AnalysisViewModel) {
         dataSource.sentences = viewModel.sentenceInfos
+        dataSource.headerViewModel = viewModel.headerViewModel
         collectionView.reloadData()
     }
     
@@ -108,12 +109,15 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
             self?.analysisPresenter?.didTapOnWord(at: indexPath.item, inSentenceAt: indexPath.section)
         }
         
-        
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
         
-        let nib = UINib(nibName: SentenceView.Nib, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: SentenceView.Identifier)
+        let sentenceNib = UINib(nibName: SentenceView.Nib, bundle: .main)
+        collectionView.register(sentenceNib, forCellWithReuseIdentifier: SentenceView.Identifier)
+        
+        let headerNIB = UINib(nibName: ArticleImageHeaderView.Nib, bundle: .main)
+        collectionView.register(headerNIB, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ArticleImageHeaderView.Identifier)
+        
     }
 }
 

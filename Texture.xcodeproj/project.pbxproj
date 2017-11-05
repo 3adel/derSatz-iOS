@@ -23,6 +23,10 @@
 		2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22A1F4D567700AB17FC /* WebClient.swift */; };
 		2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22C1F4D56CC00AB17FC /* Error.swift */; };
 		2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22E1F4D56EB00AB17FC /* APIClient.swift */; };
+		2458411D1FADF77500E6DA88 /* ArticleImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2458411C1FADF77500E6DA88 /* ArticleImageHeaderView.xib */; };
+		245841321FADF82900E6DA88 /* ArticleImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245841311FADF82900E6DA88 /* ArticleImageHeaderView.swift */; };
+		245841611FAE3EE500E6DA88 /* MapleBacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2458415C1FAE3ED100E6DA88 /* MapleBacon.framework */; };
+		245841621FAE3EE500E6DA88 /* MapleBacon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2458415C1FAE3ED100E6DA88 /* MapleBacon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		247826DD1FAC40C400CB2FC8 /* SentenceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */; };
 		247827071FAD2EEC00CB2FC8 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */; };
 		24956BFD1F8203F600D4D657 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956BFC1F8203F600D4D657 /* API.swift */; };
@@ -180,6 +184,34 @@
 			remoteGlobalIDString = D454807C1A957361009D7229;
 			remoteInfo = "Result-iOS";
 		};
+		2458415B1FAE3ED100E6DA88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F2520C481A3EDAFE0061BB33;
+			remoteInfo = MapleBacon;
+		};
+		2458415D1FAE3ED100E6DA88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F2520C531A3EDAFF0061BB33;
+			remoteInfo = MapleBaconTests;
+		};
+		2458415F1FAE3ED100E6DA88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 946B985B1C0C432B00B0276E;
+			remoteInfo = "MapleBacon-tvOS";
+		};
+		245841631FAE3EE500E6DA88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F2520C471A3EDAFE0061BB33;
+			remoteInfo = MapleBacon;
+		};
 		9FB4E4221F5C56D600DA82C1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9FB4E4111F5C56D600DA82C1 /* HTMLString.xcodeproj */;
@@ -261,6 +293,7 @@
 			files = (
 				2448F2071F4D558B00AB17FC /* Alamofire.framework in Embed Frameworks */,
 				242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */,
+				245841621FAE3EE500E6DA88 /* MapleBacon.framework in Embed Frameworks */,
 				2448F2231F4D562000AB17FC /* Result.framework in Embed Frameworks */,
 				9FB4E4371F5C56DE00DA82C1 /* HTMLString.framework in Embed Frameworks */,
 				9FE0D5381F6528D800A9C645 /* ListKit.framework in Embed Frameworks */,
@@ -284,6 +317,9 @@
 		2448F22A1F4D567700AB17FC /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
 		2448F22C1F4D56CC00AB17FC /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2448F22E1F4D56EB00AB17FC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		2458411C1FADF77500E6DA88 /* ArticleImageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleImageHeaderView.xib; sourceTree = "<group>"; };
+		245841311FADF82900E6DA88 /* ArticleImageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageHeaderView.swift; sourceTree = "<group>"; };
+		245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapleBacon.xcodeproj; path = Carthage/Checkouts/MapleBacon/MapleBacon.xcodeproj; sourceTree = "<group>"; };
 		247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceDataSource.swift; sourceTree = "<group>"; };
 		247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		24956BFC1F8203F600D4D657 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -321,6 +357,7 @@
 			files = (
 				2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */,
 				242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */,
+				245841611FAE3EE500E6DA88 /* MapleBacon.framework in Frameworks */,
 				10E4B5BB1F7B03B600418D60 /* Fabric.framework in Frameworks */,
 				10E4B5BD1F7B03D600418D60 /* Answers.framework in Frameworks */,
 				2448F2221F4D562000AB17FC /* Result.framework in Frameworks */,
@@ -376,12 +413,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		245841561FAE3ED100E6DA88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2458415C1FAE3ED100E6DA88 /* MapleBacon.framework */,
+				2458415E1FAE3ED100E6DA88 /* MapleBaconTests.xctest */,
+				245841601FAE3ED100E6DA88 /* MapleBacon.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		24F1D87A1EFE935B0075FCBB = {
 			isa = PBXGroup;
 			children = (
 				10E4B5B61F7B016000418D60 /* Answers.framework */,
 				10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */,
 				10E4B5A01F7AFF7300418D60 /* Fabric.framework */,
+				245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */,
 				9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */,
 				9FB4E4111F5C56D600DA82C1 /* HTMLString.xcodeproj */,
 				2448F20A1F4D561800AB17FC /* Result.xcodeproj */,
@@ -437,6 +485,8 @@
 				24DD63D01F2E0E1800682CC4 /* SentenceView.xib */,
 				241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */,
 				241E3FB91F73D375002131CA /* WordDetailPopupView.swift */,
+				245841311FADF82900E6DA88 /* ArticleImageHeaderView.swift */,
+				2458411C1FADF77500E6DA88 /* ArticleImageHeaderView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -476,12 +526,12 @@
 			isa = PBXGroup;
 			children = (
 				9FB4E4231F5C56D600DA82C1 /* HTMLString.framework */,
-				9FB4E4251F5C56D600DA82C1 /* HTMLString.framework */,
-				9FB4E4271F5C56D600DA82C1 /* HTMLString.framework */,
 				9FB4E4291F5C56D600DA82C1 /* HTMLString.framework */,
+				9FB4E4271F5C56D600DA82C1 /* HTMLString.framework */,
+				9FB4E4251F5C56D600DA82C1 /* HTMLString.framework */,
 				9FB4E42B1F5C56D600DA82C1 /* HTMLString-iOS Tests.xctest */,
-				9FB4E42D1F5C56D600DA82C1 /* HTMLString-tvOS Tests.xctest */,
 				9FB4E42F1F5C56D600DA82C1 /* HTMLString-macOS Tests.xctest */,
+				9FB4E42D1F5C56D600DA82C1 /* HTMLString-tvOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -515,6 +565,7 @@
 				2448F2251F4D562000AB17FC /* PBXTargetDependency */,
 				9FB4E4391F5C56DE00DA82C1 /* PBXTargetDependency */,
 				9FE0D53A1F6528D800A9C645 /* PBXTargetDependency */,
+				245841641FAE3EE500E6DA88 /* PBXTargetDependency */,
 			);
 			name = Texture;
 			productName = Texture;
@@ -559,6 +610,10 @@
 				{
 					ProductGroup = 9FE0D5321F6528D200A9C645 /* Products */;
 					ProjectRef = 9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 245841561FAE3ED100E6DA88 /* Products */;
+					ProjectRef = 245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */;
 				},
 				{
 					ProductGroup = 2448F20B1F4D561800AB17FC /* Products */;
@@ -682,6 +737,27 @@
 			remoteRef = 2448F2201F4D561800AB17FC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		2458415C1FAE3ED100E6DA88 /* MapleBacon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MapleBacon.framework;
+			remoteRef = 2458415B1FAE3ED100E6DA88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2458415E1FAE3ED100E6DA88 /* MapleBaconTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MapleBaconTests.xctest;
+			remoteRef = 2458415D1FAE3ED100E6DA88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		245841601FAE3ED100E6DA88 /* MapleBacon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MapleBacon.framework;
+			remoteRef = 2458415F1FAE3ED100E6DA88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9FB4E4231F5C56D600DA82C1 /* HTMLString.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -748,6 +824,7 @@
 				24F1D8911EFE935B0075FCBB /* LaunchScreen.storyboard in Resources */,
 				241E3FA51F73D35D002131CA /* WordDetailPopupView.xib in Resources */,
 				24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */,
+				2458411D1FADF77500E6DA88 /* ArticleImageHeaderView.xib in Resources */,
 				24F1D88E1EFE935B0075FCBB /* Assets.xcassets in Resources */,
 				24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */,
 			);
@@ -781,6 +858,7 @@
 				24F1D8FD1EFEBA810075FCBB /* UITextViewPlaceholder.swift in Sources */,
 				2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */,
 				24F1D90B1EFED44E0075FCBB /* UIKitExtensions.swift in Sources */,
+				245841321FADF82900E6DA88 /* ArticleImageHeaderView.swift in Sources */,
 				24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */,
 				24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */,
 				247826DD1FAC40C400CB2FC8 /* SentenceDataSource.swift in Sources */,
@@ -822,6 +900,11 @@
 			isa = PBXTargetDependency;
 			name = "Result-iOS";
 			targetProxy = 2448F2241F4D562000AB17FC /* PBXContainerItemProxy */;
+		};
+		245841641FAE3EE500E6DA88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MapleBacon;
+			targetProxy = 245841631FAE3EE500E6DA88 /* PBXContainerItemProxy */;
 		};
 		9FB4E4391F5C56DE00DA82C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
