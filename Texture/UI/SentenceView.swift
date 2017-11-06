@@ -43,6 +43,7 @@ class SentenceView: UICollectionViewCell {
         
         let textViewPadding: CGFloat = 10
         originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width - textViewPadding, font: originalTextView.font!)
+        setNeedsLayout()
 
         viewModel.wordInfos.forEach {
             guard $0.type != .other else { return }

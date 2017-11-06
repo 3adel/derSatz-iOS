@@ -53,8 +53,8 @@ class DataStore {
         }
     }
     
-    func getArticle(at url: String, completion: @escaping(Result<Article, APIError>) -> Void) {
-        dataClient.getArticle(at: url) { result in
+    func getArticle(at url: URL, completion: @escaping(Result<Article, APIError>) -> Void) {
+        dataClient.getArticle(at: url.absoluteString) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
