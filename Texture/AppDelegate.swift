@@ -11,6 +11,7 @@ import RVMP
 import Fabric
 import Answers
 import Crashlytics
+import NVActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
+        NVActivityIndicatorView.DEFAULT_COLOR = .darkGray
+        NVActivityIndicatorView.DEFAULT_TEXT_COLOR = .darkGray
+        NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = .clear
+        NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 20
         
         let inputTab = TabBarSection(title: "Analyse".uppercased(),
                                      presenterType: InputPresenter.self,

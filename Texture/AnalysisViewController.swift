@@ -9,6 +9,7 @@
 import UIKit
 import RVMP
 import ListKit
+import NVActivityIndicatorView
 
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     @IBOutlet var collectionView: UICollectionView!
@@ -101,6 +102,8 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     }
     
     private func setupUI() {
+        title = "Analysis"
+        
         dataSource.onScroll = { [weak self] in
             self?.hideWordDetail()
         }
@@ -117,20 +120,15 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         let headerNIB = UINib(nibName: ArticleImageHeaderView.Nib, bundle: .main)
         collectionView.register(headerNIB, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ArticleImageHeaderView.Identifier)
-        
     }
 }
 
-extension AnalysisViewController {
+extension AnalysisViewController:  NVActivityIndicatorViewable{
     override func showLoader() {
-        loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loader!)
-        loader?.startAnimating()
+        startAnimating(CGSize(width: 30, height: 30), message: "The text is being analysed...")
     }
     
     override func hideLoader() {
-        loader?.stopAnimating()
-        navigationItem.rightBarButtonItem = nil
-        loader = nil
+        stopAnimating()
     }
 }
