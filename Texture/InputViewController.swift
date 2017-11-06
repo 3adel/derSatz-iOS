@@ -33,6 +33,7 @@ class InputViewController: UIViewController, InputViewProtocol {
     }
     
     private func setupUI() {
+        title = "Input"
         
         textView.layer.borderColor = UIColor(white: 229/255, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1
