@@ -103,7 +103,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="rJ3-eu-UOf" firstAttribute="top" secondItem="4Q7-3q-plU" secondAttribute="top" id="Aw0-HT-rDY"/>
-                        <constraint firstItem="rJ3-eu-UOf" firstAttribute="top" secondItem="CCm-Mb-uMt" secondAttribute="bottom" priority="250" id="CW6-3z-P2O"/>
+                        <constraint firstItem="rJ3-eu-UOf" firstAttribute="top" secondItem="CCm-Mb-uMt" secondAttribute="bottom" priority="250" constant="-1" id="CW6-3z-P2O"/>
                         <constraint firstAttribute="trailing" secondItem="CCm-Mb-uMt" secondAttribute="trailing" id="Lpi-IB-Qkl"/>
                         <constraint firstItem="CCm-Mb-uMt" firstAttribute="top" secondItem="rJ3-eu-UOf" secondAttribute="bottom" constant="-1" id="LvF-zM-SUU"/>
                         <constraint firstItem="CCm-Mb-uMt" firstAttribute="top" secondItem="4Q7-3q-plU" secondAttribute="top" priority="250" id="Xlh-Ob-ff3"/>
@@ -144,6 +144,6 @@
     <resources>
         <image name="de_flag" width="302" height="302"/>
         <image name="gb_flag" width="302" height="302"/>
-        <image name="popupTriangle" width="164" height="81"/>
+        <image name="popupTriangle" width="164" height="76"/>
     </resources>
 </document>
