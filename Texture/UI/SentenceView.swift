@@ -41,7 +41,8 @@ class SentenceView: UICollectionViewCell {
         originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : SentenceView.originalTextViewFont])
         translatedTextView.text = viewModel.translation
         
-        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width, font: originalTextView.font!)
+        let textViewPadding: CGFloat = 10
+        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width - textViewPadding, font: originalTextView.font!)
 
         viewModel.wordInfos.forEach {
             guard $0.type != .other else { return }
@@ -101,7 +102,7 @@ class SentenceView: UICollectionViewCell {
 
 extension SentenceView {
     static func calculateHeight(for viewModel: SentenceViewModel, inWidth width: CGFloat) -> CGFloat {
-        let textViewWidth = width - 20
+        let textViewWidth = width - 30
         
         return viewModel.sentence.height(withConstrainedWidth: textViewWidth, font: originalTextViewFont) + viewModel.translation.height(withConstrainedWidth: textViewWidth, font: translatedTextViewFont) + 10
     }
