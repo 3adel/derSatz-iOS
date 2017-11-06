@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,35 +17,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="362" height="184"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="jnc-f8-STg">
-                        <rect key="frame" x="10" y="2" width="342" height="174"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D9a-hd-BwU">
-                                <rect key="frame" x="0.0" y="0.0" width="342" height="92"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="8Vc-sA-BBO"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I8L-nO-Qdi">
-                                <rect key="frame" x="0.0" y="92" width="342" height="82"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D9a-hd-BwU">
+                        <rect key="frame" x="10" y="0.0" width="342" height="92"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="I8L-nO-Qdi" secondAttribute="trailing" id="2v9-1b-v55"/>
-                            <constraint firstItem="I8L-nO-Qdi" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" id="Bet-Lm-nqe"/>
-                            <constraint firstAttribute="bottom" secondItem="I8L-nO-Qdi" secondAttribute="bottom" id="P1w-dO-TZa"/>
-                            <constraint firstItem="D9a-hd-BwU" firstAttribute="top" secondItem="jnc-f8-STg" secondAttribute="top" id="jp6-aV-h0c"/>
-                            <constraint firstItem="I8L-nO-Qdi" firstAttribute="leading" secondItem="jnc-f8-STg" secondAttribute="leading" id="ysM-Ww-JAu"/>
+                            <constraint firstAttribute="height" constant="92" id="8Vc-sA-BBO"/>
                         </constraints>
-                    </stackView>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I8L-nO-Qdi">
+                        <rect key="frame" x="10" y="94" width="342" height="85"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQp-s8-ugj">
                         <rect key="frame" x="0.0" y="183" width="362" height="1"/>
                         <color key="backgroundColor" white="0.80650499131944442" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,21 +45,23 @@
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hQp-s8-ugj" secondAttribute="bottom" id="0u3-qd-3Tq"/>
-                <constraint firstAttribute="bottom" secondItem="jnc-f8-STg" secondAttribute="bottom" constant="8" id="937-zD-L0W"/>
+                <constraint firstAttribute="trailing" secondItem="I8L-nO-Qdi" secondAttribute="trailing" constant="10" id="84H-tH-AJp"/>
+                <constraint firstItem="D9a-hd-BwU" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="KTm-VP-hgy"/>
                 <constraint firstAttribute="trailing" secondItem="hQp-s8-ugj" secondAttribute="trailing" id="O3h-6v-kkf"/>
-                <constraint firstItem="jnc-f8-STg" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="Qad-hB-Ra3"/>
                 <constraint firstItem="hQp-s8-ugj" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" id="Xu0-o1-aYv"/>
-                <constraint firstItem="jnc-f8-STg" firstAttribute="top" secondItem="1xz-rt-dJu" secondAttribute="top" constant="2" id="n3R-Sx-Fr2"/>
-                <constraint firstAttribute="trailing" secondItem="jnc-f8-STg" secondAttribute="trailing" constant="10" id="sla-Lc-pgq"/>
+                <constraint firstItem="I8L-nO-Qdi" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" constant="2" id="gnK-rq-hOn"/>
+                <constraint firstAttribute="trailing" secondItem="D9a-hd-BwU" secondAttribute="trailing" constant="10" id="gvv-Wi-GLy"/>
+                <constraint firstItem="I8L-nO-Qdi" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="hz9-m1-FhL"/>
+                <constraint firstItem="hQp-s8-ugj" firstAttribute="top" secondItem="I8L-nO-Qdi" secondAttribute="bottom" constant="4" id="lrg-Az-yUn"/>
+                <constraint firstItem="D9a-hd-BwU" firstAttribute="top" secondItem="1xz-rt-dJu" secondAttribute="top" id="vnX-og-qL1"/>
             </constraints>
             <size key="customSize" width="362" height="151"/>
             <connections>
-                <outlet property="containerStackView" destination="jnc-f8-STg" id="IX6-lh-5M5"/>
                 <outlet property="originalTextView" destination="D9a-hd-BwU" id="KXS-od-h56"/>
                 <outlet property="originalTextViewConstraint" destination="8Vc-sA-BBO" id="MYs-9g-ZbQ"/>
                 <outlet property="translatedTextView" destination="I8L-nO-Qdi" id="R8X-l2-kZO"/>
             </connections>
-            <point key="canvasLocation" x="19" y="-429.5"/>
+            <point key="canvasLocation" x="19" y="-430"/>
         </collectionViewCell>
     </objects>
 </document>
