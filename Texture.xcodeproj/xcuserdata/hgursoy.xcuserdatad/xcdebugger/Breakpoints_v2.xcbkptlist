@@ -10,61 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Texture/UI/Utility/UITextViewPlaceholder.swift"
-            timestampString = "520033238.501018"
+            timestampString = "531702642.282925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
             endingLineNumber = "75"
             landmarkName = "observeValue(forKeyPath:of:change:context:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Texture/AnalysisViewController.swift"
-            timestampString = "531493225.125835"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "hideWordDetail()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Texture.AnalysisViewController.(hideDetailPopup in _2C86C1F6D28573C65F384A8CD2D6D37B)(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Texture"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/AnalysisViewController.swift"
-                  timestampString = "527703498.361755"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "23">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Texture.AnalysisViewController.(hideDetailPopup in _2C86C1F6D28573C65F384A8CD2D6D37B)(completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Texture"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/AnalysisViewController.swift"
-                  timestampString = "527703498.363795"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "14">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

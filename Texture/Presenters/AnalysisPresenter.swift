@@ -170,8 +170,8 @@ class AnalysisPresenter: Presenter {
     }
     
     private func makeHeaderViewModel(from article: Article) -> ArticleImageHeaderViewModel? {
-        guard let imageURL = article.topImageURL,
-            imageURL.scheme == "https" else { return nil }
+        guard let imageURL = article.topImageURL
+            else { return nil }
         return ArticleImageHeaderViewModel(title: article.title, imageURL: imageURL)
     }
     
