@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mL6-2f-cjh">
-                                <rect key="frame" x="22" y="30" width="331" height="341.5"/>
+                                <rect key="frame" x="22" y="12" width="331" height="101"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
@@ -31,7 +31,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E42-dV-tfy">
-                                <rect key="frame" x="22" y="399" width="331" height="56"/>
+                                <rect key="frame" x="22" y="128" width="331" height="56"/>
                                 <color key="backgroundColor" red="0.29411764705882354" green="0.6705882352941176" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="nNy-hf-OsB"/>
@@ -48,11 +48,11 @@
                         <constraints>
                             <constraint firstItem="E42-dV-tfy" firstAttribute="centerX" secondItem="49c-l1-ket" secondAttribute="centerX" id="Ajs-0m-Wfs"/>
                             <constraint firstItem="E42-dV-tfy" firstAttribute="width" secondItem="mL6-2f-cjh" secondAttribute="width" id="BTv-sh-gPG"/>
-                            <constraint firstItem="mL6-2f-cjh" firstAttribute="top" secondItem="49c-l1-ket" secondAttribute="top" constant="30" id="La9-bW-yAv"/>
+                            <constraint firstItem="mL6-2f-cjh" firstAttribute="top" secondItem="49c-l1-ket" secondAttribute="top" constant="12" id="La9-bW-yAv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mL6-2f-cjh" secondAttribute="trailing" constant="6" id="Vn9-HQ-xE0"/>
                             <constraint firstItem="mL6-2f-cjh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="6" id="cIY-53-XnS"/>
-                            <constraint firstItem="E42-dV-tfy" firstAttribute="top" secondItem="mL6-2f-cjh" secondAttribute="bottom" constant="27.5" id="paX-Ef-v7G"/>
-                            <constraint firstItem="mL6-2f-cjh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.7/3" id="pcB-a1-cOG"/>
+                            <constraint firstItem="E42-dV-tfy" firstAttribute="top" secondItem="mL6-2f-cjh" secondAttribute="bottom" constant="15" id="paX-Ef-v7G"/>
+                            <constraint firstItem="mL6-2f-cjh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.7/3" constant="-240.69999999999999" id="pcB-a1-cOG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="49c-l1-ket"/>
                     </view>
