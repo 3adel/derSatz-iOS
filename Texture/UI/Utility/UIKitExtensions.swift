@@ -57,3 +57,13 @@ extension UIImage {
     }
 }
 
+extension UIView {
+    func setHeightConstraint(to height: CGFloat) {
+        if let constraint = constraints.filter({ $0.firstAttribute == .width }).first {
+            constraint.constant = height
+        } else {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+    }
+}
+

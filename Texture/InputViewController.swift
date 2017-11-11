@@ -45,6 +45,8 @@ class InputViewController: UIViewController, InputViewProtocol {
         view.addGestureRecognizer(tapRec)
         
         hideBackButtonText()
+        
+//        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     @objc

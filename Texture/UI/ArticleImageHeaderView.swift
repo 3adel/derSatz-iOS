@@ -19,11 +19,18 @@ class ArticleImageHeaderView: UICollectionReusableView {
     }
     
     func update(with viewModel: ArticleImageHeaderViewModel) {
-        imageHeader.setImage(withUrl: viewModel.imageURL)
+        if let imageURL = viewModel.imageURL,
+            UIApplication.shared.canOpenURL(imageURL) {
+            imageHeader.setHeightConstraint(to: 215)
+            imageHeader.setImage(withUrl: imageURL)
+        } else {
+            imageHeader.setHeightConstraint(to: 0)
+        }
         titleLabel.text = viewModel.title
     }
     
     private func setupUI() {
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        titleLabel.textAlignment = .left
     }
 }
