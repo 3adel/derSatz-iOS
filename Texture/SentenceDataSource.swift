@@ -47,7 +47,10 @@ class SentenceDataSource: NSObject, UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return headerViewModel != nil ? CGSize(width: collectionView.frame.width, height: 300) : .zero
+        guard let headerViewModel = headerViewModel else { return .zero }
+        
+        let height: CGFloat = headerViewModel.imageURL != nil ? 300 : 80
+        return CGSize(width: collectionView.frame.width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

@@ -35,7 +35,7 @@ struct SentenceViewModel {
 
 struct ArticleImageHeaderViewModel {
     let title: String
-    let imageURL: URL
+    let imageURL: URL?
 }
 
 enum LexicalClass: String {
@@ -170,9 +170,7 @@ class AnalysisPresenter: Presenter {
     }
     
     private func makeHeaderViewModel(from article: Article) -> ArticleImageHeaderViewModel? {
-        guard let imageURL = article.topImageURL
-            else { return nil }
-        return ArticleImageHeaderViewModel(title: article.title, imageURL: imageURL)
+        return ArticleImageHeaderViewModel(title: article.title, imageURL: article.topImageURL)
     }
     
     func update(inputText: String) {
