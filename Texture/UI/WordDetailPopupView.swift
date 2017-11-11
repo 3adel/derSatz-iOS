@@ -47,8 +47,14 @@ class WordDetailPopupView: UIView {
         translationLabel.text = viewModel.translation
         originalLanguageImageView.image = UIImage(named: viewModel.originalLanguageImageName)
         translatedLanguageImageView.image = UIImage(named: viewModel.translatedLanguageImageName)
-        lemmaLabel.text = " - \(viewModel.lemma) - "
-        lexicalClassLabel.text = viewModel.lexicalClass
+        
+        let lemmaString = NSMutableAttributedString(string: "Lemma: \(viewModel.lemma)")
+        lemmaString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: (lemmaString.string as NSString).range(of: "Lemma:"))
+        lemmaLabel.attributedText = lemmaString
+        
+        let lexicalString = NSMutableAttributedString(string: "Lexical Class: \(viewModel.lexicalClass)")
+        lexicalString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: (lexicalString.string as NSString).range(of: "Lexical Class:"))
+        lexicalClassLabel.attributedText = lexicalString
         
         containerView.backgroundColor = viewModel.backgroundColor
         let triangleImage = UIImage(named: "popupTriangle")?.tint(with: viewModel.backgroundColor)
