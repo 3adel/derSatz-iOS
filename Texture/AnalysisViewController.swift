@@ -125,7 +125,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
 
 extension AnalysisViewController:  NVActivityIndicatorViewable {
     override func showLoader() {
-        startAnimating(CGSize(width: 30, height: 30), message: "The text is being analysed...")
+        startAnimating(CGSize(width: 30, height: 30), message: "Analyzing text...")
     }
     
     override func hideLoader() {
