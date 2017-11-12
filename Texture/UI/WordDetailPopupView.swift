@@ -52,8 +52,8 @@ class WordDetailPopupView: UIView {
         lemmaString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: (lemmaString.string as NSString).range(of: "Lemma:"))
         lemmaLabel.attributedText = lemmaString
         
-        let lexicalString = NSMutableAttributedString(string: "Lexical Class: \(viewModel.lexicalClass)")
-        lexicalString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: (lexicalString.string as NSString).range(of: "Lexical Class:"))
+        let lexicalString = NSMutableAttributedString(string: "Parf of speech: \(viewModel.lexicalClass)")
+        lexicalString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: (lexicalString.string as NSString).range(of: "Parf of speech:"))
         lexicalClassLabel.attributedText = lexicalString
         
         containerView.backgroundColor = viewModel.backgroundColor
