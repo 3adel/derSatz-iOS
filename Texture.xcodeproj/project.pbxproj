@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10B358891FB87BCD00D116DA /*  UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */; };
 		10E4B5BB1F7B03B600418D60 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5A01F7AFF7300418D60 /* Fabric.framework */; };
 		10E4B5BC1F7B03D300418D60 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */; };
 		10E4B5BD1F7B03D600418D60 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5B61F7B016000418D60 /* Answers.framework */; };
@@ -328,6 +329,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UITextViewPlaceholder.swift"; sourceTree = "<group>"; };
 		10E4B5A01F7AFF7300418D60 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		10E4B5B61F7B016000418D60 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				24F1D8FA1EFEBA100075FCBB /* UI */,
 				24F1D8861EFE935B0075FCBB /* AppDelegate.swift */,
 				24F1D8881EFE935B0075FCBB /* InputViewController.swift */,
+				10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */,
 				24F1D9061EFECFCE0075FCBB /* AnalysisViewController.swift */,
 				247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */,
 				24F1D88A1EFE935B0075FCBB /* Main.storyboard */,
@@ -924,6 +927,7 @@
 				241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */,
 				24F1D9051EFEBD520075FCBB /* RVMPInterface.swift in Sources */,
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
+				10B358891FB87BCD00D116DA /*  UITextViewPlaceholder.swift in Sources */,
 				24956BFD1F8203F600D4D657 /* API.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,
 				2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */,
