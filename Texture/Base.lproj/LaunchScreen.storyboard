@@ -26,9 +26,8 @@
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Easy German text analysis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmJ-TR-ZFj">
-                                <rect key="frame" x="87" y="296" width="201" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy German text analysis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmJ-TR-ZFj">
+                                <rect key="frame" x="89" y="296" width="197" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -38,6 +37,8 @@
                         <constraints>
                             <constraint firstItem="yWl-h3-ZAO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3gi-Yu-LWG"/>
                             <constraint firstItem="yWl-h3-ZAO" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-73.75" id="IOf-fO-h1I"/>
+                            <constraint firstItem="KmJ-TR-ZFj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="igd-VS-L3y"/>
+                            <constraint firstItem="KmJ-TR-ZFj" firstAttribute="top" secondItem="yWl-h3-ZAO" secondAttribute="bottom" constant="8.5" id="qWV-C6-OPf"/>
                         </constraints>
                     </view>
                 </viewController>
