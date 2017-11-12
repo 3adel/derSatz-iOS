@@ -36,13 +36,13 @@ class SentenceView: UICollectionViewCell {
     static let originalTextViewFont = UIFont.systemFont(ofSize: 19)
     static let translatedTextViewFont = UIFont.systemFont(ofSize: 17)
     
-    func update(with viewModel: SentenceViewModel) {
+    func update(with viewModel: SentenceViewModel, width: CGFloat) {
         self.viewModel = viewModel
         originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : SentenceView.originalTextViewFont])
         translatedTextView.text = viewModel.translation
         
         let textViewPadding: CGFloat = 10
-        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: originalTextView.frame.width - textViewPadding, font: originalTextView.font!)
+        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: width - textViewPadding * 2, font: originalTextView.font!)
         setNeedsLayout()
 
         viewModel.wordInfos.forEach {
@@ -97,7 +97,7 @@ class SentenceView: UICollectionViewCell {
     private func indexOfWord(at range: NSRange) -> Int? {
         return viewModel?.wordInfos.enumerated().reduce(nil) { result, enumeration in
             return result != nil ? result : (enumeration.element.range == range ? enumeration.offset : nil)
-        }
+        }   
     }
 }
 
@@ -111,8 +111,8 @@ extension SentenceView {
 
 extension SentenceView: ListViewComponent {
     func update(withViewModel viewModel: Any) {
-        guard let viewModel = viewModel as? SentenceViewModel else { return }
-        update(with: viewModel)
+//        guard let viewModel = viewModel as? SentenceViewModel else { return }
+//        update(with: viewModel)
     }
     
     func register(action: UserAction, callback: @escaping UserActionCallback) {
