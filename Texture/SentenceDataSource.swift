@@ -19,7 +19,7 @@ class SentenceDataSource: NSObject, UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SentenceView.Identifier, for: indexPath) as? SentenceView else { return UICollectionViewCell() }
 
-        cell.update(with: sentences[indexPath.item])
+        cell.update(with: sentences[indexPath.item], width: collectionView.frame.width)
 
         let didTapWordCallback: UserActionCallback = { [weak self] _, wordIndexPath in
             guard let indexPath = wordIndexPath as? IndexPath else { return }
