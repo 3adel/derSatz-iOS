@@ -41,8 +41,8 @@ class SentenceView: UICollectionViewCell {
         originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : SentenceView.originalTextViewFont])
         translatedTextView.text = viewModel.translation
         
-        let textViewPadding: CGFloat = 10
-        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: width - textViewPadding * 2, font: originalTextView.font!)
+        let textViewPadding: CGFloat = 30
+        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: width - textViewPadding, font: originalTextView.font!)
         setNeedsLayout()
 
         viewModel.wordInfos.forEach {
