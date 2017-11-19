@@ -44,6 +44,8 @@ enum LexicalClass: String {
     case adjective = "Adjective"
     case adverb = "Adverb"
     case pronoun = "Pronoun"
+    case conjunction = "Conjunction"
+    case preposition = "Preposition"
     case other
     
     var color: UIColor {
@@ -58,6 +60,10 @@ enum LexicalClass: String {
             return UIColor(red: 76/255, green: 205/255, blue: 100/255, alpha: 1)
         case .adjective:
             return UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+        case .preposition:
+            return UIColor(red: 192/255, green: 68/255, blue: 245/255, alpha: 1)
+        case .conjunction:
+            return UIColor(red: 0/255, green: 187/255, blue: 208/255, alpha: 1)
         default:
             return UIColor.black
         }
