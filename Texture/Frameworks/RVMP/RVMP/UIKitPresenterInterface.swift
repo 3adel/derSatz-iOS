@@ -19,9 +19,11 @@ extension UIViewController: BaseView {
         UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    open func show(errorMessage: String?) {}
+    @objc
+    public func show(errorMessage: String) {}
     
-    open func show(infoMessage: String?) {}
+    @objc
+    open func show(infoMessage: String) {}
     
     open func showAlert(title: String? = nil, message: String? = nil, actions: [(title: String, completion: VoidFunction?)] = [], cancelAction: (title: String, completion: VoidFunction?)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

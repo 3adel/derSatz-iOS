@@ -61,7 +61,7 @@ extension UITextView: UITextViewDelegate {
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.tag = 100
         placeholderLabel.numberOfLines = 0
-        placeholderLabel.isHidden = self.text.characters.count > 0
+        placeholderLabel.isHidden = self.text.count > 0
         
         placeholderLabel.frame.size = placeholderLabel.sizeThatFits(CGSize(width: frame.width, height: CGFloat.greatestFiniteMagnitude))
         
@@ -73,7 +73,7 @@ extension UITextView: UITextViewDelegate {
     
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let placeholderLabel = self.viewWithTag(100) as? UILabel {
-            placeholderLabel.isHidden = self.text.characters.count > 0
+            placeholderLabel.isHidden = self.text.count > 0
         }
     }
     

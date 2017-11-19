@@ -6,7 +6,7 @@ import Foundation
 
 open class Presenter: BasePresenter {
     public var router: Router?
-    public var view: View?
+    public var view: BaseView?
     
     public required init(router: Router? = nil) {
         self.router = router
