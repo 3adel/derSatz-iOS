@@ -8,6 +8,7 @@
 
 import Foundation
 import RVMP
+import SwiftMessages
 
 protocol InputPresenterProtocol: BasePresenter {
     func textInputDidChange(to text: String)
@@ -27,4 +28,32 @@ protocol AnalysisViewProtocol: View {
 }
 
 protocol AnalysisDetailViewProtocol: View {
+}
+
+extension UIViewController {
+    private var defaultConfig: SwiftMessages.Config {
+        var config = SwiftMessages.Config()
+        config.presentationContext = .window(windowLevel: UIWindowLevelStatusBar)
+        return config
+    }
+    
+    @objc
+    public func show(errorMessage: String) {
+        let messageView = setUpMessageView(withText: errorMessage)
+        messageView.configureTheme(.error)
+        SwiftMessages.show(config: defaultConfig, view: messageView)
+        
+    }
+    
+    public func show(infoMessage: String) {
+        let messageView = setUpMessageView(withText: infoMessage)
+        messageView.configureTheme(.info)
+        SwiftMessages.show(config: defaultConfig, view: messageView)
+    }
+    
+    private func setUpMessageView(withText text: String) -> MessageView {
+        let messageView = MessageView.viewFromNib(layout: .statusLine)
+        messageView.configureContent(title: nil, body: text, iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+        return messageView
+    }
 }

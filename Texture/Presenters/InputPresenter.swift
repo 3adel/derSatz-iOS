@@ -19,7 +19,12 @@ class InputPresenter: Presenter, InputPresenterProtocol {
     }
     
     func didTapAnalyseButton() {
-        guard let text = inputText else { return }
+        guard let text = inputText,
+            !text.isEmpty
+            else {
+                view?.show(errorMessage: "Text input cannot be empty")
+                return
+        }
         
         if let urlText = text.replacingOccurrences(of: " ", with: "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: urlText),

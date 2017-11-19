@@ -11,8 +11,8 @@ public protocol BaseView: class {
     func hideLoader()
     func disableUserInteractions()
     func enableUserInteractions()
-    func show(errorMessage: String?)
-    func show(infoMessage: String?)
+    func show(errorMessage: String)
+    func show(infoMessage: String)
     func showAlert(title: String?, message: String?, actions: [(title: String, completion: (()->())?)], cancelAction: (title: String, completion: (()->())?)?)
 }
 
@@ -21,8 +21,8 @@ public extension BaseView {
     public func hideLoader() {}
     public func disableUserInteractions() {}
     public func enableUserInteractions() {}
-    public func show(errorMessage: String?) {}
-    public func show(infoMessage: String?) {}
+    public func show(errorMessage: String) {}
+    public func show(infoMessage: String) {}
     func showAlert(title: String?, message: String?, actions: [(title: String, completion: (()->())?)], cancelAction: (title: String, completion: (()->())?)?) {}
 }
 
@@ -33,7 +33,7 @@ public protocol View: BaseView {
 public protocol ViewComponent: class {}
 
 public protocol BasePresenter: class {
-    var view: View? { get set }
+    var view: BaseView? { get set }
     
     func getInitialData()
     func viewDidAppear()

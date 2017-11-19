@@ -3,4 +3,5 @@ github "antitypical/Result" "master"
 github "alexaubry/HTMLString" "master"
 github "JanGorman/MapleBacon" ~> 4.0.0
 github "ninjaprox/NVActivityIndicatorView"
+github "SwiftKickMobile/SwiftMessages"
 
