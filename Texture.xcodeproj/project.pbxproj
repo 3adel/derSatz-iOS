@@ -56,6 +56,14 @@
 		24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D9081EFED0920075FCBB /* AnalysisPresenter.swift */; };
 		24F1D90B1EFED44E0075FCBB /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D90A1EFED44E0075FCBB /* UIKitExtensions.swift */; };
 		24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D90C1EFED4B70075FCBB /* Identifiable.swift */; };
+		24F4BF301FC1A39100F683BC /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF281FC1A39100F683BC /* Dosis-Medium.ttf */; };
+		24F4BF311FC1A39100F683BC /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF291FC1A39100F683BC /* Dosis-Regular.ttf */; };
+		24F4BF321FC1A39100F683BC /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2A1FC1A39100F683BC /* Dosis-Light.ttf */; };
+		24F4BF331FC1A39100F683BC /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2B1FC1A39100F683BC /* Dosis-Bold.ttf */; };
+		24F4BF341FC1A39100F683BC /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2C1FC1A39100F683BC /* Dosis-ExtraBold.ttf */; };
+		24F4BF351FC1A39100F683BC /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2D1FC1A39100F683BC /* OFL.txt */; };
+		24F4BF361FC1A39100F683BC /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2E1FC1A39100F683BC /* Dosis-SemiBold.ttf */; };
+		24F4BF371FC1A39100F683BC /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2F1FC1A39100F683BC /* Dosis-ExtraLight.ttf */; };
 		24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FACEBC1F4E142300F47ED9 /* Language.swift */; };
 		24FACEBF1F4E147900F47ED9 /* ModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FACEBE1F4E147900F47ED9 /* ModelFactory.swift */; };
 		9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D21E91F5336C900FB3B61 /* Translation.swift */; };
@@ -401,6 +409,14 @@
 		24F1D9081EFED0920075FCBB /* AnalysisPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisPresenter.swift; sourceTree = "<group>"; };
 		24F1D90A1EFED44E0075FCBB /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		24F1D90C1EFED4B70075FCBB /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		24F4BF281FC1A39100F683BC /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
+		24F4BF291FC1A39100F683BC /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
+		24F4BF2A1FC1A39100F683BC /* Dosis-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.ttf"; sourceTree = "<group>"; };
+		24F4BF2B1FC1A39100F683BC /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.ttf"; sourceTree = "<group>"; };
+		24F4BF2C1FC1A39100F683BC /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
+		24F4BF2D1FC1A39100F683BC /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		24F4BF2E1FC1A39100F683BC /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
+		24F4BF2F1FC1A39100F683BC /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
 		24FACEBC1F4E142300F47ED9 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		24FACEBE1F4E147900F47ED9 /* ModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
 		9F4D21E91F5336C900FB3B61 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
@@ -540,6 +556,7 @@
 		24F1D8851EFE935B0075FCBB /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				24F4BF261FC1A39100F683BC /* Resources */,
 				24D285D01FC0575400C816C8 /* Utility */,
 				24FACEAE1F4E141800F47ED9 /* Model */,
 				24F1D9011EFEBD2B0075FCBB /* Presenters */,
@@ -601,6 +618,29 @@
 				24D285D31FC0581000C816C8 /* SavedPresenters.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		24F4BF261FC1A39100F683BC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				24F4BF271FC1A39100F683BC /* Dosis */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		24F4BF271FC1A39100F683BC /* Dosis */ = {
+			isa = PBXGroup;
+			children = (
+				24F4BF281FC1A39100F683BC /* Dosis-Medium.ttf */,
+				24F4BF291FC1A39100F683BC /* Dosis-Regular.ttf */,
+				24F4BF2A1FC1A39100F683BC /* Dosis-Light.ttf */,
+				24F4BF2B1FC1A39100F683BC /* Dosis-Bold.ttf */,
+				24F4BF2C1FC1A39100F683BC /* Dosis-ExtraBold.ttf */,
+				24F4BF2D1FC1A39100F683BC /* OFL.txt */,
+				24F4BF2E1FC1A39100F683BC /* Dosis-SemiBold.ttf */,
+				24F4BF2F1FC1A39100F683BC /* Dosis-ExtraLight.ttf */,
+			);
+			path = Dosis;
 			sourceTree = "<group>";
 		};
 		24FACEAE1F4E141800F47ED9 /* Model */ = {
@@ -951,11 +991,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F4BF301FC1A39100F683BC /* Dosis-Medium.ttf in Resources */,
+				24F4BF321FC1A39100F683BC /* Dosis-Light.ttf in Resources */,
 				24F1D8911EFE935B0075FCBB /* LaunchScreen.storyboard in Resources */,
+				24F4BF371FC1A39100F683BC /* Dosis-ExtraLight.ttf in Resources */,
 				241E3FA51F73D35D002131CA /* WordDetailPopupView.xib in Resources */,
+				24F4BF331FC1A39100F683BC /* Dosis-Bold.ttf in Resources */,
 				24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */,
+				24F4BF351FC1A39100F683BC /* OFL.txt in Resources */,
+				24F4BF361FC1A39100F683BC /* Dosis-SemiBold.ttf in Resources */,
+				24F4BF341FC1A39100F683BC /* Dosis-ExtraBold.ttf in Resources */,
 				2458411D1FADF77500E6DA88 /* ArticleImageHeaderView.xib in Resources */,
 				24F1D88E1EFE935B0075FCBB /* Assets.xcassets in Resources */,
+				24F4BF311FC1A39100F683BC /* Dosis-Regular.ttf in Resources */,
 				24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1190,7 +1238,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				DEVELOPMENT_TEAM = A88UHFQD28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1209,7 +1257,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				DEVELOPMENT_TEAM = A88UHFQD28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

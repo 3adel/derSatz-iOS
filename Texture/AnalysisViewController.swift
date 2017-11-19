@@ -19,6 +19,8 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         return presenter as? AnalysisPresenterProtocol
     }
     
+    private let themeService = ThemeService()
+    
     private var loader: UIActivityIndicatorView?
     private var detailPopup: WordDetailPopupView?
     private var closeDetailButton: UIButton?
@@ -30,6 +32,14 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         setupUI()
         presenter?.getInitialData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let navigationBar = navigationController?.navigationBar {
+            themeService.setUpLightUI(for: navigationBar)
+        }
     }
     
     func render(with viewModel: AnalysisViewModel) {

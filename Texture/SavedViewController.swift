@@ -11,4 +11,14 @@ import RVMP
 
 class SavedViewController: UIViewController, View {
     var presenter: BasePresenter?
+    
+    private let themeService = ThemeService()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let navigationBar = navigationController?.navigationBar {
+            themeService.setUpLightUI(for: navigationBar)
+        }
+    }
 }
