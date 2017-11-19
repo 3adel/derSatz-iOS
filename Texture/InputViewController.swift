@@ -19,12 +19,23 @@ class InputViewController: UIViewController, InputViewProtocol {
     var inputPresenter: InputPresenterProtocol? {
         return presenter as? InputPresenterProtocol
     }
+    
+    private let themeService = ThemeService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let navigationBar = navigationController?.navigationBar {
+            themeService.setUpDefaultUI(for: navigationBar)
+        }
+        navigationController?.navigationBar.titleTextAttributes?[.font] = UIFont(name: "Dosis-Regular", size: 22)!
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +44,7 @@ class InputViewController: UIViewController, InputViewProtocol {
     }
     
     private func setupUI() {
-        title = "Input"
+        title = "der Satz"
         
         textView.uTextViewPlaceHolder = "Enter a text or an article URL!"
         textView.layer.borderColor = UIColor(white: 229/255, alpha: 1.0).cgColor
@@ -47,7 +58,7 @@ class InputViewController: UIViewController, InputViewProtocol {
         
         hideBackButtonText()
         
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        themeService.setUpDefaultUI(for: analyseButton)
     }
     
     @objc
