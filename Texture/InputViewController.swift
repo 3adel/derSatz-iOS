@@ -46,7 +46,7 @@ class InputViewController: UIViewController, InputViewProtocol {
     private func setupUI() {
         title = "der Satz"
         
-        textView.uTextViewPlaceHolder = "Enter a text or an article URL!"
+        textView.uTextViewPlaceHolder = "Enter a German text or an article URL"
         textView.layer.borderColor = UIColor(white: 229/255, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1
         textView.delegate = self
