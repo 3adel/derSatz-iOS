@@ -21,18 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
-        NVActivityIndicatorView.DEFAULT_COLOR = .darkGray
-        NVActivityIndicatorView.DEFAULT_TEXT_COLOR = .darkGray
-        NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = .clear
-        NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 20
+        ThemeService().setUpAppWideTheme()
         
-        let inputTab = TabBarSection(title: "Analyse".uppercased(),
+        let inputTab = TabBarSection(title: "Analyse",
                                      presenterType: InputPresenter.self,
                                      viewControllerType: InputViewController.self,
                                      imageExtension: "_tab_icon")
         
-        Router.shared = Router(tabs: [inputTab], with: UIStoryboard(name: "Main", bundle: Bundle.main))
+        let savedTab = TabBarSection(title: "Saved",
+                                     presenterType: SavedPresenter.self,
+                                     viewControllerType: SavedViewController.self,
+                                     imageExtension: "_tab_icon")
+        
+        
+        Router.shared = Router(tabs: [inputTab, savedTab], with: UIStoryboard(name: "Main", bundle: Bundle.main))
         
         window?.rootViewController = Router.shared?.rootViewController
         
