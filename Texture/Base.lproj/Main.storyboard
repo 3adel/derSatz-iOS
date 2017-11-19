@@ -123,7 +123,19 @@
                     <view key="view" contentMode="scaleToFill" id="j8m-2T-MEf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-zr-WLV">
+                                <rect key="frame" x="127.5" y="323" width="120" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yMz-zr-WLV" firstAttribute="centerX" secondItem="j8m-2T-MEf" secondAttribute="centerX" id="lnd-6T-eak"/>
+                            <constraint firstItem="yMz-zr-WLV" firstAttribute="centerY" secondItem="j8m-2T-MEf" secondAttribute="centerY" id="s4V-SJ-7HM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="d3v-JM-Qqj"/>
                     </view>
                 </viewController>
