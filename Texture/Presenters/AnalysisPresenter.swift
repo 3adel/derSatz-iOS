@@ -121,18 +121,6 @@ class AnalysisPresenter: Presenter {
         analysisView?.render(with: viewModel)
     }
     
-    private func parseSentences(in text: String) -> [String] {
-        var sentences: [String] = []
-        
-        tagger.enumerateTags(in: text.fullRange,
-                             unit: .sentence,
-                             scheme: .nameTypeOrLexicalClass, options: .default) { tag, tokenRange, stop in
-                                let sentence = (text as NSString).substring(with: tokenRange)
-                                sentences.append(sentence)
-        }
-        return sentences
-    }
-    
     private func makeSentenceInfo(from sentence: String, translation: String) -> SentenceViewModel {
         
         var words: [String] = []
@@ -195,6 +183,8 @@ class AnalysisPresenter: Presenter {
                                 guard sentence != "\n" else { return }
                                 sentences.append(sentence)
         }
+        
+        sentences = sentences.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }
         
         view?.showLoader()
         dataStore.getTranslation(of: sentences, to: .english) { [weak self] result in
