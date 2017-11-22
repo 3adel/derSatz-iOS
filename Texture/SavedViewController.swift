@@ -18,7 +18,7 @@ class SavedViewController: UIViewController, View {
         super.viewWillAppear(animated)
         
         if let navigationBar = navigationController?.navigationBar {
-            themeService.setUpLightUI(for: navigationBar)
+            themeService.setUpDefaultUI(for: navigationBar)
         }
     }
 }

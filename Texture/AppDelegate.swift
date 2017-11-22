@@ -33,8 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                      viewControllerType: SavedViewController.self,
                                      imageExtension: "_tab_icon")
         
+        let settingsTab = TabBarSection(title: "More",
+                                        presenterType: SettingsPresenter.self,
+                                        viewControllerType: MoreViewController.self,
+                                        imageExtension: "_tab_icon")
         
-        Router.shared = Router(tabs: [inputTab, savedTab], with: UIStoryboard(name: "Main", bundle: Bundle.main))
+        Router.shared = Router(tabs: [inputTab, savedTab, settingsTab], with: UIStoryboard(name: "Main", bundle: Bundle.main))
         
         window?.rootViewController = Router.shared?.rootViewController
         

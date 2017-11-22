@@ -36,6 +36,18 @@
 		24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C111F82045000D4D657 /* GoogleAPI.swift */; };
 		24956C141F82080800D4D657 /* TextAnalyzerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */; };
 		24956C161F8209F800D4D657 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C151F8209F800D4D657 /* Article.swift */; };
+		24A4B06E1FC4CC720058CEC0 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0561FC4CC6E0058CEC0 /* SettingsCell.swift */; };
+		24A4B0721FC4CCE00058CEC0 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0711FC4CCDF0058CEC0 /* SettingsPresenter.swift */; };
+		24A4B0741FC4CCF30058CEC0 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0731FC4CCF10058CEC0 /* MoreViewController.swift */; };
+		24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0751FC553820058CEC0 /* SettingsViewModel.swift */; };
+		24A4B07A1FC554020058CEC0 /* AppDependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0771FC553FD0058CEC0 /* AppDependencyManager.swift */; };
+		24A4B07B1FC554020058CEC0 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0781FC553FE0058CEC0 /* Clipboard.swift */; };
+		24A4B07C1FC554020058CEC0 /* EmailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0791FC554000058CEC0 /* EmailComposer.swift */; };
+		24A4B0801FC554EA0058CEC0 /* DictionaryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B07D1FC554E10058CEC0 /* DictionaryKey.swift */; };
+		24A4B0811FC554EA0058CEC0 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B07E1FC554E40058CEC0 /* NotificationName.swift */; };
+		24A4B0821FC554EA0058CEC0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B07F1FC554E70058CEC0 /* Config.swift */; };
+		24A4B0851FC5585E0058CEC0 /* AppReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0831FC558570058CEC0 /* AppReviewController.swift */; };
+		24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0841FC558580058CEC0 /* ShareController.swift */; };
 		24D285C71FC02B1A00C816C8 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; };
 		24D285C81FC02B1A00C816C8 /* SwiftMessages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24D285D21FC0579800C816C8 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D11FC0579800C816C8 /* ThemeService.swift */; };
@@ -388,6 +400,18 @@
 		24956C111F82045000D4D657 /* GoogleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPI.swift; sourceTree = "<group>"; };
 		24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzerAPI.swift; sourceTree = "<group>"; };
 		24956C151F8209F800D4D657 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		24A4B0561FC4CC6E0058CEC0 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		24A4B0711FC4CCDF0058CEC0 /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		24A4B0731FC4CCF10058CEC0 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		24A4B0751FC553820058CEC0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		24A4B0771FC553FD0058CEC0 /* AppDependencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencyManager.swift; sourceTree = "<group>"; };
+		24A4B0781FC553FE0058CEC0 /* Clipboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
+		24A4B0791FC554000058CEC0 /* EmailComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailComposer.swift; sourceTree = "<group>"; };
+		24A4B07D1FC554E10058CEC0 /* DictionaryKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryKey.swift; sourceTree = "<group>"; };
+		24A4B07E1FC554E40058CEC0 /* NotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		24A4B07F1FC554E70058CEC0 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		24A4B0831FC558570058CEC0 /* AppReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReviewController.swift; sourceTree = "<group>"; };
+		24A4B0841FC558580058CEC0 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		24D285BE1FC02AE800C816C8 /* SwiftMessages.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftMessages.xcodeproj; path = Carthage/Checkouts/SwiftMessages/SwiftMessages.xcodeproj; sourceTree = "<group>"; };
 		24D285D11FC0579800C816C8 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		24D285D31FC0581000C816C8 /* SavedPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPresenters.swift; sourceTree = "<group>"; };
@@ -520,7 +544,15 @@
 		24D285D01FC0575400C816C8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				24A4B0771FC553FD0058CEC0 /* AppDependencyManager.swift */,
+				24A4B0781FC553FE0058CEC0 /* Clipboard.swift */,
+				24A4B0791FC554000058CEC0 /* EmailComposer.swift */,
 				24D285D11FC0579800C816C8 /* ThemeService.swift */,
+				24A4B07F1FC554E70058CEC0 /* Config.swift */,
+				24A4B07D1FC554E10058CEC0 /* DictionaryKey.swift */,
+				24A4B07E1FC554E40058CEC0 /* NotificationName.swift */,
+				24A4B0831FC558570058CEC0 /* AppReviewController.swift */,
+				24A4B0841FC558580058CEC0 /* ShareController.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -567,6 +599,7 @@
 				10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */,
 				24F1D9061EFECFCE0075FCBB /* AnalysisViewController.swift */,
 				247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */,
+				24A4B0731FC4CCF10058CEC0 /* MoreViewController.swift */,
 				24F1D88A1EFE935B0075FCBB /* Main.storyboard */,
 				24F1D88D1EFE935B0075FCBB /* Assets.xcassets */,
 				24F1D88F1EFE935B0075FCBB /* LaunchScreen.storyboard */,
@@ -588,6 +621,7 @@
 		24F1D8FA1EFEBA100075FCBB /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				24A4B0561FC4CC6E0058CEC0 /* SettingsCell.swift */,
 				24F1D8FB1EFEBA100075FCBB /* Utility */,
 				24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */,
 				24DD63D01F2E0E1800682CC4 /* SentenceView.xib */,
@@ -613,9 +647,11 @@
 		24F1D9011EFEBD2B0075FCBB /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				24A4B0711FC4CCDF0058CEC0 /* SettingsPresenter.swift */,
 				24F1D9021EFEBD340075FCBB /* InputPresenter.swift */,
 				24F1D9081EFED0920075FCBB /* AnalysisPresenter.swift */,
 				24D285D31FC0581000C816C8 /* SavedPresenters.swift */,
+				24A4B0751FC553820058CEC0 /* SettingsViewModel.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -1036,31 +1072,43 @@
 				24F1D8FD1EFEBA810075FCBB /* UITextViewPlaceholder.swift in Sources */,
 				24D285D61FC0585400C816C8 /* SavedViewController.swift in Sources */,
 				24D285D21FC0579800C816C8 /* ThemeService.swift in Sources */,
+				24A4B0821FC554EA0058CEC0 /* Config.swift in Sources */,
 				2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */,
 				24F1D90B1EFED44E0075FCBB /* UIKitExtensions.swift in Sources */,
 				245841321FADF82900E6DA88 /* ArticleImageHeaderView.swift in Sources */,
+				24A4B07B1FC554020058CEC0 /* Clipboard.swift in Sources */,
 				24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */,
 				24D285D41FC0581000C816C8 /* SavedPresenters.swift in Sources */,
 				24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */,
+				24A4B0801FC554EA0058CEC0 /* DictionaryKey.swift in Sources */,
 				247826DD1FAC40C400CB2FC8 /* SentenceDataSource.swift in Sources */,
 				24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */,
 				24F1D9071EFECFCE0075FCBB /* AnalysisViewController.swift in Sources */,
+				24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */,
+				24A4B0851FC5585E0058CEC0 /* AppReviewController.swift in Sources */,
 				24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */,
 				24F1D9001EFEBC4C0075FCBB /* RouterExtensions.swift in Sources */,
 				241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */,
 				24F1D9051EFEBD520075FCBB /* RVMPInterface.swift in Sources */,
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
 				10B358891FB87BCD00D116DA /*  UITextViewPlaceholder.swift in Sources */,
+				24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */,
 				24956BFD1F8203F600D4D657 /* API.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,
+				24A4B07C1FC554020058CEC0 /* EmailComposer.swift in Sources */,
 				2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */,
+				24A4B0741FC4CCF30058CEC0 /* MoreViewController.swift in Sources */,
 				9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */,
 				24FACEBF1F4E147900F47ED9 /* ModelFactory.swift in Sources */,
 				24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */,
+				24A4B07A1FC554020058CEC0 /* AppDependencyManager.swift in Sources */,
 				24956C161F8209F800D4D657 /* Article.swift in Sources */,
+				24A4B0811FC554EA0058CEC0 /* NotificationName.swift in Sources */,
 				24956C141F82080800D4D657 /* TextAnalyzerAPI.swift in Sources */,
 				2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */,
+				24A4B0721FC4CCE00058CEC0 /* SettingsPresenter.swift in Sources */,
 				247827071FAD2EEC00CB2FC8 /* FoundationExtensions.swift in Sources */,
+				24A4B06E1FC4CC720058CEC0 /* SettingsCell.swift in Sources */,
 				24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

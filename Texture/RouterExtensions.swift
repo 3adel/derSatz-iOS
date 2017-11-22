@@ -18,6 +18,10 @@ extension Router {
         routeToAnalysis(text: nil, article: article)
     }
     
+    func routeToLanguageSelection(languages: [Language], selectedLanguage: Language, languageType: LanguageType) {
+        //TODO: Implementation
+    }
+    
     private func routeToAnalysis(text: String?, article: Article?) {
         guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: AnalysisViewController.Identifier) as? AnalysisViewController else { return }
         
