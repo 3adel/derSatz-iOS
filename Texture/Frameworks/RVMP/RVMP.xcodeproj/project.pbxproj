@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2489302E1EBA24CD00D5FFE2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489302D1EBA24CD00D5FFE2 /* Router.swift */; };
+		24A4B0881FC5806D0058CEC0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0871FC5806D0058CEC0 /* Extensions.swift */; };
 		24A62EEF1EB36D550088B00B /* RVMP.h in Headers */ = {isa = PBXBuildFile; fileRef = 24A62EED1EB36D550088B00B /* RVMP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24A62F0C1EB36DF50088B00B /* UIKitPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A62F081EB36DF50088B00B /* UIKitPresenterInterface.swift */; };
 		24A62F0D1EB36DF50088B00B /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A62F091EB36DF50088B00B /* BaseRouter.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		2489302D1EBA24CD00D5FFE2 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		24A4B0871FC5806D0058CEC0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		24A62EEA1EB36D550088B00B /* RVMP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RVMP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A62EED1EB36D550088B00B /* RVMP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVMP.h; sourceTree = "<group>"; };
 		24A62EEE1EB36D550088B00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				24A62F111EB36F250088B00B /* BaseExtensions.swift */,
+				24A4B0871FC5806D0058CEC0 /* Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				24A62F121EB36F250088B00B /* BaseExtensions.swift in Sources */,
 				24A62F0F1EB36DF50088B00B /* PresenterInterface.swift in Sources */,
 				24A62F0E1EB36DF50088B00B /* Presenter.swift in Sources */,
+				24A4B0881FC5806D0058CEC0 /* Extensions.swift in Sources */,
 				24A62F0D1EB36DF50088B00B /* BaseRouter.swift in Sources */,
 				24F1D8F91EFEACD40075FCBB /* Identifiable.swift in Sources */,
 				2489302E1EBA24CD00D5FFE2 /* Router.swift in Sources */,

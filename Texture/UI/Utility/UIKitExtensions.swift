@@ -22,6 +22,19 @@ public extension UIViewController {
         let backButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         navigationItem.backBarButtonItem = backButtonItem
     }
+    
+    public func setupTabBar(shouldShow: Bool) {
+        let bottomPoint = tabBarController!.view.frame.height
+        let yPoint = shouldShow ? bottomPoint - (tabBarController?.tabBar.frame.height)! : bottomPoint
+        
+        UIView.animate(withDuration: 0.3) {
+            var frame = self.tabBarController!.tabBar.frame
+            frame.origin.y = yPoint
+            
+            self.tabBarController?.tabBar.frame = frame
+            self.tabBarController?.tabBar.isHidden = !shouldShow
+        }
+    }
 }
 
 extension UIView {
@@ -67,3 +80,25 @@ extension UIView {
     }
 }
 
+// MARK: - device
+
+public func isPad() -> Bool {
+    return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+}
+
+public func isPhone() -> Bool {
+    return (!isPad()) && UIApplication.shared.canOpenURL(URL(string: "tel:123")!)
+}
+
+extension NSMutableAttributedString {
+    
+    @discardableResult
+    public func set(_ text :String, asLink link:String) -> Bool {
+        let foundRange = self.mutableString.range(of: text)
+        if foundRange.location != NSNotFound {
+            self.addAttribute(.link, value: link, range: foundRange)
+            return true
+        }
+        return false
+    }
+}

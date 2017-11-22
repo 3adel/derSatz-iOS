@@ -33,8 +33,6 @@ public protocol View: BaseView {
 public protocol ViewComponent: class {}
 
 public protocol BasePresenter: class {
-    var view: BaseView? { get set }
-    
     func getInitialData()
     func viewDidAppear()
 }

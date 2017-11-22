@@ -5,7 +5,7 @@
 import Foundation
 
 public protocol BaseRouter {
-    func show(_ view: View)
+    func show(view: View)
     func dismiss()
 }
 

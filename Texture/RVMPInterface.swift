@@ -30,6 +30,15 @@ protocol AnalysisViewProtocol: View {
 protocol AnalysisDetailViewProtocol: View {
 }
 
+protocol SettingsView: View {
+    func render(with viewModel: SettingsViewModel)
+}
+
+protocol SettingsPresenterType: BasePresenter {
+    func getOptions()
+    func optionSelected(at section: Int, index: Int, sourceView: ViewComponent, sourceRect: CGRect)
+}
+
 extension UIViewController {
     private var defaultConfig: SwiftMessages.Config {
         var config = SwiftMessages.Config()

@@ -41,6 +41,10 @@ open class Router: BaseRouter {
         setup(tabs: tabs, from: storyboard)
     }
     
+    public init(view: View) {
+        self.rootViewController = view as? UIViewController
+    }
+    
     var visibleController: UIViewController {
         return UIWindow.visibleViewController(from: self.rootViewController!)
     }
@@ -72,9 +76,37 @@ open class Router: BaseRouter {
         rootViewController = tabBarController
     }
     
-    public func show(_ view: View) {}
+    public func present(sheetViewController viewController: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil) {
+        if isPad() {
+            viewController.modalPresentationStyle = .popover
+            viewController.popoverPresentationController?.sourceView = sourceView
+            if let sourceRect = sourceRect {
+                viewController.popoverPresentationController?.sourceRect = sourceRect
+            }
+        }
+        rootViewController?.present(viewController, animated: true, completion: nil)
+    }
     
-    public func dismiss() {}
+    public func show(viewController: UIViewController) {
+        rootViewController?.present(viewController, animated: true, completion: nil)
+    }
+    
+    public func show(view: View) {
+        guard let vc = view as? UIViewController else { return }
+        show(viewController: vc)
+    }
+    
+    public func dismiss() {
+        if let navigationVC = rootViewController?.navigationController {
+            navigationVC.popViewController(animated: true)
+        } else {
+            rootViewController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    public func dismissModal() {
+        rootViewController?.dismiss(animated: true, completion: nil)
+    }
 }
 
 public extension Router {
