@@ -9,67 +9,6 @@
 import Foundation
 import RVMP
 
-public func delay(_ delay: Double, closure: @escaping () -> Void) {
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
-                                  execute: closure)
-}
-
-struct AnalysisViewModel {
-    let text: String
-    let sentenceInfos: [SentenceViewModel]
-    let headerViewModel: ArticleImageHeaderViewModel?
-}
-
-struct WordViewModel {
-    let word: String
-    let lemma: String
-    let type: LexicalClass
-    let range: NSRange
-}
-
-struct SentenceViewModel {
-    let sentence: String
-    let translation: String
-    let wordInfos: [WordViewModel]
-}
-
-struct ArticleImageHeaderViewModel {
-    let title: String
-    let imageURL: URL?
-}
-
-enum LexicalClass: String {
-    case noun = "Noun"
-    case verb = "Verb"
-    case adjective = "Adjective"
-    case adverb = "Adverb"
-    case pronoun = "Pronoun"
-    case conjunction = "Conjunction"
-    case preposition = "Preposition"
-    case other
-    
-    var color: UIColor {
-        switch self {
-        case .noun:
-            return UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
-        case.verb:
-            return UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-        case .pronoun:
-            return UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
-        case .adverb:
-            return UIColor(red: 76/255, green: 205/255, blue: 100/255, alpha: 1)
-        case .adjective:
-            return UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
-        case .preposition:
-            return UIColor(red: 192/255, green: 68/255, blue: 245/255, alpha: 1)
-        case .conjunction:
-            return UIColor(red: 0/255, green: 187/255, blue: 208/255, alpha: 1)
-        default:
-            return UIColor.black
-        }
-    }
-}
-
 class AnalysisPresenter: Presenter {
     var sentenceInfos: [SentenceViewModel] = []
     
