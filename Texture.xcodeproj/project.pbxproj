@@ -13,6 +13,20 @@
 		10E4B5BD1F7B03D600418D60 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5B61F7B016000418D60 /* Answers.framework */; };
 		241E3FA51F73D35D002131CA /* WordDetailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */; };
 		241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E3FB91F73D375002131CA /* WordDetailPopupView.swift */; };
+		242532711FCE8EA40057E6D5 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F2261F4D563000AB17FC /* DataStore.swift */; };
+		242532891FCE8EAB0057E6D5 /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F2281F4D564500AB17FC /* DataClient.swift */; };
+		2425328A1FCE8EB10057E6D5 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22A1F4D567700AB17FC /* WebClient.swift */; };
+		2425328B1FCE8EBA0057E6D5 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22C1F4D56CC00AB17FC /* Error.swift */; };
+		2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22E1F4D56EB00AB17FC /* APIClient.swift */; };
+		2425328E1FCE8ECD0057E6D5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956BFC1F8203F600D4D657 /* API.swift */; };
+		2425328F1FCE8ED10057E6D5 /* GoogleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C111F82045000D4D657 /* GoogleAPI.swift */; };
+		242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */; };
+		242532911FCE8EE80057E6D5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F2191F4D561800AB17FC /* Result.framework */; };
+		242532921FCE8EED0057E6D5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
+		242532931FCE8F010057E6D5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FACEBC1F4E142300F47ED9 /* Language.swift */; };
+		242532941FCE8F050057E6D5 /* ModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FACEBE1F4E147900F47ED9 /* ModelFactory.swift */; };
+		242532951FCE8F070057E6D5 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C151F8209F800D4D657 /* Article.swift */; };
+		242532971FCE8F1F0057E6D5 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D21E91F5336C900FB3B61 /* Translation.swift */; };
 		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
 		242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
@@ -36,6 +50,18 @@
 		248E83FA1FCAB87200AA5484 /* LexicalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E83F91FCAB87200AA5484 /* LexicalClass.swift */; };
 		248E83FC1FCAB8B000AA5484 /* AnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E83FB1FCAB8B000AA5484 /* AnalysisViewModel.swift */; };
 		248E83FE1FCAB96600AA5484 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */; };
+		248E84061FCD3A0100AA5484 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E84051FCD3A0100AA5484 /* ShareViewController.swift */; };
+		248E84091FCD3A0100AA5484 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 248E84071FCD3A0100AA5484 /* MainInterface.storyboard */; };
+		248E840D1FCD3A0100AA5484 /* Der Satz Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 248E84031FCD3A0000AA5484 /* Der Satz Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		248E84131FCE86FC00AA5484 /* GetURL.js in Resources */ = {isa = PBXBuildFile; fileRef = 248E84121FCE86FC00AA5484 /* GetURL.js */; };
+		248E84151FCE891600AA5484 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D11FC0579800C816C8 /* ThemeService.swift */; };
+		248E84171FCE89C500AA5484 /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF281FC1A39100F683BC /* Dosis-Medium.ttf */; };
+		248E84181FCE89C500AA5484 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF291FC1A39100F683BC /* Dosis-Regular.ttf */; };
+		248E84191FCE89C500AA5484 /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2A1FC1A39100F683BC /* Dosis-Light.ttf */; };
+		248E841A1FCE89C500AA5484 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2B1FC1A39100F683BC /* Dosis-Bold.ttf */; };
+		248E841B1FCE89C500AA5484 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2C1FC1A39100F683BC /* Dosis-ExtraBold.ttf */; };
+		248E841C1FCE89C500AA5484 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2E1FC1A39100F683BC /* Dosis-SemiBold.ttf */; };
+		248E841D1FCE89C500AA5484 /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F4BF2F1FC1A39100F683BC /* Dosis-ExtraLight.ttf */; };
 		24956BFD1F8203F600D4D657 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956BFC1F8203F600D4D657 /* API.swift */; };
 		24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C111F82045000D4D657 /* GoogleAPI.swift */; };
 		24956C141F82080800D4D657 /* TextAnalyzerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */; };
@@ -54,7 +80,6 @@
 		24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0841FC558580058CEC0 /* ShareController.swift */; };
 		24D285C71FC02B1A00C816C8 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; };
 		24D285C81FC02B1A00C816C8 /* SwiftMessages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		24D285D21FC0579800C816C8 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D11FC0579800C816C8 /* ThemeService.swift */; };
 		24D285D41FC0581000C816C8 /* SavedPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D31FC0581000C816C8 /* SavedPresenters.swift */; };
 		24D285D61FC0585400C816C8 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D51FC0585400C816C8 /* SavedViewController.swift */; };
 		24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */; };
@@ -265,6 +290,13 @@
 			remoteGlobalIDString = 1F0326931F0D24BE00BF3358;
 			remoteInfo = NVActivityIndicatorView;
 		};
+		248E840B1FCD3A0100AA5484 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F1D87B1EFE935B0075FCBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 248E84021FCD3A0000AA5484;
+			remoteInfo = "Der Satz";
+		};
 		24D285C31FC02AE800C816C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24D285BE1FC02AE800C816C8 /* SwiftMessages.xcodeproj */;
@@ -359,6 +391,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		248E84111FCD3A0100AA5484 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				248E840D1FCD3A0100AA5484 /* Der Satz Share.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24F1D8E51EFE9FFA0075FCBB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +447,11 @@
 		248E83F91FCAB87200AA5484 /* LexicalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalClass.swift; sourceTree = "<group>"; };
 		248E83FB1FCAB8B000AA5484 /* AnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewModel.swift; sourceTree = "<group>"; };
 		248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		248E84031FCD3A0000AA5484 /* Der Satz Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Der Satz Share.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		248E84051FCD3A0100AA5484 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		248E84081FCD3A0100AA5484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		248E840A1FCD3A0100AA5484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		248E84121FCE86FC00AA5484 /* GetURL.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GetURL.js; sourceTree = "<group>"; };
 		24956BFC1F8203F600D4D657 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		24956C111F82045000D4D657 /* GoogleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPI.swift; sourceTree = "<group>"; };
 		24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzerAPI.swift; sourceTree = "<group>"; };
@@ -457,6 +505,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		248E84001FCD3A0000AA5484 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242532921FCE8EED0057E6D5 /* Alamofire.framework in Frameworks */,
+				242532911FCE8EE80057E6D5 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24F1D8801EFE935B0075FCBB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,6 +606,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		248E84041FCD3A0100AA5484 /* Der Satz Share */ = {
+			isa = PBXGroup;
+			children = (
+				248E84051FCD3A0100AA5484 /* ShareViewController.swift */,
+				248E84071FCD3A0100AA5484 /* MainInterface.storyboard */,
+				248E840A1FCD3A0100AA5484 /* Info.plist */,
+				248E84121FCE86FC00AA5484 /* GetURL.js */,
+			);
+			path = "Der Satz Share";
+			sourceTree = "<group>";
+		};
 		24D285BF1FC02AE800C816C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +658,7 @@
 				245841861FB129BF00E6DA88 /* NVActivityIndicatorView.xcodeproj */,
 				24D285BE1FC02AE800C816C8 /* SwiftMessages.xcodeproj */,
 				24F1D8851EFE935B0075FCBB /* Texture */,
+				248E84041FCD3A0100AA5484 /* Der Satz Share */,
 				24F1D8841EFE935B0075FCBB /* Products */,
 				10E4B5BA1F7B03B600418D60 /* Frameworks */,
 			);
@@ -599,6 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				24F1D8831EFE935B0075FCBB /* Texture.app */,
+				248E84031FCD3A0000AA5484 /* Der Satz Share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -735,6 +805,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		248E84021FCD3A0000AA5484 /* Der Satz Share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 248E840E1FCD3A0100AA5484 /* Build configuration list for PBXNativeTarget "Der Satz Share" */;
+			buildPhases = (
+				248E83FF1FCD3A0000AA5484 /* Sources */,
+				248E84001FCD3A0000AA5484 /* Frameworks */,
+				248E84011FCD3A0000AA5484 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Der Satz Share";
+			productName = "Der Satz";
+			productReference = 248E84031FCD3A0000AA5484 /* Der Satz Share.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		24F1D8821EFE935B0075FCBB /* Texture */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24F1D8951EFE935B0075FCBB /* Build configuration list for PBXNativeTarget "Texture" */;
@@ -744,6 +831,7 @@
 				24F1D8811EFE935B0075FCBB /* Resources */,
 				24F1D8E51EFE9FFA0075FCBB /* Embed Frameworks */,
 				10E4B5B51F7AFFC700418D60 /* ShellScript */,
+				248E84111FCD3A0100AA5484 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -756,6 +844,7 @@
 				245841641FAE3EE500E6DA88 /* PBXTargetDependency */,
 				245841A71FB129CE00E6DA88 /* PBXTargetDependency */,
 				24D285CA1FC02B1A00C816C8 /* PBXTargetDependency */,
+				248E840C1FCD3A0100AA5484 /* PBXTargetDependency */,
 			);
 			name = Texture;
 			productName = Texture;
@@ -768,10 +857,14 @@
 		24F1D87B1EFE935B0075FCBB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Texture;
 				TargetAttributes = {
+					248E84021FCD3A0000AA5484 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					24F1D8821EFE935B0075FCBB = {
 						CreatedOnToolsVersion = 9.0;
 					};
@@ -825,6 +918,7 @@
 			projectRoot = "";
 			targets = (
 				24F1D8821EFE935B0075FCBB /* Texture */,
+				248E84021FCD3A0000AA5484 /* Der Satz Share */,
 			);
 		};
 /* End PBXProject section */
@@ -1043,6 +1137,22 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		248E84011FCD3A0000AA5484 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				248E841A1FCE89C500AA5484 /* Dosis-Bold.ttf in Resources */,
+				248E84091FCD3A0100AA5484 /* MainInterface.storyboard in Resources */,
+				248E841D1FCE89C500AA5484 /* Dosis-ExtraLight.ttf in Resources */,
+				248E84131FCE86FC00AA5484 /* GetURL.js in Resources */,
+				248E84181FCE89C500AA5484 /* Dosis-Regular.ttf in Resources */,
+				248E841C1FCE89C500AA5484 /* Dosis-SemiBold.ttf in Resources */,
+				248E841B1FCE89C500AA5484 /* Dosis-ExtraBold.ttf in Resources */,
+				248E84191FCE89C500AA5484 /* Dosis-Light.ttf in Resources */,
+				248E84171FCE89C500AA5484 /* Dosis-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24F1D8811EFE935B0075FCBB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1083,6 +1193,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		248E83FF1FCD3A0000AA5484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				248E84061FCD3A0100AA5484 /* ShareViewController.swift in Sources */,
+				242532931FCE8F010057E6D5 /* Language.swift in Sources */,
+				2425328F1FCE8ED10057E6D5 /* GoogleAPI.swift in Sources */,
+				242532941FCE8F050057E6D5 /* ModelFactory.swift in Sources */,
+				242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */,
+				242532971FCE8F1F0057E6D5 /* Translation.swift in Sources */,
+				242532711FCE8EA40057E6D5 /* DataStore.swift in Sources */,
+				242532891FCE8EAB0057E6D5 /* DataClient.swift in Sources */,
+				2425328B1FCE8EBA0057E6D5 /* Error.swift in Sources */,
+				242532951FCE8F070057E6D5 /* Article.swift in Sources */,
+				2425328A1FCE8EB10057E6D5 /* WebClient.swift in Sources */,
+				2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */,
+				2425328E1FCE8ECD0057E6D5 /* API.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24F1D87F1EFE935B0075FCBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1091,7 +1221,6 @@
 				2448F2271F4D563000AB17FC /* DataStore.swift in Sources */,
 				24F1D8FD1EFEBA810075FCBB /* UITextViewPlaceholder.swift in Sources */,
 				24D285D61FC0585400C816C8 /* SavedViewController.swift in Sources */,
-				24D285D21FC0579800C816C8 /* ThemeService.swift in Sources */,
 				24A4B0821FC554EA0058CEC0 /* Config.swift in Sources */,
 				248E83FC1FCAB8B000AA5484 /* AnalysisViewModel.swift in Sources */,
 				2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */,
@@ -1116,6 +1245,7 @@
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
 				10B358891FB87BCD00D116DA /*  UITextViewPlaceholder.swift in Sources */,
 				24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */,
+				248E84151FCE891600AA5484 /* ThemeService.swift in Sources */,
 				24956BFD1F8203F600D4D657 /* API.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,
 				24A4B07C1FC554020058CEC0 /* EmailComposer.swift in Sources */,
@@ -1165,6 +1295,11 @@
 			name = NVActivityIndicatorView;
 			targetProxy = 245841A61FB129CE00E6DA88 /* PBXContainerItemProxy */;
 		};
+		248E840C1FCD3A0100AA5484 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 248E84021FCD3A0000AA5484 /* Der Satz Share */;
+			targetProxy = 248E840B1FCD3A0100AA5484 /* PBXContainerItemProxy */;
+		};
 		24D285CA1FC02B1A00C816C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftMessages;
@@ -1183,6 +1318,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		248E84071FCD3A0100AA5484 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				248E84081FCD3A0100AA5484 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		24F1D88A1EFE935B0075FCBB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1202,6 +1345,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		248E840F1FCD3A0100AA5484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Der-Satz";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		248E84101FCD3A0100AA5484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UB7THC2G3;
+				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Der-Satz";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		24F1D8931EFE935B0075FCBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1346,6 +1525,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		248E840E1FCD3A0100AA5484 /* Build configuration list for PBXNativeTarget "Der Satz Share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				248E840F1FCD3A0100AA5484 /* Debug */,
+				248E84101FCD3A0100AA5484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		24F1D87E1EFE935B0075FCBB /* Build configuration list for PBXProject "Texture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
