@@ -38,13 +38,21 @@ class ShareViewController: SLComposeServiceViewController {
                 self?.dataStore.getArticle(at: shareURL) { result in
                     switch result {
                     case .success(let article):
-                        print("Article title: \(article.title)")
+                        self?.dataStore.save(article) { _ in }
+                        self?.dataStore.getSavedArticles() { result in
+                            switch result {
+                            case .success(let articles):
+                                print(articles)
+                            default:
+                                break
+                            }
+                            self?.extensionContext?.completeRequest(returningItems: [], completionHandler:nil)
+                        }
                     default:
                         break
                     }
                 }
             }
-            self?.extensionContext?.completeRequest(returningItems: [], completionHandler:nil)
         })
     }
 

@@ -9,9 +9,11 @@ class DataStore {
     private static let defaultClient = APIClient()
     
     private let dataClient: DataClient
+    private let localStorage: LocalStorageProtocol
     
-    init(dataClient: DataClient? = nil) {
+    init(dataClient: DataClient? = nil, localStorage: LocalStorageProtocol? = nil) {
         self.dataClient = dataClient ?? DataStore.defaultClient
+        self.localStorage = localStorage ?? LocalStorage()
     }
     
     func getTranslation(of sentence: String, for toLanguage: Language, completion: @escaping (Result<String, APIError>) -> Void) {
@@ -53,25 +55,39 @@ class DataStore {
         }
     }
     
-    func getArticle(at url: URL, completion: @escaping(Result<Article, APIError>) -> Void) {
+    func getArticle(at url: URL, completion: @escaping (Result<Article, APIError>) -> Void) {
         dataClient.getArticle(at: url.absoluteString) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let value):
                 guard let dict = value as? JSONDictionary,
-                    let article = Article(with: dict) else {
+                    var article = Article(with: dict) else {
                         completion(.failure(APIError.genericNetworkError))
                         return
                 }
-                
+                article.url = url
                 completion(.success(article))
             }
         }
     }
     
+    func getSavedArticles(completion: @escaping (Result<[Article], APIError>) -> Void) {
+        let articles = localStorage.getSavedArticles()
+        completion(.success(articles))
+    }
+    
+    func save(_ article: Article, completion: @escaping (Result<Bool, APIError>) -> Void) {
+        let didSave = localStorage.save(article)
+        
+        if didSave {
+            completion(.success(true))
+        } else {
+            completion(.failure(.genericNetworkError))
+        }
+    }
+    
     func cancelPreviousSearches() {
         dataClient.cancelAllOperations()
-
     }
 }

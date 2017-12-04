@@ -78,6 +78,8 @@
 		24A4B0821FC554EA0058CEC0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B07F1FC554E70058CEC0 /* Config.swift */; };
 		24A4B0851FC5585E0058CEC0 /* AppReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0831FC558570058CEC0 /* AppReviewController.swift */; };
 		24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0841FC558580058CEC0 /* ShareController.swift */; };
+		24C9EB001FD5080000573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
+		24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
 		24D285C71FC02B1A00C816C8 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; };
 		24D285C81FC02B1A00C816C8 /* SwiftMessages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24D285D41FC0581000C816C8 /* SavedPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D31FC0581000C816C8 /* SavedPresenters.swift */; };
@@ -468,6 +470,8 @@
 		24A4B07F1FC554E70058CEC0 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		24A4B0831FC558570058CEC0 /* AppReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReviewController.swift; sourceTree = "<group>"; };
 		24A4B0841FC558580058CEC0 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
+		24C9EAFF1FD5080000573185 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		24C9EB191FD50F4600573185 /* Texture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Texture.entitlements; sourceTree = "<group>"; };
 		24D285BE1FC02AE800C816C8 /* SwiftMessages.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftMessages.xcodeproj; path = Carthage/Checkouts/SwiftMessages/SwiftMessages.xcodeproj; sourceTree = "<group>"; };
 		24D285D11FC0579800C816C8 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		24D285D31FC0581000C816C8 /* SavedPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPresenters.swift; sourceTree = "<group>"; };
@@ -676,6 +680,7 @@
 		24F1D8851EFE935B0075FCBB /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				24C9EB191FD50F4600573185 /* Texture.entitlements */,
 				24F4BF261FC1A39100F683BC /* Resources */,
 				24D285D01FC0575400C816C8 /* Utility */,
 				24FACEAE1F4E141800F47ED9 /* Model */,
@@ -696,6 +701,7 @@
 				24F1D8FF1EFEBC4C0075FCBB /* RouterExtensions.swift */,
 				24F1D9041EFEBD520075FCBB /* RVMPInterface.swift */,
 				2448F2261F4D563000AB17FC /* DataStore.swift */,
+				24C9EAFF1FD5080000573185 /* LocalStorage.swift */,
 				2448F2281F4D564500AB17FC /* DataClient.swift */,
 				2448F22A1F4D567700AB17FC /* WebClient.swift */,
 				2448F22C1F4D56CC00AB17FC /* Error.swift */,
@@ -867,6 +873,11 @@
 					};
 					24F1D8821EFE935B0075FCBB = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1202,6 +1213,7 @@
 				2425328F1FCE8ED10057E6D5 /* GoogleAPI.swift in Sources */,
 				242532941FCE8F050057E6D5 /* ModelFactory.swift in Sources */,
 				242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */,
+				24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */,
 				242532971FCE8F1F0057E6D5 /* Translation.swift in Sources */,
 				242532711FCE8EA40057E6D5 /* DataStore.swift in Sources */,
 				242532891FCE8EAB0057E6D5 /* DataClient.swift in Sources */,
@@ -1262,6 +1274,7 @@
 				2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */,
 				24A4B0721FC4CCE00058CEC0 /* SettingsPresenter.swift in Sources */,
 				247827071FAD2EEC00CB2FC8 /* FoundationExtensions.swift in Sources */,
+				24C9EB001FD5080000573185 /* LocalStorage.swift in Sources */,
 				24A4B06E1FC4CC720058CEC0 /* SettingsCell.swift in Sources */,
 				24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */,
 			);
@@ -1489,6 +1502,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Texture/Texture.entitlements;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1508,6 +1522,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Texture/Texture.entitlements;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

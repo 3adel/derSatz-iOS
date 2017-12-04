@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct Article {
-    let topImageURL: URL?
-    let title: String
-    let summary: String
-    let body: String
+struct Article: Codable {
+    var title: String
+    var url: URL?
+    var topImageURL: URL?
+    var summary: String
+    var body: String
 }

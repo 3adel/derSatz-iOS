@@ -65,6 +65,6 @@ extension Article: JSONDictInitable {
         if let topImageURLString = dict["articleTopImage"] as? String {
             topImageURL = URL(string: topImageURLString)
         }
-        self.init(topImageURL: topImageURL, title: title, summary: summary.removingHTMLEntities, body: body.removingHTMLEntities)
+        self.init(title: title, url: nil, topImageURL: topImageURL, summary: summary.removingHTMLEntities, body: body.removingHTMLEntities)
     }
 }
