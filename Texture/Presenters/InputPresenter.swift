@@ -19,6 +19,14 @@ class InputPresenter: Presenter, InputPresenterProtocol {
     }
     
     func didTapAnalyseButton() {
+        dataStore.getSavedArticles() { result in
+            switch result {
+            case .success(let articles):
+                print(articles)
+            default:
+                break
+            }
+        }
         guard let text = inputText,
             !text.isEmpty
             else {
