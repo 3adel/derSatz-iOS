@@ -10,6 +10,7 @@ import UIKit
 import RVMP
 import ListKit
 import NVActivityIndicatorView
+import MobileCoreServices
 
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     @IBOutlet var collectionView: UICollectionView!
@@ -31,7 +32,38 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         super.viewDidLoad()
         
         setupUI()
-        presenter?.getInitialData()
+        
+        var hasURL = false
+        
+        if let extentionItems = extensionContext?.inputItems as? [NSExtensionItem] {
+            for item in extentionItems {
+                for provider in item.attachments! as! [NSItemProvider] {
+                    guard provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) else { continue }
+                    // This is an image. We'll load it, then place it in our image view.
+                    provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { (url, error) in
+                        guard let url = url as? URL else { return }
+                        DispatchQueue.main.async { [weak self] in
+                            self?.presenter = AnalysisPresenter()
+                            
+                            let analysisPresenter = self?.analysisPresenter as? AnalysisPresenter
+                            analysisPresenter?.view = self
+                            analysisPresenter?.inputText = url.absoluteString
+                            
+                            self?.presenter?.getInitialData()
+                        }
+                    })
+                    hasURL = true
+                    break
+                }
+                
+                if (hasURL) {
+                    // We only handle one image, so stop looking for more.
+                    break
+                }
+            }
+        }
+        
+        if !hasURL { presenter?.getInitialData() }
     }
 
     override func viewWillAppear(_ animated: Bool) {

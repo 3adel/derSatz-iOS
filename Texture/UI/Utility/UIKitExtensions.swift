@@ -87,7 +87,11 @@ public func isPad() -> Bool {
 }
 
 public func isPhone() -> Bool {
+    #if TARGET_IS_APP
     return (!isPad()) && UIApplication.shared.canOpenURL(URL(string: "tel:123")!)
+    #else
+    return false
+    #endif
 }
 
 extension NSMutableAttributedString {

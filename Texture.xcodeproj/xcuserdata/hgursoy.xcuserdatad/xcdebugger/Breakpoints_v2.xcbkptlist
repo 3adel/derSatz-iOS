@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Texture/UI/Utility/UIKitExtensions.swift"
-            timestampString = "533040891.347023"
+            timestampString = "534292737.444028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -118,11 +118,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(extension in Texture):__ObjC.UIViewController.setupTabBar(shouldShow: Swift.Bool) -&gt; ()"
-                  moduleName = "Texture"
+                  symbolName = "(extension in Open_in_der_Satz):__ObjC.UIViewController.setupTabBar(shouldShow: Swift.Bool) -&gt; ()"
+                  moduleName = "Open in der Satz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/UI/Utility/UIKitExtensions.swift"
-                  timestampString = "534056639.654444"
+                  timestampString = "534292737.598727"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -133,11 +133,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in (extension in Texture):__ObjC.UIViewController.setupTabBar(shouldShow: Swift.Bool) -&gt; ()"
-                  moduleName = "Texture"
+                  symbolName = "closure #1 () -&gt; () in (extension in Open_in_der_Satz):__ObjC.UIViewController.setupTabBar(shouldShow: Swift.Bool) -&gt; ()"
+                  moduleName = "Open in der Satz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/UI/Utility/UIKitExtensions.swift"
-                  timestampString = "534056639.657443"
+                  timestampString = "534292737.601136"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -160,6 +160,38 @@
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "didTapAnalyseButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Texture/AnalysisViewController.swift"
+            timestampString = "534292737.444112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Open in der Satz/ActionViewController.swift"
+            timestampString = "534292570.703073"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

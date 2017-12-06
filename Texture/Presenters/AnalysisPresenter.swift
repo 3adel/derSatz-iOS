@@ -12,7 +12,7 @@ import RVMP
 class AnalysisPresenter: Presenter {
     var sentenceInfos: [SentenceViewModel] = []
     
-    fileprivate var inputText: String?
+    var inputText: String?
     
     var article: Article? {
         didSet {
