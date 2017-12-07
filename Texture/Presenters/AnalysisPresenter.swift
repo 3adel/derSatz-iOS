@@ -12,7 +12,7 @@ import RVMP
 class AnalysisPresenter: Presenter {
     var sentenceInfos: [SentenceViewModel] = []
     
-    var inputText: String?
+    fileprivate var inputText: String?
     
     var article: Article? {
         didSet {
@@ -107,6 +107,19 @@ class AnalysisPresenter: Presenter {
     }
     
     func update(inputText: String) {
+        if let urlText = inputText.replacingOccurrences(of: " ", with: "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: urlText),
+            UIApplication().canOpenURL(url) {
+            dataStore.getArticle(at: url) { [weak self] result in
+                switch result {
+                case .success(let article):
+                    self?.article = article
+                default:
+                    break
+                }
+            }
+            return
+        }
         self.inputText = inputText
         
         tagger.string = inputText

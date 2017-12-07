@@ -24,6 +24,8 @@
 	<dict>
 		<key>NSExtensionAttributes</key>
 		<dict>
+			<key>NSExtensionActionWantsFullScreenPresentation</key>
+			<true/>
 			<key>NSExtensionActivationRule</key>
 			<string>TRUEPREDICATE</string>
 			<key>NSExtensionPrincipalClass</key>

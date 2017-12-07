@@ -47,7 +47,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
                             
                             let analysisPresenter = self?.analysisPresenter as? AnalysisPresenter
                             analysisPresenter?.view = self
-                            analysisPresenter?.inputText = url.absoluteString
+                            analysisPresenter?.update(inputText: url.absoluteString)
                             
                             self?.presenter?.getInitialData()
                         }
