@@ -46,6 +46,7 @@ class MoreViewController: UIViewController, SettingsView {
         
         let grayTone: CGFloat = 207/255
         skylineImageView.tintColor = UIColor(red: grayTone, green: grayTone, blue: grayTone, alpha: 1.0)
+        hideBackButtonText()
     }
     
     func setupCollectionView() {

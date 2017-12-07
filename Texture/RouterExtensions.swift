@@ -22,6 +22,17 @@ extension Router {
         //TODO: Implementation
     }
     
+    func routeToHelpSection() {
+         guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: HelpViewController.Identifier) as? HelpViewController else { return }
+        
+        let presenter = HelpPresenter(router: self)
+        presenter.view = viewController
+        
+        viewController.presenter = presenter
+        
+        push(viewController)
+    }
+    
     private func routeToAnalysis(text: String?, article: Article?) {
         guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: AnalysisViewController.Identifier) as? AnalysisViewController else { return }
         
