@@ -39,6 +39,12 @@ protocol SettingsPresenterType: BasePresenter {
     func optionSelected(at section: Int, index: Int, sourceView: ViewComponent, sourceRect: CGRect)
 }
 
+protocol HelpPresenterType: BasePresenter {}
+
+protocol HelpView: View {
+    func render(with viewModel: HelpViewModel)
+}
+
 extension UIViewController {
     private var defaultConfig: SwiftMessages.Config {
         var config = SwiftMessages.Config()

@@ -16,6 +16,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         case reportBug
         case rate
         case translationLanguage
+        case help
         
         var title: String {
             switch self {
@@ -29,6 +30,8 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
                 return "Rate"
             case .translationLanguage:
                 return "Translation Language"
+            case .help:
+                return "Help"
             }
         }
         
@@ -57,6 +60,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
     ]
     
     let optionCells: [TableCell] =  [
+        TableCell(cellType: .help),
         TableCell(cellType: .reportBug),
         TableCell(cellType: .sendFeedback),
         TableCell(cellType: .share),
@@ -110,6 +114,8 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
             rateUs()
         case .translationLanguage:
             openTranslationLanguageSelection()
+        case .help:
+            router?.routeToHelpSection()
         }
     }
     
