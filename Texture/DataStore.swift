@@ -13,7 +13,7 @@ class DataStore {
     
     init(dataClient: DataClient? = nil, localStorage: LocalStorageProtocol? = nil) {
         self.dataClient = dataClient ?? DataStore.defaultClient
-        self.localStorage = localStorage ?? LocalStorage()
+        self.localStorage = localStorage ?? LocalStorage.shared
     }
     
     func getTranslation(of sentence: String, for toLanguage: Language, completion: @escaping (Result<String, APIError>) -> Void) {
@@ -85,6 +85,22 @@ class DataStore {
         } else {
             completion(.failure(.genericNetworkError))
         }
+    }
+    
+    func deleteSavedArticle(_ article: Article, completion: @escaping (Result<Bool, APIError>) -> Void) {
+        let didDelete = localStorage.delete(article)
+        
+        if didDelete {
+            completion(.success(true))
+        } else {
+            completion(.failure(.genericNetworkError))
+        }
+    }
+    
+    func isArticleSaved(_ article: Article, completion: @escaping (Result<Bool, APIError>) -> Void) {
+        let isSaved = localStorage.getSavedArticles().contains(article)
+        
+        completion(.success(isSaved))
     }
     
     func cancelPreviousSearches() {

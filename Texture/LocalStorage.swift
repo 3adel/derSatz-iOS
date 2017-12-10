@@ -11,9 +11,12 @@ import Foundation
 protocol LocalStorageProtocol {
     func getSavedArticles() -> [Article]
     func save(_ article: Article) -> Bool
+    func delete(_ article: Article) -> Bool
 }
 
 class LocalStorage: LocalStorageProtocol {
+    static var shared: LocalStorage = LocalStorage()
+    
     private let savedArticlesKey = "savedArticles"
     
     private lazy var savedArticlesPath: String = {
@@ -35,7 +38,16 @@ class LocalStorage: LocalStorageProtocol {
     
     @discardableResult
     func save(_ article: Article) -> Bool {
+        guard !currentSavedArticles.contains(article) else { return true }
+        
         currentSavedArticles.append(article)
+        return save(articles: currentSavedArticles)
+    }
+    
+    @discardableResult
+    func delete(_ article: Article) -> Bool {
+        guard let index = currentSavedArticles.index(of: article) else { return false }
+        currentSavedArticles.remove(at: index)
         return save(articles: currentSavedArticles)
     }
     

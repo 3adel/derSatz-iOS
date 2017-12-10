@@ -12,6 +12,7 @@ struct AnalysisViewModel {
     let text: String
     let sentenceInfos: [SentenceViewModel]
     let headerViewModel: ArticleImageHeaderViewModel?
+    let isSaved: Bool
 }
 
 struct ArticleImageHeaderViewModel {
