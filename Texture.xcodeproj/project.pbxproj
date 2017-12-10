@@ -76,6 +76,9 @@
 		24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0841FC558580058CEC0 /* ShareController.swift */; };
 		24C9EB001FD5080000573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
 		24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
+		24C9EBC91FD9E83300573185 /* HelpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBC81FD9E83300573185 /* HelpPresenter.swift */; };
+		24C9EBE21FD9ED2F00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
+		24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE31FD9EDE700573185 /* HelpViewController.swift */; };
 		24C9EB331FD8A25200573185 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EB321FD8A25200573185 /* ActionViewController.swift */; };
 		24C9EB361FD8A25200573185 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C9EB341FD8A25200573185 /* MainInterface.storyboard */; };
 		24C9EB3A1FD8A25200573185 /* Open in der Satz.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24C9EB301FD8A25200573185 /* Open in der Satz.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -524,6 +527,10 @@
 		24A4B0841FC558580058CEC0 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		24C9EAFF1FD5080000573185 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		24C9EB191FD50F4600573185 /* Texture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Texture.entitlements; sourceTree = "<group>"; };
+		24C9EBC81FD9E83300573185 /* HelpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPresenter.swift; sourceTree = "<group>"; };
+		24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
+		24C9EBE31FD9EDE700573185 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		24C9EBE51FD9EE1000573185 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		24C9EB301FD8A25200573185 /* Open in der Satz.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Open in der Satz.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C9EB321FD8A25200573185 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		24C9EB351FD8A25200573185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -612,6 +619,7 @@
 		10E4B5BA1F7B03B600418D60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24C9EBE51FD9EE1000573185 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -676,6 +684,7 @@
 			children = (
 				248E83F71FCAB83F00AA5484 /* SentenceViewModel.swift */,
 				248E83FB1FCAB8B000AA5484 /* AnalysisViewModel.swift */,
+				24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -773,6 +782,7 @@
 				24F1D8881EFE935B0075FCBB /* InputViewController.swift */,
 				24D285D51FC0585400C816C8 /* SavedViewController.swift */,
 				10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */,
+				24C9EBE31FD9EDE700573185 /* HelpViewController.swift */,
 				24F1D9061EFECFCE0075FCBB /* AnalysisViewController.swift */,
 				247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */,
 				24A4B0731FC4CCF10058CEC0 /* MoreViewController.swift */,
@@ -829,6 +839,7 @@
 				24F1D9081EFED0920075FCBB /* AnalysisPresenter.swift */,
 				24D285D31FC0581000C816C8 /* SavedPresenters.swift */,
 				24A4B0751FC553820058CEC0 /* SettingsViewModel.swift */,
+				24C9EBC81FD9E83300573185 /* HelpPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -1391,6 +1402,7 @@
 				24A4B0821FC554EA0058CEC0 /* Config.swift in Sources */,
 				248E83FC1FCAB8B000AA5484 /* AnalysisViewModel.swift in Sources */,
 				2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */,
+				24C9EBE21FD9ED2F00573185 /* HelpViewModel.swift in Sources */,
 				248E83F81FCAB83F00AA5484 /* SentenceViewModel.swift in Sources */,
 				24F1D90B1EFED44E0075FCBB /* UIKitExtensions.swift in Sources */,
 				245841321FADF82900E6DA88 /* ArticleImageHeaderView.swift in Sources */,
@@ -1399,6 +1411,7 @@
 				24D285D41FC0581000C816C8 /* SavedPresenters.swift in Sources */,
 				24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */,
 				24A4B0801FC554EA0058CEC0 /* DictionaryKey.swift in Sources */,
+				24C9EBC91FD9E83300573185 /* HelpPresenter.swift in Sources */,
 				247826DD1FAC40C400CB2FC8 /* SentenceDataSource.swift in Sources */,
 				24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */,
 				24F1D9071EFECFCE0075FCBB /* AnalysisViewController.swift in Sources */,
@@ -1410,6 +1423,7 @@
 				241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */,
 				24F1D9051EFEBD520075FCBB /* RVMPInterface.swift in Sources */,
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
+				24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */,
 				10B358891FB87BCD00D116DA /*  UITextViewPlaceholder.swift in Sources */,
 				24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */,
 				248E84151FCE891600AA5484 /* ThemeService.swift in Sources */,

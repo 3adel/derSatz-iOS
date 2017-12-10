@@ -219,6 +219,6 @@ Cartfile.resolved
 ####
 # UNKNOWN: recommended by others, but I can't discover what these files are
 #
-Donando/Donando 2016-07-18 10-22-30/Donando.ipa
-Donando/Donando 2016-07-18 11-52-05/Donando.ipa
-Donando/LoungeAppStore 2016-07-19 15-37-13/LoungeAppStore.ipa
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata

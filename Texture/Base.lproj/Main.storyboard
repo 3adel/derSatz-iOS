@@ -146,17 +146,17 @@
         <!--More View Controller-->
         <scene sceneID="Jam-JS-lzW">
             <objects>
-                <viewController storyboardIdentifier="MoreViewController" id="Tcg-4o-enT" customClass="MoreViewController" customModule="Conjugate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoreViewController" id="Tcg-4o-enT" customClass="MoreViewController" customModule="Texture" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tpl-PT-yST"/>
                         <viewControllerLayoutGuide type="bottom" id="iZs-E1-n3l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vkv-iO-y49">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-rB-QVX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="5" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-rB-QVX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="hDe-sN-xMY">
                                     <rect key="frame" x="0.0" y="183.5" width="375" height="216"/>
@@ -202,7 +202,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsOptionCell" rowHeight="55" id="Rol-W0-Vxa" customClass="SettingsOptionCell" customModule="Conjugate" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsOptionCell" rowHeight="55" id="Rol-W0-Vxa" customClass="SettingsOptionCell" customModule="Texture" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rol-W0-Vxa" id="T69-yh-VCj">
@@ -236,7 +236,7 @@
                                             <outlet property="titleLabel" destination="pDt-N8-7Y7" id="GtR-ap-VTL"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsLanguageCell" rowHeight="55" id="j4y-M9-EMh" customClass="SettingsLanguageCell" customModule="Conjugate" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsLanguageCell" rowHeight="55" id="j4y-M9-EMh" customClass="SettingsLanguageCell" customModule="Texture" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="110.5" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j4y-M9-EMh" id="k7t-jG-ke2">
@@ -297,6 +297,7 @@
                         <viewLayoutGuide key="safeArea" id="yfk-D3-hs2"/>
                     </view>
                     <navigationItem key="navigationItem" id="Gs4-D3-3J2"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="footerTextView" destination="rhV-l2-aAv" id="YJH-gj-msE"/>
                         <outlet property="skylineImageView" destination="No7-LZ-od5" id="Jcl-hc-cWq"/>
@@ -307,9 +308,24 @@
             </objects>
             <point key="canvasLocation" x="2562" y="36"/>
         </scene>
+        <!--Help View Controller-->
+        <scene sceneID="mBT-ba-oYL">
+            <objects>
+                <viewController storyboardIdentifier="HelpViewController" id="pow-iK-Eap" customClass="HelpViewController" customModule="Texture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FBP-N6-FF0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4B5-Vo-jYJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fc5-tt-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3313" y="36"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="berlin_skyline" width="16" height="16"/>
+        <image name="berlin_skyline" width="687" height="259"/>
         <image name="de_flag" width="302" height="302"/>
         <image name="reportBug" width="16" height="16"/>
     </resources>
