@@ -15,16 +15,26 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
         return view as? SavedViewProtocol
     }
     
+    let dataStore = DataStore()
+    
     override func getInitialData() {
-        let savedViewModels: [SavedArticleViewModel] = [
-            SavedArticleViewModel(title: "Borussia Dortmund trennt sich von Trainer Peter Bosz und beruft Peter Stöger", imageURL: URL(string: "http://www.dw.com/image/41731820_303.jpg")),
-            SavedArticleViewModel(title: "Jüngere CDU-Politiker denken über unionsgeführte Minderheitsregierung nach", imageURL: URL(string: "http://www.dw.com/image/41731568_303.jpg")),
-            SavedArticleViewModel(title: "Borussia Dortmund trennt sich von Trainer Peter Bosz und beruft Peter Stöger", imageURL: nil)
-        ]
-        savedView?.render(with: savedViewModels)
+        dataStore.getSavedArticles() { [weak self] result in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let articles):
+                let viewModels = articles.map(self.makeSavedViewModel)
+                self.savedView?.render(with: viewModels)
+            case .failure(let error):
+                self.view?.show(errorMessage: "Something went wrong")
+            }
+        }
     }
     
     func didTapOnArticle(at index: Int) {
         print("tapped on article at index \(index)")
+    }
+    
+    private func makeSavedViewModel(from article: Article) -> SavedArticleViewModel {
+        return SavedArticleViewModel(title: article.title, imageURL: article.topImageURL)
     }
 }
