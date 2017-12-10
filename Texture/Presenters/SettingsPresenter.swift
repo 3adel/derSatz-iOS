@@ -181,7 +181,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
     }
     
     func rateUs(){
-        UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1163600729")! as URL)
+        UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1299564210")! as URL)
     }
     
     func openTranslationLanguageSelection() {
