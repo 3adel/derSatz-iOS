@@ -43,8 +43,8 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         setupUI()
         
-        getURLFromExtensionContext { [weak self] url in
-            guard let url = url else {
+        getItemFromExtensionContext(supportedTypes: [.text, .url]) { [weak self] item in
+            guard let item = item else {
                 self?.presenter?.getInitialData()
                 return
             }
@@ -54,7 +54,12 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
                 
                 let analysisPresenter = self?.analysisPresenter as? AnalysisPresenter
                 analysisPresenter?.view = self
-                analysisPresenter?.update(inputURL: url)
+                
+                if let text = item as? String {
+                    analysisPresenter?.update(inputText: text)
+                } else if let url = item as? URL {
+                    analysisPresenter?.update(inputURL: url)
+                }
                 
                 self?.presenter?.getInitialData()
             }
