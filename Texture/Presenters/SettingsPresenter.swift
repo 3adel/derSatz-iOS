@@ -177,7 +177,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         }
         
         emailComposer = EmailComposer(view: view)
-        emailComposer?.sendEmail(withSubject: subject, recipient: "feedback@konj.me", version: versionNumber, build: buildNumber)
+        emailComposer?.sendEmail(withSubject: subject, recipient: "feedback@dersatz.me", version: versionNumber, build: buildNumber)
     }
     
     func rateUs(){
