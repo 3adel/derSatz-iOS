@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 extension UIStoryboard {
     static var main: UIStoryboard {
@@ -14,7 +15,29 @@ extension UIStoryboard {
     }
 }
 
-public extension UIViewController {
+// MARK: - Extension of UIViewController for getting the URL from extensionContext
+extension UIViewController {
+    func getURLFromExtensionContext(completion: @escaping (URL?) -> Void) {
+        guard let extentionItems = extensionContext?.inputItems as? [NSExtensionItem] else { completion(nil); return }
+        
+        let urlTypeString = kUTTypeURL as String
+        for item in extentionItems {
+            for provider in item.attachments! as! [NSItemProvider] {
+                guard provider.hasItemConformingToTypeIdentifier(urlTypeString) else { continue }
+                // This is a URL, so we try get the URL.
+                provider.loadItem(forTypeIdentifier: urlTypeString, options: nil, completionHandler: { (url, error) in
+                    guard let url = url as? URL else { return }
+                    completion(url)
+                })
+                return 
+            }
+        }
+        completion(nil)
+    }
+}
+
+// MARK: - UI extensions of UIViewController
+extension UIViewController {
     
     public func hideBackButtonText() {
         guard let _ = navigationController?.navigationBar else { return }

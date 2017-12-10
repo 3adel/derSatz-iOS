@@ -33,37 +33,22 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         setupUI()
         
-        var hasURL = false
-        
-        if let extentionItems = extensionContext?.inputItems as? [NSExtensionItem] {
-            for item in extentionItems {
-                for provider in item.attachments! as! [NSItemProvider] {
-                    guard provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) else { continue }
-                    // This is an image. We'll load it, then place it in our image view.
-                    provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { (url, error) in
-                        guard let url = url as? URL else { return }
-                        DispatchQueue.main.async { [weak self] in
-                            self?.presenter = AnalysisPresenter()
-                            
-                            let analysisPresenter = self?.analysisPresenter as? AnalysisPresenter
-                            analysisPresenter?.view = self
-                            analysisPresenter?.update(inputText: url.absoluteString)
-                            
-                            self?.presenter?.getInitialData()
-                        }
-                    })
-                    hasURL = true
-                    break
-                }
+        getURLFromExtensionContext { [weak self] url in
+            guard let url = url else {
+                self?.presenter?.getInitialData()
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.presenter = AnalysisPresenter()
                 
-                if (hasURL) {
-                    // We only handle one image, so stop looking for more.
-                    break
-                }
+                let analysisPresenter = self?.analysisPresenter as? AnalysisPresenter
+                analysisPresenter?.view = self
+                analysisPresenter?.update(inputURL: url)
+                
+                self?.presenter?.getInitialData()
             }
         }
-        
-        if !hasURL { presenter?.getInitialData() }
     }
 
     override func viewWillAppear(_ animated: Bool) {

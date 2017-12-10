@@ -76,9 +76,6 @@
 		24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0841FC558580058CEC0 /* ShareController.swift */; };
 		24C9EB001FD5080000573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
 		24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
-		24C9EBC91FD9E83300573185 /* HelpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBC81FD9E83300573185 /* HelpPresenter.swift */; };
-		24C9EBE21FD9ED2F00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
-		24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE31FD9EDE700573185 /* HelpViewController.swift */; };
 		24C9EB331FD8A25200573185 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EB321FD8A25200573185 /* ActionViewController.swift */; };
 		24C9EB361FD8A25200573185 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C9EB341FD8A25200573185 /* MainInterface.storyboard */; };
 		24C9EB3A1FD8A25200573185 /* Open in der Satz.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24C9EB301FD8A25200573185 /* Open in der Satz.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -127,6 +124,10 @@
 		24C9EBBD1FD8AA4000573185 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F2191F4D561800AB17FC /* Result.framework */; };
 		24C9EBBE1FD8AA4000573185 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
 		24C9EBBF1FD8AA4000573185 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; };
+		24C9EBC91FD9E83300573185 /* HelpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBC81FD9E83300573185 /* HelpPresenter.swift */; };
+		24C9EBE21FD9ED2F00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
+		24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE31FD9EDE700573185 /* HelpViewController.swift */; };
+		24C9EC1C1FDD3B3A00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
 		24D285C71FC02B1A00C816C8 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; };
 		24D285C81FC02B1A00C816C8 /* SwiftMessages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24D285D41FC0581000C816C8 /* SavedPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D31FC0581000C816C8 /* SavedPresenters.swift */; };
@@ -527,14 +528,14 @@
 		24A4B0841FC558580058CEC0 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		24C9EAFF1FD5080000573185 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		24C9EB191FD50F4600573185 /* Texture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Texture.entitlements; sourceTree = "<group>"; };
-		24C9EBC81FD9E83300573185 /* HelpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPresenter.swift; sourceTree = "<group>"; };
-		24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
-		24C9EBE31FD9EDE700573185 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		24C9EBE51FD9EE1000573185 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		24C9EB301FD8A25200573185 /* Open in der Satz.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Open in der Satz.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C9EB321FD8A25200573185 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		24C9EB351FD8A25200573185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		24C9EB371FD8A25200573185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24C9EBC81FD9E83300573185 /* HelpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPresenter.swift; sourceTree = "<group>"; };
+		24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
+		24C9EBE31FD9EDE700573185 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		24C9EBE51FD9EE1000573185 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		24D285BE1FC02AE800C816C8 /* SwiftMessages.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftMessages.xcodeproj; path = Carthage/Checkouts/SwiftMessages/SwiftMessages.xcodeproj; sourceTree = "<group>"; };
 		24D285D11FC0579800C816C8 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		24D285D31FC0581000C816C8 /* SavedPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPresenters.swift; sourceTree = "<group>"; };
@@ -1360,6 +1361,7 @@
 			files = (
 				24C9EB741FD8A37F00573185 /* Error.swift in Sources */,
 				24C9EB751FD8A37F00573185 /* APIClient.swift in Sources */,
+				24C9EC1C1FDD3B3A00573185 /* HelpViewModel.swift in Sources */,
 				24C9EB701FD8A36F00573185 /* DataStore.swift in Sources */,
 				24C9EB6C1FD8A34900573185 /* ThemeService.swift in Sources */,
 				24C9EB7E1FD8A39300573185 /* SentenceView.swift in Sources */,
