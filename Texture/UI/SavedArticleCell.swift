@@ -20,7 +20,7 @@ class SavedArticleCell: UITableViewCell {
     }
     
     func setupUI() {
-        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        titleLabel.font = UIFont.systemFont(ofSize: 17)
     }
     
     func update(with viewModel: SavedArticleViewModel) {
