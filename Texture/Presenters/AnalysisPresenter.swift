@@ -106,6 +106,17 @@ class AnalysisPresenter: Presenter {
         return ArticleImageHeaderViewModel(title: article.title, imageURL: article.topImageURL)
     }
     
+    func update(inputURL url: URL) {
+        dataStore.getArticle(at: url) { [weak self] result in
+            switch result {
+            case .success(let article):
+                self?.article = article
+            case .failure(let error):
+                self?.view?.show(errorMessage: "Something went wrong")
+            }
+        }
+    }
+    
     func update(inputText: String) {
         self.inputText = inputText
         

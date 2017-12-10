@@ -10,6 +10,7 @@ import UIKit
 import RVMP
 import ListKit
 import NVActivityIndicatorView
+import MobileCoreServices
 
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     @IBOutlet var collectionView: UICollectionView!
@@ -31,7 +32,23 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         super.viewDidLoad()
         
         setupUI()
-        presenter?.getInitialData()
+        
+        getURLFromExtensionContext { [weak self] url in
+            guard let url = url else {
+                self?.presenter?.getInitialData()
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.presenter = AnalysisPresenter()
+                
+                let analysisPresenter = self?.analysisPresenter as? AnalysisPresenter
+                analysisPresenter?.view = self
+                analysisPresenter?.update(inputURL: url)
+                
+                self?.presenter?.getInitialData()
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

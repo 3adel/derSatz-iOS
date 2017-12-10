@@ -28,7 +28,9 @@ class ThemeService {
         navigationBar.tintColor = textColor
         navigationBar.barTintColor = tintColor
         navigationBar.titleTextAttributes = [.foregroundColor: textColor]
+        #if TARGET_IS_APP
         UIApplication.shared.statusBarStyle = .lightContent
+        #endif
     }
     
     func setUpLightUI(for navigationBar: UINavigationBar) {
@@ -37,7 +39,9 @@ class ThemeService {
         navigationBar.tintColor = .black
         navigationBar.barTintColor = .white
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        #if TARGET_IS_APP
         UIApplication.shared.statusBarStyle = .default
+        #endif
     }
     
     func setUpDefaultUI(for ctaButton: UIButton) {

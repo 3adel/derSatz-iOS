@@ -19,8 +19,20 @@ class ArticleImageHeaderView: UICollectionReusableView {
     }
     
     func update(with viewModel: ArticleImageHeaderViewModel) {
+        let canOpenURL: Bool
+        
+        #if TARGET_IS_APP
+            if let imageURL = viewModel.imageURL {
+                canOpenURL = UIApplication.shared.canOpenURL(imageURL)
+            } else {
+                canOpenURL = false
+            }
+        #else
+        canOpenURL = false
+        #endif
+        
         if let imageURL = viewModel.imageURL,
-            UIApplication.shared.canOpenURL(imageURL) {
+            canOpenURL {
             imageHeader.setHeightConstraint(to: 215)
             imageHeader.setImage(withUrl: imageURL)
         } else {
