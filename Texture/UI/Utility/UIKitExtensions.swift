@@ -16,18 +16,33 @@ extension UIStoryboard {
 }
 
 // MARK: - Extension of UIViewController for getting the URL from extensionContext
+
+enum ExtensionContextItemType {
+    case text
+    case url
+    
+    var typeString: String {
+        switch self {
+        case .text:
+            return kUTTypeText as String
+        case .url:
+            return kUTTypeURL as String
+        }
+    }
+}
+
 extension UIViewController {
-    func getURLFromExtensionContext(completion: @escaping (URL?) -> Void) {
+    func getItemFromExtensionContext(supportedTypes: [ExtensionContextItemType], completion: @escaping (Any?) -> Void) {
         guard let extentionItems = extensionContext?.inputItems as? [NSExtensionItem] else { completion(nil); return }
         
-        let urlTypeString = kUTTypeURL as String
+        
         for item in extentionItems {
             for provider in item.attachments! as! [NSItemProvider] {
-                guard provider.hasItemConformingToTypeIdentifier(urlTypeString) else { continue }
+                guard let supportedItem = supportedTypes.filter ({ provider.hasItemConformingToTypeIdentifier($0.typeString) }).first else { continue }
+                
                 // This is a URL, so we try get the URL.
-                provider.loadItem(forTypeIdentifier: urlTypeString, options: nil, completionHandler: { (url, error) in
-                    guard let url = url as? URL else { return }
-                    completion(url)
+                provider.loadItem(forTypeIdentifier: supportedItem.typeString, options: nil, completionHandler: { (item, error) in
+                    completion(item)
                 })
                 return 
             }
