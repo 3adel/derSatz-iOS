@@ -19,7 +19,7 @@ class ShareController {
     
     func shareApp(sourceView: ViewComponent, sourceRect: CGRect? = nil) {
         let textToShare = "Analyse German text with der Satz. Download for iOS now at "
-        let urlStringToShare = "https://goo.gl/0iUTJI"
+        let urlStringToShare = "https://itunes.apple.com/app/id1299564210?l=en&mt=8"
         
         share(text: textToShare, url: urlStringToShare, sourceView: sourceView, sourceRect: sourceRect)
     }
