@@ -76,6 +76,10 @@
 		24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0841FC558580058CEC0 /* ShareController.swift */; };
 		24B59F901FDD4ECC00347A5A /* SavedArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B59F8F1FDD4ECC00347A5A /* SavedArticleCell.xib */; };
 		24B59FAA1FDD513C00347A5A /* SavedInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FA91FDD513C00347A5A /* SavedInterface.swift */; };
+		24B59FBA1FDD66E700347A5A /* ButtonStyleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */; };
+		24B59FBE1FDD67ED00347A5A /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB41FDD667700347A5A /* ToggleButton.swift */; };
+		24B59FBF1FDD684C00347A5A /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB41FDD667700347A5A /* ToggleButton.swift */; };
+		24B59FC01FDD686600347A5A /* ButtonStyleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */; };
 		24C9EB001FD5080000573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
 		24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
 		24C9EB331FD8A25200573185 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EB321FD8A25200573185 /* ActionViewController.swift */; };
@@ -536,6 +540,8 @@
 		24A4B0841FC558580058CEC0 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		24B59F8F1FDD4ECC00347A5A /* SavedArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedArticleCell.xib; sourceTree = "<group>"; };
 		24B59FA91FDD513C00347A5A /* SavedInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedInterface.swift; sourceTree = "<group>"; };
+		24B59FB41FDD667700347A5A /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleModel.swift; sourceTree = "<group>"; };
 		24C9EAFF1FD5080000573185 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		24C9EB191FD50F4600573185 /* Texture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Texture.entitlements; sourceTree = "<group>"; };
 		24C9EB301FD8A25200573185 /* Open in der Satz.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Open in der Satz.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -843,6 +849,7 @@
 				2458411C1FADF77500E6DA88 /* ArticleImageHeaderView.xib */,
 				24C9EC571FDD4D2200573185 /* SavedArticleCell.swift */,
 				24B59F8F1FDD4ECC00347A5A /* SavedArticleCell.xib */,
+				24B59FB41FDD667700347A5A /* ToggleButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -854,6 +861,7 @@
 				24F1D90A1EFED44E0075FCBB /* UIKitExtensions.swift */,
 				24F1D90C1EFED4B70075FCBB /* Identifiable.swift */,
 				247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */,
+				24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1409,8 +1417,10 @@
 				24C9EB8E1FD8A73D00573185 /* LexicalClass.swift in Sources */,
 				24C9EB331FD8A25200573185 /* ActionViewController.swift in Sources */,
 				24C9EB6D1FD8A34F00573185 /* AnalysisViewModel.swift in Sources */,
+				24B59FBF1FDD684C00347A5A /* ToggleButton.swift in Sources */,
 				24C9EB731FD8A37F00573185 /* WebClient.swift in Sources */,
 				24C9EB811FD8A39300573185 /* WordDetailPopupView.swift in Sources */,
+				24B59FC01FDD686600347A5A /* ButtonStyleModel.swift in Sources */,
 				24C9EB8C1FD8A73D00573185 /* Translation.swift in Sources */,
 				24C9EB7B1FD8A39300573185 /* UIKitExtensions.swift in Sources */,
 				24C9EB861FD8A3FF00573185 /* SettingsViewModel.swift in Sources */,
@@ -1471,10 +1481,12 @@
 				24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */,
 				248E84151FCE891600AA5484 /* ThemeService.swift in Sources */,
 				24956BFD1F8203F600D4D657 /* API.swift in Sources */,
+				24B59FBE1FDD67ED00347A5A /* ToggleButton.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,
 				24A4B07C1FC554020058CEC0 /* EmailComposer.swift in Sources */,
 				2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */,
 				24A4B0741FC4CCF30058CEC0 /* MoreViewController.swift in Sources */,
+				24B59FBA1FDD66E700347A5A /* ButtonStyleModel.swift in Sources */,
 				9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */,
 				248E83FE1FCAB96600AA5484 /* HelperFunctions.swift in Sources */,
 				24FACEBF1F4E147900F47ED9 /* ModelFactory.swift in Sources */,

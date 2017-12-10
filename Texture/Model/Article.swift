@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Article: Codable {
+struct Article: Codable, Equatable {
     enum Source: String, Codable {
         case freeText
         case internet
@@ -34,3 +34,10 @@ struct Article: Codable {
         self.source = source
     }
 }
+
+func ==(lhs: Article, rhs: Article) -> Bool {
+    guard let lhsURL = lhs.url,
+        let rhsURL = rhs.url else { return lhs.body == rhs.body}
+    return lhsURL == rhsURL
+}
+

@@ -44,6 +44,10 @@ class AnalysisPresenter: Presenter {
        updateView()
     }
     
+    override func viewDidAppear() {
+        getInitialData()
+    }
+    
     private func updateView() {
         guard let text = inputText else { return }
         
@@ -51,13 +55,31 @@ class AnalysisPresenter: Presenter {
         
         if let article = article {
             headerViewModel = makeHeaderViewModel(from: article)
+            dataStore.isArticleSaved(article) { [weak self] result in
+                guard let `self` = self else { return }
+                
+                var isSaved = false
+                switch result {
+                case .success(let saved):
+                    isSaved = saved
+                default:
+                    break
+                }
+                let viewModel = AnalysisViewModel(text: text,
+                                                  sentenceInfos: self.sentenceInfos,
+                                                  headerViewModel: headerViewModel,
+                                                  isSaved: isSaved)
+                
+                self.analysisView?.render(with: viewModel)
+            }
+        } else {
+            let viewModel = AnalysisViewModel(text: text,
+                                              sentenceInfos: sentenceInfos,
+                                              headerViewModel: headerViewModel,
+                                              isSaved: false)
+            
+            analysisView?.render(with: viewModel)
         }
-        
-        let viewModel = AnalysisViewModel(text: text,
-                                          sentenceInfos: sentenceInfos,
-                                          headerViewModel: headerViewModel)
-        
-        analysisView?.render(with: viewModel)
     }
     
     private func makeSentenceInfo(from sentence: String, translation: String) -> SentenceViewModel {
@@ -187,6 +209,15 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
             default:
                 break
             }
+        }
+    }
+    
+    func didTapOnSaveToggle(toggleSet: Bool) {
+        guard let article = article else { return }
+        if toggleSet {
+            dataStore.save(article) { _ in }
+        } else {
+            dataStore.deleteSavedArticle(article) { _ in }
         }
     }
 }

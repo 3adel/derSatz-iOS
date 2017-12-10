@@ -26,6 +26,16 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     private var detailPopup: WordDetailPopupView?
     private var closeDetailButton: UIButton?
     
+    private lazy var saveBarButtonItem: UIBarButtonItem = {
+        let button = ToggleButton(frame: .zero)
+        button.styleForTrue = ButtonStyleModel(imageName: "star_selected")
+        button.styleForFalse = ButtonStyleModel(imageName: "star")
+        button.onToggle = { [weak self] toggleSet in
+            self?.analysisPresenter?.didTapOnSaveToggle(toggleSet: toggleSet)
+        }
+        return UIBarButtonItem(customView: button)
+    }()
+    
     private var dataSource = SentenceDataSource()
     
     override func viewDidLoad() {
@@ -57,9 +67,12 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         if let navigationBar = navigationController?.navigationBar {
             themeService.setUpDefaultUI(for: navigationBar)
         }
+        
+        presenter?.viewDidAppear()
     }
     
     func render(with viewModel: AnalysisViewModel) {
+        (saveBarButtonItem.customView as? ToggleButton)?.toggleSet = viewModel.isSaved
         dataSource.sentences = viewModel.sentenceInfos
         dataSource.headerViewModel = viewModel.headerViewModel
         collectionView.reloadData()
@@ -147,6 +160,8 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         let headerNIB = UINib(nibName: ArticleImageHeaderView.Nib, bundle: .main)
         collectionView.register(headerNIB, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ArticleImageHeaderView.Identifier)
+        
+        navigationItem.rightBarButtonItem = saveBarButtonItem
     }
 }
 

@@ -17,11 +17,14 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
     
     let dataStore = DataStore()
     
+    var savedArticles: [Article] = []
+    
     override func getInitialData() {
         dataStore.getSavedArticles() { [weak self] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let articles):
+                self.savedArticles = articles
                 let viewModels = articles.map(self.makeSavedViewModel)
                 self.savedView?.render(with: viewModels)
             case .failure(let error):
@@ -31,7 +34,8 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
     }
     
     func didTapOnArticle(at index: Int) {
-        print("tapped on article at index \(index)")
+        let article = savedArticles[index]
+        router?.routeToAnalysis(article: article)
     }
     
     private func makeSavedViewModel(from article: Article) -> SavedArticleViewModel {

@@ -28,13 +28,18 @@ class SavedViewController: UIViewController {
         if let navigationBar = navigationController?.navigationBar {
             themeService.setUpDefaultUI(for: navigationBar)
         }
+        
+        presenter?.getInitialData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = TableViewDataSource(tableView: tableView)
-        
-        presenter?.getInitialData()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        hideBackButtonText()
     }
 }
 
