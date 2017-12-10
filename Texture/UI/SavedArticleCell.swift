@@ -28,6 +28,8 @@ class SavedArticleCell: UITableViewCell {
         
         if let imageURL = viewModel.imageURL {
             articleImageView.setImage(withUrl: imageURL)
+        } else {
+            articleImageView.setWidth(equalToConstant: 0)
         }
     }
 }
