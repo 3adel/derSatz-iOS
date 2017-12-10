@@ -128,6 +128,8 @@
 		24C9EBE21FD9ED2F00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
 		24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE31FD9EDE700573185 /* HelpViewController.swift */; };
 		24C9EC1C1FDD3B3A00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
+		24C9EC3C1FDD4B3F00573185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88D1EFE935B0075FCBB /* Assets.xcassets */; };
+		24C9EC541FDD4B4100573185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88D1EFE935B0075FCBB /* Assets.xcassets */; };
 		24D285C71FC02B1A00C816C8 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; };
 		24D285C81FC02B1A00C816C8 /* SwiftMessages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24D285D41FC0581000C816C8 /* SavedPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D31FC0581000C816C8 /* SavedPresenters.swift */; };
@@ -485,6 +487,8 @@
 		10E4B5A01F7AFF7300418D60 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		10E4B5B61F7B016000418D60 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
+		10E6F4EC1FDD48FB003415BA /* Open in der Satz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Open in der Satz.entitlements"; sourceTree = "<group>"; };
+		10E6F4ED1FDD4907003415BA /* Der Satz Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Der Satz Share.entitlements"; sourceTree = "<group>"; };
 		241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordDetailPopupView.xib; sourceTree = "<group>"; };
 		241E3FB91F73D375002131CA /* WordDetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailPopupView.swift; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
@@ -693,6 +697,7 @@
 		248E84041FCD3A0100AA5484 /* Der Satz Share */ = {
 			isa = PBXGroup;
 			children = (
+				10E6F4ED1FDD4907003415BA /* Der Satz Share.entitlements */,
 				248E84051FCD3A0100AA5484 /* ShareViewController.swift */,
 				248E84071FCD3A0100AA5484 /* MainInterface.storyboard */,
 				248E840A1FCD3A0100AA5484 /* Info.plist */,
@@ -704,6 +709,7 @@
 		24C9EB311FD8A25200573185 /* Open in der Satz */ = {
 			isa = PBXGroup;
 			children = (
+				10E6F4EC1FDD48FB003415BA /* Open in der Satz.entitlements */,
 				24C9EB321FD8A25200573185 /* ActionViewController.swift */,
 				24C9EB341FD8A25200573185 /* MainInterface.storyboard */,
 				24C9EB371FD8A25200573185 /* Info.plist */,
@@ -982,10 +988,20 @@
 					248E84021FCD3A0000AA5484 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					24C9EB2F1FD8A25200573185 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					24F1D8821EFE935B0075FCBB = {
 						CreatedOnToolsVersion = 9.0;
@@ -1273,6 +1289,7 @@
 				248E84091FCD3A0100AA5484 /* MainInterface.storyboard in Resources */,
 				248E841D1FCE89C500AA5484 /* Dosis-ExtraLight.ttf in Resources */,
 				248E84131FCE86FC00AA5484 /* GetURL.js in Resources */,
+				24C9EC541FDD4B4100573185 /* Assets.xcassets in Resources */,
 				248E84181FCE89C500AA5484 /* Dosis-Regular.ttf in Resources */,
 				248E841C1FCE89C500AA5484 /* Dosis-SemiBold.ttf in Resources */,
 				248E841B1FCE89C500AA5484 /* Dosis-ExtraBold.ttf in Resources */,
@@ -1289,6 +1306,7 @@
 				24C9EB941FD8A83B00573185 /* Main.storyboard in Resources */,
 				24C9EB361FD8A25200573185 /* MainInterface.storyboard in Resources */,
 				24C9EB831FD8A39300573185 /* ArticleImageHeaderView.xib in Resources */,
+				24C9EC3C1FDD4B3F00573185 /* Assets.xcassets in Resources */,
 				24C9EB7F1FD8A39300573185 /* SentenceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1547,6 +1565,7 @@
 			buildSettings = {
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_ENTITLEMENTS = "Der Satz Share/Der Satz Share.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
@@ -1565,6 +1584,7 @@
 			buildSettings = {
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_ENTITLEMENTS = "Der Satz Share/Der Satz Share.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
@@ -1583,6 +1603,7 @@
 			buildSettings = {
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_ENTITLEMENTS = "Open in der Satz/Open in der Satz.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IS_EXTENSION;
@@ -1603,6 +1624,7 @@
 			buildSettings = {
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_ENTITLEMENTS = "Open in der Satz/Open in der Satz.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IS_EXTENSION;
