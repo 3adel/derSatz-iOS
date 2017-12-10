@@ -110,6 +110,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="PaQ-pu-hah" id="AWg-N1-ses"/>
+                        <outlet property="navigationBar" destination="NOA-Dm-cuz" id="Qdz-Rs-I0M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76T-Ec-KZw" userLabel="First Responder" sceneMemberID="firstResponder"/>

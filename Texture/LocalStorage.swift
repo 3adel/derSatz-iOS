@@ -18,22 +18,30 @@ class LocalStorage: LocalStorageProtocol {
     static var shared: LocalStorage = LocalStorage()
     
     private let savedArticlesKey = "savedArticles"
+    private let appGroupID = "group.de.texture"
     
     private lazy var savedArticlesPath: String = {
-        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let documentURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupID)
         return documentURL!.appendingPathComponent(savedArticlesKey).path
     }()
     
-    private lazy var currentSavedArticles: [Article] = {
-        guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: savedArticlesPath) as? Data,
-            let articles = try? JSONDecoder().decode([Article].self, from: data)
-        else { return [] }
-        
-        return articles
-    }()
+    private lazy var currentSavedArticles: [Article] = []
+    
+    init() {
+        currentSavedArticles = loadSavedArticles()
+    }
     
     func getSavedArticles() -> [Article] {
+        currentSavedArticles = loadSavedArticles()
         return currentSavedArticles
+    }
+    
+    private func loadSavedArticles() -> [Article] {
+        guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: savedArticlesPath) as? Data,
+            let articles = try? JSONDecoder().decode([Article].self, from: data)
+            else { return [] }
+        
+        return articles
     }
     
     @discardableResult

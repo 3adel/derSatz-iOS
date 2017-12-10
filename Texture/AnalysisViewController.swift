@@ -14,6 +14,7 @@ import MobileCoreServices
 
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var navigationBar: UINavigationBar?
     
     var presenter: BasePresenter?
     var analysisPresenter: AnalysisPresenterProtocol? {
@@ -167,6 +168,12 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         collectionView.register(headerNIB, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ArticleImageHeaderView.Identifier)
         
         navigationItem.rightBarButtonItem = saveBarButtonItem
+        
+        if let navigationBar = navigationBar {
+            navigationItem.leftBarButtonItem = navigationBar.items?.first?.leftBarButtonItem
+            navigationBar.popItem(animated: false)
+            navigationBar.pushItem(navigationItem, animated: false)
+        }
     }
 }
 
