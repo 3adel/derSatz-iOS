@@ -213,13 +213,15 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
     }
     
     func didTapOnSaveToggle(toggleSet: Bool) {
-        guard let article = article else { return }
+        let article = self.article ?? Article(freeText: inputText!)
+        
         if toggleSet {
             dataStore.save(article) { _ in }
         } else {
             dataStore.deleteSavedArticle(article) { _ in }
         }
     }
+    
 }
 
 extension String {
