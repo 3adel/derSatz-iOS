@@ -128,6 +128,8 @@
 		24C9EBE21FD9ED2F00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
 		24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE31FD9EDE700573185 /* HelpViewController.swift */; };
 		24C9EC1C1FDD3B3A00573185 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EBE11FD9ED2F00573185 /* HelpViewModel.swift */; };
+		24C9EC3C1FDD4B3F00573185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88D1EFE935B0075FCBB /* Assets.xcassets */; };
+		24C9EC541FDD4B4100573185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88D1EFE935B0075FCBB /* Assets.xcassets */; };
 		24D285C71FC02B1A00C816C8 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; };
 		24D285C81FC02B1A00C816C8 /* SwiftMessages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24D285D41FC0581000C816C8 /* SavedPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D31FC0581000C816C8 /* SavedPresenters.swift */; };
@@ -1287,6 +1289,7 @@
 				248E84091FCD3A0100AA5484 /* MainInterface.storyboard in Resources */,
 				248E841D1FCE89C500AA5484 /* Dosis-ExtraLight.ttf in Resources */,
 				248E84131FCE86FC00AA5484 /* GetURL.js in Resources */,
+				24C9EC541FDD4B4100573185 /* Assets.xcassets in Resources */,
 				248E84181FCE89C500AA5484 /* Dosis-Regular.ttf in Resources */,
 				248E841C1FCE89C500AA5484 /* Dosis-SemiBold.ttf in Resources */,
 				248E841B1FCE89C500AA5484 /* Dosis-ExtraBold.ttf in Resources */,
@@ -1303,6 +1306,7 @@
 				24C9EB941FD8A83B00573185 /* Main.storyboard in Resources */,
 				24C9EB361FD8A25200573185 /* MainInterface.storyboard in Resources */,
 				24C9EB831FD8A39300573185 /* ArticleImageHeaderView.xib in Resources */,
+				24C9EC3C1FDD4B3F00573185 /* Assets.xcassets in Resources */,
 				24C9EB7F1FD8A39300573185 /* SentenceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
