@@ -8,11 +8,19 @@
 
 import UIKit
 import RVMP
+import ListKit
 
-class SavedViewController: UIViewController, View {
+class SavedViewController: UIViewController {
+    @IBOutlet private var tableView: UITableView!
+    
     var presenter: BasePresenter?
     
+    var savedPresenter: SavedPresenterProtocol? {
+        return presenter as? SavedPresenterProtocol
+    }
+    
     private let themeService = ThemeService()
+    private var dataSource: TableViewDataSource?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,5 +28,22 @@ class SavedViewController: UIViewController, View {
         if let navigationBar = navigationController?.navigationBar {
             themeService.setUpDefaultUI(for: navigationBar)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataSource = TableViewDataSource(tableView: tableView)
+        
+        presenter?.getInitialData()
+    }
+}
+
+extension SavedViewController: SavedViewProtocol {
+    func render(with viewModel: [SavedArticleViewModel]) {
+        let size = ViewComponentSize(height: 74)
+        let section = ListSection(cellIdentifier: SavedArticleCell.Identifier, viewModels: viewModel, size: size) { [weak self] indexPath in
+            self?.savedPresenter?.didTapOnArticle(at: indexPath.item)
+        }
+        dataSource?.update(sections: [section])
     }
 }

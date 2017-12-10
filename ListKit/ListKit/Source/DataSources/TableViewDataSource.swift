@@ -49,10 +49,16 @@ extension TableViewDataSource: UITableViewDataSource {
         let size = getSize(forCellAt: indexPath)
         return size.indentLevel
     }
+    
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let footerView = makeFooter(at: IndexPath(item: 0, section: section)) else { return UIView() }
+        return footerView as? UIView
+    }
 }
 
 extension TableViewDataSource: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItem(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
