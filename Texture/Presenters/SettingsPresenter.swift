@@ -177,11 +177,11 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         }
         
         emailComposer = EmailComposer(view: view)
-        emailComposer?.sendEmail(withSubject: subject, recipient: "feedback@konj.me", version: versionNumber, build: buildNumber)
+        emailComposer?.sendEmail(withSubject: subject, recipient: "feedback@dersatz.me", version: versionNumber, build: buildNumber)
     }
     
     func rateUs(){
-        UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1163600729")! as URL)
+        UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1299564210")! as URL)
     }
     
     func openTranslationLanguageSelection() {

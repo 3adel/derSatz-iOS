@@ -15,7 +15,7 @@ class HelpPresenter: Presenter, HelpPresenterType {
     }
     
     override func getInitialData() {
-        guard let url = URL(string: "https://www.google.com") else { return }
+        guard let url = URL(string: "http://dersatz.me/help.html") else { return }
         let helpViewModel = HelpViewModel(url: url)
         helpView?.render(with: helpViewModel)
     }
