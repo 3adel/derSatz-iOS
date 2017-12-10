@@ -25,11 +25,11 @@ enum LexicalClass: String {
         case.verb:
             return UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
         case .pronoun:
-            return UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
+            return UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         case .adverb:
             return UIColor(red: 76/255, green: 205/255, blue: 100/255, alpha: 1)
         case .adjective:
-            return UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+            return UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
         case .preposition:
             return UIColor(red: 192/255, green: 68/255, blue: 245/255, alpha: 1)
         case .conjunction:
