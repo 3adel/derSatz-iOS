@@ -39,6 +39,7 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
     }
     
     private func makeSavedViewModel(from article: Article) -> SavedArticleViewModel {
-        return SavedArticleViewModel(title: article.title, imageURL: article.topImageURL)
+        let title = !article.title.isEmpty ? article.title : article.body
+        return SavedArticleViewModel(title: title, imageURL: article.topImageURL)
     }
 }
