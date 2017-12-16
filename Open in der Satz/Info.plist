@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>15</string>
+	<string>17</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
@@ -27,7 +27,14 @@
 			<key>NSExtensionActionWantsFullScreenPresentation</key>
 			<true/>
 			<key>NSExtensionActivationRule</key>
-			<string>TRUEPREDICATE</string>
+            <dict>
+                <key>NSExtensionActivationSupportsImageWithMaxCount</key>
+                <integer>10</integer>
+                <key>NSExtensionActivationSupportsMovieWithMaxCount</key>
+                <integer>1</integer>
+                <key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
+                <integer>1</integer>
+            </dict>
 			<key>NSExtensionPrincipalClass</key>
 			<string>AnalysisViewController</string>
 		</dict>
