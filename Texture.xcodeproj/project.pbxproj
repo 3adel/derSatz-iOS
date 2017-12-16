@@ -1607,7 +1607,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = de.texture.com.dersatz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1626,7 +1626,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = de.texture.com.dersatz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1647,7 +1647,7 @@
 				INFOPLIST_FILE = "Open in der Satz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Open-in-der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.openindersatz-de.texture.com.openindersatz-de.texture.com.openindersatz-de.texture.com.openindersatz-de.texture.com.openindersatz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
@@ -1669,7 +1669,7 @@
 				INFOPLIST_FILE = "Open in der Satz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Open-in-der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.openindersatz-de.texture.com.openindersatz-de.texture.com.openindersatz-de.texture.com.openindersatz-de.texture.com.openindersatz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
