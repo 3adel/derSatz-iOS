@@ -495,8 +495,8 @@
 		10E4B5A01F7AFF7300418D60 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		10E4B5B61F7B016000418D60 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
-		10E6F4EC1FDD48FB003415BA /* Open in der Satz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Open in der Satz.entitlements"; sourceTree = "<group>"; };
-		10E6F4ED1FDD4907003415BA /* Der Satz Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Der Satz Share.entitlements"; sourceTree = "<group>"; };
+		10E6F4EC1FDD48FB003415BA /* OpenInDerSatz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenInDerSatz.entitlements; sourceTree = "<group>"; };
+		10E6F4ED1FDD4907003415BA /* DerSatzShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DerSatzShare.entitlements; sourceTree = "<group>"; };
 		241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordDetailPopupView.xib; sourceTree = "<group>"; };
 		241E3FB91F73D375002131CA /* WordDetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailPopupView.swift; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
@@ -712,7 +712,7 @@
 		248E84041FCD3A0100AA5484 /* Der Satz Share */ = {
 			isa = PBXGroup;
 			children = (
-				10E6F4ED1FDD4907003415BA /* Der Satz Share.entitlements */,
+				10E6F4ED1FDD4907003415BA /* DerSatzShare.entitlements */,
 				248E84051FCD3A0100AA5484 /* ShareViewController.swift */,
 				248E84071FCD3A0100AA5484 /* MainInterface.storyboard */,
 				248E840A1FCD3A0100AA5484 /* Info.plist */,
@@ -732,7 +732,7 @@
 		24C9EB311FD8A25200573185 /* Open in der Satz */ = {
 			isa = PBXGroup;
 			children = (
-				10E6F4EC1FDD48FB003415BA /* Open in der Satz.entitlements */,
+				10E6F4EC1FDD48FB003415BA /* OpenInDerSatz.entitlements */,
 				24C9EB321FD8A25200573185 /* ActionViewController.swift */,
 				24C9EB341FD8A25200573185 /* MainInterface.storyboard */,
 				24C9EB371FD8A25200573185 /* Info.plist */,
@@ -1601,13 +1601,13 @@
 			buildSettings = {
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Der Satz Share/Der Satz Share.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Der Satz Share/DerSatzShare.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = de.texture.com.dersatz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1620,13 +1620,13 @@
 			buildSettings = {
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Der Satz Share/Der Satz Share.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Der Satz Share/DerSatzShare.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				INFOPLIST_FILE = "$(SRCROOT)/Der Satz Share/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = de.texture.com.dersatz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1640,14 +1640,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconActionExtension;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Open in der Satz/Open in der Satz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Open in der Satz/OpenInDerSatz.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IS_EXTENSION;
 				INFOPLIST_FILE = "Open in der Satz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Open-in-der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = de.texture.com.openindersatz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
@@ -1662,14 +1662,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconActionExtension;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = "Open in der Satz/Open in der Satz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Open in der Satz/OpenInDerSatz.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UB7THC2G3;
 				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IS_EXTENSION;
 				INFOPLIST_FILE = "Open in der Satz/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.texture.com.Open-in-der-Satz";
+				PRODUCT_BUNDLE_IDENTIFIER = de.texture.com.openindersatz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";

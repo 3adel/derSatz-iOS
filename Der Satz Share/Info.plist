@@ -19,30 +19,30 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-    <key>UIAppFonts</key>
-    <array>
-        <string>Dosis-Bold.ttf</string>
-        <string>Dosis-ExtraBold.ttf</string>
-        <string>Dosis-ExtraLight.ttf</string>
-        <string>Dosis-Light.ttf</string>
-        <string>Dosis-Medium.ttf</string>
-        <string>Dosis-Regular.ttf</string>
-        <string>Dosis-SemiBold.ttf</string>
-    </array>
+	<string>17</string>
 	<key>NSExtension</key>
 	<dict>
-		<key>NSExtensionJavaScriptPreprocessingFile</key>
-		<string>GetURL</string>
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
-			<string>TRUEPREDICATE</string>
+            <string>TRUEPREDICATE</string>
 		</dict>
+		<key>NSExtensionJavaScriptPreprocessingFile</key>
+		<string>GetURL</string>
 		<key>NSExtensionMainStoryboard</key>
 		<string>MainInterface</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Dosis-Bold.ttf</string>
+		<string>Dosis-ExtraBold.ttf</string>
+		<string>Dosis-ExtraLight.ttf</string>
+		<string>Dosis-Light.ttf</string>
+		<string>Dosis-Medium.ttf</string>
+		<string>Dosis-Regular.ttf</string>
+		<string>Dosis-SemiBold.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>17</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
@@ -33,6 +33,8 @@
 			<true/>
 			<key>NSExtensionActivationRule</key>
 			<string>TRUEPREDICATE</string>
+			<key>NSExtensionActivationSupportsText</key>
+			<true/>
 			<key>NSExtensionPrincipalClass</key>
 			<string>AnalysisViewController</string>
 		</dict>
