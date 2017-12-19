@@ -24,8 +24,13 @@
 	<dict>
 		<key>NSExtensionAttributes</key>
 		<dict>
-			<key>NSExtensionActivationRule</key>
-            <string>TRUEPREDICATE</string>
+            <key>NSExtensionActivationRule</key>
+            <dict>
+                <key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
+                <integer>1</integer>
+                <key>NSExtensionActivationSupportsText</key>
+                <integer>1</integer>
+            </dict>
 		</dict>
 		<key>NSExtensionJavaScriptPreprocessingFile</key>
 		<string>GetURL</string>
