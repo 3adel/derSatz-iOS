@@ -194,18 +194,15 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
         
         guard wordInfo.type != .other else { return }
         
+        let viewModel = makeWordDetailPopupViewModel(with: wordInfo)
+        analysisView?.showWordDetailPopup(with: viewModel, forWordAt: index, inSentenceAt: sentenceIndex)
+        
         dataStore.getTranslation(of: wordInfo.word, for: .english) { [weak self] result in
+            guard let `self` = self else { return }
             switch result {
             case .success(let translation):
-                let wordDetailViewModel = WordDetailPopupViewModel(word: wordInfo.word,
-                                                                   translation: translation,
-                                                                   originalLanguageImageName: "de_flag",
-                                                                   translatedLanguageImageName: "gb_flag",
-                                                                   lemma: wordInfo.lemma,
-                                                                   lexicalClass: wordInfo.type.rawValue,
-                                                                   backgroundColor: wordInfo.type.color)
-                
-                self?.analysisView?.showWordDetailPopup(with: wordDetailViewModel, forWordAt: index, inSentenceAt: sentenceIndex)
+                let wordDetailViewModel = self.makeWordDetailPopupViewModel(with: wordInfo, translation: translation)
+                self.analysisView?.updateWordDetailPopup(with: wordDetailViewModel)
             default:
                 break
             }
@@ -222,6 +219,15 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
         }
     }
     
+    private func makeWordDetailPopupViewModel(with wordInfo: WordViewModel, translation: String = "") -> WordDetailPopupViewModel {
+        return WordDetailPopupViewModel(word: wordInfo.word,
+                                 translation: translation,
+                                 originalLanguageImageName: "de_flag",
+                                 translatedLanguageImageName: "gb_flag",
+                                 lemma: wordInfo.lemma,
+                                 lexicalClass: wordInfo.type.rawValue,
+                                 backgroundColor: wordInfo.type.color)
+    }
 }
 
 extension String {
