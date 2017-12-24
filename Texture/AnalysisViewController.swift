@@ -89,8 +89,6 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
             let sentenceView = collectionView.cellForItem(at: IndexPath(item: sentenceIndex, section: 0)) as? SentenceView,
             let wordFrame = sentenceView.frameForWord(at: index) else { return }
         
-        wordDetailView.update(with: viewModel)
-        
         let wordFrameInList = collectionView.convert(wordFrame, from: sentenceView)
         let wordFrameInView = view.convert(wordFrameInList, from: collectionView)
         var popupFrame = wordFrameInView
@@ -120,6 +118,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         
         hideDetailPopup() {
             self.detailPopup = wordDetailView
+            self.updateWordDetailPopup(with: viewModel)
             UIView.animate(withDuration: 0.3, animations: {
                 wordDetailView.alpha = 1
             }) { _ in
@@ -131,6 +130,11 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
                 self.closeDetailButton = closeDetailButton
             }
         }
+    }
+    
+    func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel) {
+        guard let detailPopup = detailPopup else { return }
+        detailPopup.update(with: viewModel)
     }
     
     @objc func hideWordDetail() {
