@@ -21,6 +21,8 @@ class AnalysisPresenter: Presenter {
         }
     }
     
+    fileprivate var articleTitleTranslation: String?
+    
     fileprivate var analysisView: AnalysisViewProtocol? {
         return view as? AnalysisViewProtocol
     }
@@ -82,7 +84,7 @@ class AnalysisPresenter: Presenter {
         }
     }
     
-    private func makeSentenceInfo(from sentence: String, translation: String) -> SentenceViewModel {
+    private func makeSentenceInfo(from sentence: String, translation: String, fontWeight: UIFont.Weight) -> SentenceViewModel {
         
         var words: [String] = []
         var lemmas: [String] = []
@@ -121,7 +123,8 @@ class AnalysisPresenter: Presenter {
         
         return SentenceViewModel(sentence: sentence,
                                  translation: translation,
-                                 wordInfos: wordInfos)
+                                 wordInfos: wordInfos,
+                                 fontWeight: fontWeight)
     }
     
     private func makeHeaderViewModel(from article: Article) -> ArticleImageHeaderViewModel? {
@@ -159,6 +162,23 @@ class AnalysisPresenter: Presenter {
         sentences = sentences.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }
         
         view?.showLoader()
+        
+        if let article = article {
+            dataStore.getTranslation(of: article.title, for: .english) { [weak self] result in
+                switch result {
+                case .success(let translation):
+                    self?.articleTitleTranslation = translation
+                    self?.getTranslations(for: sentences)
+                default:
+                    break
+                }
+            }
+        } else {
+            getTranslations(for: sentences)
+        }
+    }
+    
+    private func getTranslations(for sentences: [String]) {
         dataStore.getTranslation(of: sentences, to: .english) { [weak self] result in
             self?.view?.hideLoader()
             
@@ -175,8 +195,14 @@ class AnalysisPresenter: Presenter {
     private func didGet(allTranslations translations: [String], forSentences sentences: [String]) {
         sentenceInfos.removeAll()
         
+        if let article = article,
+            let articleTitleTranslation = articleTitleTranslation {
+            let titleSentenceInfo = makeSentenceInfo(from: article.title, translation: articleTitleTranslation, fontWeight: .bold)
+            sentenceInfos.append(titleSentenceInfo)
+        }
+        
         sentences.enumerated().forEach { tuple in
-            let viewModel = makeSentenceInfo(from: tuple.element, translation: translations[tuple.offset])
+            let viewModel = makeSentenceInfo(from: tuple.element, translation: translations[tuple.offset], fontWeight: .regular)
             sentenceInfos.append(viewModel)
         }
         

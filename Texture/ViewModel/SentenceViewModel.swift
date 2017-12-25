@@ -6,7 +6,7 @@
 //  Copyright © 2017 Texture. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct WordViewModel {
     let word: String
@@ -19,4 +19,5 @@ struct SentenceViewModel {
     let sentence: String
     let translation: String
     let wordInfos: [WordViewModel]
+    let fontWeight: UIFont.Weight
 }
