@@ -142,6 +142,9 @@
 		24D285C81FC02B1A00C816C8 /* SwiftMessages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24D285C41FC02AE800C816C8 /* SwiftMessages.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24D285D41FC0581000C816C8 /* SavedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D31FC0581000C816C8 /* SavedPresenter.swift */; };
 		24D285D61FC0585400C816C8 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D51FC0585400C816C8 /* SavedViewController.swift */; };
+		24DB18AF1FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */; };
+		24DB18B01FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */; };
+		24DB18B11FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */; };
 		24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */; };
 		24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DD63D01F2E0E1800682CC4 /* SentenceView.xib */; };
 		24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8861EFE935B0075FCBB /* AppDelegate.swift */; };
@@ -558,6 +561,7 @@
 		24D285D11FC0579800C816C8 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		24D285D31FC0581000C816C8 /* SavedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPresenter.swift; sourceTree = "<group>"; };
 		24D285D51FC0585400C816C8 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceView.swift; sourceTree = "<group>"; };
 		24DD63D01F2E0E1800682CC4 /* SentenceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentenceView.xib; sourceTree = "<group>"; };
 		24F1D8831EFE935B0075FCBB /* Texture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Texture.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -862,6 +866,7 @@
 				24F1D90C1EFED4B70075FCBB /* Identifiable.swift */,
 				247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */,
 				24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */,
+				24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1397,6 +1402,7 @@
 				2425328B1FCE8EBA0057E6D5 /* Error.swift in Sources */,
 				2425328A1FCE8EB10057E6D5 /* WebClient.swift in Sources */,
 				2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */,
+				24DB18B01FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
 				2425328E1FCE8ECD0057E6D5 /* API.swift in Sources */,
 				24C9EB8F1FD8A73F00573185 /* Language.swift in Sources */,
 			);
@@ -1407,6 +1413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C9EB741FD8A37F00573185 /* Error.swift in Sources */,
+				24DB18B11FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
 				24C9EB751FD8A37F00573185 /* APIClient.swift in Sources */,
 				24C9EC1C1FDD3B3A00573185 /* HelpViewModel.swift in Sources */,
 				24C9EB701FD8A36F00573185 /* DataStore.swift in Sources */,
@@ -1467,6 +1474,7 @@
 				24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */,
 				24B59FAA1FDD513C00347A5A /* SavedInterface.swift in Sources */,
 				24F1D9071EFECFCE0075FCBB /* AnalysisViewController.swift in Sources */,
+				24DB18AF1FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
 				24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */,
 				24A4B0851FC5585E0058CEC0 /* AppReviewController.swift in Sources */,
 				24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */,
