@@ -33,12 +33,12 @@ class SentenceView: UICollectionViewCell {
     
     var detailPopup: WordDetailPopupView?
     
-    static let originalTextViewFont = UIFont.systemFont(ofSize: 19)
+    static let originalTextViewFontSize: CGFloat = 19
     static let translatedTextViewFont = UIFont.systemFont(ofSize: 17)
     
     func update(with viewModel: SentenceViewModel, width: CGFloat) {
         self.viewModel = viewModel
-        originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : SentenceView.originalTextViewFont])
+        originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: SentenceView.originalTextViewFontSize, weight: viewModel.fontWeight)])
         translatedTextView.text = viewModel.translation
         
         let textViewPadding: CGFloat = 30
@@ -77,7 +77,7 @@ class SentenceView: UICollectionViewCell {
             $0?.isScrollEnabled = false
         }
         
-        originalTextView.font = SentenceView.originalTextViewFont
+        originalTextView.font = UIFont.systemFont(ofSize: SentenceView.originalTextViewFontSize, weight: viewModel?.fontWeight ?? .regular)
         translatedTextView.font = SentenceView.translatedTextViewFont
         translatedTextView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1)
         translatedTextView.textColor = .white
@@ -105,7 +105,7 @@ extension SentenceView {
     static func calculateHeight(for viewModel: SentenceViewModel, inWidth width: CGFloat) -> CGFloat {
         let textViewWidth = width - 30
         
-        return viewModel.sentence.height(withConstrainedWidth: textViewWidth, font: originalTextViewFont) + viewModel.translation.height(withConstrainedWidth: textViewWidth, font: translatedTextViewFont) + 10
+        return viewModel.sentence.height(withConstrainedWidth: textViewWidth, font: UIFont.systemFont(ofSize: originalTextViewFontSize, weight: viewModel.fontWeight)) + viewModel.translation.height(withConstrainedWidth: textViewWidth, font: translatedTextViewFont) + 10
     }
 }
 
