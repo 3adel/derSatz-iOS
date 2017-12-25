@@ -1,18 +1,10 @@
-//
-//  UIViewExtensions.swift
-//  LoungeFoundation
-//
-//  Created by Hani Ibrahim Ibrahim Eloksh on 13.04.17.
-//  Copyright © 2017 Zalando. All rights reserved.
-//
-
-import Foundation
+import UIKit
 
 /**
  Handle constraints programmatically
  */
 
-extension UIView {
+public extension UIView {
     
     enum ViewAnchor {
         case top
@@ -86,13 +78,13 @@ extension UIView {
     
 }
 
-extension UIView {
+public extension UIView {
     
-    func fillInSuperview() {
+    public func fillInSuperview() {
         fillInSuperviewWithEdgeInset()
     }
     
-    func fillInSuperviewWithEdgeInset(top: CGFloat = 0, right: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 0) {
+    public func fillInSuperviewWithEdgeInset(top: CGFloat = 0, right: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 0) {
         guard let _ = superview else { return }
         snap(toSuperviewAnchor: .top, constant: top)
         snap(toSuperviewAnchor: .left, constant: left)
@@ -100,19 +92,19 @@ extension UIView {
         snap(toSuperviewAnchor: .right, constant: right)
     }
     
-    func centerInSuperview() {
+    public func centerInSuperview() {
         centerHorizontallyInSuperview()
         centerVerticallyInSuperview()
     }
     
     @discardableResult
-    func snap(toSuperviewAnchor anchor: ViewAnchor, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    public func snap(toSuperviewAnchor anchor: ViewAnchor, constant: CGFloat = 0) -> NSLayoutConstraint? {
         guard let superview = superview else { return nil }
         return snap(toView: superview, anchor: anchor, constant: constant)
     }
     
     @discardableResult
-    func snap(toView view: UIView, anchor: ViewAnchor, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    public func snap(toView view: UIView, anchor: ViewAnchor, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = anchor.constraint(fromView: self, toView: view)
         constraint?.constant = anchor.anchorMagnitude * constant
@@ -121,7 +113,7 @@ extension UIView {
     }
     
     @discardableResult
-    func snap(_ fromAnchor: ViewAnchor, to toAnchor: ViewAnchor, of view: UIView, withMargin margin: CGFloat = 0) -> NSLayoutConstraint? {
+    public func snap(_ fromAnchor: ViewAnchor, to toAnchor: ViewAnchor, of view: UIView, withMargin margin: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = fromAnchor.constraint(fromView: self, toView: view, to: toAnchor)
         constraint?.constant = fromAnchor.anchorMagnitude * margin
@@ -130,7 +122,7 @@ extension UIView {
     }
     
     @discardableResult
-    func snap(topToViewController viewController: UIViewController) -> NSLayoutConstraint? {
+    public func snap(topToViewController viewController: UIViewController) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = topAnchor.constraint(equalTo: viewController.topLayoutGuide.bottomAnchor)
         constraint.isActive = true
@@ -138,7 +130,7 @@ extension UIView {
     }
     
     @discardableResult
-    func centerHorizontallyInSuperview() -> NSLayoutConstraint? {
+    public func centerHorizontallyInSuperview() -> NSLayoutConstraint? {
         guard let superview = superview else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerXAnchor.constraint(equalTo: superview.centerXAnchor)
@@ -147,7 +139,7 @@ extension UIView {
     }
     
     @discardableResult
-    func centerVerticallyInSuperview() -> NSLayoutConstraint? {
+    public func centerVerticallyInSuperview() -> NSLayoutConstraint? {
         guard let superview = superview else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerYAnchor.constraint(equalTo: superview.centerYAnchor)
@@ -156,14 +148,14 @@ extension UIView {
     }
     
     @discardableResult
-    func setSquareAspectRatio() -> NSLayoutConstraint? {
+    public func setSquareAspectRatio() -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = widthAnchor.constraint(equalTo: heightAnchor, multiplier: 1)
         constraint.isActive = true
         return constraint
     }
     
-    func snapToSuperview() {
+    public func snapToSuperview() {
         let anchors: [ViewAnchor] = [.top, .left, .right, .bottom]
         
         anchors.forEach { anchor in
@@ -175,7 +167,7 @@ extension UIView {
 extension UIView {
     
     @discardableResult
-    func setWidth(equalToView view: UIView?, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    public func setWidth(equalToView view: UIView?, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint? {
         guard let view = view else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: multiplier, constant: constant)
@@ -184,7 +176,7 @@ extension UIView {
     }
     
     @discardableResult
-    func setWidth(equalToConstant width: CGFloat) -> NSLayoutConstraint? {
+    public func setWidth(equalToConstant width: CGFloat) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = widthAnchor.constraint(equalToConstant: width)
         constraint.isActive = true
@@ -192,7 +184,7 @@ extension UIView {
     }
     
     @discardableResult
-    func setHeight(equalToView view: UIView?, multiplier: CGFloat = 1) -> NSLayoutConstraint? {
+    public func setHeight(equalToView view: UIView?, multiplier: CGFloat = 1) -> NSLayoutConstraint? {
         guard let view = view else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: multiplier)
@@ -201,7 +193,7 @@ extension UIView {
     }
     
     @discardableResult
-    func setHeight(equalToConstant height: CGFloat) -> NSLayoutConstraint? {
+    public func setHeight(equalToConstant height: CGFloat) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = heightAnchor.constraint(equalToConstant: height)
         constraint.isActive = true
@@ -209,7 +201,7 @@ extension UIView {
     }
     
     @discardableResult
-    func centerVertically(with view: UIView) -> NSLayoutConstraint? {
+    public func centerVertically(with view: UIView) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerYAnchor.constraint(equalTo: view.centerYAnchor)
         constraint.isActive = true
@@ -219,7 +211,7 @@ extension UIView {
 
 extension UIView {
     @discardableResult
-    func placeOnTop(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
+    public func placeOnTop(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
         guard let view = view else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: -space)
@@ -228,7 +220,7 @@ extension UIView {
     }
     
     @discardableResult
-    func placeOnBottom(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
+    public func placeOnBottom(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
         guard let view = view else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: space)
@@ -237,7 +229,7 @@ extension UIView {
     }
     
     @discardableResult
-    func placeOnRight(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
+    public func placeOnRight(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
         guard let view = view else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = NSLayoutConstraint(item: self, attribute: .left, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: space)
@@ -246,7 +238,7 @@ extension UIView {
     }
     
     @discardableResult
-    func placeOnLeft(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
+    public func placeOnLeft(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
         guard let view = view else { return nil }
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: -space)
@@ -254,3 +246,4 @@ extension UIView {
         return constraint
     }
 }
+

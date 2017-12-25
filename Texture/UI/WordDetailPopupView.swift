@@ -32,6 +32,8 @@ class WordDetailPopupView: UIView {
     @IBOutlet private var translatedLanguageImageView: UIImageView!
     @IBOutlet private var lemmaLabel: UILabel!
     @IBOutlet private var lexicalClassLabel: UILabel!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var translationStackView: UIStackView!
     
     @IBOutlet private var triangleXConstraint: NSLayoutConstraint!
     @IBOutlet private var triangleTopConstraints: [NSLayoutConstraint]!
@@ -44,7 +46,16 @@ class WordDetailPopupView: UIView {
     
     func update(with viewModel: WordDetailPopupViewModel) {
         wordLabel.text = viewModel.word
-        translationLabel.text = viewModel.translation
+        
+        if !viewModel.translation.isEmpty {
+            translationLabel.text = viewModel.translation
+            activityIndicator.removeFromSuperview()
+            activityIndicator.stopAnimating()
+        } else {
+            translationLabel.text = ""
+            translationStackView.insertArrangedSubview(activityIndicator, at: 1)
+            activityIndicator.startAnimating()
+        }
         originalLanguageImageView.image = UIImage(named: viewModel.originalLanguageImageName)
         translatedLanguageImageView.image = UIImage(named: viewModel.translatedLanguageImageName)
         
