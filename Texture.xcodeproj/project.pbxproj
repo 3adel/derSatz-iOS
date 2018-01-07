@@ -147,6 +147,7 @@
 		24DB18B11FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */; };
 		24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */; };
 		24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DD63D01F2E0E1800682CC4 /* SentenceView.xib */; };
+		24E8C6BD2002304F0092D176 /* UIView+EasyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C6BC2002304F0092D176 /* UIView+EasyLayout.swift */; };
 		24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8861EFE935B0075FCBB /* AppDelegate.swift */; };
 		24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8881EFE935B0075FCBB /* InputViewController.swift */; };
 		24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88A1EFE935B0075FCBB /* Main.storyboard */; };
@@ -564,6 +565,7 @@
 		24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceView.swift; sourceTree = "<group>"; };
 		24DD63D01F2E0E1800682CC4 /* SentenceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentenceView.xib; sourceTree = "<group>"; };
+		24E8C6BC2002304F0092D176 /* UIView+EasyLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+EasyLayout.swift"; sourceTree = "<group>"; };
 		24F1D8831EFE935B0075FCBB /* Texture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Texture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D8861EFE935B0075FCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F1D8881EFE935B0075FCBB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -867,6 +869,7 @@
 				247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */,
 				24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */,
 				24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */,
+				24E8C6BC2002304F0092D176 /* UIView+EasyLayout.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1475,6 +1478,7 @@
 				24B59FAA1FDD513C00347A5A /* SavedInterface.swift in Sources */,
 				24F1D9071EFECFCE0075FCBB /* AnalysisViewController.swift in Sources */,
 				24DB18AF1FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
+				24E8C6BD2002304F0092D176 /* UIView+EasyLayout.swift in Sources */,
 				24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */,
 				24A4B0851FC5585E0058CEC0 /* AppReviewController.swift in Sources */,
 				24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */,
