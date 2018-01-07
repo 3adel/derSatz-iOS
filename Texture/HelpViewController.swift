@@ -13,6 +13,8 @@ import RVMP
 class HelpViewController: UIViewController {
     var webView: WKWebView!
     
+    var activityIndicator: UIActivityIndicatorView?
+    
     var presenter: BasePresenter?
     var helpPresenter: HelpPresenterType? {
         return presenter as? HelpPresenterType
@@ -21,6 +23,7 @@ class HelpViewController: UIViewController {
     override func loadView() {
         super.loadView()
         webView = WKWebView()
+        webView.navigationDelegate = self
         view.addSubview(webView)
         webView.snapToSuperview()
     }
@@ -38,5 +41,14 @@ extension HelpViewController: HelpView {
     func render(with viewModel: HelpViewModel) {
         let request = URLRequest(url: viewModel.url)
         webView.load(request)
+    }
+}
+
+extension HelpViewController: WebLoaderShowable {
+    @objc func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showActivityIndicator()
+    }
+    @objc func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        hideActivityIndicator()
     }
 }

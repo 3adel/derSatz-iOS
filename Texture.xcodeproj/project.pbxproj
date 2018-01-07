@@ -148,6 +148,22 @@
 		24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */; };
 		24DD63D11F2E0E1800682CC4 /* SentenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DD63D01F2E0E1800682CC4 /* SentenceView.xib */; };
 		24E8C6BD2002304F0092D176 /* UIView+EasyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C6BC2002304F0092D176 /* UIView+EasyLayout.swift */; };
+		24E8C6F9200252150092D176 /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C6F8200252150092D176 /* SourceCell.swift */; };
+		24E8C6FA2002521E0092D176 /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C6F8200252150092D176 /* SourceCell.swift */; };
+		24E8C6FB2002521F0092D176 /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C6F8200252150092D176 /* SourceCell.swift */; };
+		24E8C6FD2002531D0092D176 /* SourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E8C6FC2002531D0092D176 /* SourceCell.xib */; };
+		24E8C6FE2002531D0092D176 /* SourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E8C6FC2002531D0092D176 /* SourceCell.xib */; };
+		24E8C6FF2002531D0092D176 /* SourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E8C6FC2002531D0092D176 /* SourceCell.xib */; };
+		24E8C7042002597C0092D176 /* RouterGenericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C7032002597C0092D176 /* RouterGenericExtensions.swift */; };
+		24E8C7052002597C0092D176 /* RouterGenericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C7032002597C0092D176 /* RouterGenericExtensions.swift */; };
+		24E8C7062002597C0092D176 /* RouterGenericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C7032002597C0092D176 /* RouterGenericExtensions.swift */; };
+		24E8C708200259B20092D176 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C707200259B20092D176 /* File.swift */; };
+		24E8C709200259B20092D176 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C707200259B20092D176 /* File.swift */; };
+		24E8C70A200259B20092D176 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C707200259B20092D176 /* File.swift */; };
+		24E8C70B200259D60092D176 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C9EBE51FD9EE1000573185 /* WebKit.framework */; };
+		24E8C70D20025ECA0092D176 /* LoaderShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C70C20025ECA0092D176 /* LoaderShowable.swift */; };
+		24E8C70E20025ECA0092D176 /* LoaderShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C70C20025ECA0092D176 /* LoaderShowable.swift */; };
+		24E8C70F20025ECA0092D176 /* LoaderShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C70C20025ECA0092D176 /* LoaderShowable.swift */; };
 		24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8861EFE935B0075FCBB /* AppDelegate.swift */; };
 		24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8881EFE935B0075FCBB /* InputViewController.swift */; };
 		24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88A1EFE935B0075FCBB /* Main.storyboard */; };
@@ -566,6 +582,11 @@
 		24DD63CE1F2E0DE300682CC4 /* SentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceView.swift; sourceTree = "<group>"; };
 		24DD63D01F2E0E1800682CC4 /* SentenceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentenceView.xib; sourceTree = "<group>"; };
 		24E8C6BC2002304F0092D176 /* UIView+EasyLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+EasyLayout.swift"; sourceTree = "<group>"; };
+		24E8C6F8200252150092D176 /* SourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCell.swift; sourceTree = "<group>"; };
+		24E8C6FC2002531D0092D176 /* SourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceCell.xib; sourceTree = "<group>"; };
+		24E8C7032002597C0092D176 /* RouterGenericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterGenericExtensions.swift; sourceTree = "<group>"; };
+		24E8C707200259B20092D176 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		24E8C70C20025ECA0092D176 /* LoaderShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderShowable.swift; sourceTree = "<group>"; };
 		24F1D8831EFE935B0075FCBB /* Texture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Texture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D8861EFE935B0075FCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F1D8881EFE935B0075FCBB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -624,6 +645,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E8C70B200259D60092D176 /* WebKit.framework in Frameworks */,
 				2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */,
 				242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */,
 				245841611FAE3EE500E6DA88 /* MapleBacon.framework in Frameworks */,
@@ -827,6 +849,7 @@
 				24F1D88F1EFE935B0075FCBB /* LaunchScreen.storyboard */,
 				24F1D8921EFE935B0075FCBB /* Info.plist */,
 				24F1D8FF1EFEBC4C0075FCBB /* RouterExtensions.swift */,
+				24E8C7032002597C0092D176 /* RouterGenericExtensions.swift */,
 				24F1D9041EFEBD520075FCBB /* RVMPInterface.swift */,
 				2448F2261F4D563000AB17FC /* DataStore.swift */,
 				24C9EAFF1FD5080000573185 /* LocalStorage.swift */,
@@ -856,6 +879,9 @@
 				24B59F8F1FDD4ECC00347A5A /* SavedArticleCell.xib */,
 				24B59FB41FDD667700347A5A /* ToggleButton.swift */,
 				24B61F621FF10AE500370D26 /* ClearTextView.swift */,
+				24E8C6F8200252150092D176 /* SourceCell.swift */,
+				24E8C6FC2002531D0092D176 /* SourceCell.xib */,
+				24E8C707200259B20092D176 /* File.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -870,6 +896,7 @@
 				24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */,
 				24DB18AE1FF0F1110057DEC0 /* UIViewExtensions.swift */,
 				24E8C6BC2002304F0092D176 /* UIView+EasyLayout.swift */,
+				24E8C70C20025ECA0092D176 /* LoaderShowable.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1329,6 +1356,7 @@
 				248E84181FCE89C500AA5484 /* Dosis-Regular.ttf in Resources */,
 				248E841C1FCE89C500AA5484 /* Dosis-SemiBold.ttf in Resources */,
 				248E841B1FCE89C500AA5484 /* Dosis-ExtraBold.ttf in Resources */,
+				24E8C6FE2002531D0092D176 /* SourceCell.xib in Resources */,
 				248E84191FCE89C500AA5484 /* Dosis-Light.ttf in Resources */,
 				248E84171FCE89C500AA5484 /* Dosis-Medium.ttf in Resources */,
 			);
@@ -1340,6 +1368,7 @@
 			files = (
 				24C9EB801FD8A39300573185 /* WordDetailPopupView.xib in Resources */,
 				24C9EB941FD8A83B00573185 /* Main.storyboard in Resources */,
+				24E8C6FF2002531D0092D176 /* SourceCell.xib in Resources */,
 				24C9EB361FD8A25200573185 /* MainInterface.storyboard in Resources */,
 				24C9EB831FD8A39300573185 /* ArticleImageHeaderView.xib in Resources */,
 				24C9EC3C1FDD4B3F00573185 /* Assets.xcassets in Resources */,
@@ -1351,6 +1380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E8C6FD2002531D0092D176 /* SourceCell.xib in Resources */,
 				24F4BF301FC1A39100F683BC /* Dosis-Medium.ttf in Resources */,
 				24F4BF321FC1A39100F683BC /* Dosis-Light.ttf in Resources */,
 				24F1D8911EFE935B0075FCBB /* LaunchScreen.storyboard in Resources */,
@@ -1398,15 +1428,19 @@
 				24C9EB901FD8A73F00573185 /* ModelFactory.swift in Sources */,
 				242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */,
 				24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */,
+				24E8C7052002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
 				24C9EB911FD8A73F00573185 /* Translation.swift in Sources */,
 				24C9EB931FD8A73F00573185 /* LexicalClass.swift in Sources */,
 				242532711FCE8EA40057E6D5 /* DataStore.swift in Sources */,
 				242532891FCE8EAB0057E6D5 /* DataClient.swift in Sources */,
+				24E8C70E20025ECA0092D176 /* LoaderShowable.swift in Sources */,
 				2425328B1FCE8EBA0057E6D5 /* Error.swift in Sources */,
 				2425328A1FCE8EB10057E6D5 /* WebClient.swift in Sources */,
 				2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */,
+				24E8C6FA2002521E0092D176 /* SourceCell.swift in Sources */,
 				24DB18B01FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
 				2425328E1FCE8ECD0057E6D5 /* API.swift in Sources */,
+				24E8C709200259B20092D176 /* File.swift in Sources */,
 				24C9EB8F1FD8A73F00573185 /* Language.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1418,12 +1452,16 @@
 				24C9EB741FD8A37F00573185 /* Error.swift in Sources */,
 				24DB18B11FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
 				24C9EB751FD8A37F00573185 /* APIClient.swift in Sources */,
+				24E8C70F20025ECA0092D176 /* LoaderShowable.swift in Sources */,
 				24C9EC1C1FDD3B3A00573185 /* HelpViewModel.swift in Sources */,
+				24E8C7062002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
 				24C9EB701FD8A36F00573185 /* DataStore.swift in Sources */,
 				24C9EB6C1FD8A34900573185 /* ThemeService.swift in Sources */,
+				24E8C6FB2002521F0092D176 /* SourceCell.swift in Sources */,
 				24C9EB7E1FD8A39300573185 /* SentenceView.swift in Sources */,
 				24C9EB6F1FD8A35A00573185 /* AnalysisPresenter.swift in Sources */,
 				24C9EB851FD8A3E000573185 /* RVMPInterface.swift in Sources */,
+				24E8C70A200259B20092D176 /* File.swift in Sources */,
 				24C9EB8E1FD8A73D00573185 /* LexicalClass.swift in Sources */,
 				24C9EB331FD8A25200573185 /* ActionViewController.swift in Sources */,
 				24C9EB6D1FD8A34F00573185 /* AnalysisViewModel.swift in Sources */,
@@ -1470,6 +1508,7 @@
 				24A4B07B1FC554020058CEC0 /* Clipboard.swift in Sources */,
 				24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */,
 				24D285D41FC0581000C816C8 /* SavedPresenter.swift in Sources */,
+				24E8C708200259B20092D176 /* File.swift in Sources */,
 				24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */,
 				24A4B0801FC554EA0058CEC0 /* DictionaryKey.swift in Sources */,
 				24C9EBC91FD9E83300573185 /* HelpPresenter.swift in Sources */,
@@ -1486,11 +1525,13 @@
 				248E83FA1FCAB87200AA5484 /* LexicalClass.swift in Sources */,
 				24C9EC561FDD4CB000573185 /* SavedArticleViewModel.swift in Sources */,
 				241E3FBA1F73D375002131CA /* WordDetailPopupView.swift in Sources */,
+				24E8C7042002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
 				24F1D9051EFEBD520075FCBB /* RVMPInterface.swift in Sources */,
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
 				24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */,
 				24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */,
 				248E84151FCE891600AA5484 /* ThemeService.swift in Sources */,
+				24E8C70D20025ECA0092D176 /* LoaderShowable.swift in Sources */,
 				24956BFD1F8203F600D4D657 /* API.swift in Sources */,
 				24B59FBE1FDD67ED00347A5A /* ToggleButton.swift in Sources */,
 				24F1D9091EFED0920075FCBB /* AnalysisPresenter.swift in Sources */,
@@ -1512,6 +1553,7 @@
 				24A4B0721FC4CCE00058CEC0 /* SettingsPresenter.swift in Sources */,
 				247827071FAD2EEC00CB2FC8 /* FoundationExtensions.swift in Sources */,
 				24C9EB001FD5080000573185 /* LocalStorage.swift in Sources */,
+				24E8C6F9200252150092D176 /* SourceCell.swift in Sources */,
 				24A4B06E1FC4CC720058CEC0 /* SettingsCell.swift in Sources */,
 				24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */,
 			);

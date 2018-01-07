@@ -67,10 +67,19 @@ class AnalysisPresenter: Presenter {
                 default:
                     break
                 }
+                
+                
+                var sourceViewModel: SourceViewModel? = nil
+                if let url = article.url {
+                    sourceViewModel = SourceViewModel(urlString: url.absoluteString)
+                }
+                
                 let viewModel = AnalysisViewModel(text: text,
                                                   sentenceInfos: self.sentenceInfos,
                                                   headerViewModel: headerViewModel,
-                                                  isSaved: isSaved)
+                                                  isSaved: isSaved,
+                                                  source: sourceViewModel
+                                                  )
                 
                 self.analysisView?.render(with: viewModel)
             }
@@ -78,7 +87,8 @@ class AnalysisPresenter: Presenter {
             let viewModel = AnalysisViewModel(text: text,
                                               sentenceInfos: sentenceInfos,
                                               headerViewModel: headerViewModel,
-                                              isSaved: false)
+                                              isSaved: false,
+                                              source: nil)
             
             analysisView?.render(with: viewModel)
         }
@@ -245,6 +255,11 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
         } else {
             dataStore.deleteSavedArticle(article) { _ in }
         }
+    }
+    
+    func didTapOnSource() {
+        guard let url = article?.url else { return }
+        router?.routeToWebView(url: url)
     }
     
     private func makeWordDetailPopupViewModel(with wordInfo: WordViewModel, translation: String = "") -> WordDetailPopupViewModel {

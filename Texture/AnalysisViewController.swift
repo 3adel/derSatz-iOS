@@ -81,6 +81,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         (saveBarButtonItem.customView as? ToggleButton)?.toggleSet = viewModel.isSaved
         dataSource.sentences = viewModel.sentenceInfos
         dataSource.headerViewModel = viewModel.headerViewModel
+        dataSource.source = viewModel.source
         collectionView.reloadData()
     }
     
@@ -162,11 +163,18 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
             self?.analysisPresenter?.didTapOnWord(at: indexPath.item, inSentenceAt: indexPath.section)
         }
         
+        dataSource.onSourceTap = { [weak self] in
+            self?.analysisPresenter?.didTapOnSource()
+        }
+        
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
         
         let sentenceNib = UINib(nibName: SentenceView.Nib, bundle: .main)
         collectionView.register(sentenceNib, forCellWithReuseIdentifier: SentenceView.Identifier)
+        
+        let sourceNib = UINib(nibName: SourceCell.Nib, bundle: .main)
+        collectionView.register(sourceNib, forCellWithReuseIdentifier: SourceCell.Identifier)
         
         let headerNIB = UINib(nibName: ArticleImageHeaderView.Nib, bundle: .main)
         collectionView.register(headerNIB, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ArticleImageHeaderView.Identifier)
