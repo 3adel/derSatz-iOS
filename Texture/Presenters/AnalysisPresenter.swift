@@ -132,11 +132,13 @@ class AnalysisPresenter: Presenter {
     }
     
     func update(inputURL url: URL) {
+        view?.showLoader()
         dataStore.getArticle(at: url) { [weak self] result in
             switch result {
             case .success(let article):
                 self?.article = article
-            case .failure(let error):
+            case .failure(_):
+                self?.view?.hideLoader()
                 self?.view?.show(errorMessage: "Something went wrong")
             }
         }

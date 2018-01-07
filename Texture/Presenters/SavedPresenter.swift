@@ -35,7 +35,7 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
     
     func didTapOnArticle(at index: Int) {
         let article = savedArticles[index]
-        router?.routeToAnalysis(article: article)
+        router?.routeToAnalysis(input: .article(article))
     }
     
     private func makeSavedViewModel(from article: Article) -> SavedArticleViewModel {

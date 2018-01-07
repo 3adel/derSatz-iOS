@@ -37,16 +37,9 @@ class InputPresenter: Presenter, InputPresenterProtocol {
         if let urlText = text.replacingOccurrences(of: " ", with: "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: urlText),
             UIApplication.shared.canOpenURL(url) {
-            dataStore.getArticle(at: url) { [weak self] result in
-                switch result {
-                case .success(let article):
-                    self?.router?.routeToAnalysis(article: article)
-                default:
-                    break
-                }
-            }
+            router?.routeToAnalysis(input: .url(url))
         } else {
-            router?.routeToAnalysis(text: text)
+            router?.routeToAnalysis(input: .text(text))
         }
     }
 }
