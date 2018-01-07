@@ -19,6 +19,11 @@ class SavedArticleCell: UITableViewCell {
         setupUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        articleImageView.widthConstraintValue = 60
+    }
+    
     func setupUI() {
         titleLabel.font = UIFont.systemFont(ofSize: 17)
     }
@@ -29,7 +34,7 @@ class SavedArticleCell: UITableViewCell {
         if let imageURL = viewModel.imageURL {
             articleImageView.setImage(withUrl: imageURL)
         } else {
-            articleImageView.setWidth(equalToConstant: 0)
+            articleImageView.widthConstraintValue = 0
         }
     }
 }
