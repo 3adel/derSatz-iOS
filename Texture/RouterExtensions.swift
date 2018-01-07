@@ -9,15 +9,13 @@
 import Foundation
 import RVMP
 
+enum AnalysisInput {
+    case text(String)
+    case url(URL)
+    case article(Article)
+}
+
 extension Router {
-    func routeToAnalysis(text: String) {
-       routeToAnalysis(text: text, article: nil)
-    }
-    
-    func routeToAnalysis(article: Article) {
-        routeToAnalysis(text: nil, article: article)
-    }
-    
     func routeToLanguageSelection(languages: [Language], selectedLanguage: Language, languageType: LanguageType) {
         //TODO: Implementation
     }
@@ -33,15 +31,18 @@ extension Router {
         push(viewController)
     }
     
-    private func routeToAnalysis(text: String?, article: Article?) {
+    func routeToAnalysis(input: AnalysisInput) {
         guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: AnalysisViewController.Identifier) as? AnalysisViewController else { return }
         
         let presenter = AnalysisPresenter(router: self)
         presenter.view = viewController
         
-        if let article = article {
+        switch input {
+        case .article(let article):
             presenter.article = article
-        } else if let text = text {
+        case .url(let url):
+            presenter.update(inputURL: url)
+        case .text(let text):
             presenter.update(inputText: text)
         }
         
