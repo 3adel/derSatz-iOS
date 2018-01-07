@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10B358891FB87BCD00D116DA /*  UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */; };
 		10E4B5BB1F7B03B600418D60 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5A01F7AFF7300418D60 /* Fabric.framework */; };
 		10E4B5BC1F7B03D300418D60 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */; };
 		10E4B5BD1F7B03D600418D60 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E4B5B61F7B016000418D60 /* Answers.framework */; };
@@ -80,6 +79,7 @@
 		24B59FBE1FDD67ED00347A5A /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB41FDD667700347A5A /* ToggleButton.swift */; };
 		24B59FBF1FDD684C00347A5A /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB41FDD667700347A5A /* ToggleButton.swift */; };
 		24B59FC01FDD686600347A5A /* ButtonStyleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */; };
+		24B61F631FF10AE500370D26 /* ClearTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B61F621FF10AE500370D26 /* ClearTextView.swift */; };
 		24C9EB001FD5080000573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
 		24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EAFF1FD5080000573185 /* LocalStorage.swift */; };
 		24C9EB331FD8A25200573185 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C9EB321FD8A25200573185 /* ActionViewController.swift */; };
@@ -495,7 +495,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UITextViewPlaceholder.swift"; sourceTree = "<group>"; };
 		10E4B5A01F7AFF7300418D60 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		10E4B5B61F7B016000418D60 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
@@ -546,6 +545,7 @@
 		24B59FA91FDD513C00347A5A /* SavedInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedInterface.swift; sourceTree = "<group>"; };
 		24B59FB41FDD667700347A5A /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleModel.swift; sourceTree = "<group>"; };
+		24B61F621FF10AE500370D26 /* ClearTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearTextView.swift; sourceTree = "<group>"; };
 		24C9EAFF1FD5080000573185 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		24C9EB191FD50F4600573185 /* Texture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Texture.entitlements; sourceTree = "<group>"; };
 		24C9EB301FD8A25200573185 /* Open in der Satz.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Open in der Satz.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -818,7 +818,6 @@
 				24F1D8861EFE935B0075FCBB /* AppDelegate.swift */,
 				24F1D8881EFE935B0075FCBB /* InputViewController.swift */,
 				24D285D51FC0585400C816C8 /* SavedViewController.swift */,
-				10B358881FB87BCD00D116DA /*  UITextViewPlaceholder.swift */,
 				24C9EBE31FD9EDE700573185 /* HelpViewController.swift */,
 				24F1D9061EFECFCE0075FCBB /* AnalysisViewController.swift */,
 				247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */,
@@ -856,6 +855,7 @@
 				24C9EC571FDD4D2200573185 /* SavedArticleCell.swift */,
 				24B59F8F1FDD4ECC00347A5A /* SavedArticleCell.xib */,
 				24B59FB41FDD667700347A5A /* ToggleButton.swift */,
+				24B61F621FF10AE500370D26 /* ClearTextView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1489,7 +1489,6 @@
 				24F1D9051EFEBD520075FCBB /* RVMPInterface.swift in Sources */,
 				2448F2291F4D564500AB17FC /* DataClient.swift in Sources */,
 				24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */,
-				10B358891FB87BCD00D116DA /*  UITextViewPlaceholder.swift in Sources */,
 				24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */,
 				248E84151FCE891600AA5484 /* ThemeService.swift in Sources */,
 				24956BFD1F8203F600D4D657 /* API.swift in Sources */,
@@ -1502,6 +1501,7 @@
 				9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */,
 				248E83FE1FCAB96600AA5484 /* HelperFunctions.swift in Sources */,
 				24FACEBF1F4E147900F47ED9 /* ModelFactory.swift in Sources */,
+				24B61F631FF10AE500370D26 /* ClearTextView.swift in Sources */,
 				24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */,
 				24A4B07A1FC554020058CEC0 /* AppDependencyManager.swift in Sources */,
 				24956C161F8209F800D4D657 /* Article.swift in Sources */,

@@ -68,14 +68,13 @@ extension UITextView: UITextViewDelegate {
         self.addSubview(placeholderLabel)
         self.resizePlaceholder()
         
-        addObserver(self, forKeyPath: #keyPath(text), options: [.initial, .new, .old], context: nil)
+        self.delegate = self
     }
     
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public func textViewDidChange(_ textView: UITextView) {
         if let placeholderLabel = self.viewWithTag(100) as? UILabel {
             placeholderLabel.isHidden = self.text.count > 0
         }
     }
-    
 }
 
