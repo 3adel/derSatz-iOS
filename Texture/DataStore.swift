@@ -16,7 +16,7 @@ class DataStore {
         self.localStorage = localStorage ?? LocalStorage.shared
     }
     
-    func getTranslation(of sentence: String, for toLanguage: Language, completion: @escaping (Result<String, APIError>) -> Void) {
+    func getTranslation(of sentence: String, for toLanguage: Language, completion: @escaping (Result<Translation, APIError>) -> Void) {
         dataClient.translate(sentence, to: toLanguage) { result in
             switch result {
             case .failure(let error):
@@ -25,13 +25,13 @@ class DataStore {
                 guard let dict = value as? JSONDictionary,
                 let data = dict["data"] as? JSONDictionary,
                 let translations = data["translations"] as? JSONArray,
-                let translation = translations.first as? JSONDictionary,
-                let translatedText = translation["translatedText"] as? String else {
+                let translationDict = translations.first as? JSONDictionary,
+                    let translation = Translation(with: translationDict) else {
                         completion(.failure(APIError.genericNetworkError))
                         return
                 }
                 
-                completion(.success(translatedText))
+                completion(.success(translation))
             }
         }
     }
