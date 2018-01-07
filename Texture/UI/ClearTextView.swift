@@ -65,15 +65,17 @@ class ClearTextView: UITextView {
     }
     
     private func setupUI() {
-        let clearButtonSide: CGFloat = 20
+        let clearButtonImageSide: CGFloat = 20
+        let clearButtonSide: CGFloat = 44
         
-        clearButton.setBackgroundImage(UIImage(named: "clear"), for: .normal)
+        clearButton.setImage(UIImage(named: "clear"), for: .normal)
         clearButton.snap(toSuperviewAnchor: .left, constant: frame.size.width - clearButtonSide - edgeInset)
         clearButtonTopConstraint = clearButton.snap(toSuperviewAnchor: .top, constant: edgeInset)
         clearButton.setHeightConstraint(to: clearButtonSide)
         clearButton.setWidth(equalToConstant: clearButtonSide)
+        clearButton.imageEdgeInsets = .init(top: 0, left: 24, bottom: 24, right: 0)
         
-        textContainerInset = UIEdgeInsetsMake(edgeInset, 0, edgeInset, clearButtonSide + edgeInset)
+        textContainerInset = UIEdgeInsetsMake(edgeInset, 0, edgeInset, clearButtonImageSide + edgeInset)
         
         layoutIfNeeded()
         
