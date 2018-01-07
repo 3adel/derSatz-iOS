@@ -21,6 +21,7 @@ protocol InputViewProtocol: View {
 protocol AnalysisPresenterProtocol: BasePresenter {
     func didTapOnWord(at index: Int, inSentenceAt sentenceIndex: Int)
     func didTapOnSaveToggle(toggleSet: Bool)
+    func didTapOnSource()
 }
 
 protocol AnalysisViewProtocol: View {

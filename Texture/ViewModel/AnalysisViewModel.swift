@@ -13,6 +13,7 @@ struct AnalysisViewModel {
     let sentenceInfos: [SentenceViewModel]
     let headerViewModel: ArticleImageHeaderViewModel?
     let isSaved: Bool
+    let source: SourceViewModel?
 }
 
 struct ArticleImageHeaderViewModel {

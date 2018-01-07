@@ -10,5 +10,6 @@ import Foundation
 
 struct SavedArticleViewModel {
     let title: String
+    let source: String?
     let imageURL: URL?
 }

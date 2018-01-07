@@ -27,7 +27,7 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
                 self.savedArticles = articles
                 let viewModels = articles.map(self.makeSavedViewModel)
                 self.savedView?.render(with: viewModels)
-            case .failure(let error):
+            case .failure(_):
                 self.view?.show(errorMessage: "Something went wrong")
             }
         }
@@ -40,6 +40,15 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
     
     private func makeSavedViewModel(from article: Article) -> SavedArticleViewModel {
         let title = !article.title.isEmpty ? article.title : article.body
-        return SavedArticleViewModel(title: title, imageURL: article.topImageURL)
+        let source: String?
+        
+        switch article.source {
+        case .freeText:
+            source = nil
+        case .internet:
+            source = article.url?.absoluteString
+        }
+        
+        return SavedArticleViewModel(title: title, source: source, imageURL: article.topImageURL)
     }
 }
