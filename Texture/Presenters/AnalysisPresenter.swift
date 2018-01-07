@@ -167,7 +167,7 @@ class AnalysisPresenter: Presenter {
             dataStore.getTranslation(of: article.title, for: .english) { [weak self] result in
                 switch result {
                 case .success(let translation):
-                    self?.articleTitleTranslation = translation
+                    self?.articleTitleTranslation = translation.translatedText
                     self?.getTranslations(for: sentences)
                 default:
                     break
@@ -227,7 +227,7 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
             guard let `self` = self else { return }
             switch result {
             case .success(let translation):
-                let wordDetailViewModel = self.makeWordDetailPopupViewModel(with: wordInfo, translation: translation)
+                let wordDetailViewModel = self.makeWordDetailPopupViewModel(with: wordInfo, translation: translation.translatedText)
                 self.analysisView?.updateWordDetailPopup(with: wordDetailViewModel)
             default:
                 break
