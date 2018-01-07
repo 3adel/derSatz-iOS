@@ -12,6 +12,7 @@ import MapleBacon
 
 class SavedArticleCell: UITableViewCell {
     @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var sourceLabel: UILabel!
     @IBOutlet private var articleImageView: UIImageView!
     
     override func awakeFromNib() {
@@ -22,6 +23,7 @@ class SavedArticleCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         articleImageView.widthConstraintValue = 60
+        sourceLabel.heightConstraintValue = 13
     }
     
     func setupUI() {
@@ -30,6 +32,12 @@ class SavedArticleCell: UITableViewCell {
     
     func update(with viewModel: SavedArticleViewModel) {
         titleLabel.text = viewModel.title
+        
+        if let source = viewModel.source {
+            sourceLabel.text = "Source: \(source)"
+        } else {
+            sourceLabel.heightConstraintValue = 0
+        }
         
         if let imageURL = viewModel.imageURL {
             articleImageView.setImage(withUrl: imageURL)
