@@ -16,17 +16,26 @@ enum SentenceAction: String, UserAction {
 }
 
 class SentenceView: UICollectionViewCell {
-    @IBOutlet weak var containerStackView: UIStackView!
-    @IBOutlet weak var originalTextView: UITextView!
-    @IBOutlet weak var translatedTextView: UITextView!
+    @IBOutlet private var containerStackView: UIStackView!
+    @IBOutlet private var originalTextView: UITextView!
+    @IBOutlet private var originalTextBackgroundView: UIView!
+    @IBOutlet private var translatedTextView: UITextView!
+    @IBOutlet private var translatedTextBackgroundView: UIView!
+    
+    @IBOutlet private var originalSpeakerButton: AnimatedButton!
+    @IBOutlet private var translatedSpeakerButton: AnimatedButton!
     
     @IBOutlet weak var originalTextViewConstraint: NSLayoutConstraint!
     
     var onDidTapWord: ((Int) -> Void)?
     
+    private let speaker = TextSpeaker(language: .german)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        
+        speaker.delegate = self
     }
     
     var viewModel: SentenceViewModel?
@@ -41,7 +50,7 @@ class SentenceView: UICollectionViewCell {
         originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: SentenceView.originalTextViewFontSize, weight: viewModel.fontWeight)])
         translatedTextView.text = viewModel.translation
         
-        let textViewPadding: CGFloat = 30
+        let textViewPadding: CGFloat = 60
         originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: width - textViewPadding, font: originalTextView.font!)
         setNeedsLayout()
 
@@ -58,6 +67,18 @@ class SentenceView: UICollectionViewCell {
         
         let wordFrameInTextView = originalTextView.firstRect(for: range)
         return convert(wordFrameInTextView, from: originalTextView)
+    }
+    
+    @IBAction private func didTapSpeaker(_ sender: UIControl) {
+        speaker.stop()
+        
+        if sender === originalSpeakerButton {
+            speaker.language = .german
+            speaker.play(originalTextView.text)
+        } else {
+            speaker.language = .english
+            speaker.play(translatedTextView.text)
+        }
     }
     
     @objc func didTapTextView(_ sender: UITapGestureRecognizer) {
@@ -78,12 +99,25 @@ class SentenceView: UICollectionViewCell {
         }
         
         originalTextView.font = UIFont.systemFont(ofSize: SentenceView.originalTextViewFontSize, weight: viewModel?.fontWeight ?? .regular)
+        
         translatedTextView.font = SentenceView.translatedTextViewFont
-        translatedTextView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1)
         translatedTextView.textColor = .white
-        translatedTextView.layer.cornerRadius = 6
+        translatedTextView.backgroundColor = .clear
+        translatedTextBackgroundView.backgroundColor = UIColor(red: 92/255, green: 146/255, blue: 253/255, alpha: 1)
+        translatedTextBackgroundView.layer.cornerRadius = 6
         originalTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTextView(_:))))
+        
+        translatedSpeakerButton.tintColor = .white
+        originalSpeakerButton.tintColor = .black
+        
+        [originalSpeakerButton, translatedSpeakerButton].forEach {
+            let speakerImage = UIImage(named: "speaker")?.withRenderingMode(.alwaysTemplate)
+            $0?.setImage(speakerImage, for: .normal)
+            
+            $0?.images = [#imageLiteral(resourceName: "speaker_1"), #imageLiteral(resourceName: "speaker"), #imageLiteral(resourceName: "speaker_3")].map { $0.withRenderingMode(.alwaysTemplate) }
+        }
     }
+    
     
     private func addHighlight(to range: NSRange, with color: UIColor) {
         let attributedText = NSMutableAttributedString(attributedString: originalTextView.attributedText)
@@ -101,9 +135,21 @@ class SentenceView: UICollectionViewCell {
     }
 }
 
+extension SentenceView: TextSpeakerDelegate {
+    func speakerDidStartPlayback(for text: String) {
+        let button = text == originalTextView.text ? originalSpeakerButton : translatedSpeakerButton
+        button?.startAnimating()
+    }
+    
+    func speakerDidFinishPlayback(for text: String) {
+        let button = text == originalTextView.text ? originalSpeakerButton : translatedSpeakerButton
+        button?.stopAnimating()
+    }
+}
+
 extension SentenceView {
     static func calculateHeight(for viewModel: SentenceViewModel, inWidth width: CGFloat) -> CGFloat {
-        let textViewWidth = width - 30
+        let textViewWidth = width - 60
         
         return viewModel.sentence.height(withConstrainedWidth: textViewWidth, font: UIFont.systemFont(ofSize: originalTextViewFontSize, weight: viewModel.fontWeight)) + viewModel.translation.height(withConstrainedWidth: textViewWidth, font: translatedTextViewFont) + 10
     }
