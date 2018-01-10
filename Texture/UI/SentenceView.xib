@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1xz-rt-dJu" customClass="SentenceView" customModule="Texture" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1xz-rt-dJu" customClass="SentenceView" customModule="Open_in_der_Satz" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="362" height="204"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                 <rect key="frame" x="0.0" y="0.0" width="362" height="204"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D9a-hd-BwU">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fv-3E-cdR">
                         <rect key="frame" x="10" y="0.0" width="342" height="92"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D9a-hd-BwU">
+                        <rect key="frame" x="10" y="0.0" width="304" height="92"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="92" id="8Vc-sA-BBO"/>
@@ -27,8 +32,12 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I8L-nO-Qdi">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oD-2Q-nxO">
                         <rect key="frame" x="10" y="94" width="342" height="101"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I8L-nO-Qdi">
+                        <rect key="frame" x="10" y="94" width="304" height="101"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,27 +50,68 @@
                             <constraint firstAttribute="height" constant="1" id="8fu-4s-IL6"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5V7-Te-aPV" customClass="AnimatedButton" customModule="Open_in_der_Satz" customModuleProvider="target">
+                        <rect key="frame" x="322" y="10" width="27" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="5V7-Te-aPV" secondAttribute="height" multiplier="27:19" id="J7o-VI-MZ7"/>
+                            <constraint firstAttribute="width" constant="27" id="etV-Kf-YMI"/>
+                        </constraints>
+                        <state key="normal" image="speaker"/>
+                        <connections>
+                            <action selector="didTapSpeaker:" destination="1xz-rt-dJu" eventType="touchUpInside" id="0c1-6t-BIQ"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scr-KB-2MU" customClass="AnimatedButton" customModule="Open_in_der_Satz" customModuleProvider="target">
+                        <rect key="frame" x="322" y="104" width="27" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="scr-KB-2MU" secondAttribute="height" multiplier="27:19" id="9Zx-BT-4Ck"/>
+                            <constraint firstAttribute="width" constant="27" id="LLC-gP-5zw"/>
+                        </constraints>
+                        <state key="normal" image="speaker"/>
+                        <connections>
+                            <action selector="didTapSpeaker:" destination="1xz-rt-dJu" eventType="touchUpInside" id="Okm-rX-iQB"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hQp-s8-ugj" secondAttribute="bottom" id="0u3-qd-3Tq"/>
-                <constraint firstAttribute="trailing" secondItem="I8L-nO-Qdi" secondAttribute="trailing" constant="10" id="84H-tH-AJp"/>
+                <constraint firstItem="5V7-Te-aPV" firstAttribute="leading" secondItem="D9a-hd-BwU" secondAttribute="trailing" constant="8" id="1oz-X4-SIE"/>
+                <constraint firstItem="8oD-2Q-nxO" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" constant="2" id="3K6-1f-0tL"/>
+                <constraint firstItem="scr-KB-2MU" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" constant="12" id="FHT-1s-xDG"/>
+                <constraint firstItem="1Fv-3E-cdR" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="JAe-uR-GKN"/>
                 <constraint firstItem="D9a-hd-BwU" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="KTm-VP-hgy"/>
+                <constraint firstAttribute="trailing" secondItem="5V7-Te-aPV" secondAttribute="trailing" constant="13" id="M1j-md-TFk"/>
+                <constraint firstItem="1Fv-3E-cdR" firstAttribute="top" secondItem="1xz-rt-dJu" secondAttribute="top" id="MfF-5c-r8k"/>
+                <constraint firstItem="5V7-Te-aPV" firstAttribute="top" secondItem="1xz-rt-dJu" secondAttribute="top" constant="10" id="NXi-pq-N71"/>
                 <constraint firstAttribute="trailing" secondItem="hQp-s8-ugj" secondAttribute="trailing" constant="10" id="O3h-6v-kkf"/>
+                <constraint firstItem="hQp-s8-ugj" firstAttribute="top" secondItem="8oD-2Q-nxO" secondAttribute="bottom" constant="8" id="RvJ-5g-7pw"/>
+                <constraint firstItem="8oD-2Q-nxO" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="RyF-xU-Mcb"/>
                 <constraint firstItem="hQp-s8-ugj" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="Xu0-o1-aYv"/>
+                <constraint firstAttribute="trailing" secondItem="8oD-2Q-nxO" secondAttribute="trailing" constant="10" id="aUy-cy-NOP"/>
                 <constraint firstItem="I8L-nO-Qdi" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" constant="2" id="gnK-rq-hOn"/>
-                <constraint firstAttribute="trailing" secondItem="D9a-hd-BwU" secondAttribute="trailing" constant="10" id="gvv-Wi-GLy"/>
                 <constraint firstItem="I8L-nO-Qdi" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="hz9-m1-FhL"/>
+                <constraint firstAttribute="trailing" secondItem="1Fv-3E-cdR" secondAttribute="trailing" constant="10" id="kwC-24-Jgg"/>
                 <constraint firstItem="hQp-s8-ugj" firstAttribute="top" secondItem="I8L-nO-Qdi" secondAttribute="bottom" constant="8" id="lrg-Az-yUn"/>
+                <constraint firstItem="scr-KB-2MU" firstAttribute="leading" secondItem="I8L-nO-Qdi" secondAttribute="trailing" constant="8" id="pUu-H8-bRM"/>
+                <constraint firstItem="scr-KB-2MU" firstAttribute="centerX" secondItem="5V7-Te-aPV" secondAttribute="centerX" id="qUu-gv-Ul4"/>
+                <constraint firstItem="1Fv-3E-cdR" firstAttribute="height" secondItem="D9a-hd-BwU" secondAttribute="height" id="riR-eA-woq"/>
                 <constraint firstItem="D9a-hd-BwU" firstAttribute="top" secondItem="1xz-rt-dJu" secondAttribute="top" id="vnX-og-qL1"/>
             </constraints>
             <size key="customSize" width="362" height="171"/>
             <connections>
+                <outlet property="originalSpeakerButton" destination="5V7-Te-aPV" id="EaB-BC-AzQ"/>
+                <outlet property="originalTextBackgroundView" destination="1Fv-3E-cdR" id="hsG-ki-MpL"/>
                 <outlet property="originalTextView" destination="D9a-hd-BwU" id="KXS-od-h56"/>
                 <outlet property="originalTextViewConstraint" destination="8Vc-sA-BBO" id="MYs-9g-ZbQ"/>
+                <outlet property="translatedSpeakerButton" destination="scr-KB-2MU" id="kkc-RK-n2L"/>
+                <outlet property="translatedTextBackgroundView" destination="8oD-2Q-nxO" id="Ryf-JZ-GpB"/>
                 <outlet property="translatedTextView" destination="I8L-nO-Qdi" id="R8X-l2-kZO"/>
             </connections>
             <point key="canvasLocation" x="19" y="-420"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="speaker" width="33" height="23"/>
+    </resources>
 </document>
