@@ -43,11 +43,22 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqO-yz-fvX">
-                                                    <rect key="frame" x="35" y="0.0" width="235" height="20"/>
+                                                    <rect key="frame" x="35" y="0.0" width="194" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-KD-nqm" customClass="AnimatedButton" customModule="Open_in_der_Satz" customModuleProvider="target">
+                                                    <rect key="frame" x="244" y="0.0" width="26" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="26" id="Sk4-Ku-dRn"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                                    <state key="normal" backgroundImage="speaker"/>
+                                                    <connections>
+                                                        <action selector="didTapAudioButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="JPK-Wa-SzF"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="rE6-Hk-tZA"/>
@@ -93,24 +104,10 @@
                                         <constraint firstItem="Uo9-60-Z3J" firstAttribute="height" secondItem="Vwv-Kg-h3K" secondAttribute="height" id="KaR-VZ-onJ"/>
                                     </constraints>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-KD-nqm" customClass="AnimatedButton" customModule="Open_in_der_Satz" customModuleProvider="target">
-                                    <rect key="frame" x="266" y="15" width="24" height="20"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="24" id="Sk4-Ku-dRn"/>
-                                        <constraint firstAttribute="width" secondItem="3h9-KD-nqm" secondAttribute="height" multiplier="6:5" id="gSv-rr-PrC"/>
-                                    </constraints>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
-                                    <state key="normal" image="speaker"/>
-                                    <connections>
-                                        <action selector="didTapAudioButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="JPK-Wa-SzF"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="pFb-bC-Ox5" secondAttribute="trailing" constant="15" id="BlP-hH-Kr6"/>
-                                <constraint firstItem="3h9-KD-nqm" firstAttribute="top" secondItem="CCm-Mb-uMt" secondAttribute="top" constant="15" id="TR3-P0-j8k"/>
-                                <constraint firstAttribute="trailing" secondItem="3h9-KD-nqm" secondAttribute="trailing" constant="10" id="Z12-ZB-hBp"/>
                                 <constraint firstAttribute="bottom" secondItem="pFb-bC-Ox5" secondAttribute="bottom" constant="20" id="fqo-BZ-XW0"/>
                                 <constraint firstItem="pFb-bC-Ox5" firstAttribute="leading" secondItem="CCm-Mb-uMt" secondAttribute="leading" constant="15" id="rNp-ZL-7hN"/>
                                 <constraint firstItem="pFb-bC-Ox5" firstAttribute="top" secondItem="CCm-Mb-uMt" secondAttribute="top" constant="15" id="wqf-dP-ajJ"/>
@@ -158,7 +155,7 @@
                 <outletCollection property="triangleTopConstraints" destination="Aw0-HT-rDY" collectionClass="NSMutableArray" id="fPk-f7-Obd"/>
                 <outletCollection property="triangleTopConstraints" destination="eyH-kH-0oX" collectionClass="NSMutableArray" id="EtH-JF-d1Z"/>
             </connections>
-            <point key="canvasLocation" x="-76" y="-350"/>
+            <point key="canvasLocation" x="-76" y="-350.5"/>
         </view>
     </objects>
     <resources>

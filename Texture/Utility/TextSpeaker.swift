@@ -80,14 +80,17 @@ class TextSpeaker: NSObject {
 
 extension TextSpeaker: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
+        isPlaying = false
         delegate?.speakerDidFinishPlayback(for: textPlayed)
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        isPlaying = false
         delegate?.speakerDidFinishPlayback(for: textPlayed)
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        isPlaying = false
         delegate?.speakerDidFinishPlayback(for: textPlayed)
     }
 }

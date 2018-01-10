@@ -40,7 +40,7 @@ class WordDetailPopupView: UIView {
     @IBOutlet private var triangleTopConstraints: [NSLayoutConstraint]!
     @IBOutlet private var triangleBottomConstraints: [NSLayoutConstraint]!
     
-    private let speaker = TextSpeaker(language: .english)
+    private let speaker = TextSpeaker(language: .german)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -107,11 +107,10 @@ class WordDetailPopupView: UIView {
     
     private func setupUI() {
         containerView.layer.cornerRadius = 6
-        
         audioButton.tintColor = .white
         
         let speakerImage = UIImage(named: "speaker")?.withRenderingMode(.alwaysTemplate)
-        audioButton.setImage(speakerImage, for: .normal)
+        audioButton.setBackgroundImage(speakerImage, for: .normal)
         audioButton.images = [#imageLiteral(resourceName: "speaker_1"), #imageLiteral(resourceName: "speaker"), #imageLiteral(resourceName: "speaker_3")].map { $0.withRenderingMode(.alwaysTemplate) }
         
         [wordLabel, translationLabel, lemmaLabel, lexicalClassLabel].forEach { $0?.textColor = .white }
