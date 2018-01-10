@@ -41,6 +41,7 @@ extension WebViewController: WebLoaderShowable {
     @objc func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         showActivityIndicator()
     }
+    
     @objc func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         hideActivityIndicator()
     }

@@ -126,7 +126,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
                 let closeDetailButton = UIButton(type: .custom)
                 closeDetailButton.frame = self.view.frame
                 closeDetailButton.addTarget(self, action: #selector(self.hideWordDetail), for: .touchUpInside)
-                self.view.addSubview(closeDetailButton)
+                self.view.insertSubview(closeDetailButton, belowSubview: wordDetailView)
 
                 self.closeDetailButton = closeDetailButton
             }
