@@ -164,6 +164,15 @@
 		24E8C70D20025ECA0092D176 /* LoaderShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C70C20025ECA0092D176 /* LoaderShowable.swift */; };
 		24E8C70E20025ECA0092D176 /* LoaderShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C70C20025ECA0092D176 /* LoaderShowable.swift */; };
 		24E8C70F20025ECA0092D176 /* LoaderShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C70C20025ECA0092D176 /* LoaderShowable.swift */; };
+		24E8C711200268670092D176 /* TextSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C710200268670092D176 /* TextSpeaker.swift */; };
+		24E8C712200268670092D176 /* TextSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C710200268670092D176 /* TextSpeaker.swift */; };
+		24E8C713200268670092D176 /* TextSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C710200268670092D176 /* TextSpeaker.swift */; };
+		24E8C715200268790092D176 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E8C714200268790092D176 /* AVFoundation.framework */; };
+		24E8C7162002687E0092D176 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E8C714200268790092D176 /* AVFoundation.framework */; };
+		24E8C717200268830092D176 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E8C714200268790092D176 /* AVFoundation.framework */; };
+		24E8C71D200269040092D176 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C71C200269040092D176 /* AnimatedButton.swift */; };
+		24E8C71E200269040092D176 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C71C200269040092D176 /* AnimatedButton.swift */; };
+		24E8C71F200269040092D176 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8C71C200269040092D176 /* AnimatedButton.swift */; };
 		24F1D8871EFE935B0075FCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8861EFE935B0075FCBB /* AppDelegate.swift */; };
 		24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D8881EFE935B0075FCBB /* InputViewController.swift */; };
 		24F1D88C1EFE935B0075FCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D88A1EFE935B0075FCBB /* Main.storyboard */; };
@@ -587,6 +596,9 @@
 		24E8C7032002597C0092D176 /* RouterGenericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterGenericExtensions.swift; sourceTree = "<group>"; };
 		24E8C707200259B20092D176 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		24E8C70C20025ECA0092D176 /* LoaderShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderShowable.swift; sourceTree = "<group>"; };
+		24E8C710200268670092D176 /* TextSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSpeaker.swift; sourceTree = "<group>"; };
+		24E8C714200268790092D176 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		24E8C71C200269040092D176 /* AnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
 		24F1D8831EFE935B0075FCBB /* Texture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Texture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D8861EFE935B0075FCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F1D8881EFE935B0075FCBB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -622,6 +634,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E8C7162002687E0092D176 /* AVFoundation.framework in Frameworks */,
 				242532921FCE8EED0057E6D5 /* Alamofire.framework in Frameworks */,
 				242532911FCE8EE80057E6D5 /* Result.framework in Frameworks */,
 			);
@@ -631,6 +644,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E8C717200268830092D176 /* AVFoundation.framework in Frameworks */,
 				24C9EBB91FD8AA4000573185 /* Alamofire.framework in Frameworks */,
 				24C9EBBA1FD8AA4000573185 /* HTMLString.framework in Frameworks */,
 				24C9EBBB1FD8AA4000573185 /* MapleBacon.framework in Frameworks */,
@@ -645,6 +659,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E8C715200268790092D176 /* AVFoundation.framework in Frameworks */,
 				24E8C70B200259D60092D176 /* WebKit.framework in Frameworks */,
 				2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */,
 				242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */,
@@ -666,6 +681,7 @@
 		10E4B5BA1F7B03B600418D60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24E8C714200268790092D176 /* AVFoundation.framework */,
 				24C9EBE51FD9EE1000573185 /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -790,6 +806,7 @@
 				24A4B0831FC558570058CEC0 /* AppReviewController.swift */,
 				24A4B0841FC558580058CEC0 /* ShareController.swift */,
 				248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */,
+				24E8C710200268670092D176 /* TextSpeaker.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -882,6 +899,7 @@
 				24E8C6F8200252150092D176 /* SourceCell.swift */,
 				24E8C6FC2002531D0092D176 /* SourceCell.xib */,
 				24E8C707200259B20092D176 /* File.swift */,
+				24E8C71C200269040092D176 /* AnimatedButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1426,6 +1444,7 @@
 				248E84061FCD3A0100AA5484 /* ShareViewController.swift in Sources */,
 				2425328F1FCE8ED10057E6D5 /* GoogleAPI.swift in Sources */,
 				24C9EB901FD8A73F00573185 /* ModelFactory.swift in Sources */,
+				24E8C71E200269040092D176 /* AnimatedButton.swift in Sources */,
 				242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */,
 				24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */,
 				24E8C7052002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
@@ -1435,6 +1454,7 @@
 				242532891FCE8EAB0057E6D5 /* DataClient.swift in Sources */,
 				24E8C70E20025ECA0092D176 /* LoaderShowable.swift in Sources */,
 				2425328B1FCE8EBA0057E6D5 /* Error.swift in Sources */,
+				24E8C712200268670092D176 /* TextSpeaker.swift in Sources */,
 				2425328A1FCE8EB10057E6D5 /* WebClient.swift in Sources */,
 				2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */,
 				24E8C6FA2002521E0092D176 /* SourceCell.swift in Sources */,
@@ -1471,6 +1491,7 @@
 				24B59FC01FDD686600347A5A /* ButtonStyleModel.swift in Sources */,
 				24C9EB8C1FD8A73D00573185 /* Translation.swift in Sources */,
 				24C9EB7B1FD8A39300573185 /* UIKitExtensions.swift in Sources */,
+				24E8C713200268670092D176 /* TextSpeaker.swift in Sources */,
 				24C9EB861FD8A3FF00573185 /* SettingsViewModel.swift in Sources */,
 				24C9EB8D1FD8A73D00573185 /* Article.swift in Sources */,
 				24C9EB7C1FD8A39300573185 /* Identifiable.swift in Sources */,
@@ -1486,6 +1507,7 @@
 				24C9EB8B1FD8A73D00573185 /* ModelFactory.swift in Sources */,
 				24C9EB871FD8A45C00573185 /* SentenceDataSource.swift in Sources */,
 				24C9EB821FD8A39300573185 /* ArticleImageHeaderView.swift in Sources */,
+				24E8C71F200269040092D176 /* AnimatedButton.swift in Sources */,
 				24C9EB7A1FD8A39300573185 /* UITextViewPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1507,6 +1529,8 @@
 				245841321FADF82900E6DA88 /* ArticleImageHeaderView.swift in Sources */,
 				24A4B07B1FC554020058CEC0 /* Clipboard.swift in Sources */,
 				24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */,
+				24E8C711200268670092D176 /* TextSpeaker.swift in Sources */,
+				24E8C71D200269040092D176 /* AnimatedButton.swift in Sources */,
 				24D285D41FC0581000C816C8 /* SavedPresenter.swift in Sources */,
 				24E8C708200259B20092D176 /* File.swift in Sources */,
 				24F1D8891EFE935B0075FCBB /* InputViewController.swift in Sources */,

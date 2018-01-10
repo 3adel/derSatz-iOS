@@ -34,10 +34,13 @@ class WordDetailPopupView: UIView {
     @IBOutlet private var lexicalClassLabel: UILabel!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var translationStackView: UIStackView!
+    @IBOutlet private var audioButton: AnimatedButton!
     
     @IBOutlet private var triangleXConstraint: NSLayoutConstraint!
     @IBOutlet private var triangleTopConstraints: [NSLayoutConstraint]!
     @IBOutlet private var triangleBottomConstraints: [NSLayoutConstraint]!
+    
+    private let speaker = TextSpeaker(language: .german)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -97,9 +100,29 @@ class WordDetailPopupView: UIView {
         setNeedsLayout()
     }
     
+    @IBAction func didTapAudioButton(_ sender: UIControl) {
+        guard !speaker.isPlaying else { return }
+        speaker.play(wordLabel.text!)
+    }
+    
     private func setupUI() {
         containerView.layer.cornerRadius = 6
+        audioButton.tintColor = .white
+        
+        let speakerImage = UIImage(named: "speaker")?.withRenderingMode(.alwaysTemplate)
+        audioButton.setBackgroundImage(speakerImage, for: .normal)
+        audioButton.images = [#imageLiteral(resourceName: "speaker_1"), #imageLiteral(resourceName: "speaker"), #imageLiteral(resourceName: "speaker_3")].map { $0.withRenderingMode(.alwaysTemplate) }
         
         [wordLabel, translationLabel, lemmaLabel, lexicalClassLabel].forEach { $0?.textColor = .white }
+    }
+}
+
+extension WordDetailPopupView: TextSpeakerDelegate {
+    func speakerDidStartPlayback(for text: String) {
+        audioButton.startAnimating()
+    }
+    
+    func speakerDidFinishPlayback(for text: String) {
+        audioButton.stopAnimating()
     }
 }

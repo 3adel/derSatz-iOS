@@ -124,7 +124,7 @@ public extension UIView {
     @discardableResult
     public func snap(topToViewController viewController: UIViewController) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
-        let constraint = topAnchor.constraint(equalTo: viewController.topLayoutGuide.bottomAnchor)
+        let constraint = topAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor)
         constraint.isActive = true
         return constraint
     }

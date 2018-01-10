@@ -43,11 +43,22 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqO-yz-fvX">
-                                                    <rect key="frame" x="35" y="0.0" width="235" height="20"/>
+                                                    <rect key="frame" x="35" y="0.0" width="194" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-KD-nqm" customClass="AnimatedButton" customModule="Open_in_der_Satz" customModuleProvider="target">
+                                                    <rect key="frame" x="244" y="0.0" width="26" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="26" id="Sk4-Ku-dRn"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                                    <state key="normal" backgroundImage="speaker"/>
+                                                    <connections>
+                                                        <action selector="didTapAudioButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="JPK-Wa-SzF"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="rE6-Hk-tZA"/>
@@ -127,6 +138,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="activityIndicator" destination="Vbf-Eq-5RE" id="DEc-Ub-e9p"/>
+                <outlet property="audioButton" destination="3h9-KD-nqm" id="4X2-iF-Ood"/>
                 <outlet property="containerView" destination="CCm-Mb-uMt" id="rtb-8N-JM8"/>
                 <outlet property="lemmaLabel" destination="xiT-Js-d7U" id="dfY-Hf-zdD"/>
                 <outlet property="lexicalClassLabel" destination="B4V-CK-suL" id="YF9-gJ-Qc8"/>
@@ -143,12 +155,13 @@
                 <outletCollection property="triangleTopConstraints" destination="Aw0-HT-rDY" collectionClass="NSMutableArray" id="fPk-f7-Obd"/>
                 <outletCollection property="triangleTopConstraints" destination="eyH-kH-0oX" collectionClass="NSMutableArray" id="EtH-JF-d1Z"/>
             </connections>
-            <point key="canvasLocation" x="-76" y="-350"/>
+            <point key="canvasLocation" x="-76" y="-350.5"/>
         </view>
     </objects>
     <resources>
         <image name="de_flag" width="302" height="302"/>
         <image name="gb_flag" width="302" height="302"/>
         <image name="popupTriangle" width="164" height="76"/>
+        <image name="speaker" width="33" height="23"/>
     </resources>
 </document>
