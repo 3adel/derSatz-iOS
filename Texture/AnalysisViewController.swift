@@ -38,6 +38,7 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     }()
     
     private var dataSource = SentenceDataSource()
+    private var isExtension: Bool { return extensionContext != nil }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,10 +192,23 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
 
 extension AnalysisViewController: NVActivityIndicatorViewable {
     override func showLoader() {
-        startAnimating(CGSize(width: 30, height: 30), message: "Analyzing text...")
+        if isExtension {
+            let loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            view.addSubview(loader)
+            loader.centerInSuperview()
+            loader.startAnimating()
+            self.loader = loader
+        } else {
+            startAnimating(CGSize(width: 30, height: 30), message: "Analyzing text...")
+        }
     }
     
     override func hideLoader() {
-        stopAnimating()
+        if isExtension {
+            loader?.stopAnimating()
+            loader?.removeFromSuperview()
+        } else {
+            stopAnimating()
+        }
     }
 }
