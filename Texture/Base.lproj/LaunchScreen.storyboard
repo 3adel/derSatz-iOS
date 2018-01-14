@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="der Satz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWl-h3-ZAO">
-                                <rect key="frame" x="107" y="232.5" width="161.5" height="55"/>
+                                <rect key="frame" x="107" y="233" width="162" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -32,11 +32,20 @@
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-logo" translatesAutoresizingMaskIntoConstraints="NO" id="oeu-z0-IKz">
+                                <rect key="frame" x="137" y="130" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="JjC-zw-BYU"/>
+                                    <constraint firstAttribute="height" constant="100" id="Zra-N3-t2W"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yWl-h3-ZAO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3gi-Yu-LWG"/>
                             <constraint firstItem="yWl-h3-ZAO" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-73.75" id="IOf-fO-h1I"/>
+                            <constraint firstItem="oeu-z0-IKz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YiI-tk-jyo"/>
+                            <constraint firstItem="yWl-h3-ZAO" firstAttribute="top" secondItem="oeu-z0-IKz" secondAttribute="bottom" constant="3" id="hYJ-ev-SWA"/>
                             <constraint firstItem="KmJ-TR-ZFj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="igd-VS-L3y"/>
                             <constraint firstItem="KmJ-TR-ZFj" firstAttribute="top" secondItem="yWl-h3-ZAO" secondAttribute="bottom" constant="8.5" id="qWV-C6-OPf"/>
                         </constraints>
@@ -47,4 +56,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="app-logo" width="1536" height="1536"/>
+    </resources>
 </document>
