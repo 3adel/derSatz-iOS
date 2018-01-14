@@ -12,6 +12,7 @@ import ListKit
 import NVActivityIndicatorView
 import MobileCoreServices
 
+
 class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var navigationBar: UINavigationBar?
@@ -34,7 +35,12 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         button.onToggle = { [weak self] toggleSet in
             self?.analysisPresenter?.didTapOnSaveToggle(toggleSet: toggleSet)
         }
-        return UIBarButtonItem(customView: button)
+        
+        let barButtonItem = UIBarButtonItem(customView: button)
+        barButtonItem.customView?.setWidth(equalToConstant: 50)
+        barButtonItem.customView?.setHeight(equalToConstant: 50)
+        
+        return barButtonItem
     }()
     
     private var dataSource = SentenceDataSource()
