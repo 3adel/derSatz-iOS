@@ -23,7 +23,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D9a-hd-BwU">
-                        <rect key="frame" x="10" y="0.0" width="304" height="92"/>
+                        <rect key="frame" x="10" y="0.0" width="298" height="92"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="92" id="8Vc-sA-BBO"/>
@@ -37,7 +37,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I8L-nO-Qdi">
-                        <rect key="frame" x="10" y="94" width="304" height="101"/>
+                        <rect key="frame" x="10" y="94" width="298" height="101"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -51,10 +51,10 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5V7-Te-aPV" customClass="AnimatedButton" customModule="Open_in_der_Satz" customModuleProvider="target">
-                        <rect key="frame" x="322" y="10" width="27" height="19"/>
+                        <rect key="frame" x="305" y="10" width="44" height="31"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="5V7-Te-aPV" secondAttribute="height" multiplier="27:19" id="J7o-VI-MZ7"/>
-                            <constraint firstAttribute="width" constant="27" id="etV-Kf-YMI"/>
+                            <constraint firstAttribute="width" constant="44" id="etV-Kf-YMI"/>
                         </constraints>
                         <state key="normal" image="speaker"/>
                         <connections>
@@ -62,10 +62,10 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scr-KB-2MU" customClass="AnimatedButton" customModule="Open_in_der_Satz" customModuleProvider="target">
-                        <rect key="frame" x="322" y="104" width="27" height="19"/>
+                        <rect key="frame" x="305" y="104" width="44" height="31"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="scr-KB-2MU" secondAttribute="height" multiplier="27:19" id="9Zx-BT-4Ck"/>
-                            <constraint firstAttribute="width" constant="27" id="LLC-gP-5zw"/>
+                            <constraint firstAttribute="width" constant="44" id="LLC-gP-5zw"/>
                         </constraints>
                         <state key="normal" image="speaker"/>
                         <connections>
@@ -76,7 +76,7 @@
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hQp-s8-ugj" secondAttribute="bottom" id="0u3-qd-3Tq"/>
-                <constraint firstItem="5V7-Te-aPV" firstAttribute="leading" secondItem="D9a-hd-BwU" secondAttribute="trailing" constant="8" id="1oz-X4-SIE"/>
+                <constraint firstItem="5V7-Te-aPV" firstAttribute="leading" secondItem="D9a-hd-BwU" secondAttribute="trailing" constant="-3" id="1oz-X4-SIE"/>
                 <constraint firstItem="8oD-2Q-nxO" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" constant="2" id="3K6-1f-0tL"/>
                 <constraint firstItem="scr-KB-2MU" firstAttribute="top" secondItem="D9a-hd-BwU" secondAttribute="bottom" constant="12" id="FHT-1s-xDG"/>
                 <constraint firstItem="1Fv-3E-cdR" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="JAe-uR-GKN"/>
@@ -93,7 +93,7 @@
                 <constraint firstItem="I8L-nO-Qdi" firstAttribute="leading" secondItem="1xz-rt-dJu" secondAttribute="leading" constant="10" id="hz9-m1-FhL"/>
                 <constraint firstAttribute="trailing" secondItem="1Fv-3E-cdR" secondAttribute="trailing" constant="10" id="kwC-24-Jgg"/>
                 <constraint firstItem="hQp-s8-ugj" firstAttribute="top" secondItem="I8L-nO-Qdi" secondAttribute="bottom" constant="8" id="lrg-Az-yUn"/>
-                <constraint firstItem="scr-KB-2MU" firstAttribute="leading" secondItem="I8L-nO-Qdi" secondAttribute="trailing" constant="8" id="pUu-H8-bRM"/>
+                <constraint firstItem="scr-KB-2MU" firstAttribute="leading" secondItem="I8L-nO-Qdi" secondAttribute="trailing" constant="-3" id="pUu-H8-bRM"/>
                 <constraint firstItem="scr-KB-2MU" firstAttribute="centerX" secondItem="5V7-Te-aPV" secondAttribute="centerX" id="qUu-gv-Ul4"/>
                 <constraint firstItem="1Fv-3E-cdR" firstAttribute="height" secondItem="D9a-hd-BwU" secondAttribute="height" id="riR-eA-woq"/>
                 <constraint firstItem="D9a-hd-BwU" firstAttribute="top" secondItem="1xz-rt-dJu" secondAttribute="top" id="vnX-og-qL1"/>
