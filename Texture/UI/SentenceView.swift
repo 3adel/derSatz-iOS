@@ -45,6 +45,8 @@ class SentenceView: UICollectionViewCell {
     static let originalTextViewFontSize: CGFloat = 19
     static let translatedTextViewFontSize: CGFloat = 17
     
+    static let textViewPadding: CGFloat = 70
+    
     func update(with viewModel: SentenceViewModel, width: CGFloat) {
         self.viewModel = viewModel
         originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: SentenceView.originalTextViewFontSize, weight: viewModel.fontWeight)])
@@ -53,8 +55,7 @@ class SentenceView: UICollectionViewCell {
                                                                 .font : UIFont.systemFont(ofSize: SentenceView.translatedTextViewFontSize, weight: viewModel.fontWeight),
                                                                 .foregroundColor: UIColor.white])
         
-        let textViewPadding: CGFloat = 60
-        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: width - textViewPadding, font: originalTextView.font!)
+        originalTextViewConstraint.constant = viewModel.sentence.height(withConstrainedWidth: width - SentenceView.textViewPadding, font: originalTextView.font!)
         setNeedsLayout()
 
         viewModel.wordInfos.forEach {
@@ -152,7 +153,7 @@ extension SentenceView: TextSpeakerDelegate {
 
 extension SentenceView {
     static func calculateHeight(for viewModel: SentenceViewModel, inWidth width: CGFloat) -> CGFloat {
-        let textViewWidth = width - 60
+        let textViewWidth = width - textViewPadding
         
         return viewModel.sentence.height(withConstrainedWidth: textViewWidth, font: UIFont.systemFont(ofSize: originalTextViewFontSize, weight: viewModel.fontWeight)) + viewModel.translation.height(withConstrainedWidth: textViewWidth, font: UIFont.systemFont(ofSize: translatedTextViewFontSize, weight: viewModel.fontWeight)) + 10
     }
