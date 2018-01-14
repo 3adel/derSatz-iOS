@@ -56,7 +56,7 @@ class AnalysisPresenter: Presenter {
         var headerViewModel: ArticleImageHeaderViewModel? = nil
         
         if let article = article {
-            headerViewModel = makeHeaderViewModel(from: article)
+            headerViewModel = article.source == .internet ? makeHeaderViewModel(from: article) : nil
             dataStore.isArticleSaved(article) { [weak self] result in
                 guard let `self` = self else { return }
                 
@@ -78,8 +78,7 @@ class AnalysisPresenter: Presenter {
                                                   sentenceInfos: self.sentenceInfos,
                                                   headerViewModel: headerViewModel,
                                                   isSaved: isSaved,
-                                                  source: sourceViewModel
-                                                  )
+                                                  source: sourceViewModel)
                 
                 self.analysisView?.render(with: viewModel)
             }
@@ -208,6 +207,7 @@ class AnalysisPresenter: Presenter {
         sentenceInfos.removeAll()
         
         if let article = article,
+            article.source == .internet,
             let articleTitleTranslation = articleTitleTranslation {
             let titleSentenceInfo = makeSentenceInfo(from: article.title, translation: articleTitleTranslation, fontWeight: .bold)
             sentenceInfos.append(titleSentenceInfo)
