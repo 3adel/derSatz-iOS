@@ -35,6 +35,11 @@ class SavedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = TableViewDataSource(tableView: tableView)
+        dataSource?.onDeleteAction = { [weak self] indexPath, completionHandler in
+            self?.savedPresenter?.didTapDeleteForArticle(at: indexPath.item) { success in
+                completionHandler(success)
+            }
+        }
         setupUI()
     }
     
@@ -50,5 +55,9 @@ extension SavedViewController: SavedViewProtocol {
             self?.savedPresenter?.didTapOnArticle(at: indexPath.item)
         }
         dataSource?.update(sections: [section])
+    }
+    
+    func update(viewModels: [SavedArticleViewModel]) {
+//        dataSource?.update(viewModels: viewModels)
     }
 }

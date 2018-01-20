@@ -78,7 +78,6 @@ public class ListDataSource: NSObject {
     
     public func update(viewModels: [Any]) {
         sections[0].viewModels = viewModels
-        reloadList()
     }
     
     public func update(viewModelAt index: Int, viewModel: Any) {
@@ -98,7 +97,6 @@ public class ListDataSource: NSObject {
         
         if cellIdentifier != WrapperCollectionCell.Identifier,
             UINib.doesExist(withName: cellIdentifier) {
-            
             listView.registerCell(withIdentifier: cellIdentifier)
         }
         let actionableComponent: ListViewComponent
