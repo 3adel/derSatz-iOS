@@ -11,8 +11,10 @@ import RVMP
 
 protocol SavedViewProtocol: View {
     func render(with viewModel: [SavedArticleViewModel])
+    func update(viewModels: [SavedArticleViewModel]) 
 }
 
 protocol SavedPresenterProtocol: BasePresenter {
     func didTapOnArticle(at index: Int)
+    func didTapDeleteForArticle(at index: Int, completionHandler: @escaping (Bool) -> Void)
 }

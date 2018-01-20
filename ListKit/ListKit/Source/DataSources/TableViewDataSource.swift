@@ -11,6 +11,9 @@ public class TableViewDataSource: ListDataSource {
         }
     }
     
+    public typealias DeleteAction = (IndexPath, @escaping (Bool) -> ()) -> ()
+    public var onDeleteAction: DeleteAction?
+    
     public required init(tableView: UITableView) {
         super.init(sections: [], listView: tableView)
         setupTableView()
@@ -53,6 +56,14 @@ extension TableViewDataSource: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let footerView = makeFooter(at: IndexPath(item: 0, section: section)) else { return UIView() }
         return footerView as? UIView
+    }
+    
+    @available(iOS 11.0, *)
+    public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self]  _, _, completionHandler in
+            self?.onDeleteAction?(indexPath, completionHandler)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 

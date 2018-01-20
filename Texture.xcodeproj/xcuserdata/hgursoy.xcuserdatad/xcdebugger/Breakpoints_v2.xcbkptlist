@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Texture/InputViewController.swift"
-            timestampString = "537030488.716233"
+            filePath = "Texture/Presenters/AnalysisPresenter.swift"
+            timestampString = "534612229.663551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "setupUI()"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "didTapOnSaveToggle(toggleSet:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,30 +25,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Texture/ UITextViewPlaceholder.swift"
-            timestampString = "537017670.0959949"
+            filePath = "Texture/Presenters/SavedPresenter.swift"
+            timestampString = "538158647.2262011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "uTextViewPlaceHolder"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Texture/ UITextViewPlaceholder.swift"
-            timestampString = "537017680.1026829"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "addPlaceholder(text:font:color:topInset:leftInset:)"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getInitialData()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Texture.SavedPresenter.getInitialData() -&gt; ()"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/Presenters/SavedPresenter.swift"
+                  timestampString = "534607876.879577"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Result.Result&lt;Swift.Array&lt;Texture.Article&gt;, Texture.APIError&gt;) -&gt; () in Texture.SavedPresenter.getInitialData() -&gt; ()"
+                  moduleName = "Texture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hgursoy/TextAnalyzer-iOS/Texture/Presenters/SavedPresenter.swift"
+                  timestampString = "534607876.883718"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,45 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Texture/UI/ClearTextView.swift"
-            timestampString = "537030488.716398"
+            filePath = "Texture/Presenters/SavedPresenter.swift"
+            timestampString = "538158647.226282"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "init(frame:textContainer:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Texture/UI/WordDetailPopupView.swift"
-            timestampString = "537316803.612388"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "didTapAudioButton(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Texture/UI/SentenceView.swift"
-            timestampString = "537316803.612465"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "speakerDidStartPlayback(for:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getInitialData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

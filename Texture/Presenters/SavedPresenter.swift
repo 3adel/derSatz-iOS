@@ -38,6 +38,21 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
         router?.routeToAnalysis(input: .article(article))
     }
     
+    func didTapDeleteForArticle(at index: Int, completionHandler: @escaping (Bool) -> Void) {
+        let article = savedArticles[index]
+        dataStore.deleteSavedArticle(article) { [weak self] result in
+            guard let `self` = self else { return }
+            
+            let success = result.value != nil
+            if success {
+                self.savedArticles.remove(at: index)
+                let viewModels = self.savedArticles.map(self.makeSavedViewModel)
+                self.savedView?.update(viewModels: viewModels)
+            }
+            completionHandler(success)
+        }
+    }
+    
     private func makeSavedViewModel(from article: Article) -> SavedArticleViewModel {
         let title = !article.title.isEmpty ? article.title : article.body
         let source: String?
