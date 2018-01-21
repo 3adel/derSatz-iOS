@@ -61,7 +61,11 @@ extension TableViewDataSource: UITableViewDataSource {
     @available(iOS 11.0, *)
     public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self]  _, _, completionHandler in
-            self?.onDeleteAction?(indexPath, completionHandler)
+            self?.onDeleteAction?(indexPath) { didDelete in
+                guard didDelete else { return }
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                completionHandler(didDelete)
+            }
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
