@@ -129,9 +129,10 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         wordDetailView.alpha = 0
         view.addSubview(wordDetailView)
         
+        self.updateWordDetailPopup(popupView: wordDetailView, with: viewModel, showLoader: true)
+        
         hideDetailPopup() {
             self.detailPopup = wordDetailView
-            self.updateWordDetailPopup(with: viewModel, showLoader: true)
             UIView.animate(withDuration: 0.3, animations: {
                 wordDetailView.alpha = 1
             }) { _ in
@@ -145,9 +146,14 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         }
     }
     
-    func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel, showLoader: Bool) {
-        guard let detailPopup = detailPopup else { return }
+    func updateWordDetailPopup(popupView: WordDetailPopupView?, with viewModel: WordDetailPopupViewModel, showLoader: Bool) {
+        let popupView = popupView ?? detailPopup
+        guard let detailPopup = popupView else { return }
         detailPopup.update(with: viewModel, showLoader: showLoader)
+    }
+    
+    func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel, showLoader: Bool) {
+        updateWordDetailPopup(popupView: nil, with: viewModel, showLoader: showLoader)
     }
     
     @objc func hideWordDetail() {
