@@ -47,7 +47,7 @@ class WordDetailPopupView: UIView {
         setupUI()
     }
     
-    func update(with viewModel: WordDetailPopupViewModel) {
+    func update(with viewModel: WordDetailPopupViewModel, showLoader: Bool) {
         wordLabel.text = viewModel.word
         
         if !viewModel.translation.isEmpty {
@@ -57,8 +57,14 @@ class WordDetailPopupView: UIView {
         } else {
             translationLabel.text = ""
             translationStackView.insertArrangedSubview(activityIndicator, at: 1)
-            activityIndicator.startAnimating()
+            if showLoader {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.removeFromSuperview()
+                activityIndicator.stopAnimating()
+            }
         }
+        
         originalLanguageImageView.image = UIImage(named: viewModel.originalLanguageImageName)
         translatedLanguageImageView.image = UIImage(named: viewModel.translatedLanguageImageName)
         

@@ -19,22 +19,24 @@ class APIClient: DataClient {
     let genericErrorResult: AnyResult = .failure(APIError.genericNetworkError)
     
     func translate(_ sentence: String, to: Language, completion: @escaping (AnyResult) -> Void) {
-        cancelAllOperations()
-        
-        let toLanguageQueryItem = URLQueryItem(name: "target", value: to.languageCode)
-        
-        let searchQueryItem = URLQueryItem(name: "q",
-                                           value: sentence)
-        
-        let endpoint = GoogleEndpoint.translate
-        guard let request = webClient.createRequest(api: googleAPI, endpoint: endpoint,
-                                                    queryItems: [toLanguageQueryItem, searchQueryItem],
-                                                    cache: true) else {
-                completion(genericErrorResult)
-                return
+        cancelAllOperations() { [weak self] in
+            guard let `self` = self else { return }
+            
+            let toLanguageQueryItem = URLQueryItem(name: "target", value: to.languageCode)
+            
+            let searchQueryItem = URLQueryItem(name: "q",
+                                               value: sentence)
+            
+            let endpoint = GoogleEndpoint.translate
+            guard let request = self.webClient.createRequest(api: self.googleAPI, endpoint: endpoint,
+                                                        queryItems: [toLanguageQueryItem, searchQueryItem],
+                                                        cache: true) else {
+                    completion(self.genericErrorResult)
+                    return
+            }
+            
+            self.send(request: request, api: self.googleAPI, endpoint: endpoint, completion: completion)
         }
-        
-        send(request: request, api: googleAPI, endpoint: endpoint, completion: completion)
     }
     
     func translate(_ sentences: [String], to: Language, completion: @escaping (AnyResult) -> Void) {
@@ -63,8 +65,8 @@ class APIClient: DataClient {
         send(request: request, api: textAnalyzerAPI, endpoint: endpoint, completion: completion)
     }
     
-    func cancelAllOperations() {
-        webClient.cancellAllRequests()
+    func cancelAllOperations(completion:@escaping  () -> Void) {
+        webClient.cancelAllRequests(completion: completion)
     }
     
     func send<T: API>(request: URLRequest, api: T, endpoint: APIEndpoint, completion: @escaping ResultHandler) {

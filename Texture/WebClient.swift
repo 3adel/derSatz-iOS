@@ -70,7 +70,7 @@ class WebClient {
     
     func send(_ request: URLRequest, cache: Bool = false, completion: APIResultHandler? = nil) {
         setupReachabilityManager(for: request.url?.host ?? "")
-        
+         
         removeRequestFromCancelled(request)
         
         manager.request(request)
@@ -127,7 +127,7 @@ class WebClient {
         cancelledRequests.remove(request)
     }
     
-    func cancellAllRequests() {
+    func cancelAllRequests(completion: @escaping () -> Void) {
         manager.session.getAllTasks { tasks in
             tasks.forEach { [weak self] in
                 guard let strongSelf = self else { return }
@@ -139,6 +139,7 @@ class WebClient {
                 }
                 $0.cancel()
             }
+            completion()
         }
     }
     

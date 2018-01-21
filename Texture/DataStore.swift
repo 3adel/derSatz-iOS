@@ -102,8 +102,4 @@ class DataStore {
         
         completion(.success(isSaved))
     }
-    
-    func cancelPreviousSearches() {
-        dataClient.cancelAllOperations()
-    }
 }

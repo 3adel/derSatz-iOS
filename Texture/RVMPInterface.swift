@@ -27,7 +27,7 @@ protocol AnalysisPresenterProtocol: BasePresenter {
 protocol AnalysisViewProtocol: View {
     func render(with viewModel: AnalysisViewModel)
     func showWordDetailPopup(with viewModel: WordDetailPopupViewModel, forWordAt index: Int, inSentenceAt sentenceIndex: Int)
-    func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel)
+    func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel, showLoader: Bool)
 }
 
 protocol AnalysisDetailViewProtocol: View {
