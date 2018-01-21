@@ -238,13 +238,15 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
         
         dataStore.getTranslation(of: wordInfo.word, for: .english) { [weak self] result in
             guard let `self` = self else { return }
+            var translation: Translation?
             switch result {
-            case .success(let translation):
-                let wordDetailViewModel = self.makeWordDetailPopupViewModel(with: wordInfo, translation: translation.translatedText)
-                self.analysisView?.updateWordDetailPopup(with: wordDetailViewModel)
+            case .success(let fetchedTranslation):
+                translation = fetchedTranslation
             default:
                 break
             }
+            let wordDetailViewModel = self.makeWordDetailPopupViewModel(with: wordInfo, translation: translation?.translatedText)
+            self.analysisView?.updateWordDetailPopup(with: wordDetailViewModel, showLoader: false)
         }
     }
     
@@ -263,9 +265,10 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
         router?.routeToWebView(url: url)
     }
     
-    private func makeWordDetailPopupViewModel(with wordInfo: WordViewModel, translation: String = "") -> WordDetailPopupViewModel {
+    private func makeWordDetailPopupViewModel(with wordInfo: WordViewModel, translation: String? = nil) -> WordDetailPopupViewModel {
+        let translationText = translation ?? ""
         return WordDetailPopupViewModel(word: wordInfo.word,
-                                 translation: translation,
+                                 translation: translationText,
                                  originalLanguageImageName: "de_flag",
                                  translatedLanguageImageName: "gb_flag",
                                  lemma: wordInfo.lemma,

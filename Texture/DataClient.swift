@@ -9,5 +9,5 @@ protocol DataClient {
     func translate(_ sentence: String, to: Language, completion: @escaping ResultHandler)
     func translate(_ sentences: [String], to: Language, completion: @escaping ResultHandler)
     func getArticle(at url: String, completion: @escaping (AnyResult) -> Void)
-    func cancelAllOperations()
+    func cancelAllOperations(completion: @escaping () -> Void)
 }
