@@ -56,6 +56,7 @@ class WordDetailPopupView: UIView {
             translationLabel.text = viewModel.translation
             activityIndicator.removeFromSuperview()
             activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
         } else {
             translationLabel.text = ""
             translationStackView.insertArrangedSubview(activityIndicator, at: 1)
