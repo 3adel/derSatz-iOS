@@ -33,6 +33,9 @@
 		2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22A1F4D567700AB17FC /* WebClient.swift */; };
 		2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22C1F4D56CC00AB17FC /* Error.swift */; };
 		2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22E1F4D56EB00AB17FC /* APIClient.swift */; };
+		245243282014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */; };
+		245243292014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */; };
+		2452432A2014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */; };
 		2458411D1FADF77500E6DA88 /* ArticleImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2458411C1FADF77500E6DA88 /* ArticleImageHeaderView.xib */; };
 		245841321FADF82900E6DA88 /* ArticleImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245841311FADF82900E6DA88 /* ArticleImageHeaderView.swift */; };
 		245841611FAE3EE500E6DA88 /* MapleBacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2458415C1FAE3ED100E6DA88 /* MapleBacon.framework */; };
@@ -535,6 +538,7 @@
 		2448F22A1F4D567700AB17FC /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
 		2448F22C1F4D56CC00AB17FC /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2448F22E1F4D56EB00AB17FC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		2458411C1FADF77500E6DA88 /* ArticleImageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleImageHeaderView.xib; sourceTree = "<group>"; };
 		245841311FADF82900E6DA88 /* ArticleImageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageHeaderView.swift; sourceTree = "<group>"; };
 		245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapleBacon.xcodeproj; path = Carthage/Checkouts/MapleBacon/MapleBacon.xcodeproj; sourceTree = "<group>"; };
@@ -807,6 +811,7 @@
 				24A4B0841FC558580058CEC0 /* ShareController.swift */,
 				248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */,
 				24E8C710200268670092D176 /* TextSpeaker.swift */,
+				245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1459,6 +1464,7 @@
 				2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */,
 				24E8C6FA2002521E0092D176 /* SourceCell.swift in Sources */,
 				24DB18B01FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
+				245243292014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */,
 				2425328E1FCE8ECD0057E6D5 /* API.swift in Sources */,
 				24E8C709200259B20092D176 /* File.swift in Sources */,
 				24C9EB8F1FD8A73F00573185 /* Language.swift in Sources */,
@@ -1507,6 +1513,7 @@
 				24C9EB8B1FD8A73D00573185 /* ModelFactory.swift in Sources */,
 				24C9EB871FD8A45C00573185 /* SentenceDataSource.swift in Sources */,
 				24C9EB821FD8A39300573185 /* ArticleImageHeaderView.swift in Sources */,
+				2452432A2014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */,
 				24E8C71F200269040092D176 /* AnimatedButton.swift in Sources */,
 				24C9EB7A1FD8A39300573185 /* UITextViewPlaceholder.swift in Sources */,
 			);
@@ -1523,6 +1530,7 @@
 				24A4B0821FC554EA0058CEC0 /* Config.swift in Sources */,
 				248E83FC1FCAB8B000AA5484 /* AnalysisViewModel.swift in Sources */,
 				2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */,
+				245243282014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */,
 				24C9EBE21FD9ED2F00573185 /* HelpViewModel.swift in Sources */,
 				248E83F81FCAB83F00AA5484 /* SentenceViewModel.swift in Sources */,
 				24F1D90B1EFED44E0075FCBB /* UIKitExtensions.swift in Sources */,

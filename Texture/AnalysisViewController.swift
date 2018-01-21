@@ -90,6 +90,11 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         dataSource.headerViewModel = viewModel.headerViewModel
         dataSource.source = viewModel.source
         collectionView.reloadData()
+        
+        if !UserDefaults.standard.didUseAnalysisBefore {
+            show(infoMessage: "You can tap on colored words to show more details.")
+            UserDefaults.standard.didUseAnalysisBefore = true
+        }
     }
     
     func showWordDetailPopup(with viewModel: WordDetailPopupViewModel, forWordAt index: Int, inSentenceAt sentenceIndex: Int) {
