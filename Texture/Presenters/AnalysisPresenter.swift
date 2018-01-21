@@ -27,6 +27,14 @@ class AnalysisPresenter: Presenter {
         return view as? AnalysisViewProtocol
     }
     
+    private var language: Language {
+        if let dominantLanguage = tagger.dominantLanguage {
+            return Language(languageCode: dominantLanguage) ?? .german
+        } else {
+            return .german
+        }
+    }
+    
     lazy var tagger: NSLinguisticTagger = {
         let options: NSLinguisticTagger.Options = [NSLinguisticTagger.Options.joinNames]
        return NSLinguisticTagger(tagSchemes: [.lemma, .nameTypeOrLexicalClass], options: Int(options.rawValue))
@@ -119,6 +127,7 @@ class AnalysisPresenter: Presenter {
                                 types.append(LexicalClass(rawValue: tag?.rawValue ?? "") ?? .other)
         }
         
+        
         let wordInfos: [WordViewModel] = words.enumerated().reduce([]) { wordInfoList, enumerated in
             let wordInfo = WordViewModel(word: enumerated.element,
                                     lemma: lemmas[enumerated.offset],
@@ -133,7 +142,8 @@ class AnalysisPresenter: Presenter {
         return SentenceViewModel(sentence: sentence,
                                  translation: translation,
                                  wordInfos: wordInfos,
-                                 fontWeight: fontWeight)
+                                 fontWeight: fontWeight,
+                                 language: language)
     }
     
     private func makeHeaderViewModel(from article: Article) -> ArticleImageHeaderViewModel? {
@@ -269,11 +279,12 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
         let translationText = translation ?? ""
         return WordDetailPopupViewModel(word: wordInfo.word,
                                  translation: translationText,
-                                 originalLanguageImageName: "de_flag",
+                                 originalLanguageImageName: language.flagImageName,
                                  translatedLanguageImageName: "gb_flag",
                                  lemma: wordInfo.lemma,
                                  lexicalClass: wordInfo.type.rawValue,
-                                 backgroundColor: wordInfo.type.color)
+                                 backgroundColor: wordInfo.type.color,
+                                 language: language)
     }
 }
 

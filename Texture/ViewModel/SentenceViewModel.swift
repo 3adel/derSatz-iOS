@@ -20,4 +20,5 @@ struct SentenceViewModel {
     let translation: String
     let wordInfos: [WordViewModel]
     let fontWeight: UIFont.Weight
+    let language: Language
 }
