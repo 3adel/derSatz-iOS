@@ -59,10 +59,16 @@ extension SavedViewController: SavedViewProtocol {
         }
         dataSource?.update(sections: [section])
         
-        [noEntryLabel, noEntryImageView].forEach { $0.isHidden = !viewModel.isEmpty}
+        updateNoEntryViews(shouldShow: viewModel.isEmpty)
     }
     
     func update(viewModels: [SavedArticleViewModel]) {
-//        dataSource?.update(viewModels: viewModels)
+        dataSource?.update(viewModels: viewModels)
+        
+        updateNoEntryViews(shouldShow: viewModels.isEmpty)
+    }
+    
+    private func updateNoEntryViews(shouldShow: Bool) {
+         [noEntryLabel, noEntryImageView].forEach { $0.isHidden = !shouldShow}
     }
 }
