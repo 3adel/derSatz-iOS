@@ -70,7 +70,7 @@ class WebClient {
     
     func send(_ request: URLRequest, cache: Bool = false, completion: APIResultHandler? = nil) {
         setupReachabilityManager(for: request.url?.host ?? "")
-         
+        
         removeRequestFromCancelled(request)
         
         manager.request(request)

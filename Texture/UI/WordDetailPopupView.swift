@@ -16,6 +16,7 @@ struct WordDetailPopupViewModel {
     let lemma: String
     let lexicalClass: String
     let backgroundColor: UIColor
+    let language: Language
 }
 
 enum TrianglePosition {
@@ -49,6 +50,7 @@ class WordDetailPopupView: UIView {
     
     func update(with viewModel: WordDetailPopupViewModel, showLoader: Bool) {
         wordLabel.text = viewModel.word
+        speaker.language = viewModel.language
         
         if !viewModel.translation.isEmpty {
             translationLabel.text = viewModel.translation

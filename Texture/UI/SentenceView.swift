@@ -40,8 +40,6 @@ class SentenceView: UICollectionViewCell {
     
     var viewModel: SentenceViewModel?
     
-    var detailPopup: WordDetailPopupView?
-    
     static let originalTextViewFontSize: CGFloat = 19
     static let translatedTextViewFontSize: CGFloat = 17
     
@@ -49,6 +47,9 @@ class SentenceView: UICollectionViewCell {
     
     func update(with viewModel: SentenceViewModel, width: CGFloat) {
         self.viewModel = viewModel
+        
+        speaker.language = viewModel.language
+        
         originalTextView.attributedText = NSAttributedString(string: viewModel.sentence, attributes: [.font : UIFont.systemFont(ofSize: SentenceView.originalTextViewFontSize, weight: viewModel.fontWeight)])
         translatedTextView.attributedText = NSAttributedString(string: viewModel.translation,
                                                                attributes: [
