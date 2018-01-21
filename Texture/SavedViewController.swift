@@ -12,6 +12,8 @@ import ListKit
 
 class SavedViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var noEntryLabel: UILabel!
+    @IBOutlet private var noEntryImageView: UIImageView!
     
     var presenter: BasePresenter?
     
@@ -45,6 +47,7 @@ class SavedViewController: UIViewController {
     
     private func setupUI() {
         hideBackButtonText()
+        noEntryLabel.text = "No saved entries"
     }
 }
 
@@ -55,6 +58,8 @@ extension SavedViewController: SavedViewProtocol {
             self?.savedPresenter?.didTapOnArticle(at: indexPath.item)
         }
         dataSource?.update(sections: [section])
+        
+        [noEntryLabel, noEntryImageView].forEach { $0.isHidden = !viewModel.isEmpty}
     }
     
     func update(viewModels: [SavedArticleViewModel]) {
