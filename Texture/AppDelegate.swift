@@ -23,22 +23,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ThemeService().setUpAppWideTheme()
         
+        var tabs: [TabBarSection] = []
+        
         let inputTab = TabBarSection(title: "Analyse",
                                      presenterType: InputPresenter.self,
                                      viewControllerType: InputViewController.self,
                                      imageExtension: "_tab_icon")
         
+        tabs.append(inputTab)
+        
         let savedTab = TabBarSection(title: "Saved",
                                      presenterType: SavedPresenter.self,
                                      viewControllerType: SavedViewController.self,
                                      imageExtension: "_tab_icon")
+        tabs.append(savedTab)
         
         let settingsTab = TabBarSection(title: "More",
                                         presenterType: SettingsPresenter.self,
                                         viewControllerType: MoreViewController.self,
                                         imageExtension: "_tab_icon")
         
-        Router.shared = Router(tabs: [inputTab, savedTab, settingsTab], with: UIStoryboard(name: "Main", bundle: Bundle.main))
+        tabs.append(settingsTab)
+        
+        Router.shared = Router(tabs: tabs, with: UIStoryboard(name: "Main", bundle: Bundle.main))
         
         window?.rootViewController = Router.shared?.rootViewController
         

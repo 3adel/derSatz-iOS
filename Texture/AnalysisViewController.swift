@@ -27,9 +27,12 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     private var loader: UIActivityIndicatorView?
     private var detailPopup: WordDetailPopupView?
     private var closeDetailButton: UIButton?
+    private var toggleButton: ToggleButton?
     
     private lazy var saveBarButtonItem: UIBarButtonItem = {
         let button = ToggleButton(frame: .zero)
+        button.contentHorizontalAlignment = .right
+        
         button.styleForTrue = ButtonStyleModel(imageName: "star_selected")
         button.styleForFalse = ButtonStyleModel(imageName: "star")
         button.onToggle = { [weak self] toggleSet in
@@ -39,6 +42,8 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         let barButtonItem = UIBarButtonItem(customView: button)
         barButtonItem.customView?.setWidth(equalToConstant: 50)
         barButtonItem.customView?.setHeight(equalToConstant: 50)
+        
+        toggleButton = button
         
         return barButtonItem
     }()
@@ -154,6 +159,10 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     
     func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel, showLoader: Bool) {
         updateWordDetailPopup(popupView: nil, with: viewModel, showLoader: showLoader)
+    }
+    
+    func updateSaveToggle(_ isEnabled: Bool) {
+        toggleButton?.toggleSet = isEnabled
     }
     
     @objc func hideWordDetail() {
