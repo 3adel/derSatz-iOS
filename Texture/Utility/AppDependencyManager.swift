@@ -29,9 +29,7 @@ class AppDependencyManager: NotificationSender {
     private static func setupSharedManager() -> AppDependencyManager {
         let languageConfig = getLanguageConfig() ?? LanguageConfig.default
         
-        return AppDependencyManager(
-            languageConfig: languageConfig
-        )
+        return AppDependencyManager(languageConfig: languageConfig)
     }
     
     var languageConfig: LanguageConfig {

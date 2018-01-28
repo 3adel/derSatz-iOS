@@ -28,6 +28,7 @@ protocol AnalysisViewProtocol: View {
     func render(with viewModel: AnalysisViewModel)
     func showWordDetailPopup(with viewModel: WordDetailPopupViewModel, forWordAt index: Int, inSentenceAt sentenceIndex: Int)
     func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel, showLoader: Bool)
+    func updateSaveToggle(_ isEnabled: Bool)
 }
 
 protocol AnalysisDetailViewProtocol: View {
@@ -59,7 +60,7 @@ extension UIViewController {
     
     @objc
     public func show(errorMessage: String) {
-        let messageView = setUpMessageView(withText: errorMessage, layout: .statusLine)
+        let messageView = setUpMessageView(withText: errorMessage, layout: .messageView)
         messageView.configureTheme(.error)
         SwiftMessages.show(config: defaultConfig, view: messageView)
         

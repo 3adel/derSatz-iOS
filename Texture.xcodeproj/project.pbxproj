@@ -33,6 +33,13 @@
 		2448F22B1F4D567700AB17FC /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22A1F4D567700AB17FC /* WebClient.swift */; };
 		2448F22D1F4D56CC00AB17FC /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22C1F4D56CC00AB17FC /* Error.swift */; };
 		2448F22F1F4D56EC00AB17FC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F22E1F4D56EB00AB17FC /* APIClient.swift */; };
+		2451447C201DD71E00B7328F /* FeatureConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2451447B201DD71E00B7328F /* FeatureConfig.swift */; };
+		24514494201DD72400B7328F /* FeatureConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2451447B201DD71E00B7328F /* FeatureConfig.swift */; };
+		24514495201DD72500B7328F /* FeatureConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2451447B201DD71E00B7328F /* FeatureConfig.swift */; };
+		24514497201DD8A500B7328F /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24514496201DD8A500B7328F /* IAPService.swift */; };
+		24514498201DD8A500B7328F /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24514496201DD8A500B7328F /* IAPService.swift */; };
+		24514499201DD8A500B7328F /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24514496201DD8A500B7328F /* IAPService.swift */; };
+		2451449B201DE0BE00B7328F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2451449A201DE0BE00B7328F /* StoreKit.framework */; };
 		245243282014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */; };
 		245243292014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */; };
 		2452432A2014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */; };
@@ -538,6 +545,9 @@
 		2448F22A1F4D567700AB17FC /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
 		2448F22C1F4D56CC00AB17FC /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2448F22E1F4D56EB00AB17FC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		2451447B201DD71E00B7328F /* FeatureConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureConfig.swift; sourceTree = "<group>"; };
+		24514496201DD8A500B7328F /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
+		2451449A201DE0BE00B7328F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		245243272014A0D20061CA87 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		2458411C1FADF77500E6DA88 /* ArticleImageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleImageHeaderView.xib; sourceTree = "<group>"; };
 		245841311FADF82900E6DA88 /* ArticleImageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageHeaderView.swift; sourceTree = "<group>"; };
@@ -663,6 +673,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2451449B201DE0BE00B7328F /* StoreKit.framework in Frameworks */,
 				24E8C715200268790092D176 /* AVFoundation.framework in Frameworks */,
 				24E8C70B200259D60092D176 /* WebKit.framework in Frameworks */,
 				2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */,
@@ -685,6 +696,7 @@
 		10E4B5BA1F7B03B600418D60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2451449A201DE0BE00B7328F /* StoreKit.framework */,
 				24E8C714200268790092D176 /* AVFoundation.framework */,
 				24C9EBE51FD9EE1000573185 /* WebKit.framework */,
 			);
@@ -800,6 +812,8 @@
 		24D285D01FC0575400C816C8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2451447B201DD71E00B7328F /* FeatureConfig.swift */,
+				24514496201DD8A500B7328F /* IAPService.swift */,
 				24A4B0771FC553FD0058CEC0 /* AppDependencyManager.swift */,
 				24A4B0781FC553FE0058CEC0 /* Clipboard.swift */,
 				24A4B0791FC554000058CEC0 /* EmailComposer.swift */,
@@ -1093,6 +1107,9 @@
 						CreatedOnToolsVersion = 9.0;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};
@@ -1445,6 +1462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24514498201DD8A500B7328F /* IAPService.swift in Sources */,
 				24C9EB921FD8A73F00573185 /* Article.swift in Sources */,
 				248E84061FCD3A0100AA5484 /* ShareViewController.swift in Sources */,
 				2425328F1FCE8ED10057E6D5 /* GoogleAPI.swift in Sources */,
@@ -1453,6 +1471,7 @@
 				242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */,
 				24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */,
 				24E8C7052002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
+				24514494201DD72400B7328F /* FeatureConfig.swift in Sources */,
 				24C9EB911FD8A73F00573185 /* Translation.swift in Sources */,
 				24C9EB931FD8A73F00573185 /* LexicalClass.swift in Sources */,
 				242532711FCE8EA40057E6D5 /* DataStore.swift in Sources */,
@@ -1501,6 +1520,7 @@
 				24C9EB861FD8A3FF00573185 /* SettingsViewModel.swift in Sources */,
 				24C9EB8D1FD8A73D00573185 /* Article.swift in Sources */,
 				24C9EB7C1FD8A39300573185 /* Identifiable.swift in Sources */,
+				24514495201DD72500B7328F /* FeatureConfig.swift in Sources */,
 				24C9EB6E1FD8A35300573185 /* SentenceViewModel.swift in Sources */,
 				24C9EB771FD8A37F00573185 /* GoogleAPI.swift in Sources */,
 				24C9EB711FD8A37500573185 /* LocalStorage.swift in Sources */,
@@ -1511,6 +1531,7 @@
 				24C9EB8A1FD8A73D00573185 /* Language.swift in Sources */,
 				24C9EB5E1FD8A2A700573185 /* AnalysisViewController.swift in Sources */,
 				24C9EB8B1FD8A73D00573185 /* ModelFactory.swift in Sources */,
+				24514499201DD8A500B7328F /* IAPService.swift in Sources */,
 				24C9EB871FD8A45C00573185 /* SentenceDataSource.swift in Sources */,
 				24C9EB821FD8A39300573185 /* ArticleImageHeaderView.swift in Sources */,
 				2452432A2014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */,
@@ -1537,6 +1558,7 @@
 				245841321FADF82900E6DA88 /* ArticleImageHeaderView.swift in Sources */,
 				24A4B07B1FC554020058CEC0 /* Clipboard.swift in Sources */,
 				24F1D90D1EFED4B70075FCBB /* Identifiable.swift in Sources */,
+				2451447C201DD71E00B7328F /* FeatureConfig.swift in Sources */,
 				24E8C711200268670092D176 /* TextSpeaker.swift in Sources */,
 				24E8C71D200269040092D176 /* AnimatedButton.swift in Sources */,
 				24D285D41FC0581000C816C8 /* SavedPresenter.swift in Sources */,
@@ -1553,6 +1575,7 @@
 				24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */,
 				24A4B0851FC5585E0058CEC0 /* AppReviewController.swift in Sources */,
 				24FACEBD1F4E142300F47ED9 /* Language.swift in Sources */,
+				24514497201DD8A500B7328F /* IAPService.swift in Sources */,
 				24F1D9001EFEBC4C0075FCBB /* RouterExtensions.swift in Sources */,
 				248E83FA1FCAB87200AA5484 /* LexicalClass.swift in Sources */,
 				24C9EC561FDD4CB000573185 /* SavedArticleViewModel.swift in Sources */,

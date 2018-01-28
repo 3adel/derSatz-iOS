@@ -20,6 +20,14 @@ class SavedPresenter: Presenter, SavedPresenterProtocol {
     var savedArticles: [Article] = []
     
     override func getInitialData() {
+        switch FeatureConfig.shared.status(for: .savedArticles) {
+        case .disabled(let errorMessage):
+            view?.show(errorMessage: errorMessage)
+            savedView?.render(with: [])
+            return
+        default: break
+        }
+        
         dataStore.getSavedArticles() { [weak self] result in
             guard let `self` = self else { return }
             switch result {

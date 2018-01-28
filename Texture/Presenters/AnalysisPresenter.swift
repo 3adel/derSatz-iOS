@@ -261,6 +261,14 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
     }
     
     func didTapOnSaveToggle(toggleSet: Bool) {
+        switch FeatureConfig.shared.status(for: .savedArticles) {
+        case .disabled(let errorMessage):
+            view?.show(errorMessage: errorMessage)
+            analysisView?.updateSaveToggle(false)
+            return
+        default: break
+        }
+        
         let article = self.article ?? Article(freeText: inputText!)
         
         if toggleSet {
