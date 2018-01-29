@@ -19,6 +19,8 @@ extension RawRepresentable where RawValue == String, Self: UserDefaultsKey {
 extension UserDefaults {
     enum Key: String, UserDefaultsKey {
         case didUseAnalysisBefore
+        case trialStartDate
+        case promotionShowCount
     }
     
     var didUseAnalysisBefore: Bool {

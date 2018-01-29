@@ -24,6 +24,12 @@
 		242532921FCE8EED0057E6D5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
 		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
 		242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		242DA264201E09AA0072C71E /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D11FC0579800C816C8 /* ThemeService.swift */; };
+		242DA27C201E0C080072C71E /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D90A1EFED44E0075FCBB /* UIKitExtensions.swift */; };
+		242DA27D201E0C200072C71E /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D90C1EFED4B70075FCBB /* Identifiable.swift */; };
+		242DA27F201E14A10072C71E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DA27E201E14A10072C71E /* PopupViewController.swift */; };
+		242DA280201E14A10072C71E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DA27E201E14A10072C71E /* PopupViewController.swift */; };
+		242DA281201E14A10072C71E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DA27E201E14A10072C71E /* PopupViewController.swift */; };
 		2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
 		2448F2071F4D558B00AB17FC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2448F2221F4D562000AB17FC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F2191F4D561800AB17FC /* Result.framework */; };
@@ -83,6 +89,12 @@
 		24A4B0821FC554EA0058CEC0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B07F1FC554E70058CEC0 /* Config.swift */; };
 		24A4B0851FC5585E0058CEC0 /* AppReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0831FC558570058CEC0 /* AppReviewController.swift */; };
 		24A4B0861FC5585E0058CEC0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B0841FC558580058CEC0 /* ShareController.swift */; };
+		24A5CE2F201DFBF10020E64E /* PremiumMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A5CE2E201DFBF10020E64E /* PremiumMembershipViewController.swift */; };
+		24A5CE48201DFC0A0020E64E /* PremiumMembershipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A5CE47201DFC0A0020E64E /* PremiumMembershipPresenter.swift */; };
+		24A5CE49201DFC0A0020E64E /* PremiumMembershipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A5CE47201DFC0A0020E64E /* PremiumMembershipPresenter.swift */; };
+		24A5CE4A201DFC0A0020E64E /* PremiumMembershipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A5CE47201DFC0A0020E64E /* PremiumMembershipPresenter.swift */; };
+		24A5CE4B201DFC100020E64E /* PremiumMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A5CE2E201DFBF10020E64E /* PremiumMembershipViewController.swift */; };
+		24A5CE4C201DFC100020E64E /* PremiumMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A5CE2E201DFBF10020E64E /* PremiumMembershipViewController.swift */; };
 		24B59F901FDD4ECC00347A5A /* SavedArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B59F8F1FDD4ECC00347A5A /* SavedArticleCell.xib */; };
 		24B59FAA1FDD513C00347A5A /* SavedInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FA91FDD513C00347A5A /* SavedInterface.swift */; };
 		24B59FBA1FDD66E700347A5A /* ButtonStyleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B59FB91FDD66E700347A5A /* ButtonStyleModel.swift */; };
@@ -538,6 +550,7 @@
 		241E3FA41F73D35D002131CA /* WordDetailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordDetailPopupView.xib; sourceTree = "<group>"; };
 		241E3FB91F73D375002131CA /* WordDetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailPopupView.swift; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
+		242DA27E201E14A10072C71E /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		2448F1ED1F4D558200AB17FC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Carthage/Checkouts/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2448F20A1F4D561800AB17FC /* Result.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Result.xcodeproj; path = Carthage/Checkouts/Result/Result.xcodeproj; sourceTree = "<group>"; };
 		2448F2261F4D563000AB17FC /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -580,6 +593,8 @@
 		24A4B07F1FC554E70058CEC0 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		24A4B0831FC558570058CEC0 /* AppReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReviewController.swift; sourceTree = "<group>"; };
 		24A4B0841FC558580058CEC0 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
+		24A5CE2E201DFBF10020E64E /* PremiumMembershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumMembershipViewController.swift; sourceTree = "<group>"; };
+		24A5CE47201DFC0A0020E64E /* PremiumMembershipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumMembershipPresenter.swift; sourceTree = "<group>"; };
 		24B59F8F1FDD4ECC00347A5A /* SavedArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedArticleCell.xib; sourceTree = "<group>"; };
 		24B59FA91FDD513C00347A5A /* SavedInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedInterface.swift; sourceTree = "<group>"; };
 		24B59FB41FDD667700347A5A /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
@@ -880,6 +895,7 @@
 				24F1D9061EFECFCE0075FCBB /* AnalysisViewController.swift */,
 				247826DC1FAC40C400CB2FC8 /* SentenceDataSource.swift */,
 				24A4B0731FC4CCF10058CEC0 /* MoreViewController.swift */,
+				24A5CE2E201DFBF10020E64E /* PremiumMembershipViewController.swift */,
 				24F1D88A1EFE935B0075FCBB /* Main.storyboard */,
 				24F1D88D1EFE935B0075FCBB /* Assets.xcassets */,
 				24F1D88F1EFE935B0075FCBB /* LaunchScreen.storyboard */,
@@ -919,6 +935,7 @@
 				24E8C6FC2002531D0092D176 /* SourceCell.xib */,
 				24E8C707200259B20092D176 /* File.swift */,
 				24E8C71C200269040092D176 /* AnimatedButton.swift */,
+				242DA27E201E14A10072C71E /* PopupViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -947,6 +964,7 @@
 				24D285D31FC0581000C816C8 /* SavedPresenter.swift */,
 				24A4B0751FC553820058CEC0 /* SettingsViewModel.swift */,
 				24C9EBC81FD9E83300573185 /* HelpPresenter.swift */,
+				24A5CE47201DFC0A0020E64E /* PremiumMembershipPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -1467,23 +1485,29 @@
 				248E84061FCD3A0100AA5484 /* ShareViewController.swift in Sources */,
 				2425328F1FCE8ED10057E6D5 /* GoogleAPI.swift in Sources */,
 				24C9EB901FD8A73F00573185 /* ModelFactory.swift in Sources */,
+				242DA264201E09AA0072C71E /* ThemeService.swift in Sources */,
+				24A5CE4B201DFC100020E64E /* PremiumMembershipViewController.swift in Sources */,
 				24E8C71E200269040092D176 /* AnimatedButton.swift in Sources */,
 				242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */,
 				24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */,
 				24E8C7052002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
 				24514494201DD72400B7328F /* FeatureConfig.swift in Sources */,
 				24C9EB911FD8A73F00573185 /* Translation.swift in Sources */,
+				242DA27D201E0C200072C71E /* Identifiable.swift in Sources */,
 				24C9EB931FD8A73F00573185 /* LexicalClass.swift in Sources */,
+				242DA280201E14A10072C71E /* PopupViewController.swift in Sources */,
 				242532711FCE8EA40057E6D5 /* DataStore.swift in Sources */,
 				242532891FCE8EAB0057E6D5 /* DataClient.swift in Sources */,
 				24E8C70E20025ECA0092D176 /* LoaderShowable.swift in Sources */,
 				2425328B1FCE8EBA0057E6D5 /* Error.swift in Sources */,
 				24E8C712200268670092D176 /* TextSpeaker.swift in Sources */,
 				2425328A1FCE8EB10057E6D5 /* WebClient.swift in Sources */,
+				242DA27C201E0C080072C71E /* UIKitExtensions.swift in Sources */,
 				2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */,
 				24E8C6FA2002521E0092D176 /* SourceCell.swift in Sources */,
 				24DB18B01FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
 				245243292014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */,
+				24A5CE49201DFC0A0020E64E /* PremiumMembershipPresenter.swift in Sources */,
 				2425328E1FCE8ECD0057E6D5 /* API.swift in Sources */,
 				24E8C709200259B20092D176 /* File.swift in Sources */,
 				24C9EB8F1FD8A73F00573185 /* Language.swift in Sources */,
@@ -1499,6 +1523,7 @@
 				24C9EB751FD8A37F00573185 /* APIClient.swift in Sources */,
 				24E8C70F20025ECA0092D176 /* LoaderShowable.swift in Sources */,
 				24C9EC1C1FDD3B3A00573185 /* HelpViewModel.swift in Sources */,
+				24A5CE4C201DFC100020E64E /* PremiumMembershipViewController.swift in Sources */,
 				24E8C7062002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
 				24C9EB701FD8A36F00573185 /* DataStore.swift in Sources */,
 				24C9EB6C1FD8A34900573185 /* ThemeService.swift in Sources */,
@@ -1518,7 +1543,9 @@
 				24C9EB7B1FD8A39300573185 /* UIKitExtensions.swift in Sources */,
 				24E8C713200268670092D176 /* TextSpeaker.swift in Sources */,
 				24C9EB861FD8A3FF00573185 /* SettingsViewModel.swift in Sources */,
+				24A5CE4A201DFC0A0020E64E /* PremiumMembershipPresenter.swift in Sources */,
 				24C9EB8D1FD8A73D00573185 /* Article.swift in Sources */,
+				242DA281201E14A10072C71E /* PopupViewController.swift in Sources */,
 				24C9EB7C1FD8A39300573185 /* Identifiable.swift in Sources */,
 				24514495201DD72500B7328F /* FeatureConfig.swift in Sources */,
 				24C9EB6E1FD8A35300573185 /* SentenceViewModel.swift in Sources */,
@@ -1568,6 +1595,7 @@
 				24C9EBC91FD9E83300573185 /* HelpPresenter.swift in Sources */,
 				247826DD1FAC40C400CB2FC8 /* SentenceDataSource.swift in Sources */,
 				24956C121F82045000D4D657 /* GoogleAPI.swift in Sources */,
+				24A5CE48201DFC0A0020E64E /* PremiumMembershipPresenter.swift in Sources */,
 				24B59FAA1FDD513C00347A5A /* SavedInterface.swift in Sources */,
 				24F1D9071EFECFCE0075FCBB /* AnalysisViewController.swift in Sources */,
 				24DB18AF1FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
@@ -1586,6 +1614,7 @@
 				24C9EBE41FD9EDE700573185 /* HelpViewController.swift in Sources */,
 				24A4B0761FC553820058CEC0 /* SettingsViewModel.swift in Sources */,
 				248E84151FCE891600AA5484 /* ThemeService.swift in Sources */,
+				24A5CE2F201DFBF10020E64E /* PremiumMembershipViewController.swift in Sources */,
 				24E8C70D20025ECA0092D176 /* LoaderShowable.swift in Sources */,
 				24956BFD1F8203F600D4D657 /* API.swift in Sources */,
 				24B59FBE1FDD67ED00347A5A /* ToggleButton.swift in Sources */,
@@ -1597,6 +1626,7 @@
 				9F4D21EA1F5336C900FB3B61 /* Translation.swift in Sources */,
 				248E83FE1FCAB96600AA5484 /* HelperFunctions.swift in Sources */,
 				24FACEBF1F4E147900F47ED9 /* ModelFactory.swift in Sources */,
+				242DA27F201E14A10072C71E /* PopupViewController.swift in Sources */,
 				24B61F631FF10AE500370D26 /* ClearTextView.swift in Sources */,
 				24DD63CF1F2E0DE300682CC4 /* SentenceView.swift in Sources */,
 				24A4B07A1FC554020058CEC0 /* AppDependencyManager.swift in Sources */,

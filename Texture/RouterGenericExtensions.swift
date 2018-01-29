@@ -15,4 +15,17 @@ extension Router {
         webViewController.url = url
         present(webViewController, embedInNavigationController: true)
     }
+    
+    func showPremiumPopup() {
+        guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: PremiumMembershipViewController.Identifier) as? PremiumMembershipViewController else { return }
+        
+        presentInPopup(viewController: viewController)
+    }
+    
+    public func presentInPopup(viewController: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil) {
+        let popupViewController = PopupViewController()
+        popupViewController.embed(viewController: viewController)
+        
+        present(sheetViewController: popupViewController, sourceView: sourceView, sourceRect: sourceRect, modalPresentationStyle: .overCurrentContext, animated: false)
+    }
 }
