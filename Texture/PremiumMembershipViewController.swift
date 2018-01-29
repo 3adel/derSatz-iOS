@@ -42,7 +42,7 @@ class PremiumMembershipViewController: UIViewController {
         
         let demoViewModel = PremiumMembershipViewModel(title: "Premium Feature",
                                                        body: """
-You are using one of our premium features! You can continue using it for 30 more days.
+You are using one of our premium features! You can continue using it for \(daysLeft) more days.
 
 After that, you can purchase the premium membership and enjoy the following cool features for life:
 

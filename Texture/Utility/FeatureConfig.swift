@@ -75,7 +75,7 @@ class FeatureConfig {
     }
     
     func shouldShowPromotion(for feature: AppFeature) -> Bool {
-        let interval = 5
+        let interval = 2
         let product = feature.parentProduct
         
         guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey) as? Date else { return true }

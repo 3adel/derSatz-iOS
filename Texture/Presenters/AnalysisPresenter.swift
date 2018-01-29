@@ -46,6 +46,20 @@ class AnalysisPresenter: Presenter {
     var viewDidAskForInitialData = false
     
     override func getInitialData() {
+        if analysisView?.isExtension ?? false {
+            switch FeatureConfig.shared.status(for: .openInExtension) {
+            case .disabled(let errorMessage):
+                view?.show(errorMessage: errorMessage)
+                return
+            case .trial(let daysLeft):
+                guard FeatureConfig.shared.shouldShowPromotion(for: .openInExtension) else { break }
+                router?.showPremiumPopup(daysLeft: daysLeft)
+                
+                FeatureConfig.shared.didShowPromotion(for: .openInExtension)
+            default: break
+            }
+        }
+        
         guard dataIsReady else {
             viewDidAskForInitialData = true
             return

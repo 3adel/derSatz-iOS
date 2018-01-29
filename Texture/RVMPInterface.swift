@@ -25,6 +25,7 @@ protocol AnalysisPresenterProtocol: BasePresenter {
 }
 
 protocol AnalysisViewProtocol: View {
+    var isExtension: Bool { get }
     func render(with viewModel: AnalysisViewModel)
     func showWordDetailPopup(with viewModel: WordDetailPopupViewModel, forWordAt index: Int, inSentenceAt sentenceIndex: Int)
     func updateWordDetailPopup(with viewModel: WordDetailPopupViewModel, showLoader: Bool)

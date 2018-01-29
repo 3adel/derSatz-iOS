@@ -49,7 +49,8 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
     }()
     
     private var dataSource = SentenceDataSource()
-    private var isExtension: Bool { return extensionContext != nil }
+    
+    var isExtension: Bool { return extensionContext != nil }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,11 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
             }
             
             DispatchQueue.main.async {
-                self?.presenter = AnalysisPresenter()
+                let presenter = AnalysisPresenter()
+                let router = Router(rootViewController: self)
+                presenter.router = router
+                
+                self?.presenter = presenter
                 
                 let analysisPresenter = self?.analysisPresenter as? AnalysisPresenter
                 analysisPresenter?.view = self
