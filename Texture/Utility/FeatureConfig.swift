@@ -75,20 +75,24 @@ class FeatureConfig {
     }
     
     func shouldShowPromotion(for feature: AppFeature) -> Bool {
-        let interval = 10
+        let interval = 5
         let product = feature.parentProduct
-        let daysPast = iapService.trialDays - iapService.daysRemainingInTrial(for: product)
         
-        let maxShowCount = daysPast/interval + 1
-        let currentShowCount = UserDefaults.standard.integer(forKey: UserDefaults.Key.promotionShowCount.rawValue + product.userDefaultsKey)
-        return currentShowCount < maxShowCount
+        guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey) as? Date else { return true }
+        
+        return (Date().timeIntervalSince1970 - date.timeIntervalSince1970) - interval.minutes > 0 //TODO: convert minutes to days
     }
     
     func didShowPromotion(for feature: AppFeature) {
         let product = feature.parentProduct
-        let key = UserDefaults.Key.promotionShowCount.rawValue + product.userDefaultsKey
-        let currentShowCount = UserDefaults.standard.integer(forKey: key)
-        UserDefaults.standard.set(currentShowCount + 1, forKey: key)
+        let key = UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey
+        
+        UserDefaults.standard.set(Date(), forKey: key)
+    }
+    
+    func didUse(_ feature: AppFeature) {
+        let product = feature.parentProduct
+        iapService.register(products: [product])
     }
     
     private func setup(with iapService: IAPService) {

@@ -12,6 +12,8 @@ class PopupViewController: UIViewController {
     var backgroundView = UIVisualEffectView(frame: .zero)
     var popupContainerView = UIView(frame: .zero)
     
+    var completion: (() -> Void)?
+    
     override func loadView() {
         super.loadView()
         
@@ -69,7 +71,10 @@ class PopupViewController: UIViewController {
             self.view.layoutIfNeeded()
             self.backgroundView.alpha = 0
         }) { _ in
-            super.dismiss(animated: flag, completion: completion)
+            super.dismiss(animated: flag) {
+                self.completion?()
+                completion?()
+            }
         }
     }
 }

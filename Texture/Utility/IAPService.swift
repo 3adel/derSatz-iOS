@@ -55,9 +55,8 @@ class IAPService: NSObject {
     
     func register(products: [IAProduct]) {
         products.forEach {
-            if (userDefaults.value(forKey: $0.userDefaultsKey) as? Date) == nil {
-                userDefaults.set(Date(), forKey: $0.userDefaultsKey)
-            }
+            guard userDefaults.value(forKey: $0.userDefaultsKey) as? Date == nil else { return }
+            userDefaults.set(Date(), forKey: $0.userDefaultsKey)
         }
     }
     
@@ -78,6 +77,16 @@ class IAPService: NSObject {
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         let daysPast = components.day ?? 0
         return trialDays - daysPast
+    }
+    
+    func minutesRemainingInTrial(for product: IAProduct) -> Int {
+        guard let date = userDefaults.value(forKey: product.userDefaultsKey) as? Date else { return trialDays }
+        
+        let calendar = NSCalendar.current
+        
+        let components = calendar.dateComponents([.minute], from: date, to: Date())
+        let minutesPast = components.minute ?? 0
+        return Int(trialDays.minutes - minutesPast.minutes)
     }
     
     func buy(product: IAProduct) {

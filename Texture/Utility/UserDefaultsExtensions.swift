@@ -20,7 +20,7 @@ extension UserDefaults {
     enum Key: String, UserDefaultsKey {
         case didUseAnalysisBefore
         case trialStartDate
-        case promotionShowCount
+        case promotionLastShowDate
     }
     
     var didUseAnalysisBefore: Bool {

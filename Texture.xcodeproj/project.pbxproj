@@ -30,6 +30,8 @@
 		242DA27F201E14A10072C71E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DA27E201E14A10072C71E /* PopupViewController.swift */; };
 		242DA280201E14A10072C71E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DA27E201E14A10072C71E /* PopupViewController.swift */; };
 		242DA281201E14A10072C71E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DA27E201E14A10072C71E /* PopupViewController.swift */; };
+		243D7D67201FC3DA0078D350 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */; };
+		243D7D7F201FC3DB0078D350 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */; };
 		2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
 		2448F2071F4D558B00AB17FC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2448F2221F4D562000AB17FC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F2191F4D561800AB17FC /* Result.framework */; };
@@ -1489,6 +1491,7 @@
 				24A5CE4B201DFC100020E64E /* PremiumMembershipViewController.swift in Sources */,
 				24E8C71E200269040092D176 /* AnimatedButton.swift in Sources */,
 				242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */,
+				243D7D67201FC3DA0078D350 /* HelperFunctions.swift in Sources */,
 				24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */,
 				24E8C7052002597C0092D176 /* RouterGenericExtensions.swift in Sources */,
 				24514494201DD72400B7328F /* FeatureConfig.swift in Sources */,
@@ -1553,6 +1556,7 @@
 				24C9EB711FD8A37500573185 /* LocalStorage.swift in Sources */,
 				24C9EB721FD8A37900573185 /* DataClient.swift in Sources */,
 				24C9EB781FD8A37F00573185 /* TextAnalyzerAPI.swift in Sources */,
+				243D7D7F201FC3DB0078D350 /* HelperFunctions.swift in Sources */,
 				24C9EB7D1FD8A39300573185 /* FoundationExtensions.swift in Sources */,
 				24C9EB761FD8A37F00573185 /* API.swift in Sources */,
 				24C9EB8A1FD8A73D00573185 /* Language.swift in Sources */,

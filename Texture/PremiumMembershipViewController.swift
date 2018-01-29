@@ -34,6 +34,8 @@ class PremiumMembershipViewController: UIViewController {
         return presenter as! PremiumMembershipPresenterProtocol
     }
     
+    var daysLeft: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

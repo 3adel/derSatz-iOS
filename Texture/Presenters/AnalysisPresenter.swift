@@ -264,14 +264,18 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
         let article = self.article ?? Article(freeText: inputText!)
         
         if toggleSet {
+            FeatureConfig.shared.didUse(.savedArticles)
+            
             switch FeatureConfig.shared.status(for: .savedArticles) {
             case .disabled(let errorMessage):
                 view?.show(errorMessage: errorMessage)
                 analysisView?.updateSaveToggle(false)
                 return
-            case .trial:
-                guard FeatureConfig.shared.shouldShowPromotion(for: .savedArticles) else { return }
-                router?.showPremiumPopup()
+            case .trial(let daysLeft):
+                guard FeatureConfig.shared.shouldShowPromotion(for: .savedArticles) else { break }
+                router?.showPremiumPopup(daysLeft: daysLeft)
+                
+                FeatureConfig.shared.didShowPromotion(for: .savedArticles)
             default: break
             }
             
