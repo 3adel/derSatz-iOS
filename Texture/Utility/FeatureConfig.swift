@@ -18,19 +18,32 @@ enum AppFeature {
         case .premium: return [.urlSearch, .savedArticles, .openInExtension]
         }
     }
+    
+    var parentProduct: DerSatzIAProduct {
+        switch self {
+        case .openInExtension, .savedArticles, .urlSearch: return .premium
+        }
+    }
 }
 
 enum FeatureStatus {
     case enabled
+    case trial(Int)
     case disabled(String)
 }
 
 class FeatureConfig {
     static let shared = FeatureConfig()
     
+    private let iapService: IAPService
     private var enabledFeatures: Set<AppFeature> = []
+    private var featuresInTrial: Set<AppFeature> = []
     
-    private init() {}
+    
+    private init() {
+        self.iapService = .shared
+        setup(with: self.iapService)
+    }
     
     func update(feature: AppFeature, isEnabled: Bool) {
         if isEnabled {
@@ -43,6 +56,10 @@ class FeatureConfig {
     func status(for feature: AppFeature) -> FeatureStatus {
         if isFeatureEnabled(feature) {
             return .enabled
+        } else if isFeatureInTrial(feature) {
+            let product = feature.parentProduct
+            let daysLeft = iapService.daysRemainingInTrial(for: product)
+            return .trial(daysLeft)
         } else {
             let errorMessage = "You need to be a Premium user to be able to use this feature"
             return .disabled(errorMessage)
@@ -53,10 +70,38 @@ class FeatureConfig {
         return enabledFeatures.contains(feature)
     }
     
+    func isFeatureInTrial(_ feature: AppFeature) -> Bool {
+        return featuresInTrial.contains(feature)
+    }
+    
+    func shouldShowPromotion(for feature: AppFeature) -> Bool {
+        let interval = 2
+        let product = feature.parentProduct
+        
+        guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey) as? Date else { return true }
+        
+        return (Date().timeIntervalSince1970 - date.timeIntervalSince1970) - interval.minutes > 0 //TODO: convert minutes to days
+    }
+    
+    func didShowPromotion(for feature: AppFeature) {
+        let product = feature.parentProduct
+        let key = UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey
+        
+        UserDefaults.standard.set(Date(), forKey: key)
+    }
+    
+    func didUse(_ feature: AppFeature) {
+        let product = feature.parentProduct
+        iapService.register(products: [product])
+    }
+    
     private func setup(with iapService: IAPService) {
         let allProducts = [DerSatzIAProduct.premium]
         iapService.updateStatus(for: allProducts) {
             self.enabledFeatures = Set(allProducts.filter ({ iapService.purchasedProducts.contains($0) }).flatMap { AppFeature.features(for: $0) })
+            
+            self.featuresInTrial = Set(allProducts.filter ({ iapService.productsInTrial.contains($0) }).flatMap
+                { AppFeature.features(for: $0) })
         }
     }
 }

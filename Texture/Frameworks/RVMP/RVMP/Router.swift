@@ -76,15 +76,18 @@ open class Router: BaseRouter {
         rootViewController = tabBarController
     }
     
-    public func present(sheetViewController viewController: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil) {
+    public func present(sheetViewController viewController: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil, modalPresentationStyle: UIModalPresentationStyle = .fullScreen, animated: Bool = true) {
         if isPad() {
             viewController.modalPresentationStyle = .popover
             viewController.popoverPresentationController?.sourceView = sourceView
             if let sourceRect = sourceRect {
                 viewController.popoverPresentationController?.sourceRect = sourceRect
             }
+        } else {
+            viewController.modalPresentationStyle = modalPresentationStyle
         }
-        rootViewController?.present(viewController, animated: true, completion: nil)
+        
+        rootViewController?.present(viewController, animated: animated, completion: nil)
     }
     
     public func show(viewController: UIViewController) {

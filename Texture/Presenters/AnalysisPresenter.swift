@@ -46,6 +46,20 @@ class AnalysisPresenter: Presenter {
     var viewDidAskForInitialData = false
     
     override func getInitialData() {
+        if analysisView?.isExtension ?? false {
+            switch FeatureConfig.shared.status(for: .openInExtension) {
+            case .disabled(let errorMessage):
+                view?.show(errorMessage: errorMessage)
+                return
+            case .trial(let daysLeft):
+                guard FeatureConfig.shared.shouldShowPromotion(for: .openInExtension) else { break }
+                router?.showPremiumPopup(daysLeft: daysLeft)
+                
+                FeatureConfig.shared.didShowPromotion(for: .openInExtension)
+            default: break
+            }
+        }
+        
         guard dataIsReady else {
             viewDidAskForInitialData = true
             return
@@ -261,17 +275,24 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
     }
     
     func didTapOnSaveToggle(toggleSet: Bool) {
-        switch FeatureConfig.shared.status(for: .savedArticles) {
-        case .disabled(let errorMessage):
-            view?.show(errorMessage: errorMessage)
-            analysisView?.updateSaveToggle(false)
-            return
-        default: break
-        }
-        
         let article = self.article ?? Article(freeText: inputText!)
         
         if toggleSet {
+            FeatureConfig.shared.didUse(.savedArticles)
+            
+            switch FeatureConfig.shared.status(for: .savedArticles) {
+            case .disabled(let errorMessage):
+                view?.show(errorMessage: errorMessage)
+                analysisView?.updateSaveToggle(false)
+                return
+            case .trial(let daysLeft):
+                guard FeatureConfig.shared.shouldShowPromotion(for: .savedArticles) else { break }
+                router?.showPremiumPopup(daysLeft: daysLeft)
+                
+                FeatureConfig.shared.didShowPromotion(for: .savedArticles)
+            default: break
+            }
+            
             dataStore.save(article) { _ in }
         } else {
             dataStore.deleteSavedArticle(article) { _ in }

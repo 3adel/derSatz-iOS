@@ -205,6 +205,7 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerYAnchor.constraint(equalTo: view.centerYAnchor)
         constraint.isActive = true
+        constraint.identifier = "vertical"
         return constraint
     }
 }
@@ -222,8 +223,13 @@ extension UIView {
     @discardableResult
     public func placeOnBottom(ofView view: UIView?, space: CGFloat = 0.0) -> NSLayoutConstraint? {
         guard let view = view else { return nil }
+        
+        let previousConstraints = view.constraints.filter { $0.identifier == "vertical" }
+        previousConstraints.forEach { view.removeConstraint($0) }
+        
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: space)
+        constraint.identifier = "vertical"
         constraint.isActive = true
         return constraint
     }

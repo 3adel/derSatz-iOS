@@ -19,14 +19,6 @@ class InputPresenter: Presenter, InputPresenterProtocol {
     }
     
     func didTapAnalyseButton() {
-        dataStore.getSavedArticles() { result in
-            switch result {
-            case .success(let articles):
-                print(articles)
-            default:
-                break
-            }
-        }
         guard let text = inputText,
             !text.isEmpty
             else {
@@ -37,6 +29,23 @@ class InputPresenter: Presenter, InputPresenterProtocol {
         if let urlText = text.replacingOccurrences(of: " ", with: "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: urlText),
             UIApplication.shared.canOpenURL(url) {
+            
+            FeatureConfig.shared.didUse(.urlSearch)
+            
+            switch FeatureConfig.shared.status(for: .urlSearch) {
+            case .disabled(let errorMessage):
+                view?.show(errorMessage: errorMessage)
+                return
+            case .trial(let daysLeft):
+                guard FeatureConfig.shared.shouldShowPromotion(for: .urlSearch) else { break }
+                router?.showPremiumPopup(daysLeft: daysLeft) { [weak self] in
+                    self?.router?.routeToAnalysis(input: .url(url))
+                }
+                FeatureConfig.shared.didShowPromotion(for: .urlSearch)
+                return
+            default: break
+            }
+            
             router?.routeToAnalysis(input: .url(url))
         } else {
             router?.routeToAnalysis(input: .text(text))
