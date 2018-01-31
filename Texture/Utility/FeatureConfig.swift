@@ -78,14 +78,14 @@ class FeatureConfig {
         let interval = 2
         let product = feature.parentProduct
         
-        guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey) as? Date else { return true }
+        guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.trialStartDateUserDefaultsKey) as? Date else { return true }
         
         return (Date().timeIntervalSince1970 - date.timeIntervalSince1970) - interval.minutes > 0 //TODO: convert minutes to days
     }
     
     func didShowPromotion(for feature: AppFeature) {
         let product = feature.parentProduct
-        let key = UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey
+        let key = UserDefaults.Key.promotionLastShowDate.rawValue + product.trialStartDateUserDefaultsKey
         
         UserDefaults.standard.set(Date(), forKey: key)
     }
@@ -95,7 +95,7 @@ class FeatureConfig {
         iapService.register(products: [product])
     }
     
-    private func setup(with iapService: IAPService) {
+    func setup(with iapService: IAPService) {
         let allProducts = [DerSatzIAProduct.premium]
         iapService.updateStatus(for: allProducts) {
             self.enabledFeatures = Set(allProducts.filter ({ iapService.purchasedProducts.contains($0) }).flatMap { AppFeature.features(for: $0) })

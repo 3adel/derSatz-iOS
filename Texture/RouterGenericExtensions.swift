@@ -20,6 +20,9 @@ extension Router {
         guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: PremiumMembershipViewController.Identifier) as? PremiumMembershipViewController else { return }
         viewController.daysLeft = daysLeft
         
+        let presenter = PremiumMembershipPresenter(router: self)
+        viewController.presenter = presenter
+        
         presentInPopup(viewController: viewController, completion: completion)
     }
     

@@ -1,7 +1,7 @@
 github "Alamofire/Alamofire" ~> 4.4
 github "antitypical/Result" "master"
-github "alexaubry/HTMLString" "master"
+github "alexaubry/HTMLString" ~> 4.0
 github "JanGorman/MapleBacon" ~> 4.0.0
 github "ninjaprox/NVActivityIndicatorView"
 github "SwiftKickMobile/SwiftMessages"
-
+github "bizz84/SwiftyStoreKit"

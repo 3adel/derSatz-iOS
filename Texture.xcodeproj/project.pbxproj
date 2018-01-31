@@ -32,6 +32,8 @@
 		242DA281201E14A10072C71E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DA27E201E14A10072C71E /* PopupViewController.swift */; };
 		243D7D67201FC3DA0078D350 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */; };
 		243D7D7F201FC3DB0078D350 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E83FD1FCAB96600AA5484 /* HelperFunctions.swift */; };
+		243D7DBF20218DF70078D350 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243D7DB220218DED0078D350 /* SwiftyStoreKit.framework */; };
+		243D7DC020218DF70078D350 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 243D7DB220218DED0078D350 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2448F2061F4D558B00AB17FC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
 		2448F2071F4D558B00AB17FC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2448F2221F4D562000AB17FC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F2191F4D561800AB17FC /* Result.framework */; };
@@ -241,6 +243,62 @@
 			proxyType = 1;
 			remoteGlobalIDString = 24A62EE91EB36D550088B00B;
 			remoteInfo = RVMP;
+		};
+		243D7DB120218DED0078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6502F62D1B985C40004E342D;
+			remoteInfo = SwiftyStoreKit_iOS;
+		};
+		243D7DB320218DED0078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D74BBB1C24CEC90071AD3E;
+			remoteInfo = SwiftyStoreKit_macOS;
+		};
+		243D7DB520218DED0078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C0D52C1CF7404500F90BCE;
+			remoteInfo = SwiftyStoreKit_tvOS;
+		};
+		243D7DB720218DED0078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6502F5FE1B985833004E342D;
+			remoteInfo = SwiftyStoreKit_iOSDemo;
+		};
+		243D7DB920218DED0078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4FD3A011C2954C10035CFF3;
+			remoteInfo = SwiftyStoreKit_macOSDemo;
+		};
+		243D7DBB20218DED0078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 654287EE1E79F5A000F61800;
+			remoteInfo = SwiftyStoreKit_tvOSDemo;
+		};
+		243D7DBD20218DED0078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 658A083E1E2EC5120074A98F;
+			remoteInfo = SwiftyStoreKitTests;
+		};
+		243D7DC120218DF70078D350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6502F62C1B985C40004E342D;
+			remoteInfo = SwiftyStoreKit_iOS;
 		};
 		2448F1F81F4D558200AB17FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -535,6 +593,7 @@
 				242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */,
 				245841621FAE3EE500E6DA88 /* MapleBacon.framework in Embed Frameworks */,
 				2448F2231F4D562000AB17FC /* Result.framework in Embed Frameworks */,
+				243D7DC020218DF70078D350 /* SwiftyStoreKit.framework in Embed Frameworks */,
 				9FB4E4371F5C56DE00DA82C1 /* HTMLString.framework in Embed Frameworks */,
 				9FE0D5381F6528D800A9C645 /* ListKit.framework in Embed Frameworks */,
 			);
@@ -553,6 +612,7 @@
 		241E3FB91F73D375002131CA /* WordDetailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailPopupView.swift; sourceTree = "<group>"; };
 		242A7B061F0050010053ECA9 /* RVMP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RVMP.xcodeproj; path = Texture/Frameworks/RVMP/RVMP.xcodeproj; sourceTree = "<group>"; };
 		242DA27E201E14A10072C71E /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyStoreKit.xcodeproj; path = Carthage/Checkouts/SwiftyStoreKit/SwiftyStoreKit.xcodeproj; sourceTree = "<group>"; };
 		2448F1ED1F4D558200AB17FC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Carthage/Checkouts/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2448F20A1F4D561800AB17FC /* Result.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Result.xcodeproj; path = Carthage/Checkouts/Result/Result.xcodeproj; sourceTree = "<group>"; };
 		2448F2261F4D563000AB17FC /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -702,6 +762,7 @@
 				24D285C71FC02B1A00C816C8 /* SwiftMessages.framework in Frameworks */,
 				2448F2221F4D562000AB17FC /* Result.framework in Frameworks */,
 				10E4B5BC1F7B03D300418D60 /* Crashlytics.framework in Frameworks */,
+				243D7DBF20218DF70078D350 /* SwiftyStoreKit.framework in Frameworks */,
 				9FB4E4361F5C56DE00DA82C1 /* HTMLString.framework in Frameworks */,
 				9FE0D5371F6528D800A9C645 /* ListKit.framework in Frameworks */,
 			);
@@ -724,6 +785,20 @@
 			isa = PBXGroup;
 			children = (
 				242A7B0B1F0050010053ECA9 /* RVMP.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		243D7D9120218DEC0078D350 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				243D7DB220218DED0078D350 /* SwiftyStoreKit.framework */,
+				243D7DB420218DED0078D350 /* SwiftyStoreKit.framework */,
+				243D7DB620218DED0078D350 /* SwiftyStoreKit.framework */,
+				243D7DB820218DED0078D350 /* SwiftyStoreKit_iOSDemo.app */,
+				243D7DBA20218DED0078D350 /* SwiftyStoreKit_macOSDemo.app */,
+				243D7DBC20218DED0078D350 /* SwiftyStoreKit_tvOSDemo.app */,
+				243D7DBE20218DED0078D350 /* SwiftyStoreKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -853,6 +928,7 @@
 				10E4B5B61F7B016000418D60 /* Answers.framework */,
 				10E4B5B41F7AFF7300418D60 /* Crashlytics.framework */,
 				10E4B5A01F7AFF7300418D60 /* Fabric.framework */,
+				243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */,
 				245841551FAE3ED100E6DA88 /* MapleBacon.xcodeproj */,
 				9FE0D5311F6528D200A9C645 /* ListKit.xcodeproj */,
 				9FB4E4111F5C56D600DA82C1 /* HTMLString.xcodeproj */,
@@ -1089,6 +1165,7 @@
 				24D285CA1FC02B1A00C816C8 /* PBXTargetDependency */,
 				248E840C1FCD3A0100AA5484 /* PBXTargetDependency */,
 				24C9EB391FD8A25200573185 /* PBXTargetDependency */,
+				243D7DC220218DF70078D350 /* PBXTargetDependency */,
 			);
 			name = Texture;
 			productName = Texture;
@@ -1180,6 +1257,10 @@
 					ProductGroup = 24D285BF1FC02AE800C816C8 /* Products */;
 					ProjectRef = 24D285BE1FC02AE800C816C8 /* SwiftMessages.xcodeproj */;
 				},
+				{
+					ProductGroup = 243D7D9120218DEC0078D350 /* Products */;
+					ProjectRef = 243D7D9020218DEC0078D350 /* SwiftyStoreKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1196,6 +1277,55 @@
 			fileType = wrapper.framework;
 			path = RVMP.framework;
 			remoteRef = 242A7B0A1F0050010053ECA9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		243D7DB220218DED0078D350 /* SwiftyStoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyStoreKit.framework;
+			remoteRef = 243D7DB120218DED0078D350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		243D7DB420218DED0078D350 /* SwiftyStoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyStoreKit.framework;
+			remoteRef = 243D7DB320218DED0078D350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		243D7DB620218DED0078D350 /* SwiftyStoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyStoreKit.framework;
+			remoteRef = 243D7DB520218DED0078D350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		243D7DB820218DED0078D350 /* SwiftyStoreKit_iOSDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftyStoreKit_iOSDemo.app;
+			remoteRef = 243D7DB720218DED0078D350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		243D7DBA20218DED0078D350 /* SwiftyStoreKit_macOSDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftyStoreKit_macOSDemo.app;
+			remoteRef = 243D7DB920218DED0078D350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		243D7DBC20218DED0078D350 /* SwiftyStoreKit_tvOSDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftyStoreKit_tvOSDemo.app;
+			remoteRef = 243D7DBB20218DED0078D350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		243D7DBE20218DED0078D350 /* SwiftyStoreKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftyStoreKitTests.xctest;
+			remoteRef = 243D7DBD20218DED0078D350 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2448F1F91F4D558200AB17FC /* Alamofire.framework */ = {
@@ -1655,6 +1785,11 @@
 			isa = PBXTargetDependency;
 			name = RVMP;
 			targetProxy = 242A7B121F00500E0053ECA9 /* PBXContainerItemProxy */;
+		};
+		243D7DC220218DF70078D350 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyStoreKit_iOS;
+			targetProxy = 243D7DC120218DF70078D350 /* PBXContainerItemProxy */;
 		};
 		2448F2091F4D558B00AB17FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

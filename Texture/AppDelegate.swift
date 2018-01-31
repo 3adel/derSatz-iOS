@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ThemeService().setUpAppWideTheme()
         
+        IAPService.shared.completeTransactions()
+        FeatureConfig.shared.setup(with: .shared)
+        
         var tabs: [TabBarSection] = []
         
         let inputTab = TabBarSection(title: "Analyse",
