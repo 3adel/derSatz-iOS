@@ -86,7 +86,7 @@ class IAPService: NSObject {
         }
     }
     
-    func updateStatus(for products: [IAProduct], completion: (() -> Void)?) {
+    func updateStatus(for products: [IAProduct], completion: (() -> Void)? = nil) {
         purchasedProducts = products.filter { userDefaults.bool(forKey: $0.didPurchaseUserDefaultsKey) }
         productsInTrial = products
         
@@ -116,31 +116,33 @@ class IAPService: NSObject {
     }
     
     func buy(product: IAProduct, completion: ((TransactionResult) -> Void)?) {
-        userDefaults.set(true, forKey: product.sku)
+        userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
+        purchasedProducts.append(product)
         completion?(.success)
+        return
         
-        SwiftyStoreKit.purchaseProduct(product.sku, quantity: 1, atomically: true) { [weak self] result in
-            switch result {
-            case .success(let purchase):
-                guard let product = DerSatzIAProduct.from(sku: purchase.productId) else { return }
-                self?.purchasedProducts.append(product)
-                self?.userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
-                completion?(.success)
-            case .error(let error):
-                let result: TransactionResult
-                switch error.code {
-                case .unknown: result = .error("Unknown error. Please contact support")
-                case .clientInvalid: result = .error("Not allowed to make the payment")
-                case .paymentCancelled: result = .cancelled
-                case .paymentInvalid: result = .error("The purchase identifier was invalid")
-                case .paymentNotAllowed: result = .error("The device is not allowed to make the payment")
-                case .storeProductNotAvailable: result = .error("The product is not available in the current storefront")
-                case .cloudServicePermissionDenied: result = .error("Access to cloud service information is not allowed")
-                case .cloudServiceNetworkConnectionFailed: result = .error("Could not connect to the network")
-                case .cloudServiceRevoked: result = .error("You have revoked permission to use this cloud service")
-                }
-                completion?(result)
-            }
-        }
+//        SwiftyStoreKit.purchaseProduct(product.sku, quantity: 1, atomically: true) { [weak self] result in
+//            switch result {
+//            case .success(let purchase):
+//                guard let product = DerSatzIAProduct.from(sku: purchase.productId) else { return }
+//                self?.purchasedProducts.append(product)
+//                self?.userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
+//                completion?(.success)
+//            case .error(let error):
+//                let result: TransactionResult
+//                switch error.code {
+//                case .unknown: result = .error("Unknown error. Please contact support")
+//                case .clientInvalid: result = .error("Not allowed to make the payment")
+//                case .paymentCancelled: result = .cancelled
+//                case .paymentInvalid: result = .error("The purchase identifier was invalid")
+//                case .paymentNotAllowed: result = .error("The device is not allowed to make the payment")
+//                case .storeProductNotAvailable: result = .error("The product is not available in the current storefront")
+//                case .cloudServicePermissionDenied: result = .error("Access to cloud service information is not allowed")
+//                case .cloudServiceNetworkConnectionFailed: result = .error("Could not connect to the network")
+//                case .cloudServiceRevoked: result = .error("You have revoked permission to use this cloud service")
+//                }
+//                completion?(result)
+//            }
+//        }
     }
 }

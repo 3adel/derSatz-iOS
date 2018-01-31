@@ -34,4 +34,12 @@ extension Router {
         
         present(sheetViewController: popupViewController, sourceView: sourceView, sourceRect: sourceRect, modalPresentationStyle: .overCurrentContext, animated: false)
     }
+    
+    public func show(errorMessage: String) {
+        rootViewController?.show(errorMessage: errorMessage)
+    }
+    
+    public func show(infoMessage: String) {
+        rootViewController?.show(infoMessage: infoMessage)
+    }
 }

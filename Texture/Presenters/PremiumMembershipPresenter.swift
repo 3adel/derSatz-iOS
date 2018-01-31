@@ -29,12 +29,12 @@ class PremiumMembershipPresenter: Presenter, PremiumMembershipPresenterProtocol 
         iapService.buy(product: DerSatzIAProduct.premium) { [weak self] result in
             switch result {
             case .success:
-                self?.view?.show(infoMessage: "The purchase was successful!")
+                self?.router?.show(infoMessage: "The purchase was successful!")
             case .error(let errorMessage):
-                self?.view?.show(errorMessage: errorMessage)
+                self?.router?.show(errorMessage: errorMessage)
             default: break
             }
-            self?.router?.dismissModal()
+            self?.router?.dismiss()
         }
     }
 }

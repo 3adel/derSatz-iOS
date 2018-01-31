@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ThemeService().setUpAppWideTheme()
         
         IAPService.shared.completeTransactions()
-        FeatureConfig.shared.setup(with: .shared)
+        FeatureConfig.shared.setup()
         
         var tabs: [TabBarSection] = []
         
