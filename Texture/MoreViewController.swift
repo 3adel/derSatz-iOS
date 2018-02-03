@@ -14,6 +14,7 @@ class MoreViewController: UIViewController, SettingsView {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var footerTextView: UITextView!
     @IBOutlet var skylineImageView: UIImageView!
+    @IBOutlet private var footerTextTopConstraint: NSLayoutConstraint!
     
     var dataSource: SettingsDataSource?
     var presenter: BasePresenter?
@@ -51,6 +52,7 @@ class MoreViewController: UIViewController, SettingsView {
     
     func setupCollectionView() {
         dataSource = SettingsDataSource(tableView: tableView, presenter: settingsPresenter)
+        dataSource?.footerTextTopConstraint = footerTextTopConstraint
     }
     
     func render(with viewModel: SettingsViewModel) {
@@ -79,6 +81,7 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     var sections = [TableSectionViewModel]()
     
     let presenter: SettingsPresenterType
+    var footerTextTopConstraint: NSLayoutConstraint?
     
     init(tableView: UITableView, presenter: SettingsPresenterType) {
         self.tableView = tableView
@@ -92,6 +95,7 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     func updateUI(with sections: [TableSectionViewModel]) {
         self.sections = sections
         tableView.reloadData()
+        scrollViewDidScroll(tableView)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -144,5 +148,11 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         cell.update(with: viewModel)
         return cell
+    }
+}
+
+extension SettingsDataSource {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        footerTextTopConstraint?.constant = max(20, 20 + scrollView.contentOffset.y + scrollView.frame.size.height - scrollView.contentSize.height)
     }
 }

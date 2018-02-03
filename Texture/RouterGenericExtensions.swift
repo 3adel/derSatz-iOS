@@ -20,6 +20,9 @@ extension Router {
         guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: PremiumMembershipViewController.Identifier) as? PremiumMembershipViewController else { return }
         viewController.daysLeft = daysLeft
         
+        let presenter = PremiumMembershipPresenter(router: self)
+        viewController.presenter = presenter
+        
         presentInPopup(viewController: viewController, completion: completion)
     }
     
@@ -30,5 +33,13 @@ extension Router {
         
         
         present(sheetViewController: popupViewController, sourceView: sourceView, sourceRect: sourceRect, modalPresentationStyle: .overCurrentContext, animated: false)
+    }
+    
+    public func show(errorMessage: String) {
+        rootViewController?.show(errorMessage: errorMessage)
+    }
+    
+    public func show(infoMessage: String) {
+        rootViewController?.show(infoMessage: infoMessage)
     }
 }

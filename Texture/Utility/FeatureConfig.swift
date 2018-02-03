@@ -42,7 +42,7 @@ class FeatureConfig {
     
     private init() {
         self.iapService = .shared
-        setup(with: self.iapService)
+        setup()
     }
     
     func update(feature: AppFeature, isEnabled: Bool) {
@@ -67,25 +67,27 @@ class FeatureConfig {
     }
     
     func isFeatureEnabled(_ feature: AppFeature) -> Bool {
+        updateFeatures()
         return enabledFeatures.contains(feature)
     }
     
     func isFeatureInTrial(_ feature: AppFeature) -> Bool {
+        updateFeatures()
         return featuresInTrial.contains(feature)
     }
     
     func shouldShowPromotion(for feature: AppFeature) -> Bool {
-        let interval = 2
+        let interval = 1
         let product = feature.parentProduct
         
-        guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey) as? Date else { return true }
+        guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.trialStartDateUserDefaultsKey) as? Date else { return true }
         
         return (Date().timeIntervalSince1970 - date.timeIntervalSince1970) - interval.minutes > 0 //TODO: convert minutes to days
     }
     
     func didShowPromotion(for feature: AppFeature) {
         let product = feature.parentProduct
-        let key = UserDefaults.Key.promotionLastShowDate.rawValue + product.userDefaultsKey
+        let key = UserDefaults.Key.promotionLastShowDate.rawValue + product.trialStartDateUserDefaultsKey
         
         UserDefaults.standard.set(Date(), forKey: key)
     }
@@ -95,13 +97,15 @@ class FeatureConfig {
         iapService.register(products: [product])
     }
     
-    private func setup(with iapService: IAPService) {
-        let allProducts = [DerSatzIAProduct.premium]
-        iapService.updateStatus(for: allProducts) {
-            self.enabledFeatures = Set(allProducts.filter ({ iapService.purchasedProducts.contains($0) }).flatMap { AppFeature.features(for: $0) })
-            
-            self.featuresInTrial = Set(allProducts.filter ({ iapService.productsInTrial.contains($0) }).flatMap
-                { AppFeature.features(for: $0) })
-        }
+    func setup() {
+        iapService.updateStatus(for: DerSatzIAProduct.allProducts)
+    }
+    
+    private func updateFeatures() {
+        let allProducts = DerSatzIAProduct.allProducts
+        self.enabledFeatures = Set(allProducts.filter ({ iapService.purchasedProducts.contains($0) }).flatMap { AppFeature.features(for: $0) })
+        
+        self.featuresInTrial = Set(allProducts.filter ({ iapService.productsInTrial.contains($0) }).flatMap
+            { AppFeature.features(for: $0) })
     }
 }

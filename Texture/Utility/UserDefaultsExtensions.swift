@@ -21,6 +21,7 @@ extension UserDefaults {
         case didUseAnalysisBefore
         case trialStartDate
         case promotionLastShowDate
+        case didPurchase
     }
     
     var didUseAnalysisBefore: Bool {

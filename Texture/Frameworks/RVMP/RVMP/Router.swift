@@ -103,7 +103,7 @@ open class Router: BaseRouter {
         if let navigationVC = rootViewController?.navigationController {
             navigationVC.popViewController(animated: true)
         } else {
-            rootViewController?.dismiss(animated: true, completion: nil)
+            visibleController.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -113,7 +113,6 @@ open class Router: BaseRouter {
 }
 
 public extension Router {
-    
     public func makeNavigationController(for viewController: UIViewController) -> UINavigationController {
         
         let navigationController = UINavigationController(rootViewController: viewController)
