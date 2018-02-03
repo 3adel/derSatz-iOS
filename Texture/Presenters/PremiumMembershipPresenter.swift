@@ -37,4 +37,16 @@ class PremiumMembershipPresenter: Presenter, PremiumMembershipPresenterProtocol 
             self?.router?.dismiss()
         }
     }
+    
+    func didTapRestorePurchaseButton() {
+        iapService.restorePurchase(for: DerSatzIAProduct.premium) { [weak self] result in
+            switch result {
+            case .success:
+                self?.router?.show(infoMessage: "The purchase was successful")
+            case .error(let errorMessage):
+                self?.router?.show(errorMessage: errorMessage)
+            default: break
+            }
+        }
+    }
 }

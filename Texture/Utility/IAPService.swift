@@ -57,6 +57,7 @@ class IAPService: NSObject {
     let userDefaults: UserDefaults
     var purchasedProducts: [IAProduct] = []
     var productsInTrial: [IAProduct] = []
+    var allAvailableProducts: [IAProduct] = []
     
     var trialDays = 30
     
@@ -70,6 +71,10 @@ class IAPService: NSObject {
     
     init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
+        super.init()
+        SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
+            return self.allAvailableProducts.contains { $0.sku == product.productIdentifier }
+        }
     }
     
     func register(products: [IAProduct]) {
@@ -88,7 +93,8 @@ class IAPService: NSObject {
     
     func updateStatus(for products: [IAProduct], completion: (() -> Void)? = nil) {
         purchasedProducts = products.filter { userDefaults.bool(forKey: $0.didPurchaseUserDefaultsKey) }
-        productsInTrial = products
+        productsInTrial = products.filter { !purchasedProducts.contains($0) }
+        allAvailableProducts = products
         
         completion?()
     }
@@ -115,34 +121,47 @@ class IAPService: NSObject {
         return Int(trialDays.minutes - minutesPast.minutes)
     }
     
-    func buy(product: IAProduct, completion: ((TransactionResult) -> Void)?) {
+    func buy(product: IAProduct, completion: ((TransactionResult) -> Void)? = nil) {
+        //TODO: Remove test code
         userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
         purchasedProducts.append(product)
         completion?(.success)
-        return
+        return;
         
-//        SwiftyStoreKit.purchaseProduct(product.sku, quantity: 1, atomically: true) { [weak self] result in
-//            switch result {
-//            case .success(let purchase):
-//                guard let product = DerSatzIAProduct.from(sku: purchase.productId) else { return }
-//                self?.purchasedProducts.append(product)
-//                self?.userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
-//                completion?(.success)
-//            case .error(let error):
-//                let result: TransactionResult
-//                switch error.code {
-//                case .unknown: result = .error("Unknown error. Please contact support")
-//                case .clientInvalid: result = .error("Not allowed to make the payment")
-//                case .paymentCancelled: result = .cancelled
-//                case .paymentInvalid: result = .error("The purchase identifier was invalid")
-//                case .paymentNotAllowed: result = .error("The device is not allowed to make the payment")
-//                case .storeProductNotAvailable: result = .error("The product is not available in the current storefront")
-//                case .cloudServicePermissionDenied: result = .error("Access to cloud service information is not allowed")
-//                case .cloudServiceNetworkConnectionFailed: result = .error("Could not connect to the network")
-//                case .cloudServiceRevoked: result = .error("You have revoked permission to use this cloud service")
-//                }
-//                completion?(result)
-//            }
-//        }
+        SwiftyStoreKit.purchaseProduct(product.sku, quantity: 1, atomically: true) { [weak self] result in
+            switch result {
+            case .success(let purchase):
+                guard let product = DerSatzIAProduct.from(sku: purchase.productId) else { return }
+                self?.purchasedProducts.append(product)
+                self?.userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
+                completion?(.success)
+            case .error(let error):
+                let result: TransactionResult
+                switch error.code {
+                case .unknown: result = .error("Unknown error. Please contact support")
+                case .clientInvalid: result = .error("Not allowed to make the payment")
+                case .paymentCancelled: result = .cancelled
+                case .paymentInvalid: result = .error("The purchase identifier was invalid")
+                case .paymentNotAllowed: result = .error("The device is not allowed to make the payment")
+                case .storeProductNotAvailable: result = .error("The product is not available in the current storefront")
+                case .cloudServicePermissionDenied: result = .error("Access to cloud service information is not allowed")
+                case .cloudServiceNetworkConnectionFailed: result = .error("Could not connect to the network")
+                case .cloudServiceRevoked: result = .error("You have revoked permission to use this cloud service")
+                }
+                completion?(result)
+            }
+        }
+    }
+    
+    func restorePurchase(for product: IAProduct, completion: ((TransactionResult) -> Void)? = nil) {
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+            if results.restoredPurchases.contains(where: { $0.productId == product.sku }) {
+                completion?(.success)
+            } else if !results.restoreFailedPurchases.isEmpty {
+                completion?(.error("Failed to restore purchases"))
+            } else {
+                completion?(.cancelled)
+            }
+        }
     }
 }

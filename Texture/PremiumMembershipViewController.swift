@@ -17,6 +17,7 @@ struct PremiumMembershipViewModel {
 
 protocol PremiumMembershipPresenterProtocol: BasePresenter {
     func didTapBuyButton()
+    func didTapRestorePurchaseButton()
 }
 
 protocol PremiumMembershipViewProtocol: BaseView {
@@ -28,6 +29,7 @@ class PremiumMembershipViewController: UIViewController {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var textView: UITextView!
     @IBOutlet private var buyButton: UIButton!
+    @IBOutlet private var restorePurchaseButton: UIButton!
     
     var presenter: BasePresenter?
     var premiumMembershipPresenter: PremiumMembershipPresenterProtocol! {
@@ -64,11 +66,18 @@ After that, you can purchase the premium membership and enjoy the following cool
         parent?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction
+    func didTapRestorePurchaseButton(_ control: UIControl) {
+        premiumMembershipPresenter.didTapRestorePurchaseButton()
+    }
+    
     private func setupUI() {
         headerView.backgroundColor = ThemeService().tintColor
         buyButton.backgroundColor = ThemeService().ctaButtonColor
         
         textView.contentInset = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
+        
+        buyButton.layer.cornerRadius = 6
     }
 }
 
