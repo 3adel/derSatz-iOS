@@ -22,6 +22,7 @@ extension UserDefaults {
         case trialStartDate
         case promotionLastShowDate
         case didPurchase
+        case didUseProduct
     }
     
     static var shared: UserDefaults {

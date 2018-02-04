@@ -26,6 +26,10 @@ enum DerSatzIAProduct: IAProduct {
         return UserDefaults.Key.didPurchase.rawValue + sku
     }
     
+    var didUseProductUserDefaultsKey: String {
+        return UserDefaults.Key.didUseProduct.rawValue + sku
+    }
+    
     static var allProducts: [DerSatzIAProduct]  {
         return [.premium]
     }
@@ -39,6 +43,7 @@ protocol IAProduct {
     var sku: String { get }
     var trialStartDateUserDefaultsKey: String { get }
     var didPurchaseUserDefaultsKey: String { get }
+    var didUseProductUserDefaultsKey: String { get }
 }
 
 extension IAProduct {
