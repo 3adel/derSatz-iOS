@@ -45,14 +45,10 @@ class PremiumMembershipViewController: UIViewController {
         let demoViewModel = PremiumMembershipViewModel(title: "Premium Feature",
                                                        body: """
 You are using one of our premium features! You can continue using it for \(daysLeft) more days.
-
-After that, you can purchase the premium membership and enjoy the following cool features for life:
-
-    •   Saving text or articles
-    •   Analyse articles using just the URL
-    •   Analyse articles and text directly in Safari using the app extension
-
-""", buyButtonTitle: "Buy now for $7.99")
+            
+Unlock this and other great features for life by getting our premium version.
+            
+""", buyButtonTitle: "Unlock Now for $7.99")
         render(with: demoViewModel)
     }
     
