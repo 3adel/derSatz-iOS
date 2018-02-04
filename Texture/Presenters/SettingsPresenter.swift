@@ -17,21 +17,30 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         case rate
         case translationLanguage
         case help
+        case accountType
         
-        var title: String {
+        var title: NSAttributedString {
             switch self {
             case .sendFeedback:
-                return "Send Feedback"
+                return NSAttributedString(string: "Send Feedback")
             case .share:
-                return "Share"
+                return NSAttributedString(string: "Share")
             case .reportBug:
-                return "Report Bug"
+                return NSAttributedString(string: "Report Bug")
             case .rate:
-                return "Rate"
+                return NSAttributedString(string: "Rate")
             case .translationLanguage:
-                return "Translation Language"
+                return NSAttributedString(string: "Translation Language")
             case .help:
-                return "Help"
+                return NSAttributedString(string: "Help")
+            case .accountType:
+                let isPremium = IAPService.shared.purchasedProducts.contains(DerSatzIAProduct.premium)
+                let accountType = isPremium  ? "Premium" : "Basic"
+                let titleColor = isPremium ? UIColor(red: 238/255, green: 174/255, blue: 85/255, alpha: 1.0) : UIColor.black
+                
+                return NSAttributedString(string: accountType, attributes: [
+                    NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15, weight: .semibold),
+                    NSAttributedStringKey.foregroundColor: titleColor])
             }
         }
         
@@ -42,11 +51,9 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
     
     struct TableCell {
         let cellType: CellType
-        let cellTitle: String
         
         init(cellType: CellType) {
             self.cellType = cellType
-            self.cellTitle = cellType.title
         }
     }
     
@@ -54,6 +61,10 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         let title: String
         let cells: [TableCell]
     }
+    
+    let accountTypeCells: [TableCell] = [
+        TableCell(cellType: .accountType)
+    ]
     
     let languageCells: [TableCell] = [
         TableCell(cellType: .translationLanguage)
@@ -67,6 +78,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         TableCell(cellType: .rate)
     ]
     
+    let accountTypeSection: TableSection
     let languageSection: TableSection
     let optionSection: TableSection
     
@@ -82,20 +94,20 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
     }
     
     required init(router: Router?) {
-        languageSection = TableSection(title: "",
-                                       cells: languageCells)
+        accountTypeSection = TableSection(title: "Account Type", cells: accountTypeCells)
         
-        optionSection = TableSection(title: "",
-                                     cells: optionCells)
+        languageSection = TableSection(title: "", cells: languageCells)
         
-        sections = [languageSection, optionSection]
+        optionSection = TableSection(title: "", cells: optionCells)
+        
+        sections = [accountTypeSection, languageSection, optionSection]
         
         super.init()
         self.router = router
     }
     
     func getOptions() {
-        viewModel = makeViewModel(languageSection: languageSection, optionSection: optionSection)
+        viewModel = makeViewModel(accountTypeSection: accountTypeSection, languageSection: languageSection, optionSection: optionSection)
         settingsView?.render(with: viewModel)
     }
     
@@ -116,14 +128,16 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
             openTranslationLanguageSelection()
         case .help:
             router?.routeToHelpSection()
+        default: break
         }
     }
     
-    func makeViewModel(languageSection: TableSection, optionSection: TableSection) -> SettingsViewModel {
+    func makeViewModel(accountTypeSection: TableSection, languageSection: TableSection, optionSection: TableSection) -> SettingsViewModel {
+        let accountTypeSectionViewModel = makeSettingsOptionSectionViewModel(from: accountTypeSection)
         let languageSectionViewModel = makeSettingsLanguageSectionViewModel(from: languageSection)
         let optionSectionViewModel = makeSettingsOptionSectionViewModel(from: optionSection)
         
-        let sectionViewModels = [languageSectionViewModel, optionSectionViewModel]
+        let sectionViewModels = [accountTypeSectionViewModel, languageSectionViewModel, optionSectionViewModel]
         
         let footerURL = ""
         let footerTitle = ""
@@ -147,11 +161,11 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         let translationLanguage = languageConfig.selectedTranslationLanguage.displayLanguageCode.uppercased()
         let translationLanguageImage = languageConfig.selectedTranslationLanguage.flagImageName
         
-        let conjugationViewModel = SettingsLanguageViewModel(title: section.cells[0].cellTitle,
+        let conjugationViewModel = SettingsLanguageViewModel(title: section.cells[0].cellType.title.string,
                                                              languageName: conjugationLanguage,
                                                              languageImageName: conjugationLanguageImage)
         
-        let translationViewModel = SettingsLanguageViewModel(title: section.cells[1].cellTitle,
+        let translationViewModel = SettingsLanguageViewModel(title: section.cells[1].cellType.title.string,
                                                              languageName: translationLanguage,
                                                              languageImageName: translationLanguageImage)
         
@@ -161,7 +175,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
     }
     
     func makeSettingsOptionViewModel(from cellData: TableCell) -> SettingsOptionViewModel {
-        let title = cellData.cellTitle
+        let title = cellData.cellType.title
         let imageName = cellData.cellType.imageName
         
         return SettingsOptionViewModel(title: title, imageName: imageName)

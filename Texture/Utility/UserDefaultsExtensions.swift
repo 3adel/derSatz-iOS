@@ -24,6 +24,10 @@ extension UserDefaults {
         case didPurchase
     }
     
+    static var shared: UserDefaults {
+        return UserDefaults(suiteName: "group.de.texture")!
+    }
+    
     var didUseAnalysisBefore: Bool {
         get { return value(for: Key.didUseAnalysisBefore) ?? false }
         set { set(newValue, for: Key.didUseAnalysisBefore) }

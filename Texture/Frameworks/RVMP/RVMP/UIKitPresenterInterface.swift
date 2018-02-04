@@ -23,6 +23,9 @@ extension UIViewController: BaseView {
     public func show(errorMessage: String) {}
     
     @objc
+    public func show(successMessage: String) {}
+    
+    @objc
     open func show(infoMessage: String) {}
     
     open func showAlert(title: String? = nil, message: String? = nil, actions: [(title: String, completion: VoidFunction?)] = [], cancelAction: (title: String, completion: VoidFunction?)? = nil) {

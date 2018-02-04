@@ -42,4 +42,8 @@ extension Router {
     public func show(infoMessage: String) {
         rootViewController?.show(infoMessage: infoMessage)
     }
+    
+    public func show(successMessage: String) {
+        rootViewController?.show(successMessage: successMessage)
+    }
 }

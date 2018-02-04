@@ -69,7 +69,7 @@ class IAPService: NSObject {
     
     static let shared = IAPService()
     
-    init(userDefaults: UserDefaults = .standard) {
+    init(userDefaults: UserDefaults = .shared) {
         self.userDefaults = userDefaults
         super.init()
         SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
@@ -122,18 +122,10 @@ class IAPService: NSObject {
     }
     
     func buy(product: IAProduct, completion: ((TransactionResult) -> Void)? = nil) {
-        //TODO: Remove test code
-        userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
-        purchasedProducts.append(product)
-        completion?(.success)
-        return;
-        
-        SwiftyStoreKit.purchaseProduct(product.sku, quantity: 1, atomically: true) { [weak self] result in
+        SwiftyStoreKit.purchaseProduct(product.sku, quantity: 1, atomically: true) { result in
             switch result {
-            case .success(let purchase):
-                guard let product = DerSatzIAProduct.from(sku: purchase.productId) else { return }
-                self?.purchasedProducts.append(product)
-                self?.userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
+            case .success:
+                self.didPurchase(product)
                 completion?(.success)
             case .error(let error):
                 let result: TransactionResult
@@ -156,6 +148,7 @@ class IAPService: NSObject {
     func restorePurchase(for product: IAProduct, completion: ((TransactionResult) -> Void)? = nil) {
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
             if results.restoredPurchases.contains(where: { $0.productId == product.sku }) {
+                self.didPurchase(product)
                 completion?(.success)
             } else if !results.restoreFailedPurchases.isEmpty {
                 completion?(.error("Failed to restore purchases"))
@@ -163,5 +156,10 @@ class IAPService: NSObject {
                 completion?(.cancelled)
             }
         }
+    }
+    
+    private func didPurchase(_ product: IAProduct) {
+        purchasedProducts.append(product)
+        userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
     }
 }

@@ -28,7 +28,7 @@ struct TableSectionViewModel {
 }
 
 struct SettingsOptionViewModel: CellViewModel {
-    let title: String
+    let title: NSAttributedString
     let imageName: String
 }
 
