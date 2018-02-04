@@ -145,7 +145,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType, NotificationObserver 
         let sectionViewModels = [accountTypeSectionViewModel, languageSectionViewModel, optionSectionViewModel]
         
         let footerURL = ""
-        let footerTitle = ""
+        let footerTitle = "Der Satz - \(UIApplication.versionBuild())"
         
         return SettingsViewModel(sections: sectionViewModels, footerTitle: footerTitle, footerURL: footerURL)
     }
