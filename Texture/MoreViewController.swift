@@ -8,7 +8,6 @@
 
 import UIKit
 import RVMP
-import NVActivityIndicatorView
 
 class MoreViewController: UIViewController, SettingsView {
     
@@ -155,14 +154,5 @@ class SettingsDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 extension SettingsDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         footerTextTopConstraint?.constant = max(20, 20 + scrollView.contentOffset.y + scrollView.frame.size.height - scrollView.contentSize.height)
-    }
-}
-
-extension MoreViewController: NVActivityIndicatorViewable  {
-    override func showLoader() {
-        startAnimating(CGSize(width: 30, height: 30), message: "")
-    }
-    override func hideLoader() {
-        stopAnimating()
     }
 }

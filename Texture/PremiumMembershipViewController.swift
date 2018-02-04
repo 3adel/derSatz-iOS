@@ -8,6 +8,7 @@
 
 import UIKit
 import RVMP
+import NVActivityIndicatorView
 
 struct PremiumMembershipViewModel {
     let title: String
@@ -94,5 +95,14 @@ extension PremiumMembershipViewController: PremiumMembershipViewProtocol {
         textView.attributedText = bodyText
         
         buyButton.setTitle(viewModel.buyButtonTitle, for: .normal)
+    }
+}
+
+extension PremiumMembershipViewController: NVActivityIndicatorViewable  {
+    override func showLoader() {
+        startAnimating(CGSize(width: 50, height: 50), type: NVActivityIndicatorType.circleStrokeSpin, color: .white, backgroundColor: UIColor.black.withAlphaComponent(0.7))
+    }
+    override func hideLoader() {
+        stopAnimating()
     }
 }
