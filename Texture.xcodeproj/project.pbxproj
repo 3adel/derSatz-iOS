@@ -22,6 +22,9 @@
 		242532901FCE8ED40057E6D5 /* TextAnalyzerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24956C131F82080800D4D657 /* TextAnalyzerAPI.swift */; };
 		242532911FCE8EE80057E6D5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F2191F4D561800AB17FC /* Result.framework */; };
 		242532921FCE8EED0057E6D5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2448F1F91F4D558200AB17FC /* Alamofire.framework */; };
+		24274A71202732E400478FF2 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247827061FAD2EEC00CB2FC8 /* FoundationExtensions.swift */; };
+		24274A8F2027342200478FF2 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B07E1FC554E40058CEC0 /* NotificationName.swift */; };
+		24274A902027342300478FF2 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A4B07E1FC554E40058CEC0 /* NotificationName.swift */; };
 		242A7B101F00500E0053ECA9 /* RVMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; };
 		242A7B111F00500E0053ECA9 /* RVMP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242A7B0B1F0050010053ECA9 /* RVMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		242DA264201E09AA0072C71E /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D285D11FC0579800C816C8 /* ThemeService.swift */; };
@@ -1626,6 +1629,7 @@
 				24C9EB181FD50AD300573185 /* LocalStorage.swift in Sources */,
 				24514494201DD72400B7328F /* FeatureConfig.swift in Sources */,
 				24C9EB911FD8A73F00573185 /* Translation.swift in Sources */,
+				24274A71202732E400478FF2 /* FoundationExtensions.swift in Sources */,
 				242DA27D201E0C200072C71E /* Identifiable.swift in Sources */,
 				24C9EB931FD8A73F00573185 /* LexicalClass.swift in Sources */,
 				242DA280201E14A10072C71E /* PopupViewController.swift in Sources */,
@@ -1638,6 +1642,7 @@
 				2425328A1FCE8EB10057E6D5 /* WebClient.swift in Sources */,
 				242DA27C201E0C080072C71E /* UIKitExtensions.swift in Sources */,
 				2425328D1FCE8ECA0057E6D5 /* APIClient.swift in Sources */,
+				24274A8F2027342200478FF2 /* NotificationName.swift in Sources */,
 				24E8C6FA2002521E0092D176 /* SourceCell.swift in Sources */,
 				24DB18B01FF0F1110057DEC0 /* UIViewExtensions.swift in Sources */,
 				245243292014A0D20061CA87 /* UserDefaultsExtensions.swift in Sources */,
@@ -1682,6 +1687,7 @@
 				24C9EB7C1FD8A39300573185 /* Identifiable.swift in Sources */,
 				24514495201DD72500B7328F /* FeatureConfig.swift in Sources */,
 				24C9EB6E1FD8A35300573185 /* SentenceViewModel.swift in Sources */,
+				24274A902027342300478FF2 /* NotificationName.swift in Sources */,
 				24C9EB771FD8A37F00573185 /* GoogleAPI.swift in Sources */,
 				24C9EB711FD8A37500573185 /* LocalStorage.swift in Sources */,
 				24C9EB721FD8A37900573185 /* DataClient.swift in Sources */,

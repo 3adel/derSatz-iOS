@@ -53,7 +53,7 @@ extension Array where Element == IAProduct {
     }
 }
 
-class IAPService: NSObject {
+class IAPService: NSObject, NotificationSender {
     let userDefaults: UserDefaults
     var purchasedProducts: [IAProduct] = []
     var productsInTrial: [IAProduct] = []
@@ -65,6 +65,10 @@ class IAPService: NSObject {
         case success
         case cancelled
         case error(String)
+    }
+    
+    enum Notification: String, NotificationName {
+        case didPurchaseProduct
     }
     
     static let shared = IAPService()
@@ -158,8 +162,13 @@ class IAPService: NSObject {
         }
     }
     
+    func productIsPurchased(_ product: IAProduct) -> Bool {
+        return purchasedProducts.contains(product)
+    }
+    
     private func didPurchase(_ product: IAProduct) {
         purchasedProducts.append(product)
         userDefaults.set(true, forKey: product.didPurchaseUserDefaultsKey)
+        send(Notification.didPurchaseProduct, userInfo: ["product": product])
     }
 }

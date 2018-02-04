@@ -8,10 +8,11 @@
 
 import UIKit
 import RVMP
+import NVActivityIndicatorView
 
 struct PremiumMembershipViewModel {
     let title: String
-    let body: String
+    let body: NSAttributedString
     let buyButtonTitle: String
 }
 
@@ -20,7 +21,7 @@ protocol PremiumMembershipPresenterProtocol: BasePresenter {
     func didTapRestorePurchaseButton()
 }
 
-protocol PremiumMembershipViewProtocol: BaseView {
+protocol PremiumMembershipViewProtocol: View {
     func render(with viewModel: PremiumMembershipViewModel)
 }
 
@@ -36,24 +37,10 @@ class PremiumMembershipViewController: UIViewController {
         return presenter as! PremiumMembershipPresenterProtocol
     }
     
-    var daysLeft: Int = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        let demoViewModel = PremiumMembershipViewModel(title: "Premium Feature",
-                                                       body: """
-You are using one of our premium features! You can continue using it for \(daysLeft) more days.
-
-After that, you can purchase the premium membership and enjoy the following cool features for life:
-
-    •   Saving text or articles
-    •   Analyse articles using just the URL
-    •   Analyse articles and text directly in Safari using the app extension
-
-""", buyButtonTitle: "Buy now for $7.99")
-        render(with: demoViewModel)
+        presenter?.getInitialData()
     }
     
     @IBAction
@@ -102,11 +89,20 @@ extension PremiumMembershipViewController: PremiumMembershipViewProtocol {
         let lineBreak = NSAttributedString.init(string: "\n\n")
         bodyText.append(lineBreak)
         
-        bodyText.append(NSAttributedString(string: viewModel.body))
+        bodyText.append(viewModel.body)
         bodyText.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .semibold), range: NSRange(location: 0, length: bodyText.length))
 
         textView.attributedText = bodyText
         
         buyButton.setTitle(viewModel.buyButtonTitle, for: .normal)
+    }
+}
+
+extension PremiumMembershipViewController: NVActivityIndicatorViewable  {
+    override func showLoader() {
+        startAnimating(CGSize(width: 50, height: 50), type: NVActivityIndicatorType.circleStrokeSpin, color: .white, backgroundColor: UIColor.black.withAlphaComponent(0.7))
+    }
+    override func hideLoader() {
+        stopAnimating()
     }
 }

@@ -38,7 +38,7 @@ class InputPresenter: Presenter, InputPresenterProtocol {
                 return
             case .trial(let daysLeft):
                 guard FeatureConfig.shared.shouldShowPromotion(for: .urlSearch) else { break }
-                router?.showPremiumPopup(daysLeft: daysLeft) { [weak self] in
+                router?.showPremiumPopup(type: PremiumPopupType.onFeatureUse(daysLeft)) { [weak self] in
                     self?.router?.routeToAnalysis(input: .url(url))
                 }
                 FeatureConfig.shared.didShowPromotion(for: .urlSearch)

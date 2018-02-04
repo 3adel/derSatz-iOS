@@ -53,7 +53,7 @@ class AnalysisPresenter: Presenter {
                 return
             case .trial(let daysLeft):
                 guard FeatureConfig.shared.shouldShowPromotion(for: .openInExtension) else { break }
-                router?.showPremiumPopup(daysLeft: daysLeft)
+                router?.showPremiumPopup(type: PremiumPopupType.onFeatureUse(daysLeft))
                 
                 FeatureConfig.shared.didShowPromotion(for: .openInExtension)
             default: break
@@ -287,7 +287,7 @@ extension AnalysisPresenter: AnalysisPresenterProtocol {
                 return
             case .trial(let daysLeft):
                 guard FeatureConfig.shared.shouldShowPromotion(for: .savedArticles) else { break }
-                router?.showPremiumPopup(daysLeft: daysLeft)
+                router?.showPremiumPopup(type: PremiumPopupType.onFeatureUse(daysLeft))
                 
                 FeatureConfig.shared.didShowPromotion(for: .savedArticles)
             default: break
