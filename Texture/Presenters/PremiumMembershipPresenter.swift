@@ -42,11 +42,12 @@ class PremiumMembershipPresenter: Presenter, PremiumMembershipPresenterProtocol 
         iapService.restorePurchase(for: DerSatzIAProduct.premium) { [weak self] result in
             switch result {
             case .success:
-                self?.router?.show(infoMessage: "The purchase was successful")
+                self?.router?.show(infoMessage: "Purchase restoration was successful")
             case .error(let errorMessage):
                 self?.router?.show(errorMessage: errorMessage)
             default: break
             }
+            self?.router?.dismiss()
         }
     }
 }

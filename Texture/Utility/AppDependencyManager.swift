@@ -58,12 +58,12 @@ class AppDependencyManager: NotificationSender {
         send(Notification.translationLanguageDidChange, userInfo: userInfo)
     }
     
-    static func getLanguageConfig(from userDefaults: UserDefaults = UserDefaults.standard) -> LanguageConfig? {
+    static func getLanguageConfig(from userDefaults: UserDefaults = UserDefaults.shared) -> LanguageConfig? {
         guard let languageConfigDict = userDefaults.dictionary(forKey: UserDefaultKey.savedLanguageConfig.key) else { return nil }
         return LanguageConfig(dictionary: languageConfigDict)
     }
     
-    func save(to userDefaults: UserDefaults = UserDefaults.standard) {
+    func save(to userDefaults: UserDefaults = UserDefaults.shared) {
         let languageConfigDict = languageConfig.dict()
         userDefaults.set(languageConfigDict, forKey: UserDefaultKey.savedLanguageConfig.key)
     }

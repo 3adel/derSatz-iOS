@@ -26,9 +26,17 @@ extension UIViewController {
         
     }
     
+    @objc
     public func show(infoMessage: String) {
         let messageView = setUpMessageView(withText: infoMessage, layout: .messageView)
         messageView.configureTheme(.info)
+        SwiftMessages.show(config: defaultConfig, view: messageView)
+    }
+    
+    @objc
+    public func show(successMessage: String) {
+        let messageView = setUpMessageView(withText: successMessage, layout: .messageView)
+        messageView.configureTheme(.success)
         SwiftMessages.show(config: defaultConfig, view: messageView)
     }
     

@@ -35,13 +35,15 @@ enum FeatureStatus {
 class FeatureConfig {
     static let shared = FeatureConfig()
     
+    private let userDefaults: UserDefaults
     private let iapService: IAPService
     private var enabledFeatures: Set<AppFeature> = []
     private var featuresInTrial: Set<AppFeature> = []
     
     
-    private init() {
+    private init(userDefaults: UserDefaults = .shared) {
         self.iapService = .shared
+        self.userDefaults = userDefaults
         setup()
     }
     
@@ -80,7 +82,7 @@ class FeatureConfig {
         let interval = 1
         let product = feature.parentProduct
         
-        guard let date = UserDefaults.standard.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.trialStartDateUserDefaultsKey) as? Date else { return true }
+        guard let date = userDefaults.value(forKey: UserDefaults.Key.promotionLastShowDate.rawValue + product.trialStartDateUserDefaultsKey) as? Date else { return true }
         
         return (Date().timeIntervalSince1970 - date.timeIntervalSince1970) - interval.minutes > 0 //TODO: convert minutes to days
     }
@@ -89,7 +91,7 @@ class FeatureConfig {
         let product = feature.parentProduct
         let key = UserDefaults.Key.promotionLastShowDate.rawValue + product.trialStartDateUserDefaultsKey
         
-        UserDefaults.standard.set(Date(), forKey: key)
+        userDefaults.set(Date(), forKey: key)
     }
     
     func didUse(_ feature: AppFeature) {

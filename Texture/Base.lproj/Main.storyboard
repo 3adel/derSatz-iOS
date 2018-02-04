@@ -414,6 +414,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Restore purchases"/>
+                                <connections>
+                                    <action selector="didTapRestorePurchaseButton:" destination="ifC-IT-RRl" eventType="touchUpInside" id="gXu-uB-pCm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -437,6 +440,7 @@
                     <connections>
                         <outlet property="buyButton" destination="mw8-Cr-yLh" id="yQh-th-T1f"/>
                         <outlet property="headerView" destination="FJj-qd-4sd" id="GMH-FU-znD"/>
+                        <outlet property="restorePurchaseButton" destination="9eg-Ys-18Y" id="jV4-kd-FKF"/>
                         <outlet property="textView" destination="66M-z1-SVh" id="YQu-cF-zBB"/>
                         <outlet property="titleLabel" destination="qD5-R4-xmC" id="cg1-EO-OtU"/>
                     </connections>

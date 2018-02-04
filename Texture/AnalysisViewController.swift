@@ -101,9 +101,9 @@ class AnalysisViewController: UIViewController, AnalysisViewProtocol {
         dataSource.source = viewModel.source
         collectionView.reloadData()
         
-        if !UserDefaults.standard.didUseAnalysisBefore {
+        if !UserDefaults.shared.didUseAnalysisBefore {
             show(infoMessage: "You can tap on colored words to show more details.")
-            UserDefaults.standard.didUseAnalysisBefore = true
+            UserDefaults.shared.didUseAnalysisBefore = true
         }
     }
     

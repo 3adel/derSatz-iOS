@@ -13,8 +13,9 @@ class SettingsOptionCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func update(with viewModel: SettingsOptionViewModel) {
-        titleLabel.text = viewModel.title
-        leftImageView.image = UIImage(named: viewModel.imageName)
+        titleLabel.attributedText = viewModel.title
+        leftImageView.image = UIImage(named: viewModel.imageName)?.withRenderingMode(.alwaysTemplate)
+        leftImageView.tintColor = .gray
     }
 }
 

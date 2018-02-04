@@ -13,6 +13,7 @@ public protocol BaseView: class {
     func enableUserInteractions()
     func show(errorMessage: String)
     func show(infoMessage: String)
+    func show(successMessage: String)
     func showAlert(title: String?, message: String?, actions: [(title: String, completion: (()->())?)], cancelAction: (title: String, completion: (()->())?)?)
 }
 
@@ -23,6 +24,7 @@ public extension BaseView {
     public func enableUserInteractions() {}
     public func show(errorMessage: String) {}
     public func show(infoMessage: String) {}
+    func show(successMessage: String) {}
     func showAlert(title: String?, message: String?, actions: [(title: String, completion: (()->())?)], cancelAction: (title: String, completion: (()->())?)?) {}
 }
 
