@@ -162,6 +162,13 @@ class IAPService: NSObject, NotificationSender {
         }
     }
     
+    func retrievePrice(for product: IAProduct, completion: @escaping (String?) -> Void) {
+        SwiftyStoreKit.retrieveProductsInfo([product.sku]) { result in
+            guard let productInfo = result.retrievedProducts.first else { completion(nil); return }
+            completion(productInfo.localizedPrice)
+        }
+    }
+    
     func productIsPurchased(_ product: IAProduct) -> Bool {
         return purchasedProducts.contains(product)
     }

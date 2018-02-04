@@ -72,15 +72,15 @@ extension PremiumMembershipViewController: PremiumMembershipViewProtocol {
     func render(with viewModel: PremiumMembershipViewModel) {
         titleLabel.text = viewModel.title
         
-        var bodyText = NSMutableAttributedString(string: "")
+        let bodyText = NSMutableAttributedString(string: "")
         
         let image = UIImage(named: "premium")
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = image
         
-        var imageText = NSAttributedString(attachment: imageAttachment)
-        var centeredImageText = NSMutableAttributedString(attributedString: imageText)
-        var paragraphStyle = NSMutableParagraphStyle()
+        let imageText = NSAttributedString(attachment: imageAttachment)
+        let centeredImageText = NSMutableAttributedString(attributedString: imageText)
+        let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         centeredImageText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: imageText.length))
         
