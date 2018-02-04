@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Texture/Presenters/PremiumMembershipPresenter.swift"
-            timestampString = "539441015.0159"
+            timestampString = "539441980.5943559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "didTapRestorePurchaseButton()"
             landmarkType = "7">
          </BreakpointContent>
