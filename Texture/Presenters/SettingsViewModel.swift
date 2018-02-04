@@ -30,6 +30,18 @@ struct TableSectionViewModel {
 struct SettingsOptionViewModel: CellViewModel {
     let title: NSAttributedString
     let imageName: String
+    let cta: SettingsCTAViewModel?
+    
+    init(title: NSAttributedString, imageName: String, cta: SettingsCTAViewModel? = nil) {
+        self.title = title
+        self.imageName = imageName
+        self.cta = cta 
+    }
+}
+
+struct SettingsCTAViewModel {
+    let title: String
+    let onTap: () -> ()
 }
 
 struct SettingsLanguageViewModel: CellViewModel {

@@ -9,7 +9,7 @@
 import Foundation
 import RVMP
 
-class SettingsPresenter: Presenter, SettingsPresenterType {
+class SettingsPresenter: Presenter, SettingsPresenterType, NotificationObserver {
     enum CellType: String {
         case sendFeedback
         case share
@@ -93,6 +93,10 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         return view as? SettingsView
     }
     
+    var observedNotifications: [(NotificationName, Selector)] = [
+        (IAPService.Notification.didPurchaseProduct, #selector(getOptions))
+    ]
+    
     required init(router: Router?) {
         accountTypeSection = TableSection(title: "Account Type", cells: accountTypeCells)
         
@@ -104,9 +108,10 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         
         super.init()
         self.router = router
+        subscribeForNotifications()
     }
     
-    func getOptions() {
+    @objc func getOptions() {
         viewModel = makeViewModel(accountTypeSection: accountTypeSection, languageSection: languageSection, optionSection: optionSection)
         settingsView?.render(with: viewModel)
     }
@@ -177,8 +182,14 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
     func makeSettingsOptionViewModel(from cellData: TableCell) -> SettingsOptionViewModel {
         let title = cellData.cellType.title
         let imageName = cellData.cellType.imageName
+        let ctaViewModel: SettingsCTAViewModel?
         
-        return SettingsOptionViewModel(title: title, imageName: imageName)
+        switch cellData.cellType {
+        case .accountType: ctaViewModel = IAPService.shared.productIsPurchased(DerSatzIAProduct.premium) ? nil :  SettingsCTAViewModel(title: "Upgrade") { [weak self] in self?.openPremiumDialog() }
+        default: ctaViewModel = nil
+        }
+        
+        return SettingsOptionViewModel(title: title, imageName: imageName, cta: ctaViewModel)
     }
     
     func sendSupportEmail(subject: String) {
@@ -195,7 +206,7 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
     }
     
     func rateUs(){
-        UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id1299564210")! as URL)
+        UIApplication.shared.open(URL(string : "itms-apps://itunes.apple.com/app/id1299564210")!, options: [:], completionHandler: nil)
     }
     
     func openTranslationLanguageSelection() {
@@ -204,5 +215,13 @@ class SettingsPresenter: Presenter, SettingsPresenterType {
         let languages = appDependencyManager.languageConfig.availableTranslationLanguages
         
         router?.routeToLanguageSelection(languages: languages, selectedLanguage: selectedLanguage, languageType: .interfaceLanguage)
+    }
+    
+    func openPremiumDialog() {
+        router?.showPremiumPopup(type: .general)
+    }
+    
+    deinit {
+        unsubscribeForNotifications()
     }
 }

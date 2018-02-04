@@ -9,6 +9,11 @@
 import Foundation
 import RVMP
 
+enum PremiumPopupType {
+    case onFeatureUse(Int)
+    case general
+}
+
 extension Router {
     func routeToWebView(url: URL) {
         let webViewController = WebViewController()
@@ -16,12 +21,13 @@ extension Router {
         present(webViewController, embedInNavigationController: true)
     }
     
-    func showPremiumPopup(daysLeft: Int, completion: (() -> Void)? = nil) {
+    func showPremiumPopup(type: PremiumPopupType, completion: (() -> Void)? = nil) {
         guard let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: PremiumMembershipViewController.Identifier) as? PremiumMembershipViewController else { return }
-        viewController.daysLeft = daysLeft
         
         let presenter = PremiumMembershipPresenter(router: self)
+        presenter.type = type
         viewController.presenter = presenter
+        presenter.view = viewController
         
         presentInPopup(viewController: viewController, completion: completion)
     }
