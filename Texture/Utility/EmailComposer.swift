@@ -22,7 +22,7 @@ class EmailComposer: NSObject {
         guard MFMailComposeViewController.canSendMail()
             else {
                 
-                let alertController = UIAlertController(title: nil, message: "You have don't have an email account setup", preferredStyle: .alert)
+                let alertController = UIAlertController(title: nil, message: "Please configure your email account on the device", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                     self.router?.dismiss()
                 }))
