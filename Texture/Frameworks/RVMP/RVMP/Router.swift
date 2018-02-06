@@ -77,8 +77,8 @@ open class Router: BaseRouter {
     }
     
     public func present(sheetViewController viewController: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil, modalPresentationStyle: UIModalPresentationStyle = .fullScreen, animated: Bool = true) {
-        if isPad() {
-            viewController.modalPresentationStyle = .popover
+        if isPad(),
+            viewController.modalPresentationStyle == .popover {
             viewController.popoverPresentationController?.sourceView = sourceView
             if let sourceRect = sourceRect {
                 viewController.popoverPresentationController?.sourceRect = sourceRect
